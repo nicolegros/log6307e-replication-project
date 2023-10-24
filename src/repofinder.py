@@ -153,9 +153,10 @@ class RepoFinder:
         return True
 
     @staticmethod
-    def _is_iac(filename: str) -> bool:
-        keywords = [".pp", "docker", "travis", "infra", "puppet"]
-        return reduce(lambda before, keyword: keyword in filename.lower() or before, keywords, True)
+    def load_repos_from_json(path_to_json: str) -> list[dict]:
+        with open(path_to_json, "r") as file:
+            l = json.load(file)
+        return l
 
 
 # RepoFinder().get_info(["Mirantis", "wikimedia"])
