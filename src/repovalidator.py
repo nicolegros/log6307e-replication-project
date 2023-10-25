@@ -8,6 +8,7 @@ import pandas as pd
 class RepoValidator:
     def __init__(self, repo_pickle_file: str):
         self.df: pd.DataFrame = pd.read_pickle(repo_pickle_file)
+        print(self.df.head())
 
     def is_valid(self) -> bool:
         return self.has_11_percent_of_iac() and self.has_at_least_2_commits_per_month()
