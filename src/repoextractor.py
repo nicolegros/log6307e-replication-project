@@ -113,7 +113,7 @@ class RepoExtractor:
         return df
 
     def __format_repo(self, repo: Repository) -> dict:
-        name = repo.full_name
+        name = repo.name
         owner = repo.owner.login
         timestamp: datetime = repo.created_at
         
