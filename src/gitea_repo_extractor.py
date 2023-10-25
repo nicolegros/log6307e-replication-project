@@ -102,22 +102,22 @@ class GiteaRepoExtractor:
     #     repo = self.api.get_repo(name)
     #     return self.extract_repo(repo, name.split("/")[0].lower())
 
-    # def extract_repo(self, repo: Repository, org_name: str):
-    #     processed = {}
-    #     print(f"    Extracting commits from repo '{repo.name}'")
-    #     commits = []
-    #     get_commits = repo.get_commits()
-    #     print(f"    {get_commits.totalCount} commits total")
-    #     for c in get_commits:
-    #         commits.append(c)
-    #         processed[c.sha] = {
-    #             "files": list(map(lambda file: file.filename, c.files)),
-    #         }
-    #     df = pd.DataFrame.from_dict(processed, orient="index")
-    #     complete_save_path = f"{self.data_folder}/{org_name}/commits-files/{repo.name}.commits.pickle"
-    #     print(f"        Saving commits to {complete_save_path}")
-    #     df.to_pickle(complete_save_path)
-    #     return commits
+    def extract_repo(self, repo: Repository, org_name: str):
+        processed = {}
+        print(f"    Extracting commits from repo '{repo.name}'")
+        commits = []
+        get_commits = repo.get_commits()
+        print(f"    {get_commits.totalCount} commits total")
+        for c in get_commits:
+            commits.append(c)
+            processed[c.sha] = {
+                "files": list(map(lambda file: file.filename, c.files)),
+            }
+        df = pd.DataFrame.from_dict(processed, orient="index")
+        complete_save_path = f"{self.data_folder}/{org_name}/commits-files/{repo.name}.commits.pickle"
+        print(f"        Saving commits to {complete_save_path}")
+        df.to_pickle(complete_save_path)
+        return commits
 
     # def extract_repos_from_organization(self, organization_name: str, repos_to_ignore=None):
     #     if repos_to_ignore is None:
