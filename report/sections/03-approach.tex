@@ -12,14 +12,14 @@ neutral files, and the alternative hypothesis is that the property is larger for
 defective than neutral files. As in the paper, we consider a significance level of 
 95\% which means we reject the null hypothesis when $ p-value < 0.05 $. \\
 
-We also used \emph{Cliff's Delta}\footnote{https://github.com/neilernst/cliffsDelta}
+We also used \emph{Cliff's Delta} by calculating it with Neilernst's package\footnote{https://github.com/neilernst/cliffsDelta}
 to measure how large the difference between the distribution of each characteristics
 for defective and neutral files is. 
 
 \subsection{RQ3: How can we construct defect prediction models for 
 infrastructure as code scripts using the identified source code properties?}
 Before using statistical learners, we completed a PCA analysis to determine 
-what properties should be used. We only used the principal component that accounted
+what properties should be used. We only used the principle components that accounted
 for at least 95\% of the total variance as the input for the statistical learners.
 We can see in Table \ref{table:pca} that only one or two principle components 
 account for 95\% of the total variance depending on the dataset. \\

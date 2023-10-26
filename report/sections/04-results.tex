@@ -5,9 +5,101 @@ replication study and the original study and a list of the limitations
 encountered during the replication.
 \subsection{RQ1: What source code properties characterize defective 
 infrastructure as code scripts?}
+After completing the \emph{Mann-Whitney U} test and \emph{Cliff's Delta} test
+we can identify which properties have a $p-value < 0.05$ for all datasets (i.e. 
+Attribute, Command, Ensure, File, File mode, Hard coded string, Include, Lines 
+of code, Require and SSH Key). Surprisingly, we don't quite get the same results 
+as the paper. In our case, the \emph{Comment} property doesn't have a $p-value < 0.05$
+Actually, in the paper either but it's in bold in Table 8. Maybe it's a simple 
+mistake. You can see these results in Table \ref{table:rq1-mirantis} for the 
+Mirantis dataset, in Table \ref{table:rq1-mozilla} for the Mozilla dataset and 
+in Table \ref{table:rq1-wikimedia} for the Wikimedia dataset.
+
+
+\begin{table}[h]
+    \caption{Validation of identified source code properties for Mirantis}
+    \label{table:rq1-mirantis}
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Property & $p-value$ & $delta$ \\ \hline
+        Attribute & $<0.001$ & 0.47 \\ \hline
+        Command & 0.005 & 0.24 \\ \hline
+        Comment & $<0.001$ & 0.37 \\ \hline
+        Ensure & $<0.001$ & 0.38 \\ \hline
+        File & $<0.001$ & 0.36 \\ \hline
+        File mode & $<0.001$ & 0.41 \\ \hline
+        Hard coded string & $<0.001$ & 0.55 \\ \hline
+        Include & $<0.001$ & 0.33 \\ \hline
+        Lines of code & $<0.001$ & 0.45 \\ \hline
+        Require & $<0.001$ & 0.36 \\ \hline
+        SSH KEY & $<0.001$ & 0.39 \\ \hline
+        URL & 0.009 & 0.22 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \caption{Validation of identified source code properties for Mozilla}
+    \label{table:rq1-mozilla}
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Property & $p-value$ & $delta$ \\ \hline
+        Attribute & $<0.001$ & 0.40 \\ \hline
+        Command & $<0.001$ & 0.18 \\ \hline
+        Comment & 0.58 & 0.03 \\ \hline
+        Ensure & $<0.001$ & 0.09 \\ \hline
+        File & $<0.001$ & 0.18 \\ \hline
+        File mode & $<0.001$ & 0.24 \\ \hline
+        Hard coded string & $<0.001$ & 0.40 \\ \hline
+        Include & $<0.001$ & 0.31 \\ \hline
+        Lines of code & $<0.001$ & 0.50 \\ \hline
+        Require & $<0.001$ & 0.19 \\ \hline
+        SSH KEY & $<0.001$ & 0.24 \\ \hline
+        URL & 0.081 & 0.08 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+    \caption{Validation of identified source code properties for Wikimedia}
+    \label{table:rq1-wikimedia}
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+        Property & $p-value$ & $delta$ \\ \hline
+        Attribute & $<0.001$ & 0.47 \\ \hline
+        Command & 0.008 & 0.18 \\ \hline
+        Comment & $<0.001$ & 0.22 \\ \hline
+        Ensure & $<0.001$ & 0.29 \\ \hline
+        File & $<0.001$ & 0.31 \\ \hline
+        File mode & $<0.001$ & 0.24 \\ \hline
+        Hard coded string & $<0.001$ & 0.55 \\ \hline
+        Include & $<0.001$ & 0.37 \\ \hline
+        Lines of code & $<0.001$ & 0.51 \\ \hline
+        Require & $<0.001$ & 0.32 \\ \hline
+        SSH KEY & $<0.001$ & 0.24 \\ \hline
+        URL & 0.011 & 0.17 \\ \hline
+    \end{tabular}
+\end{table}
 
 \subsection{RQ3: How can we construct defect prediction models for 
 infrastructure as code scripts using the identified source code properties?}
+As mentionned in the previous section, we only used the principle components 
+that accounted for at least 95\% of the total variance. We can see in Table
+\ref{table:pca} that only one or two principle components account for 95\% of 
+the total variance depending on the dataset. The number of principle components
+for each dataset corresponds to the ones in the paper.\\
+
+Since the paper doesn't specify the different parameters for the models, 
+it would be difficult to obtain exactly the same results. Nevertheless, we 
+obtained results that are very similar that bring to the same conclusions.
+The results from the cross-validation for each model can be found in Table 
+\ref{table:mirantis-models} for the Mirantis dataset, in Table \ref{table:mozilla-models}
+for the Mozilla dataset, in Table \ref{table:openstack-models} for the Openstack
+dataset and in Table \ref{table:wikimedia-models} for the Wikimedia dataset. 
+We haven't included the results from the actual paper, since it's publicly 
+available.
 
 
 \begin{table}[h]
