@@ -2,7 +2,17 @@
 \section{Research questions}
 This paper aims at answering two of the three research questions in the original paper, \textit{RQ1} and \textit{RQ3}, which are the following:
 \subsection{RQ1: What source code properties characterize defective infrastructure as code scripts?}
-\subsection{RQ3: How can we construct defect prediction models for
-    infrastructure as code scripts using the identified source code properties?}
+For RQ1, we identified the code properties that characterize defecvive IaC scripts
+using \emph{Mann-Whitney U} test and \emph{Cliff's Delta}. We didn't 
+compute the feature importance using a Random Forest since it was only mentionned 
+that we had to do the methods above in the replication guide. Unfortunately, 
+our computers missed computing power to complete the analysis for the Openstack 
+dataset.
+\subsection{RQ3: How can we construct defect prediction models for 
+infrastructure as code scripts using the identified source code properties?}
+For RQ3, we replicated \emph{3.5.1 Principle component analysis},  
+\emph{3.5.2 Statistical learners} and \emph{3.5.3 Evaluation methods}. It's good 
+to know that we didn't replicate \emph{3.5.4 Comparison model construction} since 
+we only did the analysis by properties and not by bag-of-words.
 
 These questions will be answered using the approach described in section \textit{III}
