@@ -12,8 +12,9 @@ from datetime import datetime
 
 class GiteaRepoExtractor:
 
-    def __init__(self, api_url, data_folder="../data/processed", batch_size=None):
+    def __init__(self, api_url, data_folder="../data/processed", raw_folder="../data/raw", batch_size=None):
         self.data_folder = data_folder
+        self.raw_folder = raw_folder
         self.batch_size = batch_size
         self.api_url = api_url
         load_dotenv()
@@ -58,81 +59,6 @@ class GiteaRepoExtractor:
             json.dump(list(map(lambda r: self.__format_repo(r), repos)), f, indent=4)
         return repos
 
-    def __format_repo(self, repo: dict) -> dict:
-        name = repo.get('name')
-        owner = repo.get('owner').get('login')
-        timestamp: datetime = repo.get('created_at')
-        
-        if not name or not timestamp or not owner:
-            # Handle cases where 'name' or 'timestamp' is missing
-            return None
-
-        # Create the output dictionary
-        formated_repo = {
-            'name': name,
-            'owner': owner,
-            'created_at': {
-                'day': timestamp.day,
-                'month': timestamp.month,
-                'year': timestamp.year
-            },
-        }
-
-        return formated_repo
-
-    # def get_repo(self, fullname: str) -> Repository:
-    #     return self.api.get_repo(fullname)
-
-    # def extract_repo_names(self, organization: str) -> list[Repository]:
-    #     paginated_list = self._get_orgs_repos(organization)
-
-    #     filename = f"{self.data_folder}/{organization}/repos.json"
-    #     repos: list[Repository] = []
-    #     for repo in paginated_list:
-    #         repos.append(repo)
-    #     with open(filename, "w") as f:
-    #         print(f"    Saving to {filename}")
-    #         json.dump(list(map(lambda r: r.full_name, repos)), f, indent=4)
-    #     return repos
-
-    # def extract_repo_with_fullname(self, name: str) -> list[Commit]:
-    #     print(f"        {self.timer.stop}")
-    #     self.timer = Timer()
-    #     self.timer.start()
-    #     repo = self.api.get_repo(name)
-    #     return self.extract_repo(repo, name.split("/")[0].lower())
-
-    # def extract_repo(self, repo: Repository, org_name: str):
-    #     processed = {}
-    #     print(f"    Extracting commits from repo '{repo.name}'")
-    #     commits = []
-    #     get_commits = repo.get_commits()
-    #     print(f"    {get_commits.totalCount} commits total")
-    #     for c in get_commits:
-    #         commits.append(c)
-    #         processed[c.sha] = {
-    #             "files": list(map(lambda file: file.filename, c.files)),
-    #         }
-    #     df = pd.DataFrame.from_dict(processed, orient="index")
-    #     complete_save_path = f"{self.data_folder}/{org_name}/commits-files/{repo.name}.commits.pickle"
-    #     print(f"        Saving commits to {complete_save_path}")
-    #     df.to_pickle(complete_save_path)
-    #     return commits
-
-    # def extract_repos_from_organization(self, organization_name: str, repos_to_ignore=None):
-    #     if repos_to_ignore is None:
-    #         repos_to_ignore = []
-    #     extracted_repos = []
-    #     for repo in self._get_orgs_repos(organization_name):
-    #         if repo.full_name not in repos_to_ignore:
-    #             extracted_repos.append(self.extract_repo(repo, organization_name))
-    #     return repos_to_ignore
-
-    # https://opendev.org/api/v1/repos/nebulous/activemq/commits?files=true&page=1
-    @staticmethod
-    def get_commits_url(api_url: str, owner: str, repo_fullname: str, page: int):
-        return f"{api_url}/repos/{owner}/{repo_fullname}/commits?stat=false&verification=false&files=true&page={page}&limit=100"
-
     def extract_raw_commits_from_repo(self, org, owner, repo_fullname):
         commits: list[Commit] = []
         page = 1
@@ -161,12 +87,79 @@ class GiteaRepoExtractor:
             data = json.load(file)
         ps = {}
         for d in data:
-            processed = {
-                "message": d["commit"]["message"],
-                "date": d["commit"]["committer"]["date"]
-            }
-            ps[d["sha"]] = processed
+            try:
+                processed = {
+                    "message": d["commit"]["message"],
+                    "date": d["commit"]["committer"]["date"]
+                }
+                ps[d["sha"]] = processed
+            except Exception as e:
+                print(f"{e}")
+                print(raw_path)
+                print(repo)
+                print(d)
+                print(d["commit"])
+                print(d["commit"]["message"])
 
-        df = pd.DataFrame.from_dict(ps, orient="index")
-        df.to_pickle(f'{self.data_folder}/{org}/commits-messages-dates/{repo}.pickle')
+        if (ps.keys().__len__() == 0):
+            return
+        
+        try:
+            df = pd.DataFrame.from_dict(ps, orient="index")
+            df.to_pickle(f'{self.data_folder}/{org}/commits-messages-dates/{repo}.pickle')
+        except Exception as e:
+            print(f"{e}")
+            print(ps)
+            print(raw_path)
+            print(repo)
         return df
+    
+    def extract_commits_to_df(self, repo_name: str, org_name: str):
+        processed = {}
+        print(f"    Extracting commits from repo '{repo_name}'")
+        commits = []
+        all_commits = []
+        with (open(f"{self.raw_folder}/{org_name}/{repo_name}.commits.json", "r")) as file:
+            all_commits = json.load(file)
+
+        print(f"    {len(all_commits)} commits total")
+        for c in all_commits:
+            commits.append(c)
+            processed[c["sha"]] = {
+                "files": list(map(lambda file: file["filename"], c["files"])),
+            }
+        df = pd.DataFrame.from_dict(processed, orient="index")
+        complete_save_path = f"{self.data_folder}/{org_name}/commits-files/{repo_name}.commits.pickle"
+        print(f"        Saving commits to {complete_save_path}")
+        df.to_pickle(complete_save_path)
+        return commits
+    
+    def __format_repo(self, repo: dict) -> dict:
+        name = repo.get('name')
+        owner = repo.get('owner').get('login')
+        timestamp: datetime = repo.get('created_at')
+        
+        if not name or not timestamp or not owner:
+            # Handle cases where 'name' or 'timestamp' is missing
+            return None
+
+        # Create the output dictionary
+        formated_repo = {
+            'name': name,
+            'owner': owner,
+            'created_at': {
+                'day': timestamp.day,
+                'month': timestamp.month,
+                'year': timestamp.year
+            },
+        }
+
+        return formated_repo
+
+
+    # https://opendev.org/api/v1/repos/nebulous/activemq/commits?files=true&page=1
+    @staticmethod
+    def get_commits_url(api_url: str, owner: str, repo_fullname: str, page: int):
+        return f"{api_url}/repos/{owner}/{repo_fullname}/commits?stat=false&verification=false&files=true&page={page}&limit=100"
+
+
