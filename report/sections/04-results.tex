@@ -1,0 +1,84 @@
+
+\section{Results and discussion}
+4) Results and discussion, including a comparison between the results of the 
+replication study and the original study and a list of the limitations 
+encountered during the replication.
+\subsection{RQ1: What source code properties characterize defective 
+infrastructure as code scripts?}
+
+\subsection{RQ3: How can we construct defect prediction models for 
+infrastructure as code scripts using the identified source code properties?}
+
+
+\begin{table}[h]
+  \caption{Number of principle components for the models}
+  \label{table:pca}
+    \centering
+    \begin{tabular}{|l|c|}
+    \hline
+        Dataset   & Number of components \\ \hline
+        Mirantis  & 1 \\ \hline
+        Mozilla   & 1 \\ \hline
+        Openstack & 2 \\ \hline
+        Wikimedia & 2 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[h]
+  \caption{Cross-validation results for Mirantis}
+  \label{table:mirantis-models}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RF & NB & LR & KNN & CART \\ \hline
+        AUC & 0.701661 & 0.714252 & 0.750981 & 0.693334 & 0.659597 \\ \hline
+        Recall & 0.707425 & 0.407360 & 0.649691 & 0.672546 & 0.707425 \\ \hline
+        Precision & 0.701199 & 0.846909 & 0.798322 & 0.667389 & 0.701199 \\ \hline
+        F1-measure  & 0.695896 & 0.541781 & 0.708236 & 0.663964 & 0.698448 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+  \caption{Cross-validation results for Mozilla}
+  \label{table:mozilla-models}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RF & NB & LR & KNN & CART \\ \hline
+        AUC & 0.731664 & 0.699599 & 0.756323 & 0.713161 & 0.691230 \\ \hline
+        Recall & 0.649017 & 0.392519 & 0.565923 & 0.619417 & 0.627106 \\ \hline
+        Precision & 0.642651 & 0.831862 & 0.706600 & 0.604170 & 0.642550 \\ \hline
+        F1-measure & 0.645764 & 0.532261 & 0.626990 & 0.608864 & 0.633393 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+  \caption{Cross-validation results for Openstack}
+  \label{table:openstack-models}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RF & NB & LR & KNN & CART \\ \hline
+        AUC & 0.647741 & 0.694343 & 0.659972 & 0.659195 & 0.574832 \\ \hline
+        Recall & 0.667616 & 0.368902 & 0.731321 & 0.687022 & 0.660176 \\ \hline
+        Precision & 0.653112 & 0.847009 & 0.643218 & 0.661449 & 0.655685 \\ \hline
+        F1-measure & 0.660440 & 0.512676 & 0.682243 & 0.673287 & 0.657360 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+  \caption{Cross-validation results for Wikimedia}
+  \label{table:wikimedia-models}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RF & NB & LR & KNN & CART \\ \hline
+        AUC & 0.664721 & 0.709438 & 0.736270 & 0.699140 & 0.583164 \\ \hline
+        Recall & 0.591171 & 0.366128 & 0.586200 & 0.627349 & 0.587493 \\ \hline
+        Precision & 0.664007 & 0.885945 & 0.774041 & 0.732415 & 0.666620 \\ \hline
+        F1-measure & 0.628276 & 0.515651 & 0.663515 & 0.673132 & 0.623400 \\ \hline
+    \end{tabular}
+\end{table}
