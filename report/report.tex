@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{import}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -39,20 +41,17 @@ component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
 
-\section{Problem statement}
-1) The original study's problem statement.
+\import{sections/}{01-problem-statement.tex}
+\import{sections/}{05-research-questions.tex}
+\import{sections/}{02-approach.tex}
+\import{sections/}{03-results.tex}
+\import{sections/}{04-conclusion.tex}
 
-\section{Research questions}
-2) Research questions used in the replication (RQs).
 
-\section{Approach}
-3) Methodologies for answering each RQ (How to mine the repositories, the tools employed, and ML models they've used).
 
-\section{Results and discussion}
-4) Results and discussion, including a comparison between the results of the replication study and the original study and a list of the limitations encountered during the replication.
 
-\section{Conclusion}
-5) conclusion
+
+
 
 
 

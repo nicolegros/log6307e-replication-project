@@ -1,0 +1,34 @@
+
+\section{Approach}
+3) Methodologies for answering each RQ (How to mine the repositories, the tools employed, and ML models they've used).
+\subsection{Repository mining}
+\subsection{RQ1: What source code properties characterize defective infrastructure as code scripts?}
+For this research question we used the reported data from the 
+paper\footnote{https://figshare.com/s/ad26e370c833e8aa9712}.
+We used the \emph{Mann-Whitney U} test with the Scikit Learn package
+to evaluate which properties had the biggest influence on defective files. 
+The null hypothesis is that the property is not different between defective and 
+neutral files, and the alternative hypothesis is that the property is larger for 
+defective than neutral files. As in the paper, we consider a significance level of 
+95\% which means we reject the null hypothesis when $ p-value < 0.05 $. \\
+
+We also used \emph{Cliff's Delta}\footnote{https://github.com/neilernst/cliffsDelta}
+to measure how large the difference between the distribution of each characteristics
+for defective and neutral files is. 
+
+\subsection{RQ3: How can we construct defect prediction models for 
+infrastructure as code scripts using the identified source code properties?}
+Before using statistical learners, we completed a PCA analysis to determine 
+what properties should be used. We only used the principal component that accounted
+for at least 95\% of the total variance as the input for the statistical learners.
+We can see in Table \ref{table:pca} that only one or two principle components 
+account for 95\% of the total variance depending on the dataset. \\
+
+With the component created, we than used it as the input for the different
+statistical learners. Like the paper, we used Scikit Learn packages to construct
+the models. The learners that were used are Classification Tree (CART),
+K Nearest Neighbor (KNN), Logistic Regression (LR), Naive Bayer (NB) and 
+Random Forest (RF). \\
+
+To evaluate the performance of the different classification models, we used the 
+same metrics as the paper (i.e. precision, recall, AUC, F-measure).
