@@ -102,14 +102,32 @@ class RepoExtractor:
             data = json.load(file)
         ps = {}
         for d in data:
-            processed = {
-                "message": d["commit"]["message"],
-                "date": d["commit"]["committer"]["date"]
-            }
-            ps[d["sha"]] = processed
+            try:
+                processed = {
+                    "message": d["commit"]["message"],
+                    "date": d["commit"]["committer"]["date"]
+                }
+                ps[d["sha"]] = processed
+            except Exception as e:
+                print(f"{e}")
+                print(raw_path)
+                print(repo)
+                print(d)
+                print(d["commit"])
+                print(d["commit"]["message"])
 
-        df = pd.DataFrame.from_dict(ps, orient="index")
-        df.to_pickle(f'{self.data_folder}/{org}/commits-messages-dates/{repo}.pickle')
+        if (ps.keys().__len__() == 0):
+            return
+        
+        try:
+            df = pd.DataFrame.from_dict(ps, orient="index")
+            df.to_pickle(f'{self.data_folder}/{org}/commits-messages-dates/{repo}.pickle')
+        except Exception as e:
+            print(f"{e}")
+            print(ps)
+            print(raw_path)
+            print(repo)
+
         return df
 
     def __format_repo(self, repo: Repository) -> dict:
