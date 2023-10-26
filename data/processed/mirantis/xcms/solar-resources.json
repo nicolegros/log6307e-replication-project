@@ -1,0 +1,1022 @@
+[
+    {
+        "commit_message": "Merge branch 'master' into dry-run",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove enabled and manage_service for c-api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix remove and resource name ref for cinder\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove '.value' from inputs in resource tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge remote-tracking branch 'origin/master' into deployment-2\n\nConflicts:\n\texample.py\n\tresources/mariadb_service/actions/run.yml",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Neutron fixes\n\n- use correct role name\n- use correct rabbitmq user/password\n- set vhost name",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into cgenie/solar-bootstrap",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix remove",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add nova_neutron resource.\n\nIncludes configuration only classes for nova compute:\nnova::network::neutron and nova::compute::neutron\nCombined into the single resource as the latter one\nis too small (it has only 2 conf params)\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #287 from Mirantis/new_db\n\nnew db backend",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add nova comp libvirt resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #309 from loles/os\n\nMake puppet run on the new_db",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #10 from Mirantis/puppet-tests\n\nPuppet handler & example-puppet.py",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron ml2 plugin resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Workaround l23network module issue\n\n* W/a https://github.com/xenolog/l23network/issues/105\n* Set use_ovs to true\n* Use kind of a \"stable\" commit of l23network module\n  as there is no yet any tags exist\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #143 from CGenie/cgenie/graph-db-with-events\n\nMigrate signals, connections to graph DB backend, add abstract DB layer (ORM)",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rabbimtq service from puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add keystone specific metadata to cinder\n\nThe keystone_* params are mandatory for every\npuppet resource.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into resource-compiler",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #29 from Mirantis/rabbitmq_fix\n\nRabbitmq startup fix",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder api puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix glance puppet classes dependencies\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change resources structure to match repository one\n\nChange-Id: Ie8d8c092e64890af2f0886303ef3f16752ba5b76",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add wait command to docker_container",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into dry-run",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into dry-run",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #16 from Mirantis/puppet-tests-fix\n\nPuppet tests fix",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add generic token validation function",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Copy action run to update",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove enabled and manage_services params for c-volume\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #59 from Mirantis/bogdando/cinder\n\nAdd cinder_glance resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #64 from Mirantis/fix_undef\n\nFix undef default",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Decouple neutron resource\n\n* Use neutron base and API(server) resources\n* Add db and db user for neutron composition layer\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #248 from loles/librarian_resource\n\nLibrarian resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into resource-compiler",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Hiera storage showoff",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix bools in puppet manifests\n\nCapitalized bools ending up in wrong config values,\nlike 'fooparam=True[]'. Use the lower case instead.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "AnsibleTemplate uses now `host` instead of `ip` as\nansible `-hosts`",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix indentation and parameters\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into jnowak/events_riak1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #51 from Mirantis/localhost-fixes\n\nClean keystone resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #411 from loles/example\n\nWordpress example",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #60 from Mirantis/bogdando/neutron\n\nBogdando/neutron",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron metadata agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "keystone_service_endpoint: working with neutron, tests added",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #27 from Mirantis/nova-api\n\nnova-api resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'pretty' into jnowak/events_riak1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix package cinder dependency for cinder api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use default token backend. KVS seems to be broken",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Replace undef to empty strings for cinder\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #277 from pigmej/pigmej-fix-158\n\nAdded update action to nova_compute_libvirt_puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix puppet id and module in meta.yaml",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add compostion layer for c-volume puppet\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add and fix update actions. changing db_port should work now",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Del duplicated params\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder volume puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix undeploy and resource_name ref at cinder api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #63 from Mirantis/fix_undefs\n\nFix undefined inputs",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #72 from xarses/deployment-2\n\nWorking mariadb -> keystone -> haproxy connections",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron OVS agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Graph DB: upload hiera yaml configs for puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Librarian resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Decompose glance_api_servicers input\n\nBecause of existing limitations for resource inputs\nconnections, the glance_api_servicers upstream parameter\nwas decomposed to host and port.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add nova compute resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add update action for nova_compute",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add README for cinder puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Do not use hardcoded db port",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into cgenie/graph-db",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Removed old puppet_module field from resource\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into dry-run",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix nova_generic_service resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron ovs plugin resource\n\n* Add compostion layer for OVS plugin with GRE\n* Fix neutron tags, use_ssl input\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #101 from xarses/vr\n\nVirtual Resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #116 from pigmej/jnowak/pluggable_transports\n\nPluggable transports",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add keystone endpoint for ... keystone",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #59 from xarses/connection-dsl\n\nConnections description",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #40 from Mirantis/rabbitmq_fix\n\nUse default nodename when removing",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #41 from Mirantis/neutron_fixes\n\nNeutron fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron agent ovs with ml2 plugin resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder puppet resource\n\nPopulate from autogenerated parameters\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron DHCP agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix README.md\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Puppet: Keystone remove action is working now",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Renamed all yml files to yaml",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use default nodename when removing",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder volume ISCSI resource\n\nAdd ISCSI backend as enabled default for the\ncinder_volume resource. Note, cannot be decoupled\nas a separate resource because of the external\npuppet class reference hardcoded upstream.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder scheduler puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix ml2 agent resource and compostion\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missing port parameter for nova puppet\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix README.md\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cinder scheduler puppet params\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #106 from dshulyak/move_examples\n\nRemove outdated examples directory and create orch_fixtures with README",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder_glance resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add nova conductor resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Wait 1 second between retries\n\nfor some reason 0.5 was waiting much less.\n\nCloses-bug: 1544506",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Del duplicated puppet parameter\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Improve docker_container resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Refactor example-puppet.py actions",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix undef db conneciton for cinder\n\nDo not pass deprecated param for cinder\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Puppet: added port to keystone",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Clean keystone resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove deprecated/unused sql conn inputs\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adjust modules for librarian",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added update action to nova_compute_libvirt_puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #178 from pigmej/transports_as_resource\n\ntransports as resources.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Working mariadb -> keystone -> haproxy connections",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix rabbitmq startup\n\nRabbitmq start with the default node name. Puppet tries to change nodename.\nAfter this start stop status stops to work",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missing db_host input to cinder puppet\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into librarian\n\nConflicts:\n\texamples/openstack/openstack.py",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "change path",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add docker_container update action with state=reloaded",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add nova generic service resource\n\n* The generic service resource may be used\nto deploy multiple nova services like vncproxy,\nscheduler, consoleauth etc.\n* Add composition layer for the scheduler service\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adjust keystone_puppet to use Librarian resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix node network resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cinder puppet module references\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix libvirt inject password input\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adjust for librarian",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adjust neutron_puppet for librarian",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add nova api puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix undef inputs for neutron\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #81 from Mirantis/bogdando/neutron\n\nBogdando/neutron",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "name -> resource_name",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #32 from Mirantis/glance-puppet\n\nGlance puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #21 from Mirantis/bogdando/dev\n\nBogdando/dev",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into glance-perf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #48 from xarses/data-graph-with-tags\n\nImplemented data flow mechanism",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix undef default\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add ceph_mon resource and example",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix schema and db-sync condition\n\nDb sync should always be run once we\ndecoupled nova api from nova, unless we\nhave a proper notification system\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Changed resources to use templating language and tags, without hardcoded values",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add a way to execute playbook only once",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove outdated examples directory and create orch_fixtures with README",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Keystone can now be deployed using Puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #42 from Mirantis/bogdando/cinder_api_puppet\n\nBogdando/cinder api puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cinder api resource metadata\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove obsolete keystone_puppet file",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missed admin_password for nova api resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #147 from Mirantis/yml_to_yaml\n\nyml to yaml",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added defaults for resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cinder api resource metadata\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Puppet handler fixes\n\n* do not use /tmp/puppet-modules, use /etc/puppet instead.\n  /tmp/ is not persistent and being erased on each reboot.\n* fix puppet 4.x paths compatibility\n* pin to openstack-keyston version 5.1.0 instead of stable/juno\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix check if wait_cmd was defined\n\nIn when statement ansible expects bool value. If wait command was\nnot defined None is returned.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into various-fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Del node_network's ssh* inputs as not required\n\nThese aren't required anymore due to transports\nintroduced.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge remote-tracking branch 'upstream/master'",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "hiera-redis added, single-master redis cluster",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "nova-api resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix glance api servers for nova compute\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Run and remove are the same",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added tags to resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fixup! AnsibleTemplate uses now `host` instead of `ip` as ansible `-hosts`",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #4 from Mirantis/dock_C\n\nFix check if wait_cmd was defined",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "W/a LP1490438 for ml2 plugin resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use resource as primary citizen in inventory",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Removed old puppet_module field from resource\n\nChange-Id: I7b6a76bfba41406b1d0c2317b4f3fec8dd520dce\nCloses-bug: #1530172",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix neutron db stamp head\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add glance registry puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #57 from xarses/resources-migrate\n\nResources migrate (from x to root dir)",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into puppet-tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #236 from dshulyak/library_poc\n\nCeph-mon installation using fuel-library",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #18 from loles/me/dc\n\nWait 1 second between retries",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix ml2 agent resource inputs\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix neutron stamp/upgrade head\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move example-puppet.py to examples dir and add README file",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix removed sql_con\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix remove actions for glance puppet resources\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #61 from Mirantis/example-refactor\n\nRefactor example-puppet.py actions",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2 from Mirantis/dc\n\nAdd wait command to docker_container",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix neutron conf for compute and nova_neutron resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Neutron is working now\n\nTest with:\nneutron net-create test\nneutron subnet-create test 10.0.0.0/29",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add composition for OVS plugin/agent\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #45 from Mirantis/bogdando/cinder_scheduler_puppet\n\nBogdando/cinder scheduler puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align glance_puppet with cinder_puppet and upstream\n\nInstall glance base and API as the base class\ndoes nothing but glance packages install.\nRemove registry to be implemented as separate resource.\nUpdate parameters to match upstream ones.\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #254 from loles/librarian\n\nMove to Librarian",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add exec post config and network refresh to n-compute\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bring back 'value' in input data, fix ansible_template .value\n\n'value' is artificial here, but it's easier to do than change all\nPuppet run.pp/remove.pp files.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove nodename",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into resources-migrate",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "example.py fixes, tests added",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "neutron_puppet works now with upstream openstack manifests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Run and remove are the same",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #58 from Mirantis/bogdando/nova\n\nBogdando/nova",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix schema for nova puppet\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix glance/cinder test.py input names",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix core plugin, remove external class ref for neutron\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Introduced Resource Repositories.\n\nWorks but requires manual `import`.\nRemoved `id` from resources.\n\nChange-Id: I36ef63a5003ea39eb88d9076afd61215584916d9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #270 from loles/librarian\n\nchange db_port",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move remaining x stuff to main directory",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Keystone_puppet test added",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into jnowak/pluggable_transports",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Puppet: lots of fixes & improvements\n\n- resource_provider became a general provider for git/zip/whatever data\n- library-puppet is used to install & manage all dependencies\n- keystone_puppet resource is added, with manifests from openstack git",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add node_network puppet resource\n\nWIP\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix remove nova api resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Make puppet run on the new_db",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #244 from bogdando/node_network_puppet\n\nNode network puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix glance puppet\n\n* Remove port param, use existing bind_port\n* Rearrange run/remove\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1 from Mirantis/wp\n\nAdd example from wordpress tutorial",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update virtual resource for current branch",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Removed ssh_* things from meta.yaml",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix undefined inputs\n\nDo not use defaults like '' as this may\nrender wrong config parameter value, like\nkey=\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix typo",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix the cinder puppet parameters schema\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into nova-api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>\n\nConflicts:\n\texample-puppet.py",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add apache puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #53 from Mirantis/bogdando/apache_puppet\n\nAdd apache puppet resource",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update node_network resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into jnowak/sol_103",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into various-fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'puppet-tests' into dry-run",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix undef inputs for apache2\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Glance-puppet, not fully working yet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Replace undef to empty strings for cinder api\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #44 from Mirantis/tpl\n\nUpdate virtual resource for current branch",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rabbitmq remove action and fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #20 from Mirantis/keystone-endpoint\n\nAdd keystone endpoint for ... keystone, document resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove ovs plugin and agent\n\nThose aren't exist since Juno\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "log.debug instead of print for resource tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #39 from Mirantis/bogdando/cinder_puppet\n\nBogdando/cinder puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #47 from Mirantis/bogdando/cinder_volume_puppet\n\nBogdando/cinder volume puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove external class ref for neutron server resource\n\n* Fix rabbit inputs for neutron\n* Decouple service neutron-server from neutron class\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Del nova_api after moved to nova_puppet resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missing post-config and nova-common\n\nRequired for decoupling usage of nova and\nnova api classes in separate catalog runs\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into cgenie/graph-db",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move Puppet resources to outside repos",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use FACTER_resource_name in shell variables\n\nAlso, use_sudo added to _scp_command.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #78 from Mirantis/jnowak/events_riak1\n\nComplete event based riak example",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #71 from xarses/glance\n\nGlance",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #18 from Mirantis/rabbitmq_puppet\n\nRabbitmq puppet",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Validation fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #64 from xarses/various-fixes\n\nVarious fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add neutron L3 agent resource\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix nova conductor resource's README\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove enabled and manage_service for c-scheduler\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #73 from Mirantis/bogdando/nova\n\nBogdando/nova",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' into bogdando/rabbitmq",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix typo\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create nova base puppet resource\n\nAlso align composition layer:\n- rename nova_api to nova_puppet\n- adjust connections\n\nSigned-off-by: Bogdan Dobrelya <bdobrelia@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Nova API test.py with servers, flavors, images",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Glance docker container is up\n\nBut for some reason docker ports aren't exposed",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add example from wordpress tutorial",
+        "issue_summary": ""
+    }
+]

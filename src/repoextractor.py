@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 
@@ -17,7 +18,7 @@ class RepoExtractor:
         self.data_folder = data_folder
         self.batch_size = batch_size
         load_dotenv()
-        self.api = Github(os.getenv('GITHUB_TOKEN'))
+        self.api = Github(os.getenv('GITHUB_TOKEN_THOM'))
         self.timer = Timer()
 
     def _get_orgs_repos(self, name: str) -> PaginatedList[Repository]:
@@ -34,10 +35,11 @@ class RepoExtractor:
         filename = f"{self.data_folder}/{organization}/repos.json"
         repos: list[Repository] = []
         for repo in paginated_list:
+            print(repo)
             repos.append(repo)
         with open(filename, "w") as f:
             print(f"    Saving to {filename}")
-            json.dump(list(map(lambda r: r.full_name, repos)), f, indent=4)
+            json.dump(list(map(lambda r: self.__format_repo(r), repos)), f, indent=4)
         return repos
 
     def extract_repo_with_fullname(self, name: str) -> list[Commit]:
@@ -100,12 +102,52 @@ class RepoExtractor:
             data = json.load(file)
         ps = {}
         for d in data:
-            processed = {
-                "message": d["commit"]["message"],
-                "date": d["commit"]["committer"]["date"]
-            }
-            ps[d["sha"]] = processed
+            try:
+                processed = {
+                    "message": d["commit"]["message"],
+                    "date": d["commit"]["committer"]["date"]
+                }
+                ps[d["sha"]] = processed
+            except Exception as e:
+                print(f"{e}")
+                print(raw_path)
+                print(repo)
+                print(d)
+                print(d["commit"])
+                print(d["commit"]["message"])
 
-        df = pd.DataFrame.from_dict(ps, orient="index")
-        df.to_pickle(f'{self.data_folder}/{org}/commits-messages-dates/{repo}.pickle')
+        if (ps.keys().__len__() == 0):
+            return
+        
+        try:
+            df = pd.DataFrame.from_dict(ps, orient="index")
+            df.to_pickle(f'{self.data_folder}/{org}/commits-messages-dates/{repo}.pickle')
+        except Exception as e:
+            print(f"{e}")
+            print(ps)
+            print(raw_path)
+            print(repo)
+
         return df
+
+    def __format_repo(self, repo: Repository) -> dict:
+        name = repo.name
+        owner = repo.owner.login
+        timestamp: datetime = repo.created_at
+        
+        if not name or not timestamp or not owner:
+            # Handle cases where 'name' or 'timestamp' is missing
+            return None
+
+        # Create the output dictionary
+        formated_repo = {
+            'name': name,
+            'owner': owner,
+            'created_at': {
+                'day': timestamp.day,
+                'month': timestamp.month,
+                'year': timestamp.year
+            },
+        }
+
+        return formated_repo
