@@ -1,0 +1,778 @@
+[
+    {
+        "commit_message": "Merge pull request #1437 from mrjana/agent\n\nMove engine-api to docker/docker/api",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1091 from mrjana/networkdb\n\nAdd network scoped gossip database",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add auto update to support.sh\n\nBefore running the support script\ntry to fetch the latest version\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #848 from aboch/nlvnd\n\nDisable DAD for sandbox IPv6 addresses",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #93 from mavenugo/cli\n\nlibnetwork client",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "change base image version in Dockerfile.build to enable unit test in arm64 for multi-arch image issue\n\nSigned-off-by: Jianyong Wu <jianyong.wu@arm.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #100 from mrjana/cnm_integ\n\nAdd basic /etc/hosts file management support in libnetwork",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #360 from mrjana/cnm\n\nCherry picks from docker1.7_integ branch",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2042 from jongwu/dockerfile.patch\n\nenable unit test in arm64",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #280 from mavenugo/libkv_m\n\nReplace swarm store with libkv",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2079 from thaJeztah/bump-toml\n\nvendor: update BurntSushi/toml for MIT license",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #515 from mavenugo/uds_uns\n\nExternal key handling via reexec",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bridge to handle port mapping\n- libnetwork cares for list of exposed ports, driver cares\n  for list of port bindings. At endpoint creation:\n  - list of exposed ports will be passed as libnetwork otion\n  - list of port mapping will be passed as driver option\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use gofmt with -s instead of goimports\n\nSigned-off-by: Vincent Demeester <vincent@sbr.pm>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1856 from dmcgowan/update-logrus\n\nUpdate logrus to v1.0.1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2071 from fcrisciani/ssd\n\nImport the ssd tool in libnetwork",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2196 from fcrisciani/support\n\nAdd auto update to support.sh",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #855 from mrjana/bugs\n\nFix golang.org/x/tools breakage in go 1.4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2032 from fcrisciani/debug-client\n\nDiagnostic client",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godeps update on libcontainer\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1315 from puneetpruthi/docker_uprev\n\nuprev docker/pkg/reexec and Azure/go-ansiterm for libnetwork",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #65 from aboch/godeps\n\nUpdate Godeps docker/pkg/common => /stringid",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Switch to golang 1.5.4\n\nSecurity fix for Go:\nhttps://groups.google.com/forum/#!msg/golang-announce/9eqIHqaWvck/kXsfO0ogLAAJ\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix libkv source out-of-sync with Godeps\n\nLooks like the libkv version vendored in really not in\nsync with the git hash value in Godeps.json. The commit\nhttps://github.com/docker/libnetwork/commit/e2a63dff5a38a0f26f7f0c36356f3a6a28f4efeb\nhas just updated the Godeps.json without update the source.\nDnet in multi-host testing is broken due to this, while\ndocker mult-host functionality works because the correct\nversion of libkv has been vendored in docker/docker.\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godep changes.\n\nSigned-off-by: Anusha Ragunathan <anusha@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2168 from selansen/circle2.0\n\nMigration from CircleCI1.0 to CircleCI2.0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #146 from aboch/jpi\n\nInitial libnetwork rest api",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove gosimple - package is gone and it's not important\n\nAlso fixes issue reported by ineffassign\n\nSigned-off-by: Tibor Vass <tibor@docker.com>\n(cherry picked from commit 23fc2c97e0c05ba4cb279a655cdd810cdcca8417)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #398 from LK4D4/remove_libcontainer_dep\n\nRemove dependency on libcontainer",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godep update to pull in parsers and term packages\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Import the ssd tool in libnetwork\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migration from CircleCI1.0 to CircleCI2.0\n\nThis commit will allow us to use newer version of CircleCI.\n\nSigned-off-by: selansen <elango.siva@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #607 from mavenugo/libkv-upd\n\nLibkv update with boltdb concurrent connection fix",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #431 from mavenugo/vagrant\n\nFixing Vagrant to use ubuntu 15.04 to pull Experimental docker version",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #840 from mrjana/bugs\n\nFix up Godeps and update docker/docker packages",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv in godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #297 from mavenugo/chdr\n\nUpdating CallFunc to match the Docker CLI API changes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump libkv to 458977154600b9f23984d9f4b82e79570b5ae12b\n\nSigned-off-by: John Howard <jhoward@microsoft.com>\n\nAs well as bumping, libkv now requires go.etcd.io/bolt rather\nthan boltdb/bolt. Hence removed bolt from vendor.conf,\nvendored go.etcd.io/bbot @ v1.3.1-etcd.8 and rerun vndr.\n\n(cherry picked from commit b1d8f8e3cc3ef94563d337f0a48fb14b0c4ddd71)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create support as a container\n\nContainerize support.sh\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix golang.org/x/tools breakage in go 1.4\n\nA commit today(1/6/2016) in golang.org/x/tools broke\nlibnetwork builds because it now requires certain\ngo 1.5 packages while libnetwork still uses go1.4.\nFixed it by manually installing golang.org/x/tools from\nrelease-branch.go1.5 which should work for us\neven though it is versioned 1.5. The 1.4 release\nbranch is too old and doesn't work with latest golint\npackage.\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump docker base image to 1.8.3\n\nadded also new dependencies used in the new makefile\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updating CallFunc to match the Docker CLI API changes\n\nUpdated Docker deps to pickup UI changes\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godep update to libkv 1.9.0-integ branch\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1133 from tpot/remove-docker-swarm-godeps-signed\n\nRemove files for no longer used docker/swarm Godep",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #494 from mrjana/bugs\n\nFix bridge driver panic in CreateNetwork",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update logrus to v1.0.1\n\nFix case sensitivity issue\nUpdate docker and runc vendors\n\nSigned-off-by: Derek McGowan <derek@mcgstyle.net>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2161 from fcrisciani/networkdb-test-image\n\nEnable network-db test image creation",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "vendor docker/engine 18.09 branch\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add an explicit flag to join network in diagnostic\n\nUsually a diagnostic session wants to check the local state\nwithout this flag the network is joined and left every iteration\naltering actually the daemon status.\nAlso if the diagnostic client is used against a live node, the\nnetwork leave has a very bad side effect of kicking the node\nout of the network killing its internal status.\nFor the above reason introducing the flag -a to be explicit\nso that the current state is always preserved\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump Go to 1.8.4\n\nBumps the Go version used to 1.8.4, which contains security fixes;\nhttps://groups.google.com/forum/#!topic/golang-announce/1hZYiemnkdE\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #556 from mavenugo/bdb-to\n\nlibnetwork to make use of boltdb ConnectionTimeout to avoid deadlock",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added docker mflag package to Godeps\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1599 from mavenugo/v0.9\n\nMake use of GetAllManagedPluginsForCap to avoid loading v1-plugins",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2191 from euanh/bump-go-version\n\nDockerfile.build: Bump Go to 1.10.2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix listen port for test infra\n\nUpdate Dockerfile, curl is used for the healthcheck\nAdd /dump for creating the routine stack trace\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revendor dependencies\n\nre-vendor using vndr a6e196d8b4b0cbbdc29aebdb20c59ac6926bb384\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #102 from aboch/pm\n\nBridge to handle port mapping",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Reduce libcontainer dep\n\nMost of the libcontainer imports was just for a single test to marshal a\nsimple type, meanwhile this caused all kinds of transient imports that\nare not really needed.\n\nSigned-off-by: Brian Goff <cpuguy83@gmail.com>\n(cherry picked from commit a07a1ee9ccdf4c5a3a90eea9fd359f10b5156c84)\nSigned-off-by: selansen <elango.siva@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfile: Install a fixed version of gogoprotobuf\n\nThis avoids build failures when gogoprotobuf is changed upstream.\n\nSigned-off-by: Euan Harris <euan.harris@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use vndr for managing libnetwork dependencies\n\nSigned-off-by: Santhosh Manohar <santhosh@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #851 from sanimej/godep\n\nGodep fixup to import miekg/dns library",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "uprev docker/docker/pkg/reexec for libnetwork\nSigned-off-by: Puneet Pruthi <puneetpruthi@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfile: Update to Go 1.12.6, matching moby/moby\n\nSigned-off-by: Euan Harris <euan.harris@docker.com>\n(cherry picked from commit 9b91d9ecaebcbf2529849c67319bc99ce2aa9a1f)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #264 from mavenugo/mh-ln\n\ndatastore support for endpoint, GetObject, DeleteObject and swarm store API upgrade",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Moby vendoring\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #108 from mrjana/cnm_integ\n\nDocker integration commits",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #466 from chenchun/localstore\n\nAdd local datastore to persist states of LocalScope network",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfile.build: Bump Go to 1.10.2\n\nThis brings libnetwork up to date with moby/moby.\n\nSigned-off-by: Euan Harris <euan.harris@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix unknow driver test error\n\nSigned-off-by: Brian Goff <cpuguy83@gmail.com>\n(cherry picked from commit 8856c1ec9557e58917421bf1b32724262745a795)\nSigned-off-by: selansen <elango.siva@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1971 from thaJeztah/bump-golang-to-1.8.4\n\nBump Go to 1.8.4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial libnetwork rest api\n\n- Defines and implement http handler for \"/networks\" URLs\n- Addresses part of requirements tracked by Issue #5\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added back dockerignore\n\nTry to reduce the docker context for the build\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #948 from vdemeester/gofmt-simple\n\nUse gofmt with -s instead of goimports",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godeps for TOML parser - BurntSushi\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updating Godep to pull in Set functionality\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated Godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1409 from mrjana/agent\n\nAdd network attachment methods to cluster provider",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #188 from mavenugo/kvstore\n\nHost Discovery, DataStore & Config support",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godep update for docker plugingetter pkg\n\nSigned-off-by: Santhosh Manohar <santhosh@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #159 from mavenugo/net-plugin\n\nLibnetwork Integration with Plugin and Remote Driver Backend",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1694 from cpuguy83/update_vendors\n\nUpdate vendors",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfile: use GO_VERSION build-arg for overriding Go version\n\nThis allows overriding the version of Go without making modifications in the\nsource code, which can be useful to test against multiple versions.\n\nFor example:\n\n    make GO_VERSION=1.13beta1 build\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>\n(cherry picked from commit 4923df2410ed417f285d47bff1cc22282a9f5178)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1831 from fcrisciani/gosimple\n\nAdd gosimple tool",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1776 from fcrisciani/makefile\n\nMakefile",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2392 from thaJeztah/18.09_backport_fix_ci\n\n[18.09 backport] remove gosimple - package is gone and it's not important",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #579 from mavenugo/discovery_godep\n\nGodep update required for Docker discovery integration",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove pkg/tlsconfig dependency\n\nSigned-off-by: Tonis Tiigi <tonistiigi@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Makefile, Dockerfile: Add support for regenerating protocol buffers\n\nSigned-off-by: Euan Harris <euan.harris@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Golang 1.12.12 (CVE-2019-17596)\n\nGolang 1.12.12\n-------------------------------\n\nfull diff: https://github.com/golang/go/compare/go1.12.11...go1.12.12\n\ngo1.12.12 (released 2019/10/17) includes fixes to the go command, runtime,\nsyscall and net packages. See the Go 1.12.12 milestone on our issue tracker for\ndetails.\n\nhttps://github.com/golang/go/issues?q=milestone%3AGo1.12.12\n\nGolang 1.12.11 (CVE-2019-17596)\n-------------------------------\n\nfull diff: https://github.com/golang/go/compare/go1.12.10...go1.12.11\n\ngo1.12.11 (released 2019/10/17) includes security fixes to the crypto/dsa\npackage. See the Go 1.12.11 milestone on our issue tracker for details.\n\nhttps://github.com/golang/go/issues?q=milestone%3AGo1.12.11\n\n    [security] Go 1.13.2 and Go 1.12.11 are released\n\n    Hi gophers,\n\n    We have just released Go 1.13.2 and Go 1.12.11 to address a recently reported\n    security issue. We recommend that all affected users update to one of these\n    releases (if you're not sure which, choose Go 1.13.2).\n\n    Invalid DSA public keys can cause a panic in dsa.Verify. In particular, using\n    crypto/x509.Verify on a crafted X.509 certificate chain can lead to a panic,\n    even if the certificates don't chain to a trusted root. The chain can be\n    delivered via a crypto/tls connection to a client, or to a server that accepts\n    and verifies client certificates. net/http clients can be made to crash by an\n    HTTPS server, while net/http servers that accept client certificates will\n    recover the panic and are unaffected.\n\n    Moreover, an application might crash invoking\n    crypto/x509.(*CertificateRequest).CheckSignature on an X.509 certificate\n    request, parsing a golang.org/x/crypto/openpgp Entity, or during a\n    golang.org/x/crypto/otr conversation. Finally, a golang.org/x/crypto/ssh client\n    can panic due to a malformed host key, while a server could panic if either\n    PublicKeyCallback accepts a malformed public key, or if IsUserAuthority accepts\n    a certificate with a malformed public key.\n\n    The issue is CVE-2019-17596 and Go issue golang.org/issue/34960.\n\n    Thanks to Daniel Mandragona for discovering and reporting this issue. We'd also\n    like to thank regilero for a previous disclosure of CVE-2019-16276.\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>\n(cherry picked from commit f741dc9c305fea900b96b8a838f959395799cf78)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Godeps docker/pkg/common => /stringid\n\n- pkg/common was renamed to pkg/stringid\n- removed stale dep on libcontainer/utils\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove files for no longer used docker/swarm Godep\n\nSigned-off-by: Tim Potter <tpot@hpe.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump Go to 1.10.7\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>\n(cherry picked from commit a0c1f422ac9266ab6ebba8ef93caadead6aea4c0)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Multi-Arch Support\n\nCompile the dnet tool for Linux (x86, amd64 and arm)\nand Windows (x86 and amd64)\n\n- Moved installation of dependencies into `Dockerfile.build`\n- Remove `start-services` from Makefile\n   - That's the responsibility of Docker or build environment\n- Removed utils depending on `netlink` from `netutils/utils.go`\n\nUnable to add `make cross` to CircleCI just yet as there are some\nissues to solve that are unrelated to this PR\n\nAlso fix `.gitignore` which was not updated after changing the build\nimage name in #667\n\nSigned-off-by: Dave Tucker <dt@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "re-vendor with current version of LK4D4/vndr\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>\n(cherry picked from commit 87a61c1a205e71b93a5011d93036b4361ff3eb86)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1546 from aboch/bdto\n\nIncrease timeout in local store config",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1500 from anusha-ragunathan/update_path\n\nUpdate plugingetter import path.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "NetworkDB testing infra\n\n- Diagnose framework that exposes REST API for db interaction\n- Dockerfile to build the test image\n- Periodic print of stats regarding queue size\n- Client and server side for integration with testkit\n- Added write-delete-leave-join\n- Added test write-delete-wait-leave-join\n- Added write-wait-leave-join\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2063 from thaJeztah/bump-go-1.9.3\n\nBump Go to 1.9.3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2473 from thaJeztah/18.09_backport_bump_golang_1.12.12\n\n[18.09 backport] Update Golang 1.12.12 (CVE-2019-17596)",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #631 from mrjana/bugs\n\nUpdate libkv godeps",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "bump docker/docker to master and unfork dependencies\n\nThis patch updates all dependencies to match what is\nused in moby/moby. Making the dependencies match\nwhat is used in that repository makes sure we test\nwith the same version as libnetwork is later built\nwith in moby.\n\nThis also gets rid of some temporary forks that were\nneeded during the migration of Sirupsen/logrus to\nsirupsen/logrus.\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "bump github.com/docker/go-connections v0.4.0\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Upgrading Godep to the Latest Docker Pacakages that brings in the Plugins infra\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2194 from fcrisciani/support\n\nCreate support as a container",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1120 from mrjana/store\n\nRemove kvstore backend deps from datastore package",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2292 from fcrisciani/bump_18.09\n\n[Backport 18.09] Update golint tool",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updating Godeps to pull in plugingetter dependancy\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update miekg/dns to v1.0.7\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Move Cluster provider back to Moby\"\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update godep to support boltdb backend\n\nSigned-off-by: Chun Chen <ramichen@tencent.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix up Godeps and update docker/docker packages\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #532 from chenchun/update_libkv\n\nUpdate libkv to latest commit",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "uprev docker/docker, dbus to v4.0.0, boltdb to v1.2.0 to vendor dependencies required for build clean on Solaris\n\nSigned-off-by: Amit Krishnan <krish.amit@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated Godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv @1d84310\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2183 from euanh/update-vendoring\n\nUpdate vendoring to match moby/moby",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2087 from fcrisciani/join-flag\n\nAdd an explicit flag to join network in diagnostic",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2363 from thaJeztah/bump_engine_18.09\n\n[18.09] align dependencies with engine 18.09",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2193 from euanh/update-protobuf\n\nAdd support for regenerating protocol buffers, and refresh .pb.go files",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2242 from euanh/pin-gogoprotobuf\n\nDockerfile: Install a fixed version of gogoprotobuf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1615 from sanimej/godep\n\nUse vndr for managing libnetwork dependencies",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Vendoring netlink\n- bfd70f556483c008636b920dda142fdaa0d59ef9\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tools/cmd/vet has been deleted and go tool vet works natively on 1.5+\n\nSigned-off-by: Chun Chen <ramichen@tencent.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update plugingetter import path.\n\nSigned-off-by: Anusha Ragunathan <anusha@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1834 from fcrisciani/network-db-infra\n\nNetworkDB testing infra",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated Godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #186 from dave-tucker/cross\n\nMulti-Arch Support",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added support for /etc/resolv.conf\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godep fixup to import miekg/dns library\n\nSigned-off-by: Santhosh Manohar <santhosh@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "WIP: Update golang version to 1.7.1\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Godeps update\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix CI\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "bump github.com/docker/go-units v0.3.3\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv to support boltdb timeout\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #691 from aboch/kv\n\nUpdate libkv godeps",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixing Vagrant to use ubuntu 15.04 to get Experimental docker working again\n\n14.10 reached EOL recently and hence experimental builds are not built for\nthat distro any more. Upgrading it to 15.04 means handling the systemd\nspecific docker daemon configs required for multi-host networking.\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Replace swarm store with libkv\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1035 from aboch/ci\n\nFix CI",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1132 from amitkris/uprev_deps\n\nuprev dependencies required for build clean on Solaris",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2042 from jongwu/dockerfile.patch\n\nenable unit test in arm64",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Diagnostic client\n\n- the client allows to talk to the diagnostic server and\ndecode the internal values of the overlay and service discovery\n\n- the tool also allows to remediate in case of orphans entries\n\n- added README\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1777 from fcrisciani/move_provider\n\nMove Cluster provider back to Moby",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump the GO Version to 1.12.8 which contains security fixes\nhttps://groups.google.com/forum/?utm_medium=email&utm_source=footer#!msg/golang-announce/65QixT3tcmg/DrFiG6vvCwAJ\n\nAlso pin to -stretch\n\nSigned-off-by: Arko Dasgupta <arko.dasgupta@docker.com>\n(cherry picked from commit f06da8acae88433f3b9c751c5d72e791f770aaba)\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1442 from mrjana/agent\n\nSerialize dynamic network creation",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2172 from thaJeztah/update_miekd_dns\n\nUpdate miekg/dns to v1.0.7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add gosimple check\n\nAdd the gosimple tool check in the Makefile\nFix all the issues identified\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Godeps and add codegangsta/cli\n\nUpdated Godeps and added codegangsta/cli into Godeps.\nAlso cleaned up the unnecessary packages by removing\nhost_discovery build tag which wasn't getting detected\nby godep and was causing all sorts of `godep save` issues.\nWith this fix committers can do `godep save ./...` freely\nto include their new dependencies without any failure.\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1779 from fcrisciani/revert-1777-move_provider\n\nRevert \"Move Cluster provider back to Moby\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1185 from thaJeztah/switch-to-go-1.5.4\n\nSwitch to golang 1.5.4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2202 from fcrisciani/ignore\n\nAdded back dockerignore",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1472 from anusha-ragunathan/plugins\n\nMake libnetwork understand pluginv2.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated Godeps to the latest versions of docker packages.\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2192 from fcrisciani/circle-multistage\n\nMultistage for build",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv\n\n- To commit id  c2aac5dbbaa5c872211edea7c0f32b3bd67e7410\n\nSigned-off-by: Alessandro Boch <aboch@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Multistage for build\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "vendor.conf: Update vendored components to match moby\n\n* Update dependencies to match moby master; add new sub-dependencies\n  as necessary.\n\n* Update moby to latest\n\n* Update gocapability\n\n  This moves gocapability beyond the version vendored in moby;\n  presumably the code which requires this particular version\n  is not used in moby and is removed by vndr.   Moby will need\n  to be updated as well.\n\nSigned-off-by: Euan Harris <euan.harris@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updating to latest Swarm dependancies\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Re-run vndr with latest version\n\nvndr has been updated and now pulls in license files and readmes.\nThis just re-runs with the latest version so vendoring is up to date.\nShould cut down on changes from real vendor commit updates.\n\nSigned-off-by: Brian Goff <cpuguy83@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updating Godep to reuse Swarm discovery and store packages\n\nSigned-off-by: Madhu Venugopal <madhu@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable network-db test image creation\n\nUpdated makefile\nMoved binaries in the bin/ directory\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #641 from mrjana/bugs\n\nFix etcd as a backend store support",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1975 from thaJeztah/unfork-docker\n\nbump docker/docker to master and unfork dependencies",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1429 from tonistiigi/remove-pkg-tlsconfig\n\nRemove pkg/tlsconfig dependency",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump Go to 1.9.3\n\nSigned-off-by: Sebastiaan van Stijn <github@gone.nl>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #529 from mrjana/integ\n\nAdd more integration tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1614 from sanimej/godep\n\nCarry libnetwork change from docker/docker #29564",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1089 from chenchun/fix_vet\n\ntools/cmd/vet has been deleted and go tool vet works natively on 1.5+",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2199 from selansen/new_plugin_intf\n\nUse new plugin interfaces provided by plugin pkg",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Bump docker commit\n\nSigned-off-by: Brian Goff <cpuguy83@gmail.com>\n(cherry picked from commit aae1b0e116d0c4ee0e46494864d1540fec22ced3)\nSigned-off-by: selansen <elango.siva@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2333 from thaJeztah/18.09_backport_bump_golang_1.10.7\n\n[18.09 backport] Bump Go to 1.10.7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #1491 from mrjana/bugs\n\nUpdate golang version to 1.7.1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated godeps\n\nSigned-off-by: Jana Radhakrishnan <mrjana@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #2013 from fcrisciani/netdb-node-race\n\nNetworkDB node management race",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #168 from mavenugo/dnet-integ\n\nClient / API integration & dnet tool",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove dependency on libcontainer\n\nSigned-off-by: Alexander Morozov <lk4d4@docker.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update golint tool\n\nSigned-off-by: Flavio Crisciani <flavio.crisciani@docker.com>\n(cherry picked from commit 29237c01a9613d88a8a781da88fbe5dc7fa39d7d)",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update libkv to latest commit\n\nSigned-off-by: Chun Chen <ramichen@tencent.com>",
+        "issue_summary": ""
+    }
+]

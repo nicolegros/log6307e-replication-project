@@ -11,7 +11,7 @@ import json
 import requests
 
 
-class CommitMessageProcesser:
+class CommitMessageProcessor:
     def __init__(self, data_folder="../data/processed"):
         self.data_folder = data_folder
         self.issue_identifier_pattern = re.compile(r"#\d{1,10}")
@@ -23,13 +23,14 @@ class CommitMessageProcesser:
         print(f"    Extracting XCM from repo '{repo_name}'")
         print(f"   {self.commits_df.size} commits total")
 
-        xcms = []
+        xcms: list[dict] = []
         for sha in self.commits_df.index:
             if (not self.__commit_modifies_iac(sha)):
                 continue
 
             commit_message = self.__extract_commit_message(sha)
             issue_identifier = self.__extract_issue_identifier(commit_message)
+            issue_summary = ""
             if issue_identifier:
                 try:
                     issue = requests.get(self.get_issue_url(org, repo_name, issue_identifier)).json()
@@ -39,11 +40,11 @@ class CommitMessageProcesser:
 
                 # Assign issue_summary to issue["body"] if the dictionnary as the "body" key and blank string else
                 issue_summary = issue["body"] if issue and "body" in issue else ""
-                xcm = self.__convert_to_xcm(commit_message, issue_summary)
-                xcms.extend(xcm)
+            xcm = self.__convert_to_xcm(commit_message, issue_summary)
+            xcms.append(xcm)
 
         # Save the xcms in json
-        complete_save_path = f"{self.data_folder}/{org}/{repo_name}.xcms.json"
+        complete_save_path = f"{self.data_folder}/{org}/xcms/{repo_name}.json"
         print(f"        Saving xcms to {complete_save_path}")
         with open(complete_save_path, "w") as f:
             json.dump(xcms, f, indent=4)

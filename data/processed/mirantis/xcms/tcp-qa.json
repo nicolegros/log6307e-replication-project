@@ -1,0 +1,2438 @@
+[
+    {
+        "commit_message": "Remove hardcoded default route in cfg01-day01 image\n\nTo get actual default route, need to remove the hardcoded one\n\nChange-Id: Iccd87d90712059724af59ecd928cb949681b991e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-mcp-queens-dvr-ceph\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Move k8s overrides into shared-salt\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "use dpdk interfaces on computes in cookied-mcp-pike-dpdk lab\n\n- OVS requires at least two interfaces for add-bond command,\n  so add an additional interface on cmp and gtw nodes.\n\n- dpdk is still not working because of missing igb_uio module\n\nChange-Id: I316ebada227304060b81441c090461bbd2bb52ef",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix deployments after changes in salt-formula-salt\n\nWe don't need to hack deployment anymore. This patch removes workarounds\nthat were required to make a deployments.\n\nChange-Id: Ieead7c73173ebbf7a97d209afb623185c02f3f26\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/372233\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add mitaka-dvr-ceph in templates for patching-ci\n\nChange-Id: Icb2d33ff6d49fd28caa52ba7ccb6425a9e1c516c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable octavia on pike deploy\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' of https://github.com/Mirantis/tcp-qa into fix_calico_deploy",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #35 from Mirantis/add_k8s_contrail_test\n\nAdd k8s contrail test",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rework interface roles to match cookiecutter template options\n\nChange-Id: I26ddff3af840b805319ba2805e1cc80af22a5735\nReviewed-on: https://review.gerrithub.io/377228\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add reporting for k8s virtlet conformance tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Setup addon manager everywhere\n\nChange-Id: Icc9c24de0b2d77e1eaf097c74e7f33ed3f9010a1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add MongoDB installation for Alerta\n\nChange-Id: I95ba34bd832db0c8d2b033161a8e356df0a61bca",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added 'k8s_deployed' fixture\n\nCreated a separate fixture for Kubernetes deployment.\nModified existing k8s related fixtures / tests so they\nuse it now and updated templates with k8s environments.\n\nAlso this patch includes few minor changes:\n\n * removed unused fixture 'deploy_openstack' which\n   was a full copy of 'openstack_deployed' fixture;\n * removed unused modules imports;\n * fixed typos and docstrings.\n\nChange-Id: Ic35551f3e52913cede753b92e7d5a81f54570b01\nReviewed-on: https://review.gerrithub.io/365234\nReviewed-by: <vrovachev@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add shared sl tests yaml\n\nChange-Id: Ic9422d44e58e2ce5d08a6371a855b7e60f8766e2\nReviewed-on: https://review.gerrithub.io/377203\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change resources for contrail mon and ctl nodes\n\nChange-Id: I5a5623b20560cfc3cb65c95844e6407e4020d19d\nReviewed-on: https://review.gerrithub.io/372057\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use floating IP only for cfg and foundation node\n\nChange-Id: I55873d36237bd6fa5b7a1b2e392ee139df429f31",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Reduce libvirt node names lenght for cookiecutter-context-k8s-sl\n\nDon't add domain name to the libvirt node names, to fit into\npath lenght for the qemu monitor socket (108 chars including zero)\n\nChange-Id: I13ab5f7398debbb5984c3eb8f42df28049a60944",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "re-sort marks\n\nChange-Id: I52077138d56834d6c582eba2cdfd59d6b301c4a4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix checkout to salt models commit\n\nChange-Id: I70e9c89a0ee2a9729cdf4e85bb9d1655d8484308\nReviewed-on: https://review.gerrithub.io/364426\nReviewed-by: <apanchenko@mirantis.com>\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add virtlet confirmance test run\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Prometheus client\n\nInitial prometheus client\n\nChange-Id: I8c02be6fe7e58c2f37ac19547fd7a795896af4bc\nReviewed-on: https://review.gerrithub.io/368732\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add test for install k8s wothout SL\n\nAdded test for install k8s without step for deploy slacklight.\n\nChange-Id: I7660316d0c8c60a868df3b286353bcb50333954c\nReviewed-on: https://review.gerrithub.io/364739\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Disable etcd.server.setup in k8s-ha-contrail\n\n- Calling etcd.server.setup is redundant for this model\nand causes errors. So, let's comment it\n\nChange-Id: I7a6a51609a64cff9dc23b84ccb4a2858f916d770",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove eth3 from init.yml\n\nChange-Id: I70e5100c1be9de7a386cae355ad72123cacd736c\nReviewed-on: https://review.gerrithub.io/373924\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Switch nodes kvm01,02 with gtw01,02 because of resources\n\nChange-Id: Id28e1b9cd6556361e6f14cbdfd02526e79f6a54f\nReviewed-on: https://review.gerrithub.io/374997\nReviewed-by: Oleksiy Butenko <obutenko@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Always get first node in calico tests and fix target\n\nChange-Id: Icfd072eddd1d807b7b2ed7bf7f47d768480b4b7d\nRelated-PROD: PROD-24473\nRelated-PROD: PROD-24472",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Add retry counts in the places where jobs were dropped. Also increased timeout.\"\n\nThis reverts commit e76a0c9a5cfd0cb401d26c16c2d2ac0b12597262.\n\nChange-Id: Ib52c5ba8e73e6f50a587be65838f6152ab207334\nReviewed-on: https://review.gerrithub.io/362576\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add tenant_telemetry to ssl models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Always get first node in calico tests and fix target\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update test_k8s_cncf_certification\n\nUse sonobuoy directly because\nsonobuoy-conformance.yamly was removed from cncf repo.\nAnd remove unnecessary greps from cncf code.\n\nChange-Id: If47fe7096b06d02c8c3812506f51af81f4e9f08a\nCloses-PROD: PROD-22455",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add telemetry to ceph models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change path for stacklight tests\n\nChange-Id: I4f779fbf2ae3954ad0bd6245f3e694c859447c1a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add junitOutput flag to virtlet tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add ceph in queens\n\nChange-Id: I1572dc86e71db6b803c00ad72f79012c018ca3c0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"add mitaka-dvr-ceph in templates for patching-ci\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "gerrit.mcp.mirantis.net -> gerrit.mcp.mirantis.com\n\nMirantis gerrit has been moved to another domain.\n\nTo avoid errors like \"301 Moved Permanently\", change the\ngerrit address.\n\nChange-Id: I5f3dc58f82b813a0db688d6e5d2c1f4b90062d2c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-cicd-k8s-calico and cookied-cicd-k8s-calico-sl\n\n- Add new templates for k8s deployments using CICD\n\n- In new templates, there is deploy-and-test.groovy script for\n  integration CI, which performs necessary steps for:\n\n  - prepare environment\n  - get the inventory details from environment (networks)\n  - generate cookied model for the environment (using inventory\n    details)\n  - create ISO config-drive (using the job created by D.Tyzhnenko)\n  - Bootstrap salt cluster on all nodes (using salt.yaml)\n  - Use Jenkins on salt-master to deploy 'core' and 'cicd' stacks\n  - Use Jenkins on CICD nodes to deploy 'k8s', 'calico' and\n    'stacklight'\n  - Run system tests from tcp-qa test directories, for this there\n    are two new pytest marks:  'k8s_calico' and 'k8s_calico_sl'\n\n  The script deploy-and-test.groovy can use the shared library\n  tcp_tests/templates/SharedPipeline.groovy at certain step for\n  common methods.\n\n- fix replacing networks in shared-salt.yaml for cookied models\n\nChange-Id: I958d183d8951b869877f0c36f4bd1000a5b7e6a9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add OC with queens and ocata\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove MDB nodes (openstack.telemetry role)\n\nServices from mdb nodes were moved on ctl nodes:\nhttps://github.com/Mirantis/mk2x-cookiecutter-reclass-model/blob/master/releasenotes/notes/remove-mdb-nodes-56de3bfdf2327eba.yaml\n\nChange-Id: Ie6dc067cb24e23ac598b9f079a4c0d1a0345a6b6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix for k8s-contrail model\n\nLatest patch msg: Change network config for ctl nodes\n\nChange-Id: I987691600d9c699c39f75c7d985d823c9cdebbfa",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Partly drop injection of ssh key\n\nhttps://gerrit.mcp.mirantis.com/#/c/37337/8\nIntorduces drop of harcoded keys, so to test that we need:\n* 1 deploy with key encrypted true + generated ssh keys\n* 1 deploy woth key encrypted false + generated ssh key\n* 1 deploy with key encrypted true + injected key\n* 1 deploy with key encrupyed false + injected key\n* Fix salt-master gpg key import\n\nChange-Id: Ia1d2ca3fbb3275b90a61dc16817e918db7bc97e4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add virtual_mcp11_k8s_calico template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied mitaka-dvr model\n\nChange-Id: I433c34e330b4c338a9bbdcd1f8ecb8f0cef7f798",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"DO NOT MERGE testing for infra\"\n\nThis reverts commit b6e9be9b0de3dec294c33e146217fa3211315f9c.\n\nChange-Id: I0c35a156ad4110cab162c3e36d3c1462699abb14",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[k8s] Add base test for externaldns integration\n\n- Add test for externaldns with coredns backend on basic\ndeployments.\n- Add few core functions as remote executions of kubectl.\n\nUser-Story: https://mirantis.jira.com/browse/PROD-12826\n\nChange-Id: I9230ddd75905759eb2d0ba8486ba896d2094cebb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Remove MDB nodes (openstack.telemetry role)\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Switch to 2017.7 as default\n\nChange-Id: Idd06e869f946dbbff4173b2eeb2f3e54a4ff6707",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix model\n\nChange-Id: I2a36d74c12c887332a22f0e7e8d642fcc932a74e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #11 from Mirantis/add_1.1\n\nAdd 1.1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add test_k8s_cicd_upgrade test and fix grap/grab typos\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add default metadata for public network\n\nAdd deafult value for all models\nMetadata will be replace in deployment by steps\nfrom shared-salt:\nhttps://github.com/Mirantis/tcp-qa/blob/master/tcp_tests/templates/shared-salt.yaml#L431\n\nChange-Id: I99f4daaa0aee28ca6eca3b9cae3cc380c749d58d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add salt_cookied-cicd-k8s-system env in model generator\n\nChange-Id: I9bdf72209b3acf34f921e6550850a32a709d1454\nRelated-PROD: PROD-28588",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Refactoring of k8s manager and tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix externaldns and faliover k8s tests.\n\nReduce load when retrying by adding interval parameter to retry\nhelper.\nImplement controller_name caching that will reduce load on salt\nand will allow to renew controller if it needed (like for\nfailover test)\n\nChange-Id: I4172f9cac1f1aeac8c356f338d50299f31ed0b66",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix ironic standalone install code\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Minor changes to virtual-mcp11-k8s-contrail\n\nChange-Id: I7bfa3f8dcdfbd83bba829c569b98b49949ebf783\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/362956\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase cfg01 RAM to 12Gb for CICD-based deployments\n\nChange-Id: I89575787094bf60f9e0e6a01de3b7b7414b65813\nRelated-Bug: PROD-25848",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix for bond0\n\nChange-Id: If1d87bfba7e6f61160be252e23ccb2d5dac1d68b\nReviewed-on: https://review.gerrithub.io/374644\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #36 from Mirantis/fix_calico_deploy\n\nFix calico deploy",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Delete depricated templates from master branch\n\nChange-Id: Ia3fa5fe03deb40e34d38acb51bc40d9117fbf931",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cinder volume\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missing galera state execution\n\nChange-Id: Ic2e6e5c19ce4581347ec9c3955a2f546b0723ef7\nReviewed-on: https://review.gerrithub.io/371976\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[k8s] Enlarge timeout for pod running waiter\n\nChange-Id: I8fd1402a79d9364b9ec3d066efc544e7282d80ae",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move 'cinder' LVM volumes from ctl to cmp nodes\n\nBased on changes:\nhttps://gerrit.mcp.mirantis.com/#/c/28650/\nhttps://review.gerrithub.io/#/c/Mirantis/environment-template/+/430087/\n\nOnly cookied models are changed, static deployments\nleft as is.\n\n- move 'cinder' volumes to cmp nodes in underlay.yml\n- remove 'cinder' volume from non-relevant nodes\n- rename 'cinder' volumes on CEPH configs to correct labels\n\nChange-Id: Iadfc153ecb80391a94efd872553c7a2e5219d426",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix etcd key error problem in nightly runs\n\nChange-Id: Id8658b124727d53bbacf8140bc8a99bebe57ea96\nReviewed-on: https://review.gerrithub.io/367864\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update dpdk deploy and add pipeline deploy\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dissociate cookied-cicd-bm-os-contrail40-maas from 2018.8.0 release\n\nChange-Id: I18f02f846e7b632d04940fc2256cff61595e6a92",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cinder volume\n\nChange-Id: I550dccb96d8fff4d9b6c1d0a1ac28ef309c43faf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"fix barbican deploy\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add external interface on proxy node\n\nModified labs:\n- cookied-cicd-pike-ovs-sl\n- cookied-cicd-pike-dvr-sl\n- context-pike-ovs-dpdk\n\nChange-Id: I2854c96dab3a6a95d4f20d9a5577549363c55495\nRelated-Bug: PROD-22111",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial commit for migrate templates to heat\n\nChange-Id: I902b4f393e86cf8316396e9f6ae341783c95eec5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add new vm_availability_zone and use it for virtual environments\n\nChange-Id: I4ee0abef632fdec03a6a673d28e23142e3e65861",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add lacp bond\n\nChange-Id: I2760636fb8dd2ebdb528f9668d52804afa83aebd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix vsrx01 hostname\n\nChange-Id: I492f34ff3dc5dcd884ca43d305c9cd52e1691d17\nReviewed-on: https://review.gerrithub.io/373876\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"\\Update runtestmanager\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Delete coredns and kube dns vars\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix barematal deploy: dvr-vxlan\n\nChange-Id: Icc897761809046940ea1198dd6e805c2d2759fb2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix salt.minion.service collecting with 'environment' model\n\nsalt.minion.service expects that all top pillar keys will provide\nonly dict type, and fails with 'str object' has no attribute 'get'\nif, for example, parameters contain:\n\nparameters:\n  someparam: somestring\n\nChange-Id: I2f486f491999f845327bee24e2c370852fc6ee56\nReviewed-on: https://review.gerrithub.io/370688\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"add lacp bond\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add test_k8s_cicd_upgrade test and fix grap/grab typos\n\nThis test will be updated later to support 0-downtime checks and\nbetter k8s version selection.\n\nChange-Id: I63b95fec414d4d701ca82a9a930556e369894b34\nCloses-PROD: PROD-21704",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove stacklight_long_term_storage_type from cookiecutter template\n\nChange-Id: If26dd2dd4c287ec0c3355c87a75dc2c0abe3c02b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change dependencies for cfg and foundation nodes\n\nChange-Id: I3a7a739d2f679b5ad45b65e285ef8b440aced971",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cicd dpdk model\n\nChange-Id: I79ce8502a4b67d7a13753b6de047b42d19a00a94",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Skip steps: install designate\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix ips for ntw01 node\n\nChange-Id: I4ce63a656281967d060d68d0160cfa0096b930bd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Install telemetry services on the virtual-mcp-pike-ovs lab\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[ocata-dvr]change features_designate_pool_manager to features_designate_bind9\n\nChange-Id: I2ef334b1955aaa397bd1e118115775be6408c3a1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Make possible to override the docker images for SL\n\nUse the macro in the salt.yaml:\n{{ SHARED.ADJUST_SL_OPTS(OVERRIDES_FILENAME='path/to/stacklight/server.yml') }}\nand the following environment variables for image paths:\n\nDOCKER_IMAGE_ALERTMANAGER\nDOCKER_IMAGE_PUSHGATEWAY\nDOCKER_IMAGE_PROMETHEUS\nDOCKER_IMAGE_REMOTE_AGENT\nDOCKER_IMAGE_REMOTE_STORAGE_ADAPTER\nDOCKER_IMAGE_PROMETHEUS_RELAY\nDOCKER_IMAGE_GRAFANA\n\n, or manage the tag of the images using the single\nvariable:\n\nDOCKER_IMAGES_SL_TAG= # latest, 2017.12, ...\n\nChange-Id: Icf5039d9346f631ffb4391588b5090396268bc53",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[ocata] Rename virtual labs to cookied\n\nThe models are using cookiecutter now but they wasn't renamed when the\nwork was done. This patch fixes misleading behavior.\n\nChange-Id: I12672698c32e5b5f780fa193c2ddd82dbac8e972",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix CICD k8s deployments with calico\n\nChange-Id: I7b6b1700cda20c4075d290051e0463fb74693958",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add model bm-k8s-contrail-cicd-maas\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-cicd-k8s-genie template\n\nAlign to the edge cloud config.\n\nChange-Id: If24c9b697e1731747535138c1a35c8345f6f895b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add 'conftest' to the 'environment' testsuite\n\nChange-Id: I1f4bc7860e39414a6b160e64054a9d85f4913caa",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use 'mixed' states output for stacklight to reduce logging\n\nChange-Id: I585e2d4aa7434b6cb550c12715dd8068ecd0393c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update *-k8s-calico templates\n\nChange-Id: I31d520799095665cc54c444d7131955f2fe1c1ed",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update ssl models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix typo for trusty role\n\nChange-Id: I487a193de5e60dd9e12ca1ef34d31035463c449f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix F* pep8 warnings\n\nList of fixed warnings: F401, F403, F821\n\nChange-Id: Iceb74ea81b3f4bb358dc331ba289dd1588c152fc\nReviewed-on: https://review.gerrithub.io/379376\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix floating for ovs heat envs\n\nChange-Id: Ic67aaf6b100c6b005c66c99149e95461b6e6642b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add released templaate for contrail\n\nChange-Id: Ia22f7ddd0da5ae836b8133ef1da8a728ee99928a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add rsyslog restart to virtual-mcp11-k8s-calico\n\nChange-Id: I69910c54035b5e010da9eb79e43a6c2efcd28329",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missed formulas into pre-install\n\n* maas\n* jenkins\n* glusterfs\n* backupninja\n\nChange-Id: Id334dc6ae78d0aaa6a14f7352a4ff7eef7b988b8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add small cloud with Ironic\n\nChange-Id: Ibd099366cb1c8de045e37bc299eaf6a7e932df7c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add keepalived to mon nodes\n\nChange-Id: Ibbf6bdee425cbc5dae0de27c7df8c31a1cac713e\nReviewed-on: https://review.gerrithub.io/375103\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Sync installation of mongodb and prometheus with pipelines\n\nhttps://gerrit.mcp.mirantis.net/#/c/21058/\nhttps://gerrit.mcp.mirantis.net/#/c/21119/\n\nChange-Id: I67f1983f9dbfc3a17f8fa7c1327449251113838f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add dns nodes for bind\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Do not fail finalizer if conformance was not enabled\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Improve cicd test runner and reported\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"WIP use full stack of SL nodes\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix node file for contrail k8s\n\nChange-Id: I47d266bb00936424bdb495970e4897d17adae53e\nReviewed-on: https://review.gerrithub.io/362589\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add heat template for k8s-contrail deploy\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename k8s template. Why we use Pike in name for k8s? :)\n\nChange-Id: If44008336e0b4bf399d11c6b1e5ae3cf7be6d6f3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update dvr-vxlan\n\nChange-Id: I03efe2ff335c7c7673af543117090786399489a8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add separate model for contrail NFV deployment\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Hack the model due to the harcods in the vsrx\n\nChange-Id: I87f2cafe1ee5505d20c938efe98e47ff1bdb6b75\nReviewed-on: https://review.gerrithub.io/378725\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add bm cookied template for k8s + contrail\n\nPROD-20364\n\nChange-Id: I87d31b4dfde0da017525705bb32c1cec1bd0fe3d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add template for VMs creating\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add new k8s genie-cni calico+flannel test\n\nChange-Id: I9441cf3224358d272abe7d647d7209463f7cae0c\nRelated-PROD: PROD-21550",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add reporting for k8s virtlet conformance tests\n\n- rename the report name 'report.xml' to\n  'conformance_virtlet_result.xml'\n- report to the testrail suite '[k8s] Virtlet'\n\nRelated-Bug:#PROD-22726\nChange-Id: I3e41c85188dd0169f2f8ebbc61f1514ab952c532",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use MaaS in system tests\n\nChange-Id: Ibaa90ab8a5f290c2a076976243ec0d2511ce8295",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix image duplication into calico sl tests\n\nChange-Id: Ib77540937687b10c4447593ce6ea10e821ea9ac5\nReviewed-on: https://review.gerrithub.io/365214\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Replace openstack_dns role to features_designate_pool_manager_dns\n\nopenstack_dns role is not implemented in the cookiecutter-template\n\nReplacing to the custom role from environment-template\n\nChange-Id: I0196725666866e9feafc3da3e74392c6733084a3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add prx nodes to cicd k8s deployments\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable stacklight_ssl_enabled by default\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Revert \"Add MongoDB installation for Alerta\"\"\n\nThis reverts commit cdddd9b21e97615bf476eb9a82db546f633b568b.\n\nhttps://gerrit.mcp.mirantis.net/#/c/20779/ is merged, now we can use mongo in the deployment workflow\n\nChange-Id: If11e378e3b5872f8627e774d16bc97130c039542",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix for missing mon* nodes in environment inventory\n\nChange-Id: I970fe9fa31decdae51d32bfbc77357ead02b8060",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fail cfg01 bootstrap if the bootstrap script is failed\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Ignore ntp sync time fails\n\nChange-Id: Icdfe00e591ea07b34f6d42dee6175501661a6e34\nReviewed-on: https://review.gerrithub.io/369056\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Add k8s-ha-calico model support\"\n\nThis reverts commit b414dedd1775d0ac335d9c5ac1342e28402135f7.\n\nChange-Id: I8a2fa98c4c5d58afdd76f0b3a51ce621629ef4f8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove state etcd:server:setup  for contrail\n\nAccording to https://mirantis.jira.com/browse/PROD-18929:\n\nChange-Id: I8e636c72cf1fb8b9d14ac498e923007bc6f66dce\netcd:server:setup is required for calico CNI, and not for contrail.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change k8s xunitmerge reporter download link\n\nSometimes pip install with git+https protocol can fail with\n\"curl transfer closed with outstanding read data remaining\" error.\nDownloading of archive files instead of repo clonning also much\nfaster.\n\nChange-Id: Iffa7cff23f1182576cafafd33ad4d1783b1194d9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add queens octavia\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add fs 'sync' after user-data script if failed\n\nChange-Id: I964b4fb1328214133d9e4c60f0630dea781214d7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"add cookied-mcp-queens-dvr and cookied-mcp-queens-ovs\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tools to run jenkins jobs and remote commands\n\n- ./tcp_tests/utils/create_devops_env.py\n  Creates a fuel-devops enviromnet with VMs in disabled\n  state, to generate networks and addresses for inventory.\n  Required parameters:\n    export ENV_NAME=test\n    export LAB_CONFIG_NAME=<template directory with underlay.yml>\n    export MANAGER=devops\n  Other parameters may be required for the underlay.yml\n\n  CLI example:\n    export PYTHONPATH=$(pwd)\n    python ./tcp_tests/utils/create_devops_env.py\n\n- ./tcp_tests/utils/run_jenkins_job.py\n  Run a jenkins job with parameters, wait for completion,\n  print the console output to stdout while waiting.\n  Required parameters:\n    export JENKINS_URL=http://host:port/\n    export JENKINS_USER=admin\n    export JENKINS_PASS=admin\n  CLI example:\n\n    JOB_PARAMETERS=\"{\n      \\\"SALT_MASTER_URL\\\": \\\"${SALTAPI_URL}\\\",\n      \\\"STACK_INSTALL\\\": \\\"core,cicd\\\"\n    }\"\n    JOB_PREFIX=\"[ {job_name} #{build_number}:cicd {time} ] \"\n\n    python ./tcp_tests/utils/run_jenkins_job.py \\\n        --verbose \\\n        --job-name=deploy_openstack \\\n        --job-parameters=\"$JOB_PARAMETERS\" \\\n        --job-output-prefix=\"$JOB_PREFIX\"\n\n- ./tcp_tests/utils/get_param.py\n  Get a single parameter from the salt pillar.\n  Useful to get addresses and other scalar values.\n  Required parameters are the same as for 'pepper' CLI:\n    export SALTAPI_URL=http://${SALT_MASTER_IP}:6969/\n    export SALTAPI_USER='salt'\n    export SALTAPI_PASS='icecream12345!'\n    export SALTAPI_EAUTH='pam'\n  CLI example:\n  export JENKINS_HOST=$(./tcp_tests/utils/get_param.py \\\n    -C 'I@docker:client:stack:jenkins' \\\n    pillar.get jenkins:client:master:host)\n\n- ./tcp_tests/utils/run_template_commands.py\n  Run remote commands from the ./tcp_tests/templates/\n  No environment varialbes are required, but may be\n  useful to provide the INI config from some completed\n  deployment.\n  CLI example:\n\n    export TESTS_CONFIGS=$(pwd)/test_salt_deployed.ini\n    ./tcp_tests/utils/run_template_commands.py \\\n        ./tcp_tests/templates/<lab_name>/common_services.yaml\n\n- some env files for sourcing to get access to different APIs.\n  This will simplify using the scripts above.\n\n    . ./tcp_tests/utils/env_salt          # salt-api access\n    . ./tcp_tests/utils/env_jenkins_day01 # jenkins on salt-master\n    . ./tcp_tests/utils/env_jenkins_cicd  # jenkins on cicd\n    . ./tcp_tests/utils/env_k8s           # k8s api access\n\n- fixed UnderlayManager.sudo_check_call() to remove\n  deprecation warning.\n\nImprovements to JenkisClient:\n- Add JenkinsWrapper class to workaround the bug\n  https://bugs.launchpad.net/python-jenkins/+bug/1775047\n  which is happened to CICD Jenkins behind the haproxy\n- improved waiting for start of the job in run_build()\n- new argument 'interval' in wait_end_of_build(), to set\n  the polling interval while waiting the job\n- new argument 'job_output_prefix' in wait_end_of_build(),\n  which allows to set the prefix to each line of the console\n  output of the job; with some pre-defined template keys.\n- improved printing the job output in case of non-unicode characters\n\nChange-Id: Ie7d1324d8247e55ba9c0f0492ca39fc176ff4935",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Switch computes in cicd-k8s deployments from generation to inventory\n\nAuto-registration for k8s compute nodes has been introduced to CC,\nbut there is no inventory provider to use it for 'auto' registration.\n\nFor testing, use custom inventory provider (fuel-devops) and mapping\n(environment-templates),\n\nChange-Id: I2665040ae772003e98336697383d355577f16e57",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable update repo before formulas install\n\nChange-Id: Ia8de6b72c1a352deaee49e3e5983b82f47beb37d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use $(hostname -s) to generate minion ID instead of VM name\n\nChange-Id: I705172304ca8a7e99186ac48368fcc208084d484",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[virtlet] Refactor virtlet part\n\n- Remove virtlet roles\n- Remove virtlet fixtures due virtlet officially installed as\naddon if option is enabled\n- Move virtlet core test functions under k8smanager.py\n- Add show_step into virtlet tests\n- Add checks that virtlet is enabled to the beginning of tests\n\nChange-Id: Ibfb499b29727b367afafc68fa13199db13bcccdf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix sl and manila\n\nChange-Id: Ic0e57d922d8acb87dfe95471cc18c5e86c0a8b46",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add 'cookied-mcp-ocata-dop-sl2' lab for DOP+SLv2\n\n* add workflow template and fuel-devops config\n* add new environment inventory file with mixed roles on nodes\n* add MAKE_SNAPSHOT_STAGES (default=true) to skip snapshots\n  during deploy and not cause timesync and keepalived issues\n\nChange-Id: I29a504b783a017ef01d0b05535c3a03e7b1574c9\nReviewed-on: https://review.gerrithub.io/378776\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-mcp-mitaka-ovs template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Sync time on cfg01 node before tempest\n\n- sync time again on all the nodes including cfg01\n- check if the services 'maas-rackd' and 'maas-regiond' are\n  present on the node. if yes - disable the services while\n  time is synchronized\n- execute salt_actions.sync_time() also before the tempest\n  is started\n- remove the class override_ntp_virtual because it disables\n  the ntp client on cfg01.\n\nCloses-Bug: #PROD-30114\nChange-Id: Ibb731ae14f573a3d7471da2cbe9f55754d79c4ff",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Revert \"Add k8s-ha-calico model support\"\"\n\nThis reverts commit 3b1f40e9da7cd4a7a91938f7fe2c66c01cf4d494.\n\nChange-Id: I5871f91c3fa9d6cfa65afb1d4914eea0acabe35c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Make possible to override the docker images for SL\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"[k8s] Adjust externaldns test functions\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Rename virtual-mcp-mitaka-dvr template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[virtual-mcp11-k8s-contrail] Add multiple workarounds\n\n- Add workaround for keepalived\nhttps://mirantis.jira.com/browse/PROD-12798\n- Fix regex for linklocal workaround\n- Set retry count for 2 for opencontrail installation\non computes\n- Fix cmd for time sync\n\nChange-Id: I0d8417e60bbc1664793091f550b46ff23a86178f\nReviewed-on: https://review.gerrithub.io/368592\nReviewed-by: <vrovachev@mirantis.com>\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Move from apt.mcp.mirantis.net/images/ to images.mcp.mirantis.net\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Introduce SALT_VERSION var\n\nAs we plan to move to salt 2017.7 and at the same time\nwe need to check 2016.3 as well (and upgrdae path), introduce\nnew var SALT_VERSION with default value 2016.3\n\nAlso update repo path to salt from mirror mirantis and clened up\ncommented hacks\n\nReelated: PROD-19373\n\nChange-Id: I3c327aa4b6369750f5bdabe1b96cb52ab5770f03",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Store kubernetes server version after conformance tests\n\nTo use with xunit_reporter\n\nLog output example:\n\n  -- Kubernetes server version is stored to ./env_k8s_version:\n  export KUBE_SERVER_VERSION=1.10\n  export KUBE_SERVER_GIT_VERSION=v1.10.4-4+971831eb5eb3db\n\nUsage example:\n\n  . ./env_k8s_version\n  report ... --testrail-suite \"[MCP][k8s]Hyperkube ${KUBE_SERVER_VERSION}.x\"\n\nChange-Id: Ia27b9e16142d5bb30f5dee5030095c2eb4e8e08c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use reclass generator for k8s computes instead of 'static'\n\nChange-Id: I779c954acb5f16f293bb6e930441b4e55b8c21d4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update virtual-mcp11-k8s-contrail template\n\n* Turn on virtlet by default\n* Put all salt/model hacks in one place\n\nChange-Id: I8b9bb809daf00e57145743da0acf642dbd9d15d2\nReviewed-on: https://review.gerrithub.io/370484\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix baremetal models\n\nChange-Id: Ica4cbc307b166e57b1a03d517510495816cc88fe",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": " Ovs bm with MAAS:\n* Set right eth names for maas, servers names\n* set right macs pxe and iface macs\n* Fix typos\n* add designate, ssl, barbocan, telemetry, ironic\n\nChange-Id: I445d88420693331d4cea514aee91dd4f65207dfe",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update model fir Ironic\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add prepared 'environment' model for baremetal lab03 (ovs-dpdk)\n\nChange-Id: Ia2e8c00fd495628fc04107b1414033d888c6c5d6\nReviewed-on: https://review.gerrithub.io/369976\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Move networks settings to underlay.hot\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"WIP temporary change mirror.mirantis.com to mirror.mcp.mirantis.net\"\n\nThis reverts commit 620e96da8942955520420924abc448701560c468.\n\nChange-Id: I6fd90755772196440976e33af53550dd91d054dd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Make VMs resources configurable for StackLight v2 mon nodes\n\nSLv2 requires about 16Gb memory and 2+ CPU because use containers\n\nChange-Id: I7e384e18cea51210b909870bc17c529bf08a77d6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix network for cicd-bm-k8s model\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Split template virtual-mcp-pike-dvr-ssl and remove SL\n\n- copy virtual-mcp-pike-dvr-ssl into cookied-mcp-pike-dvr-ssl with\n  stacklight\n- remove SL from virtual-mcp-pike-dvr-ssl because it was removed\n  from the static model https://gerrit.mcp.mirantis.net/#/c/17137/\n\nChange-Id: If97ae1de037a1db6bfe075a033bda2eb9cdb06d8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add ceph cluster nodes, roles",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add interfaces for bond\n\nChange-Id: I7b1739b2fbbbf5d22ee5517e21ce355ad4e6c340\nReviewed-on: https://review.gerrithub.io/373211\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Shortening the interface name\n\nChange-Id: Ic58b24a0c832a920478510a2149e7e3179a11ed8\nReviewed-on: https://review.gerrithub.io/376650\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix queens deploy\n\nChange-Id: I15447ff8e27781a5a604234ce746815d97cb4dc4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Insall Alerta and mongo if pillars matches\n\nAlign SL.yaml with pipeline-library\nhttps://gerrit.mcp.mirantis.net/#/c/20875/\n\nChange-Id: I64835c467f67889087e2dfae5f681abdfbe36734",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use the environment model template from Mirantis/environment-template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move common parts of salt deployment into shared-salt.yaml\n\n- most of common steps for bootstrapping salt moved to\n  shared-salt.yaml\n- default value REPOSITORY_SUITE changed to 'testing'\n\nChange-Id: I7bd66b8e84d266ddd424b788d2a1b5ff0c6ecad4\nReviewed-on: https://review.gerrithub.io/373554\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "WIP: Migrate contrail bm models\n\nChange-Id: I822e7ef282ca4bdf57548311c50811fac4835581",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Run 3rd-party test suites without excess dependences\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add resources to cfg01 and some other nodes\n\nChange-Id: Ib9f01d29860d5bf624166c0b942647556dbb0c03\nCloses-Bug:#PROD-15917",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove k8s sphinx install\n\nChange-Id: Iff1f939fd3cd9671f10cc8413d9fb43ee93caec2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Refactoring of k8s manager and tests\n\nChanges:\n - Official kubernetes python lib\n - Rewrite k8s api wrapper in OOP manner\n - Use api where its possible instead of cli\n - Remove virtlet code because its can be replaced with pod api\n - Remove unused/oudated manager code\n - Remove bug workaround in k8s upgrade template\n - Remove netchecker obsolete code\n - Remove unfinished test_rbd_flexvolume_driver\n\nChange-Id: I446a240123282196a6ba54f588aea84791f175ba\nRelated-PROD: PROD-21700",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Retry elasticsearch.client state\n\nChange-Id: Ief1dad8944d2aaac7d96de54431a34cd1de90460",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate cfg01 node to cloud\n\nMigrate cfg01 for bm ovs env\n\nChange-Id: Iaaa4e767064d7b7cd58353f7fd089701cc60ee9b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Ironic to vxlan\n\nChange-Id: I84bd528217a21d79aab398e4ce699c332b95ef91",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Fix network for cicd-bm-k8s model\"\n\nThis reverts commit bef60d90a51245a883831f4312ed6414874dc317.\n\nChange-Id: Icbe1a770b3270a332d94592ec66cb4493b2afc4e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Heka->fluentd for virtual-mcp11-k8s-calico\n\nChange-Id: I59d5556864d8666d8fbded2600fd9afc77b5a487",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix repo suit",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Do not fail finalizer if conformance was not enabled\n\nChange-Id: Iede3d27962555ca78eda7c08130439e03f086019",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add additional sleep in publisher of test_k8s_cncf_certification\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Change k8s xunitmerge reporter download link\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove glusterfs states execution from k8s templates\n\n* According to [1], there is no glusterfs states in k8s\n  clusters anymore.\n* Fix IP address for vsrx in juniper.conf\n  10.70.0.90 -> 10.70.0.91 (10.70.0.90 is used by cfg01 now)\n\n[1] https://gerrit.mcp.mirantis.net/#/c/10093/\n\nChange-Id: I1231f95dbc15eb850058708565c9dcef736da349\nReviewed-on: https://review.gerrithub.io/378272\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix proxy node ip in calico test\n\nChange-Id: Ifb484e5e063db126b40df238ec04294f4e598506\nCloses: # PROD-14965",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Calico tests (copied from mcp-qa)\n\nChange-Id: I10219fc78c8759919c631baa9e9f95baf631c1dc\nReviewed-on: https://review.gerrithub.io/365463\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add possibility to override `role` via underlay.hot Add possibility to use different roles for nodes from MultipleInstance. Add possibility to use several roles for one node (for the future)\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align contrail states\n\nChange-Id: Ic43e2be60510bae4ec1e32702526fb05530bea0f\nReviewed-on: https://review.gerrithub.io/362725\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Refactor reclass cloning\n\nSALT_MODELS_REF_CHANGE SALT_MODELS_COMMIT are both exclusive. If\nSALT_MODELS_REF_CHANGE is specified then it means we don't need to do a\ncheckout to special commit. SALT_MODELS_COMMIT is specified but\nSALT_MODELS_REF_CHANGE is not, then we need to checkout that commit.\n\n* This change refactor the logic across all templates.\n* This change introduce for loop for SALT_MODELS_REF_CHANGE. Several\n  commits can be specified using space as separator. Here is an example\n  export SALT_MODELS_REF_CHANGE='refs/changes/12/8412/2 refs/changes/58/8458/1'\n  All commits should not have any conflicts. In case of conflicts create\n  dependant commits and use top one.\n* The 'cmd:' for the step \"Clone reclass models with submodules\" was moved\n  to shared-salt.yaml and included to other templates as a jinja2 'macro'.\n* SALT_MODELS_SYSTEM_COMMIT now works as expected. If not specified then\n  will be used the 'system' commit specified in the cluster model\n  submodule.\n\nDoc-Impact\n\nChange-Id: I0d57b1eea79a7c011231dcf7f46fb3599a62c33f\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/372906\nReviewed-by: Sergii Golovatiuk <holser@gmail.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Separate base nodes and vcp nodes in lab03_ovs_dpdk\n\nChange-Id: I31207d2eb50a42c1812bb6bafefd82a250ac901c\nReviewed-on: https://review.gerrithub.io/374039\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add additional sleep in publisher of test_k8s_cncf_certification\n\nAnd increase timeout of test because its often out of time\n\nChange-Id: I4ae11d4e8441fdf888203559f8ef9687826938d7\nCloses-PROD: PROD-25218",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add junitOutput flag to virtlet tests\n\n- Also get JUnit output for it\n\nChange-Id: I29ad71b317743754520acdce9895faebc1bd6af4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add 'galera' service deployment on dbs nodes\n\nChange-Id: I966f9e9cf2adc868ada5da0740e3c38c2a60454b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add k8s keepalived failover test\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove old static models\n\nChange-Id: I2beca474375e2e643e12c9140cc55da405aeb86f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename settings_oslo parameter MANAGER to ENV_MANAGER\n\nENV_MANAGER variable will be used to activate one of\nthe environment managers:\nENV_MANAGER=devops - create, power on/off VM and BM nodes,\n                     snapshots for libvirt VMs\nENV_MANAGER=heat   - create OpenStack heat stack\nENV_MANAGER=empty  - only for SSH to an existing environment\n\nChange-Id: I90a59107a7fd350ecfeb821734c2dac4e351d468",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Added model for initial ocata deploy with cicd Changed template name to cookied-bm-ocata-cicd-pipeline\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix keepalived interface for kubernetes control nodes\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix repositories for designate dns01/02 nodes\n\nChange-Id: If56c3bbd81d692788058ce19db8e9f36ef718532",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add retry to grafana client\n\nChange-Id: Ia108adfb9fbf55a4256a9055d80a6a8cf95a8409\nReviewed-on: https://review.gerrithub.io/369559\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align  cloudinit and salt.yaml",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Change interface roles for heat based envs\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add fs 'sync' after user-data script if failed\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add test_k8s_ingress_nginx test\n\nChange-Id: I11ae28ddfbe96cd4232ff428857ee69fe09ddffe\nCloses-PROD: PROD-22257",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix virtual-mcp11-k8s-calico\n\n- Removed prometheus deployment for now\n- Adjusted env to run on 32Gb env\n\nChange-Id: Ia487af8a04b2b8932e4a36aeffe8d867d9a151c9\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rework conformance node detection for new conformance approach\n\nChange-Id: I2e1850b27c90a5caae19e0eaf4015d0faa43648d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add test_k8s_dashboard test\n\nAdd 'cluster role binding' api wrapper\nAdd method in TestMCPK8sActions to read testdata yamls\n\nChange-Id: I7b9f7a74ce74ea5e722cb4c958bd60b6a64b6a0c\nRelated-PROD: PROD-22249",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cicd env: bootstrap cfg01\n\nDo not use cloudinit volume. user-data is\nprovided by 'config' volume.\n\nChange-Id: I34a8475fa65c91e0a5d9ecf1a23d94be30e8e867",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix for cookied-mcp-queens-dvr-ssl\n\nChange-Id: Ie079428864923dafb130354167e295dbfc2e3f71",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add SL into k8s deploy\n\nChange-Id: I40e8fa92e546bd4e964f9e86b595fe4b8dfdba92\nReviewed-on: https://review.gerrithub.io/362185\nReviewed-by: <vrovachev@mirantis.com>\nReviewed-by: Sergii Golovatiuk <holser@gmail.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Reduce VCP usage for mcp10 and mcp11 labs\n\nvirtual-mcp-ocata-ovs/dvr used 29 VCPUs for VMs on CI lab with\n16 physical cores. This may lead to networking schedule issues on\nthe host.\n\nReduce amound of used VCPUs should help for more fair resources\nusage.\n\nChange-Id: Iaba6119d34bfdb8f0b2f4909d2bbd8d24c113ad8\nReviewed-on: https://review.gerrithub.io/370774\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "contrail\n\n[1] https://www.juniper.net/documentation/en_US/vsrx15.1x49-d40/topics/task/configuration/security-vsrx-kvm-bootstrap-config.html\n\nChange-Id: Iec0daea6f82f175b774accbdecf6ed2e62aadefb\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/362881\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix cookied-bm-mcp-pike-k8s-contrail\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Store kubernetes server version after conformance tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add imports for DOMAIN_NAME and LAB_CONFIG_NAME for all templates\n\nChange-Id: I36d8cd8f945fd76f9a7460823c999bbc90cf27bc\nReviewed-on: https://review.gerrithub.io/380067\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix for k8s-contrail model\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update user-data for new cfg01-day01 image\n\nAccording to the documentation, salt-master and\nsalt-minion services on cfg01 are disabled\nby default and are enabled by a script included\nto config drive user-data.\n\nFor manual-like deployments without such\nconfig-drive, enable these services at the bootstrap\ntime.\n\nCloses-Bug: PROD-24186\n\nChange-Id: Id495cde8a986a11a1d982e6250ac16dcaa93fafc",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Minor fixes in k8s tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix typo",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add 'kill dhclient' workaround to k8s tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add swarm-run-test job\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix false positive e2e tests operations\n\nChange-Id: Ifcd6f4f8a418df078aa3bc250c9844ec174318c8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "WIP temporary change mirror.mirantis.com to mirror.mcp.mirantis.net\n\nChange-Id: I75834e8d3b2ca48337c2738f1eae3ed0b56c513e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change virlet conformance logs grab behaviour\n\n- Use fixture as usual\n\nChange-Id: I821560beae671d3e4f9ec4cc5ef2b7710701f52a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-bm-contrail40-nfv model\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add 'k8s chain update' test\n\nChange-Id: Ica0cdf83e3a3b3a74e1eef8557d7064e97db1967\nRelated-PROD: PROD-17808",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix pike,queens contrail models\n\nAdd 'secrets_encryption_enabled' and 'openstack_keystone_security'\nFix vsrx for bm and heat envs\nAdd valid public and tempest network for tests\nRemove kvm4-6\n\nChange-Id: I4a1632b77f95d5197deb5970a3200606910a5e74",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add roles to os deploy\n\nAdd:\n* prx02 for pike and queens\n* kmn for pike\n* dns for pike and queens\n* enable designate\n* enable barbican without int\n\nChange-Id: I56288c7df9ada6217210bc04f45f27e630daf4f9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove autouse=True from grab_virtlet_results\n\nChange-Id: I1574d9ba0ab09c8dc4f9996a2e0960df132c199d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase mem values for mon nodes\n\nAs galera comes like a requirement for SL, increase mem value for mon nodes\n\nChange-Id: I82339eabe4e3bc521a4071440dae810eee6c1db1\nReviewed-on: https://review.gerrithub.io/364976\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add ocata/pike contexts for cookiecutter ovs/dvr\n\nChange-Id: I0be7cf3bcab0613ce88190d4e75c5f9ccb0756c1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add elasticsearch formula install\n\nChange-Id: I5c7b161182a60132f46c146f104b7c3ed73d6072\nCloses-Bug: PROD:-11815\nReviewed-on: https://review.gerrithub.io/364594\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add template for VMs creating\n\nChange-Id: Ifbf77f794f999340846a9b144cd1444af16adfec",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add installation steps for Ceph one-node cluster\n\nAdd steps to install Ceph one-node cluster over virtlet\ninstallation to be able to test Ceph related virtlet features.\n\nChange-Id: Ic9e531a69fcb52d7360fcf089312fa1913350e0b\nReviewed-on: https://review.gerrithub.io/362388\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate ceph pike to cicd\n\n* Fix node hostnamesin underlay\n* Fix context\n* Add cid nodes\n* delete depricated yaml files for deploy\n* align generated/file\n* migrate to cid usage\n* add LMA\n\nChange-Id: I34f889bea6b8094f692d441b32f057da5763cd7e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add self-registered computes functional for other templates\n\n- Added self-registered computes mechanism to virtual-mcp11-k8s-calico\nand virtual-mcp11-k8s-contrail templates to support models\nlike sl-k8s-calico and sl-k8s-contrail.\n\n- Mechanism controlled by os_env.\n\nChange-Id: Ibd474aa3af38d30ae1bd204dcb389177eb1a335b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add k8s ingress and metallb features\n\n- enable ingress-nginx and metallb features\n  for the configurations:\n  - cookiecutter-context-k8s-sl\n  - cookied-cicd-k8s-genie\n  - cookied-bm-k8s-contrail\n\n- add 'external' network on cfg, ctl, cmp and prx nodes\n\n- enable DHCP in 'external' network for auto configuration\n  of the external interfaces\n\n- get the status of the ingress and metallb features from\n  the salt pillar instead of environment variables to\n  run the tests on the existing deployments\n\nRelated-Task: PROD-22687\nCloses-Bug: PROD-24580\n\nChange-Id: Ifee60814718abc604008af5e2058a6db1bf92d6d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[k8s] Adjust externaldns test functions\n\n- Use ctl hostname instead of k8s.kube_host due kube_host\nis an ip address of keepalived k8s api.\n- Discover ctl with specific role 'k8s_controller'\n- Fix nit with awk field\n- Fix nit with format fields\n\nUser-Story:https://mirantis.jira.com/browse/PROD-12826\n\nChange-Id: I52d89b4d3994338a800eed4f6b5555cad6bdedc8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Split pike ovs/dvr/dpdk deployment templates\n\nCreate separated deployment templates:\n- virtual-mcp-pike-* for static models with latest features\n- cookied-mcp-pike-* for models generated from cookiecutter\n\nChange-Id: I455970333eb07b7f72e3e241421cd50d57e3f383",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change networks and subnets schemes due to different\nways of deploying BM cloud or virtaul\n\nAdd heat template for BM deploy (heat-bm-cicd-queens-contrail-sl)\nAdd bm-eu-cloud.env with parameters for BM deploy\nNormalize output for getting correct IP of foundation node\nAlign all virtual models to new changes\n\nChange-Id: I1e0daac4e82aea06e75de61d2fc5041e6ec4d138",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add jenkins_pipelines_branch\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add bm cookied template for k8s + contrail\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-bm-contrail40-nfv model\n\nChange-Id: I8866b744480c725f5074dd4a0dc7125a65ecc712",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Mark k8s system tests with k8s_system mark\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Ironic to golden bm\n\nChange-Id: I7eba521fa910a422101bda8a3f3280b0e0b1b052",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add test_k8s_dashboard test\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix model and tempest runner\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Restart kubelet after k8s setup\n\nIt is a workaround to the issue when kubelet does not start sometimes\nafter k8s deployment.\n\nChange-Id: Ic4b4fbece638802f9dbd3b16639158e30ba7cd2a\nReviewed-on: https://review.gerrithub.io/375017\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable help addon\n\nRelated: PROD-28883\nChange-Id: I8f459f39f9f04672b073d50e02eca839e7ddb427",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable help addon\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add restart of keepalived before grafana client\n\nChange-Id: Iab6b7e92ebee1f981be6fa7f654a1fb4076febca\nReviewed-on: https://review.gerrithub.io/371940\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Revert \"Add default metadata for public network\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use Ubuntu mirrors for required repository instead of upstream\n\nChange-Id: I8b5345bc189d782bf11666e4e9a397f729c81f4f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update model\n\nUpdate model for new servers\n\nChange-Id: I65f37388a18b614e1cdd6154fd58e5cb6bb32aed",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied model whith cookied dvr\n\n- Set correct pin for openstack repository (PROD-21071)\n- Deploy nginx before openstack services (PROD-22740)\n\nChange-Id: I08efdf6ee5c05ff9dbdb0cce62df9bd0e33d6413",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove dns nodes from the lab cookied-mcp-queens-dvr-ssl\n\nChange-Id: I5b0e12bb9b8e4fc52ec56dfb42e7f163f04ae4d0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move ocata VCP nodes to preconfigured cloudinit images\n\nVCP nodes require the preconfigured image because of reduced\nmirrors that miss some packages.\n\nChange-Id: I2bf119f5338ee50308fdaa1d28d86df318012037",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Small fixes in underlay\n\nChange-Id: I7142231ceb524d70cb3060b41afd5f543cc1a7dc\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/371128\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Introduce SALT_VERSION var\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix reclass.storage interpolation for addresses in 'environment'\n\nChange-Id: I76c9948716055f5b16ca7565504115f7cac0492a\nReviewed-on: https://review.gerrithub.io/370566\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update cookied generator models to new CC structure\n\nCurrently in CC proposed new structure were introduced:\n\ncluster_name:\n-- infra/\n------config/\n-------init.yaml\n\nSo updated tests that edit thos file to use new path\n\nChange-Id: Ia7d198c6f2c8cf96370e23ffdf2935f6735d64f1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix proxy node ip in calico test\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add heat template for k8s-genie\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable virtlet for cookied-cicd-k8s-calico-sl\n\nChange-Id: Id151984ca87eb9718499fd44ef94e87aae93e48a\nRelated-Bug:#PROD-22726",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix runtest, add runtest_cfg role for virual contrail\n\nChange-Id: If5ee063886c16a6b5f3513b3dc23ac68d4604e79",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Resize VCP images\n\nRelated-Prod: PROD-24537\nCloses-Bug: #PROD-25991\nChange-Id: Ib5097eaa0bff0aba1d91733589f734be207325b4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix the equality tests\n\nRelated-PROD: PROD-24989\n\nChange-Id: I42d4bd2f92cb83bfc2c5f50142a61318faed97ec",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"fix for cookied-mcp-queens-dvr-ssl\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add memory on cfg, ctl and mon nodes\n\n- After moving on day01 image, cfg01 node requires more memory\n  for additional services (jenkins, maas)\n- ctl nodes are not fit into 12Gb anymore\n- mon nodes must have enough memory for StackLight docker\n  containers, 2Gb is too low\n\nChange-Id: Iecfc4d118e7581e86a4d1121ea9bf9978110d81d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Move cinder-volume to cmp Fix tempest runner\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Node roles with dynamic metadata mapping\n\nFor easy scale of any role in the cluster, there are some\ndynamic metadata will be prepared for 'Environment' model\nbased on roles from the inventory:\n\n* Automatically control master/slave relations for the:\n    rabbitmq_cluster_role\n    mysql_cluster_role\n    redis_cluster_role\n\n* Automatically control IDs as counters for the:\n    keepalived_vip_priority\n    cicd_database_id\n    opencontrail_database_id\n\nChange-Id: I4a893662d43c9cb1799ee2bc24d72a62afc00a56\nReviewed-on: https://review.gerrithub.io/377960\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-mcp-mitaka-ovs template\n\nChange-Id: Ieda11e71ef57e51e1284d6d3073d78d399fffc17",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change compute generation from rack\n\nChange-Id: I02bf9efc6fce6590fbfc8c31e1878c3c1ee0775b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add jenkins_cfg_admin_password to all contexts\nhttps://gerrit.mcp.mirantis.com/#/c/44956/\n\nChange-Id: I0e4aef13947cc29da51a3870b6e9f7656fa57d1b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Revert \"Revert \"Add MongoDB installation for Alerta\"\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add link_local workaround\n\nAdd link_local workaround until contrail<>kube api VIP communication is\nfixed.\n\nChange-Id: Ia1aa07140f301c03c3cd8b0f3562d84a2c0e79ca\nReviewed-on: https://review.gerrithub.io/373948\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add manila and designate to pike\n\nChange-Id: I9a0299bfb1fc7604ae822447a4e59414fcd16eef",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change interface for bond\n\nChange-Id: I3c5d2aa634d72d00797a7e5c1d60c42c69092fff\nReviewed-on: https://review.gerrithub.io/373052\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add Ironic to vxlan\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add template and supporting code to bootstrap Ironic node\n\n- template added\n- move environment hardware.start() to the underlay fixture\n\nChange-Id: I00d3ef10c71b96b8143a94e96f6660e172719130",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add deployment template for cookied-bm-mcp-ocata-dvr-vxlan\n\nChange-Id: Ie90bf5cfcff4362ab2d3b6372b74842f6f1cb972",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cookied-bm-mcp-pike-k8s-contrail\n\nChange-Id: Id788c4e33be273f18c5b5582494e9452501488b8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix flake8 warnings\n\nChange-Id: I1c1d65f5585833a9db9d1313933dc205b5890e08",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Modify model\n\nFix model\nFix bug with keystone deploy\n\nChange-Id: Ie0f7290d1f9848204d479f56cb696519a1557589",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix dvr-vxlan model\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use DOMAIN_NAME instead in test_k8s_externaldns_coredns\n\ninstead of LAB_CONFIG_NAME\n\nChange-Id: If8c3c9aceaa26cea58b7face3927200d77c09376\nCloses-PROD: PROD-24338",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add keepalived run before mysql states\n\nChange-Id: If0c913b3a5528bd17e9ea893abe77860a07016fb\nReviewed-on: https://review.gerrithub.io/371983\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missing packagesWq",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update runtestmanager and models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"attemp to run tests\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use jinja2 include for user-data instead of fuel-devops !include\n\nDirect !include of user-data YAMLs don't allow to pass the\njinja2 context into the loaded user-data.\n{{ REPOSITORY_SUITE }} is rendered into spaces for user-data.\n\nChange-Id: I263e1fa6ca106878466cf81692910eff0b6e7569\nReviewed-on: https://review.gerrithub.io/373875\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix target for prometheus state\n\nChange-Id: I193d5bf72eaae05343379d27814263546b8b2c26",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix models\n\nFix pike after revert runtest commit\nFix queens deploy\nAdd designate with powerdns to queens-ovs\n\nChange-Id: I70575e998fe7eed91bc800c7ee76f3e3957d6fe4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix ironic standalone install code\n\nChange-Id: I035445d6f886cb97c2f98f61e1b75a57c090f3dd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Share key access from cfg node\n\nChange-Id: I95a4552d84f8f79d59c71fa4486bc153c1571523",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Skip steps: install designate\n\nChange-Id: I500323735eb6d52cbfd7c932a95fc96f5170f895",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-cicd-k8s-calico and cookied-cicd-k8s-calico-sl\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Refactor the underlay.ssh update process for VCP minions\n\nfuel-devops node names in the underlay.yaml can be\ndifferent from actual hostnames configured on hosts:\n  underlay.yaml: ctl01\n  hostname -f: ctl01.cookied-cicd-k8s-calico.local\n\nShorter names are connected to qemu limitation for\nmonitor.lock path and how the fuel-devops creates\nunique names for the environment nodes.\n\n1. To not double the same nodes in the underlay.ssh, match\n   the VCP nodes to underlay.ssh nodes not by name, but by\n   IP address and address_pool.\n   Add new method update_ssh_data_from_minions() to\n   SaltManager with this functional.\n\n2. Add new attribute to underlay.ssh:  minion_id , which will\n   provide mapping from underlay.ssh to the minion_id for the\n   nodes.\n\n3. Add helper method host_by_minion_id() to UnderlayManager\n   to get host IP by minion_id\n\nChange-Id: I510d9a777df8f308c1a7fede7b4ec2feb314c5bd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Model refactoring\n\nChange-Id: I400b42f1d448e93bdb98b18e68b9da491d59a136\nReviewed-on: https://review.gerrithub.io/377126\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix waiter inside start_conformance_inside_pod function\n\nRepairs the waiter whos purpose is to wait for conformance\ntests completeness.\n\nRelated-PROD: PROD-24989\n\nChange-Id: Ib5d611823e8e86de471370260d93dccb55efc529",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add model for contrail4.0\n\nChange-Id: I94b65dd06ce8eb376dd8e9bcf96d786621d32233",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Model generator from cookiecutter-templates\n\nChange-Id: I1ae23b812125b975849f0ba8fadeca2844547970",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add ceph cluster nodes, roles\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fail cfg01 bootstrap if the bootstrap script is failed\n\nChange-Id: I11f3f5c81257bdb0bf0ec5af36be0aaa92af5065",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Typo fix selecting telegraf nodes\n\nChange-Id: Ib7427c9b2a36620ef498d40e8c7a14afd1c78493",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix floating for ovs heat envs\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cncf certification executon\n\n- Adding helpers for archive managing\n- Adding execution of k8s-conformance by cncf\n- Adding specific fixture for it\n\nChange-Id: I302ddf736e3e264b0c38ff3052671bf9a6045250",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add cookied-mcp-queens-dvr and cookied-mcp-queens-ovs\n\nChange-Id: I5eaadd47e2333cae1f876d950f0499782aff7160",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update cookied generator models to new CC structure\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied model\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add virtual_mcp11_k8s_calico template\n\nChange-Id: Ib17ce50c4a07e8169dfd486971adb270d6f99dd5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove old workarounds with hardcoded repository addresses\n\nAlso, move from apt-mk.mirantis.com to apt.mirantis.com\n\nChange-Id: I4f22ac2c596c0b5663a0ad54f60d93b5ec05e97f\nClose-bug: PROD-13582\nReviewed-on: https://review.gerrithub.io/372650\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add possibility to change k8s images.\n\n* Added possibility to change k8s and netchecker images\nfrom contrail+k8s template.\n* Fixed getting node role in virtlet manager.\n\nChange-Id: Ibf281632459136a9f62d1a7f198d27cc488ad67e\nReviewed-on: https://review.gerrithub.io/366394\nReviewed-by: <apanchenko@mirantis.com>\nReviewed-by: Victor Ryzhenkin <vryzhenkin@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add jenkins_pipelines_branch\n\nChange-Id: I70152aedadfd2dc921001bdea9dd40cd482b70df",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix ips for ntw01 node\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Delete depricated templates from master branch\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add new cookied model for baremetal\n\nChange-Id: Ie35a43bb5ac8c984d68c1b63d4c92dc747656f2d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Disable mass\n\nChange-Id: I889a9bc5a135cbf7b6f522748cd3647e1f29c8af",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Consistency fixes for virtual-mcp11-k8s-contrail\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix stacklight_log_leader default version\n\nChange-Id: I048415c2354b99dd686a2509433840ea32e36638",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix contrail deployment\n\n* As a workaround k8s API is listening on ens04 interface.\n* Image sizes were reduced\n* Deployment was fix in accordance to latest fixes in\n  Orchestrate.groovy\n* Universer was enabled to allow to install python-zmq for ubuntu 14.04\n\nChange-Id: I66f80fbdd90c6527ac083fc516ab81ec1d9e8c1c\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/363529\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add virtlet confirmance test run\n\nChange-Id: I673e064cacfee8e7651443aa52b9a6bc8ad28670",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' of https://github.com/Mirantis/tcp-qa into fix_calico_deploy",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable DPDK in tests preparation for correct flavor creation\n\nChange set vcpu_pinning to wider because 1 cpu is not enough for example\nif we boot 2 VMs.\n\nChanged roles for gtw node to be able to use external network and vxlan\nin case of DPDK.\n\nRemove cinder volume from ctl nodes.\n\nChange dpdk_lcore_mask to use vcpus from both NUMAs (In case of 2 NUMAs\nenabled on virtual machine, we are not able to determine wich NUMA our\ninterfaces belong to. The dpdk_lcore_cpus should be used exactly from\nNUMA wich interface belongs to)\n\nChange pmd-cpu-mask to use vcpus which are not intersect with nova\npinned cpus and cpus from lcore mask.\n\nChange compute_ovs_dpdk_socket_mem to use memory from both NUMAs\n(because we have 2 NUMAs in our computes)\n\nChange-Id: Ic8e7704473e396f181524571f2b0d8826046610b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Minor fixes in k8s tests\n\n- Fix test_k8s_externaldns_coredns test\n- Fix K8SSampleDeployment class\n\nChange-Id: I4734e3987af5495c9eb9f4dda4fedd7153964cb6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "WIP use full stack of SL nodes\n\nkeepalived instances now depend on different objects\non the different nodes and cannot be easily combined or\nreplaced without breaking the original logic.\n\n- add LOG and MTR nodes to match the reference configuration\n- add MACRO_NETWORKING_WORKAROUNDS()\n- remove dhcp from private-pool01 to not lose VIP\n\nCloses-Bug: #PROD-18722\nCloses-Bug: #PROD-18601\n\nChange-Id: Ice8267960fbafd4dc29c5d1d8670a33fe9c92910",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add required nodes for cookiecutter config cicd+ovs+dvr\n\nChange-Id: Ief997750fe42ddb7f4185ae5689d41206dc5cbbc\nReviewed-on: https://review.gerrithub.io/376568\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Change virlet conformance logs grab behaviour\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Adding k8s-ha-contrail template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add possibility to override `role` via underlay.hot\nAdd possibility to use different roles for nodes from MultipleInstance.\nAdd possibility to use several roles for one node (for the future)\n\nChange-Id: I7e4e67dace4dc6e2fb3426cad8ddaac9cb5fb00b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use infra_kvm role on ctl nodes for glusterfs.server\n\nChange-Id: I04b54f7ad42bfeee8f86b5842a8f1be93dcaee3f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use shorter fuel-devops node name\n\nChange-Id: Ie2faeb2716c8e8ace44621a7db3b71402e90a4b9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align networks to get connectivity to external net\n\nChange-Id: I372825ab21a8bab3bf6aa2b4d78f46dfd4d81657\nRelated: #PROD-26083",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix queens deploy\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable octavia on pike deploy\n\nChange-Id: I2a000d90de9d55321130f30c27c2de8ba48c7a58",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add model cookied-bm-contrail-nfv with MaaS\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"WIP: Migrate contrail bm models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Revert \"Revert \"Add k8s-ha-calico model support\"\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Extend conformance runs and get all results\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use salt for file management\n\nChange-Id: I29fec2e91d86a14ea581d7596bc00b1dd881002f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Clear salt-keys in baremetal cicd deployments\n\nWhen a BM lab is re-deployed, cfg01 is bootstrapped first.\nBut all BM and VCP nodes from previous deployment are still active,\nand register their salt-minions once the new salt-master is up.\n\nTo prevent deployment errors, before re-deploying MAAS nodes:\n\n- clear all the salt keys and re-register the cfg01 node\n\nMinor fix to VCP nodes:\n- add ens2 'role: single_dhcp' to get the node accessible\n  from salt-master after reboot\n\nChange-Id: I4f511c32ad40a3c27235abc7cb8330bcc7cb6a50",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add MongoDB installation for Alerta\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change template name from pike to queens\n\nTo avoid confusing rename template\n\nChange-Id: I7cd20bbe3d476f75f4091b80701e023905165e75",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Minor fixes for test_k8s_chain_update\n\nFix downloading path of combined xml report and\nadd sleep() to prevent network collapse on ctl01\n\nChange-Id: If9a3f275a5ac8d74660b90fd981937f2d1d69e3b\nRelated-PROD: PROD-20720",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase minions timeout to 120sec\n\nChange-Id: I630d5039922ea9ed5a186cb691e06b0fcf245f84\nReviewed-on: https://review.gerrithub.io/371454\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add using experimental 'environment' model for physical_mcp11_ovs_dpdk\n\nChange-Id: If732e827bacc37863d0074dafb67ef19b27d7d35\nReviewed-on: https://review.gerrithub.io/370184\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase vcpu for cookied-cicd-k8s-calico-sl\n\nWhen vcpu amount on salt-master node is too low,\nminions are getting timeouts connecting to master.\n\nChange-Id: I7ea045356a2927a82ebf17bee681fc0794197299",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add test for run virtlet VM\n\nAdded test for run VM inside virtlet pod\nRefactored deploy config for virtlet pod\n\nChange-Id: I38d51b18030c9147168f6d0b2bd815c56b021231\nReviewed-on: https://review.gerrithub.io/364662\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add model cookied-bm-contrail with MaaS\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix tox.ini to run unit tests on CI\n\nChange-Id: I64a998b04e432397dcb34f70e7a0167374147eef",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Network.yaml\n\nAdd depends_on for nets\n\nClose-bug: PROD-32898\n\nChange-Id: I199e38417ac83c483b321a860e9556216812a101",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add run of LMa tests in k8s deploys\n\n* k8s with contrail\n* k8s with calico\n\nChange-Id: Ife45d60780672b37e67373480100f223c813405c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Do not use fixture salt_deployed where it is not needed\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add heat template for oc41 deploymeent\n\nChange-Id: Ida9e87c6452f9f7769fab1764332c29fce26bf7b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"fix underlay. Fix steps\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move k8s overrides into shared-salt\n\nSince docker used not only in k8s fixtures, we need to mitigate it.\nThis patch introduces overrides on salt stage to cover docker install\nin other stages like stacklight.\n\nChange-Id: I890407da15bd468b18a117ef4caa1d33dddad5cb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add environment file for US cloud\n\nChange-Id: I9f230bb71a367cbe1c759bb3d0f58e734ec77a80",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix typo",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add telemetry to ceph models\n\nChange-Id: Icb9be7c56ac0d1878ac35eb732005bc60d69873f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use DOMAIN_NAME instead in test_k8s_externaldns_coredns\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "test bm deploy\n\nChange-Id: Id4a7d0a49ca203a255c0f8dffbaea5c8c6340428",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add retry to check of the prometheus targets\n\n* move common methods to sl_manager.py\n* add retry to check prometheus targets\n* fix address replace in salt-shared.yml\n\nChange-Id: I33c6536c515ed0e967d11bf9cbf81899f399615e\nReviewed-on: https://review.gerrithub.io/378331\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add the workflow for cookieshape-mcp-ocata-dvr-vxlan\n\nThe workflow 'cookieshape-mcp-ocata-dvr-vxlan' is used to\ngenerate the model with specific options using the\nlatest cookiecutter templates, and try to deploy the environment\nusing this model.\n\nChange-Id: Ibf72967e638938680fce9866eec4fd165e012d6e\nReviewed-on: https://review.gerrithub.io/375325\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use the environment model template from Mirantis/environment-template\n\n- remove environment/environment-template folder. Use the repo [1]\n- move environment/environment_inventory to the repo [1]\n  to the inventory_examples\n\n[1] https://github.com/Mirantis/environment-template\n\nChange-Id: I1cc70f864343fdebfe54cc66d251a9133dce9e88",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix H* and W* pep8 warnings\n\nList of fixed warnings:\nH302, H802, W293, W391, W292\n\nChange-Id: I3fb92623c44c0283c314654a4f84f97c515968f5\nReviewed-on: https://review.gerrithub.io/379377\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Split MACRO_GENERATE_COOKIECUTTER_MODELS on two macros\n\nCreate two separated macros to more flexible usage:\n1. MACRO_GENERATE_COOKIECUTTER_MODEL\n2. MACRO_GENERATE_AND_ENABLE_ENVIRONMENT_MODEL\n\nChange-Id: I95573ac6637a3f96bbd1a8b7da63ff145afb4b81",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move cinder-volume to cmp\nFix tempest runner\n\nChange-Id: I99fef021b50be5ded870fa580f4c9711a555eb80",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update golden bm\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix dns role for ctl03 node\n\nChange-Id: Ife79f685edaefc4edc21046d711f67ffa763c5d0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"remove old static models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Increase RAM on cfg01 nodes to 4Gb\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix baremetal models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable telemetry on ovs based virt envs\n\nChange-Id: I9965f9990e0aea53add4959dbcaa200e24d650ec",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add template heat-cicd-k8s-calico-sl\n\nChange-Id: Ibdc9ba4b5d4ca32dcf93bdeb3171f2d0b2e011e6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix runtestmanager and update bm\n\nupdate bm:\n add params to contex;\n move runtest role to cfg\n\nAdd designate support to runtestmanager\n\nChange-Id: I1051afe091d68264492a622b89d95828c47dfb61",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add bond0\n\nAdd bond0 for cmp001 and cmp002 nodes.\n\nChange-Id: I34fe076591a1acb0bbdcdc1ee4859bd91a07bbbb\nReviewed-on: https://review.gerrithub.io/372534\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Install all formulas\n\nChange-Id: I7762ff501843824215fe5c59f4fe481a4f263404",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add switch to neutron pillar\n\nChange-Id: Ie437d753e0477115973c95b70d6ec78718245fcf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Return back clone and install SL tests into k8s\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' of https://github.com/Mirantis/tcp-qa into add_k8s_contrail_test",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"[k8s] Add base test for externaldns integration\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Swawn each instance with 4 interfaces by default\n\nChange-Id: Icdab268ef71a8c00d13e4c70db4bdcf7bcf579aa",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix missing 'apt_mk_version' parameter for cookiecutter-based model\n\nChange-Id: Ia8ea723c461d5978590f611d504caa735a0a498b\nReviewed-on: https://review.gerrithub.io/379531\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Remove share02 and share03 nodes\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove outdated classes from 'environment' vcp_nodes\n\nChange-Id: Ie89f55a2cca61e6a839a7be1361d129e70772e2d\nReviewed-on: https://review.gerrithub.io/374168\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix dvr-vxlan model\n\nChange-Id: I982f6b3c8788c179fefc7e9a74d8482b77bd774b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add k8s metallb test and sampleservice class\n\nChange-Id: Ibfae133cc0841f802e93b290c87d411ef69d1a25\nRelated-PROD: PROD-21474",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix runtestmanager and update bm\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove designate classes from prx01 in pike-dpdk generated model\n\nChange-Id: Ia5f2c297e0c0802c3c850af1973f8130b91d14ed",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookiecutter-context to ENVIRONMENT_CONTEXT_NAMES\n\nChange-Id: Ifcad8c37755d735595c42150df86847b185f2bdf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable stacklight_ssl_enabled by default\n\nChange-Id: Ia1d5f7c7e29197d74d943213a41f88d399bbdbd9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Re-try for glusterfs.server.setup\n\nChange-Id: If67470aabe9a2248008b94846360b6b9a9278699\nRelated-Bug:#PROD-15526",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adding k8s-ha-contrail template\n\n- Adding template that by default maps to k8s-ha-contrail model.\nThis is lightweight model without any integrations. Only k8s and\ncontrail will be installed here.\n\nChange-Id: I9cba40fbbaa2224e2884aeebde050a381c61f038\nUser-Story: https://mirantis.jira.com/browse/PROD-15739",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Rename core fixtures to match the drivetrain component names\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move run k8s conformance tests to k8s manager.\n\n* Moved step with run k8s conformance tests from template\nto k8s manager.\n* Added possibility to change k8s conformance image.\n* Bumped k8s image version from 1.6.2 to 1.6.4.\n* Bumped k8s conformance image version from 1.6.2 to 1.6.4.\n* Added possibility to skip conformance tests.\n\nChange-Id: I6e4a3019f8fa6453005fc62614588209114cb02b\nReviewed-on: https://review.gerrithub.io/366656\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nReviewed-by: <apanchenko@mirantis.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-mcp-queens-dvr-ssl\n\n  nova_vnc_tls_enabled: 'True'\n  galera_ssl_enabled: 'True'\n  openstack_mysql_x509_enabled: 'True'\n  rabbitmq_ssl_enabled: 'True'\n  openstack_rabbitmq_x509_enabled: 'True'\n  openstack_internal_protocol: 'https'\n  tenant_telemetry_enabled: 'True'\n\nChange-Id: Ie32d8a04d223c3db2904ee829a1622195a08b1e6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add usage of 2018.8.0 dbs roles\n\nChange-Id: I5d762c3f91246f1a770a3454dbc749ea31537b13",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase timeout for run_virtlet_conformance\n\nIt is needed for saving report.xml in case if all tests\ninside will fail by timeout. Otherwise test command will not\nfinish before all tests fails and report.xml will not be\ngenerated.\n\nChange-Id: I7bc74cd366b5270a37d096405235298d8f052af3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add k8s metallb test and sampleservice class\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable custom key\n\nChange-Id: I0c3b24970d52d6fe11318c604ea5a023bb74abd7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Replace env_* scripts with static scripts\n\nGenerate env_* files with static variables, instead of\nexecuting the scripts every time when they are sourced.\n\nAccessing salt may be not suitable in some cases, so let's\njust generate the necessary env_* files with.\n\nDepending on the model, some files may not be created:\n\n- utils/env_salt - always created for cfg01 node\n- utils/env_jenkins_day01 - always created for cfg01 node\n- utils/env_jenkins_cicd - created only if the pillar\n      jenkins:client:master exists for cid01 node\n- utils/env_k8s - created only if the pillars\n      haproxy:proxy:listen:k8s_secure:binds and\n      kubernetes:master:admin exist.\n\n* Also, skip time sync on cfg01 node because of race conditions\n  with MaaS self-monitoring services in rack controller and\n  region controller.\n\nRelated-task: #PROD-27687\nChange-Id: Id37eb475e718ad337e21247769126b7d983b3489",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add deployment template for cookied-bm-mcp-ocata-dvr-vxlan\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied model\n\nAdd cookied-bm-mcp-ovs-dpdk\n\nChange-Id: I306826280267477c391086c4a341c969979aa1af",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update pymark for k8s install only\n\nCurrently e2e tests are runs on tops of all k8s envs,\nso no sense to run separate k8s calico install only\n\nChange-Id: Ibaf5f06be0d34a68bc9a7211dd9eb42f5d20a225",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Minor fixes for test_k8s_chain_update\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove old templates\n\nChange-Id: I29bb5f560f78c57de97835fcf1760937e52599e7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Install hwe kernel for xenial nodes in virtual-mcp11-k8s-contrail\n\nChange-Id: Ia3f5887ae2720c97ce026b05d63502f2e6359125\nReviewed-on: https://review.gerrithub.io/374374\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add possibility to change k8s image\n\nAdded possibility to change hyperkube and calico\nimages and docker version before deploy k8s env.\n\nChange-Id: I0de769fcfe6a6a5d4bff96f4b9dd7aeed72d87ca\nReviewed-on: https://review.gerrithub.io/362709\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add 'require_interfaces' option for upcoming change in linux formula\n\nThis is a non-destructive change that adds a new option to\nlinux network interfaces definition in the model, that will\nbe used after [1] is merged.\n\nThe patch [1] introduces a new option for network interfaces\nand allows to configure interfaces in the right way:\n\n- 'use_interfaces' was using for both 'use:' and 'require:' state\n  options, while we need only 'require:'\n- 'require_interfaces' is a new option for [1] that can be used\n  separatelly from 'use:' state option\n\n[1]  https://gerrit.mcp.mirantis.net/#/c/8344\n\nChange-Id: I8ad87bd124f5a4f1adc73afcffd3e4c32535992f\nReviewed-on: https://review.gerrithub.io/372737\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add manila and designate to pike\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update golden bm\n\nChange-Id: I7dd87972eb86addc49e4aef2c1b77aec2039d116",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied model: dvr-ceph-rgw\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Released pike ovs\n\nChange-Id: Ie26692f8d827af4762163cc462cdcbd6f984bff4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase RAM on cfg01 nodes to 4Gb\n\nChange-Id: Iacaec03e0b56096c3551f9931de4a6fcf97119aa\nCloses-Bug:#PROD-15519",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \" Ovs bm with MAAS: * Set right eth names for maas, servers names * set right macs pxe and iface macs * Fix typos * add designate, ssl, barbocan, telemetry, ironic\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix genrated models for labs designed for static models\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-cicd models for openstack configs: ovs/dvr/dpdk\n\nChange-Id: If9e72928b90bb13fd51199c93f9255ec52576bc4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add HugePages support for creating environments\n\n- Add environment variable DRIVER_USE_HUGEPAGES=false (default)\n  to libvirt-based templates\n- Remove outdated templates (mk22/aio)\n\nChange-Id: Id8726917cf43dd45bf5cf73a2e76b74dfb0409ea\nReviewed-on: https://review.gerrithub.io/369602\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add k8s-ha-calico model support\n\nUser-Story: https://mirantis.jira.com/browse/PROD-15738\n\nChange-Id: I55a60282988c7fa48d1ec9778817d4c159a39ff8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cfg node boot\n\nChange-Id: I5a762612d8b696ea4467fc59831ed8186f1128aa\nReviewed-on: https://review.gerrithub.io/366459\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Flush specific interface addresses to not double IPs\n\nChange-Id: I2ef36439212e8a5d6521634daa7ea5b02404021a\nReviewed-on: https://review.gerrithub.io/370299\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add force keepalived restart\n\nChange-Id: I301605fe7be68a025215d82f831393c3aa39bad1\nReviewed-on: https://review.gerrithub.io/371556\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add model cookied-bm-contrail-nfv with MaaS\n\nChange-Id: I230f9d072cf4310c50e531d0ec4922f6b7042f1c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Revert \"Fix network for cicd-bm-k8s model\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add external interface on proxy node for Queens labs\n\nModified labs:\n- cookied-cicd-queens-dvr-sl\n- cookied-mcp-queens-dvr-ceph\n- cookied-mcp-queens-dvr-ssl-barbican\n- cookied-mcp-queens-dvr-ssl\n- cookied-mcp-queens-dvr\n- cookied-mcp-queens-ovs\n\nChange-Id: Ibe0624c6b75624a4565a20dfaad4f628a14d6c1f\nRelated-Bug: PROD-22111",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Regenerate cfg01* node with reclass.storage\n\nChange-Id: I074a46a31d9d296bd1706c9550e6b53ee78a91b0\nReviewed-on: https://review.gerrithub.io/377390\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update model fir Ironic\n\nChange-Id: If78dc4724002728e490ad915a350927818245ae9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "DO NOT MERGE testing for infra\n\nChange-Id: I1429a5a89353de6bc7a5862582bf751e5e3f9b7a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix model and tempest runner\n\nChange-Id: I71158c1568da7a02cf81bcce68ad6d05184a15b1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'add_1_0' of https://github.com/Mirantis/tcp-qa into add_1_0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use our patched version of xunitmerge\n\nThe patched version of xunitmerge prioritizes non-skipped results\nover skipped if there is a collision of test case's results with\nthe same name. The original version of xunitmerge doesn't use\ntest case's results and doesn't track collisions at all.\n\nCorrect merging requires that non-skipped results will not be\nduplicated over input files.\n\nChange-Id: I1db3daab7c37577e3be6bf694c1a58227f074928\nRelated-PROD: PROD-20207",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add HA test \"kill keepalived, haproxy\"\n\n- also added time sync on '*' minions\n  after reverting snapshot in the salt_deployed fixture;\n  and after making a snapshot in the other fixtures\n\nChange-Id: Ia5c5363bf55399422785f66e88e861c23cfab531",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge changes I2f1a8ae6,Ida9e87c6,I5b3a2fa3,I2c0f649e,I28f9dd16, ...\n\n* changes:\n  Add MAKE_SNAPSHOT_STAGES job parameters\n  Add heat template for oc41 deploymeent\n  Add possibility to use ENV_MANAGER=heat in test pipelines\n  Add get_param_heat_template.py\n  Lookup nodes and networks in the nested stacks\n  Improve heat environment manager\n  Replace env_* scripts with static scripts",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add heat template for k8s-genie\n\nChange-Id: I99b840197098980608b3e18809c8e8003a1c70fd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add usage of 2018.8.0 dbs roles\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Do not override _param:  with None\n\nChange-Id: Iae1930750b866e31cba79d1d8a0c229076a0f70b\nReviewed-on: https://review.gerrithub.io/370204\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied model: dvr-ceph-rgw\n\nChange-Id: I1a72bbeae9d26abd84ffd3df49f34a2d5cb291a3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix model\n\nChange-Id: I2f238d773bfd1a1fda2dafd4cc4fc019e7499a01",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add draft k8s-contrail deploy",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add virtlet deploy step\n\nAdded fixture, manager and step for deploy virtlet.\nAdded test for deploy virtlet.\n\nChange-Id: I63a2c4dcd95ba78af60b610a9ae621a784d87fd8\nReviewed-on: https://review.gerrithub.io/362146\nReviewed-by: Sergii Golovatiuk <holser@gmail.com>\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix barbican deploy\n\nChange-Id: I0f08929871e0ca8fe6bf9559cf5c0aa0fe2b9c86",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix keystonercv3 import for cookied lab\n\nChange-Id: If5bb2778d843b3a549be23d32d4d78921cf14ac9\nReviewed-on: https://review.gerrithub.io/377592\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add model for contrail4.0\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add new model cookied-cicd-bm-os-contrail40-maas-2018.8.0. This model is only for deploy from 2018.8.0 release\n\nChange-Id: Ic0fa852eb6d48c3c59a66b05cf7da3cec2af6bca",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update dvr-vxlan\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-mcp-queens-dvr-ssl\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Add default metadata for public network\"\n\nThis reverts commit 15d638dcefb63219472afdb8eaed6ca67a7c5b5b.\n\nChange-Id: I6400068758f389af8a839fd2655f331ee366e13a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix network for cicd-bm-k8s model\n\nLatest changes:\nRestore segregated networks config\n\nChanges:\nFix k8s manager\nChange valid interface for vhost\nSegregation tenant and control nets\nFix prx nodes config\n\nChange-Id: Ibec7fdb70fac37a6ac7361f4774f0250eceb28b3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Migrate cfg01 node to cloud\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove old virtual templates\n\nChange-Id: Id7b6266e71cd04822f64aa20162a9c7546e8dd46",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add OC with queens and ocata\n\n* OC 4.1 with Ocata\n* OC 3.2 with Ocata and 2018.8.0 release\n* OC 4.1 with Queens\n* Fix backend and public ceph ip ranges\n\nChange-Id: Ie0f14e6518b231f687a638d53f1fe6cf09253892",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix for PROD-14806 for virtual-mcp-ocata-cicd\n\n* in case if this lab will ever work...\n* fix for cookied-mcp-ocata-dop-sl2 node roles\n\nChange-Id: I2fb355d708ca56960ba9b44408ca58b12053a26c\nReviewed-on: https://review.gerrithub.io/379455\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add dns nodes for bind\n\nChange-Id: Ia69268d59de94afcf199a9590bca0803bb4afd47",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix virtual-mcp11-k8s-contrail trusty nodes repos\n\nChange-Id: I9a42f09bb5df80b1d66382ad0023de65a67a5f69",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove share02 and share03 nodes\n\nChange-Id: I21aa67bb191671b6f446f5869fa969ce2ed24fcd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add  @pytest.mark.grab_versions to tests\n\nChange-Id: I7d5374c54c5817f265f85559d46e85eb868ddbff",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "\\Update runtestmanager\n\nChange-Id: I85122734c0488f33e594724c88e01ba278f6989e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add pike ssl template\n\nChange-Id: I7066beab58f8f91a78d9f278061a1023bef8a1ea",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update runtestmanager and models\n\nUpdate contexts\nfix runtestmanager\n\nChange-Id: I82ad9232c1cc72ede39ed31a29bf2b4b11fe988f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Install hwe kernel for xenial nodes in virtual-mcp11-k8s-contrail\"\n\nThis reverts commit af009756372fa4f0fdb6a45ebf16a06d54c0e83c.\n\nChange-Id: I6b8eb8b18c27bbe5740752f8a0b3536a1a319880\nReviewed-on: https://review.gerrithub.io/374664\nReviewed-by: Victor Ryzhenkin <vryzhenkin@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix cicd dpdk model\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixing contrail deployment\n\nAdd vSRX to underlay. It requires vSRX image\nFix salt.yaml to mimic CI deployment\n\nChange-Id: Ica2d22ee6648a3d54f0be215d614a341067da4f8\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/362241\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Switch model to use cicd nodes as VCP part, not as baremetal nodes\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add tools to run jenkins jobs and remote commands\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Chnage octavia ranges\n\nChange-Id: I179544307aaf4e89b5379947e5f4eedc94e1421e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add run of LMa tests in k8s deploys\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Test: add vsrx; disable tenant dhcp\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Kubernetes get_keepalived_vip fix for cc\n\nChange-Id: Ie19afe3e5b11af8d05f378cc219b09d9f15fb4b6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Setup galera slaves one by one instead of parallel\n\nCloses-Bug:#PROD-18441\n\nChange-Id: I183ea5f9d0de8016a164139b13eb301ad6e5f142",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update partition sizes for VCP nodes in image-layout.yml\n\nPartition sizes should be aligned to class system.defaults.salt:\n\nparameters:\n  _param:\n    salt_control_size_image_layout_default:\n      root:\n        size: '30%VG'\n      home:\n        size: '1G'\n      var_log:\n        size: '11%VG'\n      var_log_audit:\n        size: '5G'\n      var_tmp:\n        size: '11%VG'\n      tmp:\n        size: '5G'\n\nRelated-Bug: PROD-26620\nChange-Id: Ie653338b02403a878b5c0df04a0b630689bd3d8b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable virtlet for cookied-cicd-k8s-calico-sl\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Changes ips",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-pike-ovs-dpdk model generator\n\nChange-Id: If34c3a65b477bf87e9b0271a5128518c3160056b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add sl",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix cert and etcd states\n\nChange-Id: I2a28ed7f792a3d2c7781da0769f69cc6b08ca387",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add model bm-cicd-contrail-maas\n\nChange-Id: I03fd23b79a4bb73d707a5de6fb736d6cd27c5ee8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move networks settings to underlay.hot\n\nChange-Id: Idb5287d6693fbdc358f4ddc0fb601279800d2b3c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied model whith cookied ovs\n\n- disable keystone.orchestrate.deploy state\n- set correct pin for openstack repository (PROD-21071)\n- designate_worker_enabiled  disabiled\n- min_l3_agents_per_router=1 (PROD-20976)\n- add deploy nginx before openstack services (PROD-22740)\nChange-Id: Ibe3c3972f962e95196f0347954ad68f36b7c80f3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-mcp-queens-dvr-ceph\n\nChange-Id: I8468d7a093fefbffe84ba2831cef0246779248a1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-cicd-k8s-system template for k8s system/swarm job\n\nChange-Id: I9614328fde4f506a5d88af5b6d00fb4f32711054\nRelated-PROD: PROD-28588",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Return 2 cpu for vsrx\n\nChange-Id: I03e48e95ee0f41c6433295f6cd87baadc47286d4\nReviewed-on: https://review.gerrithub.io/373907\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Set missing openstack_dns_node0X_address for designate nodes\n\nWoraround of missing object for designate dns node role\n\nChange-Id: I75f1652b5e9a1ceb242870ccd4df1a459594e0ed",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use 'system.foundation' image to bootstrap foundation node\n\nChange-Id: I584d0cf080f647806145d98e73461169c5331129",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Check if pillar 'prometheus:exporters' exists before run state\n\nAccording to the workflow in the pipeline, prometheus:exporters\nis not mandatory state and should run only if the pillar exists.\n\nChange-Id: Iac68b836d92e80846ae50a794496b5bf9c4de678\nReviewed-on: https://review.gerrithub.io/376726\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add pike ssl template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Modifying new cookied model for baremetal\n\nRemoving openstack_telemetry (mdb) nodes due to this merge\nhttps://github.com/Mirantis/mk2x-cookiecutter-reclass-model/commit/6191e302eecaf62451415ec2eeea992b28d11f71\nHack virouter\nreboot cmp\nchange cookiecutter-contex to another file (with dpdk)\nChange stacklight VIP determining\nMove cinder lvm to computes\nAdd workarounds for cinder backend\n\nChange-Id: I9bfe68a91723563bbd1507d6468b8f4b9efe2861",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Add MongoDB installation for Alerta\"\n\nThis reverts commit 0542705c32969ab25333c9e9408a1f5d88b3e87f.\n\nUntil https://gerrit.mcp.mirantis.net/#/c/20779/ is merged\n\nChange-Id: I48e51194220431233583063db556942b8ec10f83",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix deployment for virtual-mcp11-k8s-contrail\n\nChange-Id: I3dfa685439c8fa0aee7bd20547e6f6fd7fffa7f3\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/373961\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add self-registered computes functional for other templates\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove lvm_backend from computes. Ceph is used\n\nChange-Id: Ifb10c033989e65508e0981f5a486c7b50e4a8fb1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Extend conformance runs and get all results\n\nChange-Id: I87acc1a26ab245031565d4dd195e4f4e35cb66d1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Remove stacklight_long_term_storage_type from cookiecutter template\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix empre spaces",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove packages installation from user-data\n\n- New images for VCP don't contain iptables, so it requires\n  to more complicated bootstrap process than waiting for 22 port.\n  So, let's move all time-consumption commands to salt-shared.yaml\n\n- Salt repositories used for bootstrap was from upstream, while\n  should be from apt.mirantis.com\n\n- Enable hugepages only on compute nodes for\n  virtual-pike-ovs-dpdk config.\n\nChange-Id: I4ca02c873f9594ee98d2c5f5fe8ffd7fb317ae91",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add k8s ingress and metallb features\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"[ocata-dvr]change features_designate_pool_manager to features_designate_bind9\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove mcp11 refs to tcpcloud.eu\n\nChange-Id: Ia89de1777637ff62b890aa20488843348fc9aaa9\nReviewed-on: https://review.gerrithub.io/363079\nReviewed-by: Sergii Golovatiuk <holser@gmail.com>\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tenant_telemetry to ssl models\n\nChange-Id: Ibabe4453db78b5e1d88bc9234f177254e79b1db2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add prx nodes to cicd k8s deployments\n\nThis class is always included for kubernetes platform:\n\n  - system.reclass.storage.system.kubernetes_proxy_cluster\n\nChange-Id: Ia479dbc249f98cbd54270745d9cf031269a4ff21\nCloses-Bug: PROD-24656",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename virtual-mcp-mitaka-dvr template\n\nChange-Id: I81ee5fddb3809dc0b39a5a0aaaaae985b4298da3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add model bm-k8s-contrail-cicd-maas\n\nChange-Id: Id59ece60510c0739767f63183de1e97e696af1ac",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add test to run dns local vm\n\nChange-Id: Ic7d09c9a3c9c2382edb6ca0543711fef2385bfcb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix genrated models for labs designed for static models\n\nAlso fixed 'designate' for ovs configs which are deployed\nwith bind9 backend\n\nChange-Id: I744c79a950d2d82eb3dd90025ac74b69c3eefe4e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update queens models and context\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix inteface name's\n\nChange-Id: Id5512fdfe7ac3089182fe176bb496c0d2a8f6d8a\nReviewed-on: https://review.gerrithub.io/376790\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add HA test \"kill keepalived, haproxy\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Fix ips for ntw01 node\"\n\nThis reverts commit 24c38a154a47dd36285b19dad0df9a0af6ee022f.\n\nChange-Id: Ib4439232e40192c98a8de3ce410b45a7f45057cc",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add designate proxy classes to generated models\n\nOn openstack proxy missing the configuration for port 9001\nwhich redirects designate API requests to the openstack VIP\n\nChange-Id: Iab438a094e9b3175f99ac64532fad87937932a44",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update *-k8s-calico templates\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add separate model for contrail NFV deployment\n\nChange-Id: I8674f0486a3b122153cd10fb9d4fd4985112dc6e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Reduce vcpu for contrail lab to fit on the 16-core node\n\nChange-Id: I643c41e218a43a873bd7d13bb2c2794688940696\nReviewed-on: https://review.gerrithub.io/373904\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update nodes.yaml and underlay.yaml\n\nChange interface naming\nChange external network\n\nChange-Id: I19c7d4ce18ba2a793201798d111691fa484b7b50\nReviewed-on: https://review.gerrithub.io/375387\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Install telemetry services on the virtual-mcp-pike-ovs lab\n\n- add steps for telemetry services in virtual-mcp-pike-ovs\n- remove public 8.8.8.8 dns\n\nChange-Id: Iaef78b4667475e6a18ebc64bc8a5465fe39a8626\nRelated-Issue: PROD-18328",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Consistency fixes for virtual-mcp11-k8s-contrail\n\nChange-Id: I8b77e6c3e8c271bed3bf3e807858cf6d9a9ad085",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix runtest, add runtest_cfg role for virual contrail\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cinder_volume LVM backend in cookied-mcp-pike-dpdk\n\nChange-Id: I9034ecf022f56c79e5ccacb39308a162a2c6573a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Workaround for PROD-22201 - remove linux:network:interface from system\n\nChange-Id: I8dd6ff4084525135c1fab8439545e9c33a48747a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add timeouts to newton models\n\nChange-Id: I18990b3c73eb7b25a3c4260d169b7c5c7772bdb6\nReviewed-on: https://review.gerrithub.io/371452\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Revert \"Add MongoDB installation for Alerta\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update partition sizes for VCP nodes in image-layout.yml\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use salt for file management\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use generated RSA key while accessing nodes via SSH\n\nGenerate RSA key pair (optionally it could be provided by\noperator via environment variable) and use it for SSH\nauthentication instead of password.\n\nAlso it's possible to provide the key from a local file now.\n\nChange-Id: I5fea4d55337f294cd7829392b91b2cca7b85ead5\nReviewed-on: https://review.gerrithub.io/367254\nReviewed-by: Victor Ryzhenkin <vryzhenkin@mirantis.com>\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add new cookied model for baremetal\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change cluster size for bm-contrail + barbican,designate,telemetry\n\nChange-Id: Ic7566ffe6577535b0a45ee425d940342931a0828",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add new k8s genie-cni calico+flannel test\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove wrong template in tcp-qa\n\nRemoved non-existent test-requirements from tox\nRemoved wrong virtual_mcp11_k8s_calico template\n\nChange-Id: I4620bcee363ae7fb88c6fb9e6ea8b495f3a3ad42",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add sync time task in template\n\nTo be sure that vips are ok before state grafana.client:\n* Add sync time\n* restart keepalived service after time sync\n\nChange-Id: I82070f418c0dcd3147d59752c40f3c69b3327956",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Environment model level\n\nEnvironment model is a mapping of the hardware objects specified\nin the inventory on the cluster model objects.\n\nBased on the inventory, environment model provides ability to use\nflexible underlay configuration per each node.\n\nUsing 'roles' for nodes allows to map the additional components\non the basic cluster configuration using only inventory labels\nor tags (creating the inventory file for this template from the\ncustomer's inventory depends on each specific case and may require\nadditional translation code).\n\n* environment_inventory: collection of already existing\n  hardware and virtual inventories for different lab configuration\n* environment_template: cookiecutter template to generate\n  environment model with any required configuration\n\nChange-Id: I3c97957f94f472b634ece5d218fdc14fed185058\nReviewed-on: https://review.gerrithub.io/374868\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-cicd-k8s-system template for k8s system/swarm job\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix admin ip for cfg node\n\nAfter merge https://gerrit.mcp.mirantis.net/#/c/10018/1\nwe need to align ip of cfg node\n\nChange-Id: I4e2a26acfc1774fa919e3d1ee0d2adea8af56f1a\nReviewed-on: https://review.gerrithub.io/378066\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Refactor the underlay.ssh update process for VCP minions\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update queens models and context\n\nChange-Id: I1f60df6258e965d79a3e76262ffa055114d97e7f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move from apt.mcp.mirantis.net/images/ to images.mcp.mirantis.net\n\nChange-Id: I6cc3360303b2ecd57e8fe1d27481f477f51a1309",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix dns roles\n\nChange-Id: If26464e6bbda565ee8d83ee7c90e4a89ce14b97c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Revert \"Fix ips for ntw01 node\"\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use master_config.yaml as config drive bootstrap for cfg01\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Kubernetes get_keepalived_vip fix for cc\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add test_k8s_ingress_nginx test\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Reduce libvirt node names lenght for cookiecutter-context-k8s-sl\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update ssl models\n\nChange-Id: Ic9d724fa9e692631893cba3a9b6638cb0bf8356e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add cookied-bm-contrail40-queens\n\nLatest msg: Remove wr for ten network\nUS: PROD-22163\n\nChange-Id: Iff6f055b0da984bd8c4f1b8c4aba41be32376624",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Return back clone and install SL tests into k8s\n\nChange-Id: I999d5f7bcadfcfab3f0f1ea17408eeaa39b67b8d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "ips",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use static IPs for all of networks (control,tenant,external)\n\nChange-Id: Iafe690f5858c26948c6748c9e3aad3d17f22ada1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Extend cookied-cicd-queens-dvr-sl virtual lab\n\n- add 3 x kmn nodes for barbican\n- add 2 x gtw nodes (total 3 nodes) for octavia_cluster_manager\n- enable \"octavia_cluster_manager\"\n- enable barbican (without integration to OpenStack)\n- enable internal OpenStack SSL endpoints\n\nChange-Id: I3221aebbaaf8410448cd13e2a099447cabdc4c2c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix E* pep8 warnings\n\nThe list of fixed pep8 errors:\nE122, E127, E128, E226, E231, E241, E265, E302, E305, E306, E501\n\nChange-Id: I89fbc7748f24bfdb7dc765d08624a8898654f698\nReviewed-on: https://review.gerrithub.io/379375\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add retry counts in the places where jobs were dropped.\nAlso increased timeout.\n\nChange-Id: I1eeb6d7a78debb3dafd4118a5dae365408a6eb07\nReviewed-on: https://review.gerrithub.io/362562\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update k8s-ha-calico template and change conformance approach\n\nRelated-PROD: PROD-25978\nChange-Id: Ie0e3ef34e5e82f09c845b7fa6befac060a95b805",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update all cicd models\n\nAdd runtest_cfg role to baremetal envs\nAdd manila_enabled and barbican_enabled params\nto all context\n\nChange-Id: I37b7725291e04083ed0bf1b7a6a08ac45aac5dfb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add heat template for k8s-contrail deploy\n\nChange-Id: I375c9ffae7ef50e7c75a6c56290c08475fbf56ea",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Test: add vsrx; disable tenant dhcp\n\nChange-Id: I3bba947a7ea680dbfac30102dbdd3443b3353d0f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove bmk01 node\n\nChange-Id: Iefa22d43804921bba027e0f29db0bce8670fc46a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix SL cert\n\nChange-Id: I3ccf7bec89e56309359935a203a8094c03625379\nReviewed-on: https://review.gerrithub.io/369053\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename core fixtures to match the drivetrain component names\n\nThe following changes:\n  common_services_deployed -> core_deployed\n  sl_deployed -> stacklight_deployed\n\nChange-Id: I6e505d2ef96053b19b2d43b0214f5a30f71ae8ea",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add deployment steps for model virtual-mcp-ocata-cicd\n\nChange-Id: I55a62a827a9d209821cf69f82b8b0eda58d816f4\nReviewed-on: https://review.gerrithub.io/369227\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add cookied-bm-contrail40-queens\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase volume size for k8s-contrail cfg01 nodes\n\n20Gb is too low to fit the cfg01-day01 image\n\nChange-Id: Iff9ddf028e1b3260453528c52e8eae2ac23dac9e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Improve cicd test runner and reported\n\n- run pytest code without capturing stderr, to get solid output\n  in the Jenkins log\n- do not print the error message if something failed,\n  it is already shown in the exception message\n- add re-tries while getting the job results. Jenkins may return\n  'None' for the job workflow right after the job is finished.\n- add getting k8s version to utils/env_k8s\n- add reporting k8s_conformance suite to TestRail\n- increase number of cmp nodes to 4 on k8s cicd envs\n- increase memory on k8s cmp nodes from 2Gb to 4Gb\n- increase memory on k8s ctl nodes from 2Gb to 8Gb\n- enable verbose in k8s_conformance tests\n\nChange-Id: I672279007fe4d7e3d684f0e49d1bcb7ff42a430f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix barematal deploy: dvr-vxlan\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Mark k8s system tests with k8s_system mark\n\nChange-Id: I0a1cb7e30648bdf9fd4f89c62fe08661b28c0117\nRelated-PROD: PROD-28588",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add overrides.yml usage to nodes in enviromnet model\n\nChange-Id: Idd051c3a989828fea3f3e1a3624d66d47e74ee5f\nReviewed-on: https://review.gerrithub.io/377552\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix test_k8s_genie_flannel fixture dependencies\n\nChange-Id: I6ca1197c77ac6e4f1c189372c1af7634c3c6fa54\nRelated-PROD: PROD-21550",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change port for linklocal from 443 to 6443\n\nChange-Id: Ic9c890492f2cb464d49428673f0fce84853ca990\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/373973\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add 'k8s chain update' test\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add k8s+calico minimal template\n\nChange-Id: I7cc14c881dbbfe526c9c4f616e02e380095b2fc4\nReviewed-on: https://review.gerrithub.io/365167\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add k8s keepalived failover test\n\nRewrite openstack_actions to remove hardware dependency from it.\nRewrite conformance method to allow more flexibility.\nAdd timeout after restarting keepalived workaround because\nsometimes it did not have time to go into MASTER state before\ntest starts.\n\nChange-Id: I668844f91f4a8fb473e199977f1ebe6ca7ddc35a\nRelated-PROD: PROD-20878",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Run 3rd-party test suites without excess dependences\n\n- each test method is parametrized with ENV_NAME to\n  get unique names in JUnit reports for different\n  configurations\n\nChange-Id: I8db671d1687f287dc8ca97782cd7bbdf0eaef988",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align static template to runtestmanager\n\n* Add gtw 122 for external net for offline static\n* remove post test resources creation in offline static\n\n* Add docker repo for gtw node on ovs and ctl01 on contral\n  templates, as for tempest run we need the docker\n  and better install it from mirantis repo then from unpredictable source\n\nChange-Id: I9feee9d4b91d840c07002e97fe0f87b0cfcfadc0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add prometheus to formalas install\n\n* add prometheus to formulas install as without it models are broken\n* Add repo variable to repo for formulas\n\nChange-Id: I781dcd1c268dea9a5bf4f3d06f917faa04abadeb\nReviewed-on: https://review.gerrithub.io/362549\nReviewed-by: Dennis Dmitriev <dis.xcom@gmail.com>\nTested-by: Dennis Dmitriev <dis.xcom@gmail.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use reclass generator for k8s computes instead of 'static'\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add templates for deploy golden-bm with pike and queens\n\nReleated-PROD: PROD-28689\n\nChange-Id: I68fa5d2311bc59478194c68758e4b33af053de76",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add models with barbican\n\nChange-Id: I385e313e04a314c3eaa7bcc5abc4210bba47efef",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use cfg01-day01 image for salt-master node\n\nAdd possibility to specify a separate image for cfg01 node\nusing environment variable IMAGE_PATH_CFG01_DAY01\n\nIf the variable wasn't set, then image from IMAGE_PATH1604 will be\nused.\n\nChange-Id: Ic8983098452f0d0486b13aba6eea15925bf03393",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add checks for netchecker metrics\n\nChange-Id: Icc3ab64624168d4b39b18f06cda18e8b890eb4ee\nReviewed-on: https://review.gerrithub.io/368050\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Contrail fixes\n\nChange-Id: I55de0550f4c184ece27de318ea08025ac133f839\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/363007\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added model for initial ocata deploy with cicd\nChanged template name to cookied-bm-ocata-cicd-pipeline\n\nChange-Id: I9854b32869251582e2bb52dcae9d09053d734a82",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add queens octavia\n\nChange-Id: I34c631d66c8f1ba44c9eddda879d08f17c2262cf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add templates for deploy golden-bm with pike and queens\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use master_config.yaml as config drive bootstrap for cfg01\n\nChange-Id: I2ad29bef878658cb5117f7b827c655ef76cf1544",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Switch model to use cicd nodes as VCP part, not as baremetal nodes\n\nChange-Id: I5b7de6427d5e5ccbd36d7f5dd890efd3847fce7c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add model bm-cicd-contrail-maas\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add logrotate formula in all templates\n\nNow its requred by linux.single\n\nChange-Id: I1a3ae2d1a4304d9924554eaa1f67d840aab1b04c\nRelated-PROD: PROD-19346",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add bind and manila\n\nChange-Id: I7649cda35e8b94329b9b653a4ff05645eafc3a90",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add model cookied-bm-contrail with MaaS\n\nChange-Id: I8f29d684a5de003f2f1788cfb8c56a8ef819eae0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix cookied-mcp-pike-dvr-ceph\n\nChange-Id: I8f5beb85f25876948690e6d690d42c9ab5d9f672",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial change to support heat-based environments\n\nMoved the patch from the mcp/mcp-qa repo, ref #1170 to\nnot lose it after cleaning up.\n\n1.Added envmanager_heat.py to create environment in OpenStack\n  and use the created heat stack as the metadata source.\n  Current conventions for heat stack metadata:\n  - OS::Nova::Server must use 'metadata' property to specify list\n    of the node roles, example:\n\n    cfg01_node:\n      type: OS::Nova::Server\n      ...\n      properties:\n        ...\n        metadata:\n          roles:\n          - salt_master\n\n  - OS::Neutron::Subnet must use 'tags' property to specify the\n    address pool name (L3 network roles), example:\n\n    control_subnet:\n      type: OS::Neutron::Subnet\n      properties:\n        ...\n        tags:\n        - private_pool01\n2. Change underlay.yaml to use the user data file 'as is', without\n   indents and jinja blocks. This will allow to use the same\n   user data file for fuel-devops envs and heat stack envs.\n\n3. Add an example microcloud-8116.env file with some defaults.\n   For other stacks, another .env files can be created, with different\n   access keys, networks, images, ...\n\nRelated-Bug: PROD-27687\n\nChange-Id: Iaa9e97447bd1b41e5930a1ffbb7312945ba139f4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[virtual-mcp11-k8s-contrail] Use correct contrail installation sequence\n\nUse correct contrail installation sequence in template\nvirtual-mcp11-k8s-contrail. Also, sync time on nodes and apply\nworkaround for incorect contrail linklocal service initialisation.\n\nChange-Id: I085d538a9dbd823ef21ee9252aebaa31a3cc8096\nSigned-off-by: Sergii Golovatiuk <sgolovatiuk@mirantis.com>\nReviewed-on: https://review.gerrithub.io/367489\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update dpdk deploy and add pipeline deploy\n\nChange-Id: I41e6bdfd59eabd0db9853767978c4e9369692630",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'add_1_0' of https://github.com/Mirantis/tcp-qa into add_1_0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add external interface on proxy node for Queens labs\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Download tests results\n\nChange-Id: I78b66478730a64c6b388c14bbdc17760f2f9e317\nReviewed-on: https://review.gerrithub.io/370015\nReviewed-by: Tatyanka Leontovich <tleontovich@mirantis.com>\nTested-by: Tatyanka Leontovich <tleontovich@mirantis.com>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Install all formulas\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove obsolete k8s template code that was cause of invalid apt source\n\nChange-Id: If4dd32d31c4cd8bccb20fb0c1a1081c181264d7e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix keepalived VIP interface name for k8s cookied models\n\nChange-Id: I0de392fc018d447c6641bab37b14c947b360935a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Do not use fixture salt_deployed where it is not needed\n\nCloses-Bug: #PROD-30630\nChange-Id: Ib6126a4589f861a1ca8aa0f69691c3862daf81fe",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix loading default values from environment variables\n\nUse cast of environment variable to expected type\n\nChange-Id: I192772599b46545597c785bb5cc3c74f6ea5ad80",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change interface roles for heat based envs\n\nChange-Id: Ic482270a0a01e38f0e18059cc5b49d2ac8340bfe",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Delete coredns and kube dns vars\n\nThose vars is pinned in formula,\nso on context level they are not neccessery\n\nChange-Id: Ibab9b82cebb1d7487f583910046a7259afadbcde",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add 'kill dhclient' workaround to k8s tests\n\nKill dhclient on non-dhcp interfaces because linux.network state\nleaves dhclient on interface even if its configured as static\n\nChange-Id: I4421e19c60ffb803af4b555712396bb5d00535c7\nRelated-PROD: PROD-21778",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix keepalived interface for kubernetes control nodes\n\nChange-Id: I3cf3759021b9c6cb1e77ecad1dd58d8ae929e86d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix underlay. Fix steps\n\nChange-Id: Ie6e65afca93d2f8cd0061aa97be5d61b7259f96d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add ability to pass deployment successfully\n\n if required namespace already exists.",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use 'system.foundation' image to bootstrap foundation node\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add swarm-run-test job\n\n- add swarm-run-test job to run pytest tests\n- workaround for timesync\n- common groovy script for k8s and openstack deployments\n\nChange-Id: Icfe13371fbed231bb4f5fd794d0a43edf347c06a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "attemp to run tests\n\nChange-Id: I888b05b372aaa8d21856f8627aa69c56e722f58f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add designate, fix tempest runner\n\nChange-Id: I5c86b5214553632497f8b868dffbe1ca0621a306",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add workarounds to cookied-mcp-pike-dpdk\n\n- update alternatives to use dpdk-enabled ovs : PROD-18833\n- pre-install linux-headers : PROD-18834\n\nChange-Id: I73fc7ae4d194331b97cc585ebbb2810cd00e3fce",
+        "issue_summary": ""
+    }
+]

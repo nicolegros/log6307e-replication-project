@@ -1,0 +1,206 @@
+[
+    {
+        "commit_message": "Install etcd via docker_hybrid source\n\nChange-Id: I9adcd89025f901ce3c9ef27bcf921b943735c4c9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix network addresses\n\nChange-Id: Ie0a9bfdcbdf972476c6358288ed4eadb436e2c28",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable ceilometer in DVR\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Remove Nagios when Sensu is available\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add extra check for Calico proper configuration\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove Nagios when Sensu is available\n\nFor mk22_lab_dvr and k8s_calico labs.\n\nChange-Id: I6481bd3a9554a68079ecce78c5df8dbcce513ccf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use gerrit.mcp as submodule instead of github.com\n\nThe change also modifies the URLs of the StackLight model accordingly.\n\nChange-Id: If4a727ef2a7c5845f5672a8c7a188ce0b2f81178",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable ceilometer in DVR\n\nChange-Id: I3cfbc78c187e26d97cac295fbe81e9177cb1a95e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Configure 2 availability zones for testing\n\nChange-Id: Id7c836e20aef88d78be20207119030467b14b427",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Create and deploy SSL certificates/key for K8s client\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix codename for computes on mk22_lab_advanced\n\nChange-Id: I9a78043f7f95009451f2661322be0272ad77fc7f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable Kubernetes logging\n\nChange-Id: Id2f461b39bb971949aea5dd05323ab142a5f9ea0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable Kubernetes logging\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #25 from simonpasquier/misc-horizon-fixes\n\nMisc horizon fixes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix a misplaced sleep",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Do not configure Haproxy for etcd\n\nChange-Id: I83ba4909fec126c597df114225a667184961fdcd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #35 from SwannCroiset/k8s\n\nAdd k8s cluster definition",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Set correct linux_system_codename for compute nodes\n\nFor now the models only support Trusty for compute nodes.\n\nChange-Id: I03d11009fd07ad5a87df94cc57fbfe1e5ff0484c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix network addresses\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix for proper Nginx state\n\nChange-Id: Id4e2a7182c3e5b60965bd8d63e4600f6ba3d76e4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Configure 2 availability zones for testing\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Etcd certificates\n\nChange-Id: I4ada44e20d9b72d686696a93281fc4d46dff16be",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Switch to MCP repositories\n\nCo-Authored-By: Dmitry Kalashnik <dkalashnik@mirantis.com>\nChange-Id: I64ffc759b31db5f43087539cca021701ac391cd9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Use nightly repositories\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #31 from thouveng/fix-misplaced-sleep\n\nFix a misplaced sleep",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Enable Calico Felix metrics\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add safety quotes\n\nUniformization across all scripts\n\nChange-Id: Ie4f49bec3866b4678c6c8e6460ce5f5c7b188d8d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use nightly repositories\n\nChange-Id: I7a90fc67b66a26b126a98add81c869d619e51191",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix for proper Nginx state\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Deploy Sensu in addition to Nagios\n\nThe current system reclass model doesn't allow to deploy StackLight\nwithout Nagios unfortunately.\n\nChange-Id: I358d706b285f97cb20a72a418eeac2c4f0f3c60f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable Calico Felix metrics\n\nChange-Id: I4ea3adca12a2aed6cb24c599fd2a4d3ef80b6cce",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add extra check for Calico proper configuration\n\nChange-Id: I6b6f71bfe4c02f0fddaaf522a42357bdd332285c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create and deploy SSL certificates/key for K8s client\n\nThis is required for remote_collectd client to be able to check the\navailability of the k8s apiserver through the VIP.\n\nChange-Id: I546f21f789d57e91a4855e384d0d7b2a96cf7deb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Switch to MCP repositories\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix model for missing definition\n\nChange-Id: I78fa04371df40c7ae1a13a3bed17c65a700a5c95",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove cfg entry from /etc/hosts\n\nThis entry isn't used and leads to bad name resolution because it\noverrides cfg01 in some cases.\n\nChange-Id: I643d0e022558398e18868362d727268b3bcbd4fb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add k8s cluster definition\n\nmainly inspired from https://github.com/mceloud/k8s-salt-model",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change salt-api port\n\nChange-Id: I25e29ca52fcdb24354efd1c7fca2a9dd90f4813a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Fix model for missing definition\"",
+        "issue_summary": ""
+    }
+]

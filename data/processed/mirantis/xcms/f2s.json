@@ -1,0 +1,54 @@
+[
+    {
+        "commit_message": "Generate inputs for compute and ceph-osd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix inputs in resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove all resources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use manifest from osnailyfacter in original directory",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #19 from dshulyak/resources\n\nResources",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add additional packages and config for container",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Change path to actions",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #348 from dshulyak/f2s_inputs\n\nGenerate inputs for compute and ceph-osd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Take into account skipped (anchor-like) tasks",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Generate missing puppet tasks",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #10 from dshulyak/fresh_tasks\n\nGenerate missing puppet tasks",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Save generated resources with inputs",
+        "issue_summary": ""
+    }
+]

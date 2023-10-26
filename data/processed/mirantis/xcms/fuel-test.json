@@ -1,0 +1,238 @@
+[
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #7 from dmitryilyin/master\n\nUpdate",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #9 from dmitryilyin/master\n\nUpdate",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "make_tests refactoring",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "extend template for puppet_tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' of github.com:monroid/fuel-test",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge remote-tracking branch 'origin/master'\n\nConflicts:\n\tpuppet_tests/templates/puppet_module_test.py",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "assert result with puppet error's exit codes",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "first version of generator",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "merge with master",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix in settings",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "added a new volume",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "refactor of unused methods",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix for error with RAID",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "delete old stuff",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "improve for astute generator",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #19 from monroid/master\n\nfuel-astute",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add dependency gathering top make_tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix in template: added module.name",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add documentation for dependency gathering",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #3 from Mirantis/master\n\nMerge with Mirantis/master",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' of github.com:dmitryilyin/fuel-test",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #12 from monroid/master\n\nDocumentation refactoring",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix in template -- upload_modules",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Changed snapshot name",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #17 from dmitryilyin/master\n\nAdd support for executing serverspec to make_tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "parameters for deploy",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'master' of github.com:Mirantis/fuel-test",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #4 from Mirantis/master\n\nMerge with master",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "simple test",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "puppet integration via common env",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Minor cleanups",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge branch 'fuel-astute' of github.com:monroid/fuel-test into test-fuel-astute",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add verify_files gathering",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Improve puppet_test template",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge remote-tracking branch 'mirantis/master'\n\nConflicts:\n\tpuppet_tests/templates/puppet_module_test.py",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #6 from monroid/master\n\nAssert puppet result with expected",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add support for executing serverspec to make_tests",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tests via astute",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge pull request #5 from Mirantis/master\n\nMerge with master",
+        "issue_summary": ""
+    }
+]
