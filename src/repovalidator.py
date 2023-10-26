@@ -16,8 +16,8 @@ class RepoValidator:
     def has_at_least_2_commits_per_month(self) -> bool:
         if self.df.size < 1:
             return False
-        self.df.loc[:, 'month'] = pd.to_datetime(self.df.date).dt.month
-        self.df.loc[:, 'year'] = pd.to_datetime(self.df.date).dt.year
+        self.df.loc[:, 'month'] = pd.to_datetime(self.df.date, utc=True).dt.month
+        self.df.loc[:, 'year'] = pd.to_datetime(self.df.date, utc=True).dt.year
         return (self.df.groupby(['year', 'month']).count() >= 2).all()["date"]
 
     def has_11_percent_of_iac(self) -> bool:

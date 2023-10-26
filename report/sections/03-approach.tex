@@ -2,33 +2,58 @@
 \section{Approach}
 3) Methodologies for answering each RQ (How to mine the repositories, the tools employed, and ML models they've used).
 \subsection{Repository mining}
+To answer the research questions, we used the same dataset as the original paper. However, to get a better idea of the actual state of IaC scripts in the reported organizations, we also mined the latest version of the Mirantis, OpenStack and Wikimedia repositories. \\
+To mine the Mirantis and Wikimedia repositories, which are located on Github, we used the Github REST API. We first started by fetching all the repositories of the organization using the following GET request:
+
+\begin{verbatim}
+    https://api.github.com/search/repositories?<org_name>
+\end{verbatim}
+
+Using the list of repository names, we could then fetch the commit history of the every repository which gave us a list of the commits with their creation date using the following GET request:
+
+\begin{verbatim}
+    https://api.github.com/repos/<repo_name>/commits
+\end{verbatim}
+
+This allowed us to filter out the repositories which did not respect \textbf{Criteria-3} of the paper, which stated that the repository must still be active. This status was determined to be that a repository must have at least two commits per month. \\
+However, the preceding request did not return the files impacted by the commit, which we needed to validate \textbf{Criteria-2} of the paper. Therefore, using the filtered repositories, we fetched the list of files impacted by each commit using the following GET request:
+
+\begin{verbatim}
+    https://api.github.com/repos/{owner}/{repo}/commits
+\end{verbatim}
+
+Using the list of files impacted by each commit, we could validate \textbf{Criteria-2} of the paper, which was that at least 11\% of the files belonging to the repository must be IaC scripts. It is important to mentionned that we interpreted this criteria as meaning that 11\% of every file that have ever been impacted by a commit must be IaC scripts. In that regard, we verified if 11\% of the files in every commit of a repository was an IaC script, and if so, we added the repository to the list of valid repositories. \\
+Lastly, we respected \textbf{Criteria-1} by only downloading public repositories of the Mirantis and Wikimedia organizations. \\
+
+To mine the OpenStack repository, which is located on Gerrit, we used the Gerrit REST API. We first started by fetching all the repositories of the organization using the following GET request:
+
 \subsection{RQ1: What source code properties characterize defective infrastructure as code scripts?}
-For this research question we used the reported data from the 
+For this research question we used the reported data from the
 paper\footnote{https://figshare.com/s/ad26e370c833e8aa9712}.
 We used the \emph{Mann-Whitney U} test with the Scikit Learn package
-to evaluate which properties had the biggest influence on defective files. 
-The null hypothesis is that the property is not different between defective and 
-neutral files, and the alternative hypothesis is that the property is larger for 
-defective than neutral files. As in the paper, we consider a significance level of 
+to evaluate which properties had the biggest influence on defective files.
+The null hypothesis is that the property is not different between defective and
+neutral files, and the alternative hypothesis is that the property is larger for
+defective than neutral files. As in the paper, we consider a significance level of
 95\% which means we reject the null hypothesis when $ p-value < 0.05 $. \\
 
 We also used \emph{Cliff's Delta}\footnote{https://github.com/neilernst/cliffsDelta}
 to measure how large the difference between the distribution of each characteristics
-for defective and neutral files is. 
+for defective and neutral files is.
 
-\subsection{RQ3: How can we construct defect prediction models for 
-infrastructure as code scripts using the identified source code properties?}
-Before using statistical learners, we completed a PCA analysis to determine 
+\subsection{RQ3: How can we construct defect prediction models for
+    infrastructure as code scripts using the identified source code properties?}
+Before using statistical learners, we completed a PCA analysis to determine
 what properties should be used. We only used the principal component that accounted
 for at least 95\% of the total variance as the input for the statistical learners.
-We can see in Table \ref{table:pca} that only one or two principle components 
+We can see in Table \ref{table:pca} that only one or two principle components
 account for 95\% of the total variance depending on the dataset. \\
 
 With the component created, we than used it as the input for the different
 statistical learners. Like the paper, we used Scikit Learn packages to construct
 the models. The learners that were used are Classification Tree (CART),
-K Nearest Neighbor (KNN), Logistic Regression (LR), Naive Bayer (NB) and 
+K Nearest Neighbor (KNN), Logistic Regression (LR), Naive Bayer (NB) and
 Random Forest (RF). \\
 
-To evaluate the performance of the different classification models, we used the 
+To evaluate the performance of the different classification models, we used the
 same metrics as the paper (i.e. precision, recall, AUC, F-measure).
