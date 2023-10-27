@@ -10,6 +10,7 @@ from github import Github, GithubException
 from github.Commit import Commit
 from github.PaginatedList import PaginatedList
 from github.Repository import Repository
+from dateutil.relativedelta import relativedelta
 
 
 class RepoExtractor:
@@ -49,11 +50,11 @@ class RepoExtractor:
         repo = self.api.get_repo(name)
         return self.extract_repo(repo, name.split("/")[0].lower())
 
-    def extract_repo(self, repo: Repository, org_name: str):
+    def extract_repo(self, repo: Repository, org_name: str, since = None):
         processed = {}
         print(f"    Extracting commits from repo '{repo.name}'")
         commits = []
-        get_commits = repo.get_commits()
+        get_commits = repo.get_commits(since=since)
         print(f"    {get_commits.totalCount} commits total")
         for c in get_commits:
             commits.append(c)
