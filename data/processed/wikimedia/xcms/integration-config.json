@@ -1,0 +1,1138 @@
+[
+    {
+        "commit_message": "dockerfiles: lower tox 4 verbosity\n\n`tox -v` outputs a lot of debugging messages which seems pretty useless.\nMoreover they are written using white color which does not play well\nwith the Wikimedia Jenkins white background.\n\nBug: T347241\nChange-Id: I2c25fdce8663353ff041d41debf26f224657de8a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: cascade for installing pcov in PHP images\n\nThe quibble-buster images are not rebuild since they install pcov\ndirectly.\n\nBug: T280170\nChange-Id: I41777be51e40de6005b081656596f22bcd6cba09",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: tox-mysqld use mariadb-server package name\n\nBug: T278203\nChange-Id: Ic7b6443feb47d46aed9a2b3ebea8bbe23bc8b23b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Create the buildctl user home directory\n\nBug: T308271\nChange-Id: I632f62b782e4b94e009fbcbba9f502414fa587ba",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php80] Update to PHP 8.0.24 and cascade\n\nBug: T315167\nChange-Id: I920e03450f0be3ab21076cabbf34c71a54d35e88",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enforce editorconfig settings\n\nRename the `flake8` tox environment to `lint` and add\n`editorconfig-checker` to run against all files in git.\n\nFix indentation of various files.\n\nThis is based on mediawiki/tools/train-dev change:\nhttps://gerrit.wikimedia.org/r/c/736442\n\neditorconfig-checker uses per lines regex and is unable to support\nalignment space. Consider the following python code:\n\n print(\"foo\"\n       \"bar\")\n\nThe second line has six spaces which raises a complaint when the indent\nsize is set to 4. However the two spaces are purely for alignment and\nare perfectly fine. Those alignments spaces are used in Debian\nchangelog, python and yaml files.\n\nTo support alignment space, run the checker twice:\n\n1) without changelog, *.py, *.yaml files\n\n2) against those files but ignoring the indentation check\n\nFor Python alignement is already covered by flake8. For Yaml if the\nindentation is incorrect, it would cause an issue in our test suite and\nwill surely be caught.\n\n':!*.py' is git pathspec described in gitglossary(7). All credits go to\nTyler Cipriani.\n\nChange-Id: I701fd8a84ab32b0d2642d33e19a7ee40fef993f3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: Bump version to update kubeconform-json-schema\n\nChange-Id: I9bd3ef77184ec20d090ba9c22a46d35bcac7264a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "quibble-buster-php74-coverage: Fix script descriptions\n\nChange-Id: I263a2a0f1db956185c14135cb4f8cc790ff4ab52",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update gradle stretch > bullseye\n\n* Update base image from Stretch to Bullseye\n* Upgrade Gradle from 3.2.1 to 4.4.1\n\nAlign the image version with the shipped Gradle version.\n\nBug: T278203\nChange-Id: Ie8137abfce3fa8192b14d79507480846a0e17ca6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: move to bullseye\n\nChange-Id: Ib8db522ccabef93e71f7c40ceae782c81b42d4b5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Install php-yaml everywhere\n\nMediaWiki SettingsBuilder will load default settings from YAML source\nfiles. The YAML extension improves performance considerably but needs to\nbe tested.\n\nBug: T296331\nChange-Id: I92a0464aa9faeacf63f1c6dc1c78559d1e6da400",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: shellcheck: separated glob from grep options\n\nChange-Id: I1d1bb8c293c4633f59d512f1798eb90790ff9930",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide composer-related PHP 8.2 images\n\nBug: T314093\nChange-Id: Icc817288d55c56abde2a96dddeb6391c51aa932f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "release-notes: filter out branches that do not look like MW releases\n\nBug: T334211\nChange-Id: Iff9878be503badef21f495912e2301d253a4dd42",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet-catalog-compiler: Add FAIL_FAST parameter\n\nThis depends on pcc being released though.\n\nBug: T296984\nSigned-off-by: David Caro <dcaro@wikimedia.org>\nChange-Id: I7e6d613f6f7328cc4cc95b5c983e0ef6760c1b1e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: convert PCC job to a matrix job\n\nThe matrix job let us offer the user the combination of labels a job\nwill run on. It offers a way for end users to pick up different PCC\nworkers running different versions of Puppet.\n\nWe currently use the `puppet-compiler-node` label, I have made the job\nto use version specific labels:\n- puppet5-compiler-node\n- puppet7-compiler-node\n\n`puppet5-compiler-node` has been added to the existing Puppet 5\ncompilers.\n\nThe parent job is run on the contint* agents (gathered under the label\n`productionAgents`).  Once the builds combinations have been\ndeterminated, the builds run on a node having the selected label.\n\nSince Jenkins can't convert from a Freestyle job to a Matrix job.\nWhen updating the job, the old one MUST be deleted (which causes all\nbuild history to be lost)\n\nBug: T236373\nChange-Id: I881681de83ddf5cf3573fd88651e0cb91b18efac",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: rebuild\n\nChange-Id: I9590c7629a9955f7b8c6748043fa7455f5c1369a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: set castor hostname from CASTOR_HOST env\n\nThe Docker image for Castor comes hardcoded with the WMCS instance\nhosting the service: integration-castor03.integration.eqiad.wmflabs\n\nLet us override the host to rsync from by setting the CASTOR_HOST\nenvironment variable. Will let us migrate to Bullseye easily.\n\nAdd test to cover the rsync command is adjusted when the environment\nvariable is set.\n\nBug: T216244\nBug: T252071\nChange-Id: I00706931da30b63ae40262286d3f5ffde4ef3e70",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: quibble images to use soname xdebug/apcu\n\nphp-apcu and php-xdebug now depend on PHP 8.1. Use the soname packages\ninstead.\n\nBug: T754896\nChange-Id: I1711d54419113312417b2874106f36eb451d5745",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: set seed_image for docker-pkg\n\nAlthough we do not use a seed image, docker-pkg 3.0.1 requires it to be\nset or it will raise an exception.\n\nBug: T297619\nChange-Id: Id67ef8eecd2a4fd4d1a2999b4e75bcae9935f8a5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [mediawiki-phan-testrun] Add missing 'USER root' so apt works\n\nNo need to rev. the changelog, as the version didn't build. Whoops.\n\nChange-Id: I96a813034027ae64426922747e38979c35784dbb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update puppet test job to use tox 4\n\nUpdate operations-puppet-tests-buster-docker\n\nBug: T345152\nDepends-On: I726dbbaededb016d5659b3db62382c69ec7a7621\nDepends-On: I40ff6033f2df28f5bc3caa8e9aab4c6eb1e6f51c\nChange-Id: I2d83ef100615cee932c0ef6c324864d6a7353441",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: remove helm2 from Docker image\n\nhelm2 binary is removed from helm-linter image. helm3 is supported\nonly to reduce edge cases and version check from CI and integration\ntools.\n\nBug: T251305\nChange-Id: Ia24d4dfb1bd8991f8ef9581f2687d2dd58ec4134",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update Bazel gpg key\n\nChange-Id: I96e71c23bc1d84a99f7ab3c86fbf0ac5fdc33fbd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: remove deprecated kubeyaml\n\nBug: T316348\nChange-Id: I26321a05e793685dcbe73ed9fa3ffa1f33999cc8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker: Provide mediawiki-phan-php82\n\nBug: T314093\nChange-Id: I8780a864c76999910beb4b9a18a2b6b76206f57a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: remove docker-run-with-log macro\n\nThe only use case is when a job does not have a cache restored from\nCastor but we can live with an empty `/cache`.\n\nUpdate:\n- lintr-docker\n- lintr-docker-non-voting\n- mediawiki-fresnel-patch-docker\n- operations-puppet-tests-buster-docker\n- train-deploy-notes\n\nChange-Id: I5ef2202d20cf47e52d3ea579eb6244cc222d7d1f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: civicrm: upgrade to php7.4\n\nThe image borrowed php 7.3 from sury.org when we need php 7.4 from\nDebian Bullseye.\n\nChange-Id: I79e0862846ef3d633c1c3d080c29c752357fc8d1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: Drop node10-test, unused\n\nBug: T302221\nChange-Id: Ice00462a9b52bcf9401c2726a07fa69df8ab230c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: add libboost-python-dev to tox-buster\n\nRequired by operations/software/thumbor-plugins\nIcabc39dab7347ac5c6d75f834a06ddfca5c4ca09\n\nBug: T252719\nChange-Id: I40a5ce9656f041db9adee77f82502b748e56aa26",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.4.3\n\nFix typo in MW_QUIBBLE_CI PHP constant.\n\nChange-Id: I79868056f0574e02f773eb81c0d80c01701e216c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: [sonar-scanner] Build off standard node16 CI image\n\nChange-Id: I85ad60b0d8ce83acd0afc02aa340218fca8c9a00",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.4.2\n\nQuibble 1.4.0 got rolled back due to an issue tearing down SQLite, that\nis addressed by 1.4.2 and we thus skip 1.4.1 entirely.\n\nChange-Id: Ibdb637f34c5f97abfdfbaca03a3625f32f6c9df7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: tox: install virtualenv==20.21.1\n\nInstall virtualenv from source using 20.21.1 which is the last version\nsupporting python 2.7.\n\nBug: T345695\nChange-Id: I86f78cc780f22d529f21781154472f4a7a97b9fb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php72] Migrate from stretch to buster\n\nBug: T278203\nChange-Id: Ic81ded24881339490256f8ef3b8df2ac91a3737b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: civicrm: add sqlite php extension\n\nChange-Id: I8c8529ed84dd46447fb68d2564c6f52f517c2cc1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: remove tox image, replaced by tox-buster\n\nBug: T278203\nChange-Id: I6330528060bf79a35e8e15e8b39307ef5a9e96f1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: rename puppet-compiler-node to puppet5-compiler-node\n\nWith the introduction of Puppet 7 catalogue compiler nodes we have\nintroduced a puppet7-compiler-node. To differentiate between Puppet 5\nand 7 nodes I have added a puppet5-compiler-node label to the existing\nworkers in addition to puppet-compiler-node.\n\nChange the label for the PCC job triggered by Zuul to the new label.\nOnce deployed `puppet-compiler-node` label can be removed from the PCC\nworkers.\n\nAffected jobs:\n - operations-puppet-catalog-compiler-test\n\nBug: T236373\nChange-Id: If10e420ac26fa6dbafd2f110cff7b0fae724158e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"operations-puppet-catalog-compiler: add support for Change-Private\"\n\nThis reverts commit 72813a8213ad803664e986f409ee69bc77edd05b.\n\nReason for revert: this broke the nodes grep:\n\n+ NODES='From ea14320c54982c4f11fb3ec11c78ff5d450848f9 Mon Sep 17 ...\n\nChange-Id: I780b0f352dabab33b13230cb34e985afee389ebe",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [sonar-scanner] Upgrade nodejs from node14 to node16\n\nChanged deprecated property \"sonar.login\" to \"sonar.token\".\nRunning debug-image verifies that the image builds and node v16.19.1 with npm v8.19.3 is installed.\n\nBug: T348724\nChange-Id: Ief41a26c9d9ee97ea319b9341129d8df66df2adf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: quibble-fresnel rm MW_SERVER and MW_SCRIPT_PATH\n\nFresnel  requires MW_SERVER and MW_SCRIPT_PATH in order to reach\nMediaWiki. Until Quibble 0.0.47 those environment variables were not set\nfor user commands (`quibble -c`).\n\nChange-Id: I1211d17883cf9579fa9e51e59ff40bfec3ce49f7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [phpmetrics] Migrate from php72 to php74\n\nChange-Id: Icc5d0d03d6a7743de16c11ec1478c47de2130733",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update logstash-filter-verifier\n\nThe image provides logstash-oss 7.16.\n\nUpdate operations-puppet-logstash-filter-verifier\n\nBug: T299431\nChange-Id: I1b1362b18b9d610cb831a1a783724fc317c0677f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Stop enabling xdebug by default in composer-package-phpXX\n\nIt looks like this may actually be unneeded. If that's not the case, we\nwill rewrite this to use pcov instead.\n\nBug: T269489\nChange-Id: I261efb0f7628b9cffbfc91c80c9cde445a0c600e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Ensure quibble image have the proper version\n\nWe sometime have the quibble images receiving a version bump which would\nbe ahead of Quibble. The latest example is 4807411a which added `npx`\ncommand to the 1.4.0 Quibble images but bumped quibble-buster to 1.4.1.\n\nAdd a test which look at the version installed by pip in\nreleng/quibble-buster then lookup the Debian upstream version refered in\nthe changelog and ensure they are consistent.\n\nThe test can be run locally using:\n\n  tox -e zuul_tests \\\n    tests/test_dockerfiles.py:test_quibble_images_version_is_in_sync\n\nChange-Id: Iaaae8c340dddfd88616414bdb5356045871203b4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php80] Upgrade to PHP 8.0.22 and cascade\n\nBug: T315167\nChange-Id: I9a2673354d4dad572d81b03ecda0f67953b0f57d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Archive analytics/wikistats and drop perl image\n\nBug: T278203\nBug: T332004\nChange-Id: I5efe586c37ca6c3042e15bd35f17f6e730196465",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.3.0\n\nDepends-On: If1d6f3c47797ffab3a1fcce8e213dcf7828c7441\nChange-Id: I90264650b138c90dc4022846ec0d1bc1fec54737",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [mediawiki-phan-taint-check-demo] Lock emscripten to 2.0.21\n\nNewer versions may not work out of the box, as is the case with 2.0.34.\n\nBug: T295228\nChange-Id: I944b429c1c6829bced948fb8e2d01acd074d1fd8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: use service phpunit rather than phpunit.php\n\nThe Parsoid MediaWiki service tests are not recognized by MediaWiki\nPHPUnit configuration. It only recognizes extensions and skins.\n\nRun the coverage report using the service phpunit instead.\n\nDrop the CODEHEALTH path for now since we do not have any associated\nJenkins job. We might want to later run the parser tests in addition to\nunit tests.\n\nBug: T321837\nChange-Id: I793ca80189f8014d10dc91def5620021cef97b7d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: move docker macro entrypoint out of \"options\"\n\nChange-Id: Ife578b06ff6555f4c297545bf764ad52261bf1fb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"jjb: update puppet test job to use tox 4\"\n\nThis reverts commit 167947443129714730d98fc5dd119244b61f7274.\n\nReason for revert: This has had some unforeseen fallout and neither\nAntoine or David are responding on irc so rolling back\n\nChange-Id: Ic00995fb6799c2d2e0f57bc1d6eb201cd515eaea",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add wmf-certificates to helm-linter\n\nBug: T300324\nChange-Id: I9d7a52a2bee210c13ae892bd5c495518cdaaeb7a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: tox + java8 on Buster\n\nThis is intended to:\n\n- replace tox-cergen which is based on Stretch\n- rebase tox-pyspark on it which also installs Java 8\n\nBug: T278203\nChange-Id: Ibe34e84f82719bf1a76bcfc7391521499cc352ef",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove IPs from gerrit_ssh_host_key file\n\nAfter a recent migration the service IP of\ngerrit.wikimedia.org changed.\n\nInstead of replacing it we are removing it\ncompletely because we assume it is just meta data\nand the actual key (which is puppetized) is the only\nthing that matters.\n\nAnd that recudes the number of places where we hardcode\nIP addresses by one.\n\nNo changelog bump is done cause those are based on stretch\nand are not buildable anymore.\n\nBug: T336427\nChange-Id: I93d47c7e222e8ed401276f15ff88d12d6c184de0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: move more docker macro entrypoint out of \"options\"\n\nChange-Id: I532c9a48961c409be2477a92ba52394fc2b43b9c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: align shellcheck image version with package\n\nChange-Id: I9a4a1190974b0e39b93f5b5af4896c2e0f88d929",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix coverage path for MediaWiki services\n\nMediaWiki services are cloned under `services` (plural):\n\n INFO:zuul.CloneMapper:  mediawiki/services/parsoid -> services/parsoid\n\n4cb888269a was setting the coverage filter to `service` (singular) in\n`phpunit-suite-edit.py` which results in PHPUnit complaining about an\nincorrect filter:\n\n    Warning: Incorrect filter configuration, code coverage will not be processed\n\nBug: T321837\nChange-Id: If121ecc5e2368c004b3d512583604ae6c771aa3d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Drop php72 images, now unused\n\nDropped images:\n - php72\n - php72-compile\n - composer-php72\n - composer-package-php72\n - composer-test-php72\n - mediawiki-phan\n - quibble-buster-php72\n - quibble-buster-php72-bundle\n\nChange-Id: Idcd1e137cd6796cbad9c9c5360429c53f457719f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: [helm-linter] Switch to envoy 1.23.10\n\nInstall envoy 1.23.10 from envoy-future for envoy config validation.\n\nBug: T300324\nChange-Id: I3fecca9295c6edc9d74f2c6ad29b7298845a6f26",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: refresh to pick up sorted_set for ruby 3.0\n\n re: https://gerrit.wikimedia.org/r/c/operations/puppet/+/863331\n\nChange-Id: I4edbcdb042c41dd2feaaa3fb4222dabf136c7967",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: disable shellcheck for cassandra311 entrypoint\n\nThe script is borrowed from upstream, disable the failing shellcheck\nrule.\n\nChange-Id: I3c4556eb0141ec3846d7de12fcc18d3a51b81a8a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: indicate operations/puppet tox image is pinned\n\nAdd a comment to the operations/puppet job indicating the image is\npinned to 0.8.12.  Version 0.9.0 has tox v4 and we are not ready to\nmigrate yet (T348871 and sub tasks).\n\nThe comment shows up in yellow when running ./utils/docker-updates\n\nBug: T345152\nChange-Id: I769c261c203846d9afdbdd68f9a5ea99cb1281c0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tox-buster: Add python3.9 to tox-buster base image\n\nBug: T289222\nChange-Id: I47bd8a4d69bbbbdd2efedf25a9f4f3befd94f5ca",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.5.2\n\n* reporting: Include ``pipeline`` in payload\n* reporting: Include ``output`` in payload\n* reporting: Command name can be a string\n\nChange-Id: I8635cf62877206eff8ed6dca93b48d96471aeeae",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Update Quibble to 1.4.4-s1\n\n* Rename quibble-with-apache to quibble-with-supervisord\n\nBug: T304147\nChange-Id: Ib99796d16967b84572275207da2459a876063c75",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update operations-puppet-logstash-filter-verifier\n\nAdd logstash-plugins.\n\nChange-Id: I150ec62f258f52d9f283d123437cebf340513be8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix php-excimer package name for php7.2\n\nphp7.2-excimer > php-excimer\n\nChange-Id: I8cec4409c67d3e5505f641fb79f7af4207f6cd4e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix /tmp/nodeinstall creation\n\nFollow up 520282cb remove node14 tarball from tmp\n\nChange-Id: If88a9d3fba2e6fdf7c181fa8253012c3abdc88e6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm_linter: Ensure not helm repositories are defined\n\nHelm repositories are now added on the fly by CI. Ensure no repositories\nare configured by the image.\n\nChange-Id: I09842f5573c56ab9c41c5451bc5c87f4af653994",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide quibble-buster-php74-coverage for PHP7.4+ coverage\n\nChange-Id: Iaf66151147396acf7afc3f19b6e49d2426edfdb0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update operations/puppet job to latest image\n\nFix a shellcheck warning.\n\nUpdate operations-puppet-tests-buster-docker\n\nChange-Id: I23bed6e12d1fd3216b16727f1312dba79bca19d6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php-ast] Upgrade php-ast to v1.1.0\n\nChange-Id: I506d82e8db3d95bd31f87a86e10b6f72aefda35b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Install memcached and php-memcached for Quibble\n\nSee If2c86b3ea9fc439998719870e9fc212836b1f369 for corresponding Quibble\nchange.\n\nNote that this patch can be merged independent of any\nupdates to Quibble.\n\nBug: T300340\nChange-Id: Ica805b91f3fbace546bd3ae0028b85a695b2aaaf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.5.3\n\n* Set MW_QUIBBLE_CI env variable\n* Drop Python 3.5 and 3.6\n* Capture commands output for reporting\n\nBug: T331061\nBug: T331621\nChange-Id: I398e79064804dfa31c9963411845232426d63793",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: unhardcode MEDIAWIKI_URL and MEDIAWIKI_API_URL\n\nThe variables are used by the ruby selenium framework to reach the\nMediaWiki web. They were hardcoded with port 9412 which is used for the\nPHP built-in server, when switching to Apache on CI we have it listening\non port 9413.\n\nForge the environment variables using MW_SERVER and MW_SCRIPT_PATH which\nare set by Quibble and come from the `--web-url` parameter.\n\nChange-Id: Ifed15085282d56ba3b3a0718f7142d46aaa4d0de",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: operations-puppet: upgrade tox to 4.8.0\n\nThe operations-puppet Docker image holds Python dependencies by running\n`tox --notest` on build. However when a change is made to one of the\nrequirements files, tox does not notice any difference and fail to\nupdate/refresh the requirements.\n\nThe root cause is https://github.com/tox-dev/tox/issues/149 which\napparently got addressed by the tox version 4 rewrite.\n\nInstall tox from source so we can get a more recent version than the one\nprovided by Debian. I have picked 4.4.10 which is the latest at the time\nof this change.\n\nBug: T345152\nChange-Id: Icdddcb3e81727c04ccee16187f471fdf62f6199f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles update to Quibble 1.4.5\n\nIn `phpbench` use `git-checkout` instead of `git-switch`.\n\nBug: T291549\nChange-Id: If5658b59459c07a32196ff8483facf5059658733",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php82] Correct fake packaging for extensions\n\nChange-Id: Idf584a34715c34befeba0381742188723888d773",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: play with Jinja2\n\nIdea is to have the `docker-run` macro to accept a map of volumes to\nmount and craft the extra command line arguments with a Jinja2 template.\n\nThis change is intended to NOT introduce any changes in the Jenkins\njobs, the templates thus have a few oddities related to whitespaces.\nNotably, I found out that Jinja2 strips the trailing newline and\nI thus wrapped the template in a dummy block which produces an extra\nnewline. I have send a patch to JJB upstream to flip the default:\nhttps://review.opendev.org/c/jjb/jenkins-job-builder/+/818121\n\nThe other macros from jjb/macro-docker.yaml have been adjusted to no\nmore use `options: --volume=x:v` but instead the new system. A full\nexample would be:\n\n - builders:\n    - docker-run:\n        options: --user=nobody --entrypoint=/bin/ls\n        args: -la /cache /srv/git\n        volumes:\n          cache:\n          /srv/git: /srv/git:ro\n\nWhich would have the following bind mount from host to the container:\n\n  | $WORKSPACE/cache | /cache\n  | /srv/git         | /srv/git  (read-only)\n\nA next change will migrate all occurences of `--volume` to volumes map.\nWe can later on do the same with `--env` or really any other option.\n\nChange-Id: Ibb813b629e63addc0e8a04438d2536912e2b587c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [mediawiki-phan-testrun] Migrate from php72 to php74\n\nChange-Id: I9ef4ee08a5ffafe700ae826a98de9d348f4cf1fb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: add 'workdir' to Jinja2 docker macro\n\nChange-Id: Ib35a2ce7da2516efe53e67ab08aadf358c5017b4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: renumber quibble-buster 1.4.1 to 1.4.0-s1\n\nThe Quibble Docker image version should be in sync with the Quibble\ninstalled version. This never got enforced but will be with via test\nadded by Iaaae8c340dddfd88616414bdb5356045871203b4\n\n4807411a added `npx` to the image and incorrectly bumped the\nquibble-buster image from 1.4.0 to 1.4.1 instead of 1.4.0-s1. This apply\nthe proper version and the image has been manually retagged.\n\nChange-Id: I8ddcdb448a78e3e93a37d70d59cb6284511f10fd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix shellcheck for castor snippets\n\nFollow `source` statement.\nFix not well defined boolean logic (-a => &&).\nDouble quotes a variable to prevent word splitting.\n\nUpdate job castor-save-workspace-cache\n\nChange-Id: Ic3b67c4cd0d58a2b1a02e85a831cb7eaa7a75840",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "node16-test 0.2.0: Don't cd /src\n\nrun.sh: Don't insist on running from /src.  Instead use the current\nworking directory which will be /src by default due to the \"WORKDIR /src\"\nin Dockerfile.template.  Removing the \"cd /src\" from run.sh allows\nthis image to be used in Gitlab CI (or any other environment) which\nmounts the source code checkout at a different directory and starts\nthe image with the current directory set to the right path.\n\nI suspect this change will radiate out the many other run.sh's in this\nrepo.\n\nCascade the update to child images:\n\nnode16-test-browser\nnode16-test-browser-php80-composer\n\nChange-Id: I498a1194817721310d3d264e252da8655249bb20",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: Rebuild to grab, puppet-lint-wmf_styleguide-check (1.1.3)\n\nBug: T342806\nChange-Id: I23cfd1a89080ded064b86120735d4cf71e4bd471",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php-ast] Add support for PHP 8.2\n\nDon't bother to cascade because no-one else is affected.\n\nChange-Id: Id5951a5370e3925c5b736e38736c1d492a084783",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: Drop quibble-buster-php74-bundle, finally unused\n\nBug: T220035\nChange-Id: I4a486569e28126b316195ced0e93e4cfa9d2e0bd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: force color output for bazel\n\nBazel automatically detects whether colors should be output, most\nprobably based on whether stdin is /dev/null or is a tty. Jenkins\nsupports ANSI coloring output so we can turn it on.\n\nIn the global `bazelrc` set `--color=yes` for all commands which can be\ndone via the pseudo command `common`.\n\nChange-Id: I8386929aa966adbab0558093109a89ca7ae74b2f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: php-compile, fix typo CLFAGS > CFLAGS\n\nChange-Id: I014aa1a5e83ee61febb0eb460afe7807f98de540",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: upgrade tox to 4.8.0\n\nTox v4 is a rewrite and although it remains mostly back compatible, the\ndevil is in the details.\n\nThere is an upgrade guide at https://tox.wiki/en/latest/upgrading.html\nand I have listed a few issues on T345695.\n\n`[tox:jenkins]` is no more supported. I have created a tox plugin that\nwould reinject the section settings (`integration/tox-jenkins-override`\nrepo). The plugin has to be installed along tox. Since it is not\nreleased to Pypi, install from source and use the sha1 to pin the\nversion (T345607).\n\nInstall tox from source using 4.8.0 which is the last supporting\npython3.7 from Buster.\nInstall virtualenv from source using 20.21.1 which is the last\nsupporting python 2.7.\n\nBoth versions are now set as `ARG` which makes it easier to find them. I\ndid the same change for the operations-puppet image via T345152.\n\nSince I was confused as to whether tox v4 got already deployed, this\nchange the images version number to be the same as the tox version in\nuse (4.8.0). The sole exception is `zuul-cloner` which is not used for\nrunning tox and does not depend on it.\n\nThis is a breaking change!\n\nBug: T345695\nBug: T345607\nDepends-On: Ife15751da24f28a6479ec7bdd6a902c35f70ff63\nChange-Id: Ief3c095f4a75592faa74a60508a1c17d8d95693b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "node12,node14: Add npx command to the shell PATH\n\nBug: T300930\nChange-Id: I87d1474afa5f4609b5948381943f900a68949b63",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Upgrade Rust images to 1.56.1\n\nMostly for the mitigations of CVE-2021-42574.\n\nSee <https://blog.rust-lang.org/2021/11/01/cve-2021-42574.html>.\n\nAnd take the opportunity to clean up some things like switching\nto bullseye, tracking the latest cargo-tarpaulin and upgrading\nrustup itself.\n\nChange-Id: I7a9aa7179d6f9222f0fd5021ee4486f075cbae58",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles [java11] Add workaround for openjdk-11-jdk-headless install problem\n\nInstalling the openjdk-11-jdk-headless package fails with:\n\nupdate-alternatives: error: error creating symbolic link\n'/usr/share/man/man1/java.1.gz.dpkg-tmp': No such file or directory\n\nWork around this by ensuring that /usr/share/man/man1 exists.\n\nChange-Id: Icfe3d33d60db5156fb54f23169c738c0bac842ab",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide php81 image set\n\nBug: T296489\nChange-Id: Ib13c23e7760d44b9690a3f6cec2d507b0aa3e98d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide PHP 8.2 CI test images\n\nThese are based on PHP 8.2.0-rc.5 with some modules build manually\nahead of waiting for upstream to provide them:\n\n - php8.2-pcov\n - php8.2-redis\n - php8.2-xdebug (note: This is xdebug 3.2.0-rc.1)\n - php8.2-yaml\n\nBug: T314093\nChange-Id: If47c7a4c66e7704df9ddab4f9e446c41e3f7eaa1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Use tox-buster on tox-acme-chief\n\ntox-buster already includes python3.9 and we need that\non acme-chief now that we are upgrading to Bullseye\n\nBug: T321309\nChange-Id: Ic55ad982ad46109bae520dd2bdad2def98ae016c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: civicrm: install db with root auth\n\nWhen creating the database with `mysqld_install_db`, MariaDB now\ndefaults the authentication method to use a socket which sets an invalid\nroot password (but still allow a process owned by root to connect).\n\nChange it to the legacy authentication method (normal) which creates an\ninitial root user without password.\n\nThat broke the build when migrating from Stretch to Bullseye.\n\nBug: T307178\nChange-Id: I1e2c5718055f25db7315a10a872c03f90849a377",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: tox-mysqld to Buster\n\nBug: T278203\nChange-Id: I474036287b1966fc1b17d15c2885df8c7d3b1f31",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: add services to Quibble coverage\n\nBug: T321837\nCo-Authored-by: Peter Wangai <pwangai@wikimedia.org>\nChange-Id: I708821dc83e3d217f5445a5c5616fe7ee3c90b9b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove releng/typos image and related job\n\nThe `releng/typos` image is based on Debian Stretch which is obsolete.\nIt is used by a single job/repo and the logic is ported to the source\nrepository by Id4d837e62317b23c59b5b263574f2e543878b7c5\n\nDelete job `operations-mw-config-typos-docker`\nRemove `docker-registry.wikimedia.org/releng/typos`\nStop triggering the job for `operations/mediawiki-config`\n\nBug: T332121\nDepends-On: Id4d837e62317b23c59b5b263574f2e543878b7c5\nChange-Id: I1b70c4853f03ff91f90d9599ffc402998d53cd1c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Archive wikimedia/discovery/analytics\n\nRemove docker-registry.wikimedia.org/releng/tox-pyspark\n\nDeleted jobs:\n - wikimedia-discovery-analytics-main-tox-docker-with-sonar\n - wikimedia-discovery-analytics-patch-tox-docker-with-sonar\n\nBug: T346176\nChange-Id: I66e9cfbb74ac5e385d490162788e1ceb4d9690b2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: move --entrypoint to be first option\n\nMove it first to reduce the diff introduced in a later change that will\nport the entrypoint definition to the Jinja2 docker macro:\nIfe578b06ff6555f4c297545bf764ad52261bf1fb\n\nChange-Id: If58772a6036460f3a0e4236505285dc32e42b67c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: sonar-scanner support Parsoid service and skins\n\nThe sonar-scanner run-php.sh entry point hardcodes the 'extensions' path\nwhich cause it to fail whenever it is triggered against a MediaWiki\nservice or skin.\n\nBug: T321837\nChange-Id: I344d7bff73c8f9d7cc199cacc6a1491a6b8c2614",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Refresh java11 image and children\n\nRefresh the java11 image and its descendants to avoid an error like\nthe following when installing new packages:\n\n           available: NO_PUBKEY 0E98404D386FA1D9 NO_PUBKEY 6ED0E7B82643E131\n\nBug: T338952\nChange-Id: I893027f7f4bd7bc1e91ab02616821d03ffd151b9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: remove node14 tarball from tmp\n\nThe node14 installation steps left the tarball and a SHASUMS256.txt file\nin /tmp which are not needed.\n\nCopy the SHASUMS256 to /tmp/nodeinstall which creates the directory then\nremove the directory entirely after we are done.\n\nChange-Id: Ibbc79d5145045797bd38fcf1e3784ae42d7caba0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: re-build to update the version of sextant\n\nChange-Id: I13bc8a9441e1590ad8214aa9b756d8b5343c6573",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix php 8.1 being used in php73 image\n\nsury.org packages now depend on PHP 8.1 by default, we thus require to\ninstall the soname packages for acpu, ast, imagick, redis and xdebug.\n\nUpdate:\n\ndocker-registry.wikimedia.org/releng/mediawiki-phan-php73\n\nAnd for releng/php73:\n\ndocker-registry.wikimedia.org/releng/composer-package-php73\ndocker-registry.wikimedia.org/releng/composer-php73\ndocker-registry.wikimedia.org/releng/php73\ndocker-registry.wikimedia.org/releng/mediawiki-phan-php73\ndocker-registry.wikimedia.org/releng/composer-test-php73\ndocker-registry.wikimedia.org/releng/civicrm\ndocker-registry.wikimedia.org/releng/php73-compile\n\nBug: T299389\nChange-Id: I12e1cb638e9b36bd6d034789deb3c0742f23c137",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Install missing python-ldap dependencies in tox-buster\n\nAccidentally missed in c9d4b9d84c.\n\nBug: T295002\nChange-Id: Iea7304b6dad02d22841722994baecd86cc392e3d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php82] Upgrade PHP to 8.2.0 now GM is out\n\nBug: T314093\nChange-Id: I3777b58bf11facbe368b0b4b5a97e25cbc915b0a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.2.0\n\nChange-Id: I7210b45fb22622d3209813a7575a01ff965ea568",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: Drop node14 images, unused\n\nChange-Id: I3ba00d19f5d11c1571560cc462d2d5951383517c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: Provide node20 and related images\n\nChange-Id: If5477711285c573f5118ccf71cbddcafa67b1526",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: remove obsolete coverage utilities\n\nThe PHPUnit coverage utilities in the `quibble-buster-php72` are no more\nused since we have migrated coverage to a dedicated image\n`quibble-buster-php73-coverage`.  The \"new\" system uses pcov and all\njobs have been switched to it.\n\nBug: T279833\nChange-Id: I2fbe8f0ac6dfb2aec40bc860c8703fe9c3e9abbc",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide quibble-buster-php74-bundle\n\nChange-Id: If17c5fc9bb6245c38fdfcaeba1cad3d7ec233e5f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: move apache up to quibble-buster\n\nMove Apache/supervisord and php-fpm config in quibble-buster image.\n\nThe php-fpm configuration installation is moved from Dockerfile to a\ninstall-php-fpm.conf.sh which requires PHP_VERSION to be set. That is\ndone to support multiple php versions.\n\nRemove the quibble-buster-php72-apache, jobs using it must then be\nmigrated to use `docker run --entrypoint=quibble-with-apache`\n\nRebuild:\nquibble-buster\nquibble-buster-php72\nquibble-buster-php73\nquibble-buster-php74\nquibble-buster-php80\nquibble-buster-php81\n\nDelete quibble-buster-php72-apache\n\nBug: T285649\nChange-Id: I4027af5ec83acb1ec7d74fe2155e2d55e5fbfd42",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [quibble-buster-php74] Migrate from sury-php to Wikimedia PHP\n\nNote that PHP 7.4+ coverage jobs will need to switch to the special\nimage for coverage, as with PHP 7.3.\n\nBug: T293851\nChange-Id: I98152a2c2c3e58bd68df6b39ca664427c0758cc1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tox-poetry-buster: Added a new image for poetry based builds\n\nSee https://gerrit.wikimedia.org/r/c/cloud/wmcs-backups/+/701380 for a\nusage example.\n\nChange-Id: Ib3a12a5ba310a50f0ec969124f7b335bd0e08fce\nSigned-off-by: David Caro <dcaro@wikimedia.org>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: ls WORKSPACE after it got wiped\n\nWhen a build is canceled, the next build would sometime fails to create\nthe cache/log directory:\n\n  mkdir: cannot create directory \u2018log\u2019: Permission denied\n\nI highly suspect it is left behind by the build/Docker and being owned\nby root it prevents the next build from creating the directory, though\nit is still deleted letting the next next build work.\n\nI suspect it is a race condition with our macro deleting the file while\nthe container that uses log is still being deleted, and hence the log\ndir is still owned by Docker which keeps it around.\n\nBug: T282893\nChange-Id: Id173125c401b3a3f958f6b26730b9b3c55f01082",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: add `AllowEncodedSlashes On` to Quibble\n\nAPI testing for variant conversion has to pass titles such as\n`MediaWiki:Privacy/crh-latin`. Sending it encoded as\n`MediaWiki%3APrivacy%2Fcrh-latn` returns a 404 error page from Apache.\n\nThe reason is Apache defaults to refuse URLs which contain encoded path\nseparatators (%2F for '/') and returns a 404 (Not found). To accept them\nwe can set `AllowEncodedSlashes` to either:\n\nOn: accept and decode slashes.\nNoDecode: accept and do not decoded slashes which are left encoded.\n\nWikimedia Apache is configured with `On`, from puppet.git:\n\nmodules/mediawiki/manifests/web/vhost.pp:\n  # [*encoded_slashes*] AllowEncodedSlashes apache httpd directive.\n  Enum['On', 'Off', 'NoDecode'] $encoded_slashes = 'On',\n\nmodules/mediawiki/templates/apache/mediawiki-vhost.conf.erb:\n    AllowEncodedSlashes <%= @encoded_slashes %>\n\nUpdate Quibble Apache configuration and rebuild all the Quibble images.\n\nBug: T321278\nChange-Id: I10d8a44f5423ef43005478dbeb7dc12acb57cb01",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: avoid chaining docker-run* macros\n\nNo changes in jobs.\n\nChange-Id: I497a6020623d94204e4230c4761650345de3335d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: switch jobs to Quibble 1.2.0\n\nBug: T259456\nBug: T292772\nBug: T256402\nChange-Id: Icac648ebae241ed69c95ccfbfd5239a274caf7e3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb/operations-puppet: Bump image version\n\nInstall envoyproxy to validate generated (fixture) config in CI\n\nBug: T304660\nChange-Id: I54f47c3f04bcd94f202d0346efa65322f3cb81e2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: add example for Gradle image\n\nBug: T278203\nChange-Id: Ic95dda4ec665127f0c07f9d3c3ec13b6e57f9b21",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Follow-up b74854e59: Add missing file so things actually build\n\nChange-Id: Id68d97508ebfe7f28e62d4739933f8873ffd3256",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Temporarily install buildctl from upstream master\n\nWe need buildctl to support the `registrytoken` auth config field for\nperforming JWT auth against our registry. This support is only present\nin the upstream's master branch.\n\nNote that a backport has been submitted upstream targeting the 0.10\nbranch.\n\nhttps://github.com/moby/buildkit/pull/3150\n\nIf the PR is accepted and merged, we can revert this change and go back\nto installation via the release tarball and validation via checksum.\nAlso note, however, that since Docker uses content addressable image\nIDs, that approach is not all that different from copying directly from\nof upstream images referenced by the image's SHA256, as Docker images\nare content addressable. We could potentially continue use of `COPY\n--from=<upstream image>` as the installation medium with the same degree\nof assurance as performing checksum validation.\n\nBug: T308501\nChange-Id: I6f016790cfe04b36f47bce6550ff657af2efcbe3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tox-buster: add python39-distutils to image\n\nBug: T289222\nChange-Id: Ib1fa37290bf3403e29dbcc2eb9f4664debc4296a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: move another --volume option at end\n\nIn d6839d26 I have missed moving the --volumes options of\ndocker-ci-src-setup-simple after other options.\n\nChange-Id: Id9242360240a495bedd57b580499483875dad872",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: document docker-run environment parameter\n\nChange-Id: I17f1a16d1f4814c40f258e361577aa7b8b55be16",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet-catalog-compiler: add support for Change-Private\n\nUpdate the \"check experimental\" job to also parse the Change-Private\nfooter\n\nBug: T265633\nChange-Id: I939f7010d59644e3f25ffd3d08a3b1f3a9c40f17",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker: add curl for composer-security-check\n\nThe curl dependency for composer-security-check was left out of\ncomposer-php74 but is still needed. This readds it.\n\nBug: T321753\nChange-Id: If4d3ce693dfe77b80bb26e7d47084c40e237bd94",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: quibble-buster: use venv instead of pip/wheels\n\nIn the Quibble fullrun scripts I went to install Quibble using\n`PYTHONPATH`, `pip install --prefix`, `python -s`. That ends up hitting\na wall since the ecosystem has long moved toward virtual environments.\n\nRestore the removal of `python3-pip` and `python3-wheel`. Add\n`python3-venv` instead.\n\nThis reverts commit d6a83a638fc519a97a9673a911b851a862a73b91.\n\nQuibble change: I9a9015b64277952d91a364b846d870633c569e4e\n\nChange-Id: I78b0c6ddbfce9208aa4dc040808ccbf13cc0cf1e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [mediawiki-phan] Migrate from php72 to php74\n\nChange-Id: I805f72206f18a63177f6e00147422d0c64921231",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles/release-notes: releases branch rename\n\nUses the new default branch for the releases repo: 'main'\n\nBug: T329770\nChange-Id: I952984a8dd1b501740134f081740b62beb362c4a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Use the newer php-ast version (v1.0.14) in all images\n\nThis means we can massively simplify some of our image sets, but that\nis left for later.\n\nChange-Id: I79b6d2c76bfe53da6aeb90f059915a4b1f8d8b31",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: Set permissions for /var/log/envoy\n\nAfter the 1.15->1.18 upgrade, the linter started failing with \"error\ninitializing configuration '/etc/envoy/envoy.yaml': unable to open file\n'/var/log/envoy/admin-access.log': Permission denied\"\n\nBug: T300324\nChange-Id: I663ea6913cbd6739601a9df2e748da77856f08c9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: pass XDG_CACHE_HOME and set PY_COLORS=1\n\ntox v4 has removed `TOX_TESTENV_PASSENV` support which mean we no more\npasses XDG_CACHE_HOME (used by pip to infer its cache directory) and\nPY_COLORS is not set which we use to force color output for example in\npytest.\n\nReplace `TOX_TESTENV_PASSENV=*` with `TOX_OVERRIDE` as mentionned on\nhttps://github.com/tox-dev/tox/discussions/2681\n\nThis only pass XDG_CACHE_HOME and set PY_COLORS=1, everything else from\nthe host is stripped (with the exceptions of tox built-in environment\nvariables that are always passed).\n\nBug: T348871\nChange-Id: Ia29620b3914452cc344d376e5dd031c861ef7816",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Drop xdebug everywhere, no longer used\n\nBug: T319495\nChange-Id: I2627a002e7384da6b5d26858bd900d6a0503ad63",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update dockerfiles/tox-pywikibot/example-run.sh\n\nenvs were renamed in\nhttps://gerrit.wikimedia.org/r/c/integration/config/+/495815\nand there is no nose34 anymore and nose35 never exists\njjb/pywikibot.yaml\n\nChange-Id: Ic511f8250670e84e7b15939cb17d3e0167391891",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "logstash-filter-verifier: install logstash-plugins\n\nChange-Id: I47497ae0e9fa3d2541d085a8add79833ed41ce19",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Install wmf-certificates to buildctl for registry CA\n\nBug: T318019\nChange-Id: I54d368562d3060e6e785e5eceb6b40f4875bee76",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php-ast] Drop support for PHP 7.2/7.3, add 8.1\n\nChange-Id: I2dfa7197cf171b1a380d1173aeca2f09b77851ba",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet-catalog-compiler: add support for CHANGE_PRIVATE\n\nCHANGE_PRIVATE allows uses to specify a gerrit change id for the\nlabs/private repo which is used when calculating the diff for pcc\n\nBug: T265633\nChange-Id: I5d000920989a894dce24eab38a9b26f8ea5f5da9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: civicrm\n\nBring back installation of MariaDB data directory in the image, we have\ndeterminated Civi CRM will work with the Debian Bullseye default\nparameter.\n\nSince there is no more a need to tweak innodb settings, remove the call\nto `bin/ci-create-dbs.sh` which can be removed from the source\nrepository.\n\nThis reverts commit a78c74e34840b1c77afe2401b08f3dfdf6e62ff6.\n\nBug: T307178\nChange-Id: I2e77a4425683f093d1b7918ac46d35068a943e79",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update Quibble to 1.5.6\n\n* Remove MW_QUIBBLE_CI environment variable\n* Pass --innodb-print-all-deadlocks to MariaDB\n* Replace deprecated setuptools license_file with license_files\n* Bump setuptools-git-versioning to at least 1.8.0\n* Remove --run=all (default is to run all stages)\n* Add --change to retrieve a single change from Gerrit to test against\n* Document how to test Quibble changes\n* Remove parsoid from utils/ci-fullrun-extensions.sh\n* Remove files remaining after removal of Docker support\n* Remove Sphinx setuptools integration (build_sphinx)\n* Refresh Sphinx conf.py\n\nBug: T342088\nChange-Id: I6d5ed64dd59b47c6d4cc9bbb126c8214b75926b5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: Update envoyproxy to 1.18.3\n\nBug: T300324\nChange-Id: Id825cfb6ed1c308ab8cd90dd43a860b465cd1eb4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [composer-scratch] Upgrade composer to 2.5.1\n\nBug: T319257\nChange-Id: Ia7e84861bc061ebb74f00b3f1e740b20d0215f6f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: [mediawiki-phan-taint-check-demo] Move to bullseye\n\nChange-Id: If24607cff6e918f13d3ba2e9d5f08a2b660a36dd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update phpunit-suite-edit for PHPUnit 9\n\nThe structure of suite.xml is now <coverage><include> instead of\n<filter><whitelist>.\n\nFix our use of the deprecated getchildren() too.\n\nBug: T320332\nChange-Id: I7080eff333378d4232915c3ea3b7132c7c837835",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Update quibble-buster-php72-bundle to 1.4.4-s2\n\n* Use quibble-with-supervisord entrypoint\n\nBug: T304147\nChange-Id: Ifa39a18e8c623e9d6e80b6946e2269cef6748a18",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: shellcheck: upgrade to 0.8.0\n\nAnd change image from Buster to Bullseye.\n\nChange-Id: Ic934f041683eadb7f4dc91eda5d6602399b83dd3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: php-compile fix ambiguous env assignment\n\nFor the configure script, CXXFLAGS is set to $CFLAGS which is set\npreviously in the same command line. That is a bit ambiguous.\n\nFix shellcheck SC2097 SC2098\n\nChange-Id: I4b2fc096877a636f5f87c8e013d6d88d53fb9a8e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: quibble-apache make it php version agnostic\n\nThis is in preparation to have Quibble Apache moved to quibble-buster\nand then have child images for each php version we support. We need to\ndrop reference to php7.2 and be version agnostic.\n\n* Introduce a PHP_VERSION variable which can later be used to vary\n  configurations or filenames.\n* Install the soname php-fpm package (ex: php7.2-fpm).\n* Rename php-fpm configuration files and fpm pid file.\n* Supervisord supports environment variable expansion in configuration\n  string by using the %()s string format and prefixing the environment\n  name with \"ENV_\". Thus PHP_VERSION is availabled as ENV_PHP_VERSION.\n* For php-fpm introduce /etc/php/current symlinked to\n  /etc/php/$PHP_VERSION since we can not use environment variable in\n  php-fpm.conf.\n\nTested with --run=qunit,selenium\n\nBug: T285649\nChange-Id: I5b54043b74acf37aca331a86c819f529705ad561",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: tox-poolcounter to Buster\n\nBug: T278203\nChange-Id: I99114dd1bf29d3b99bc34cda37a40870c4bb47c7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [quibble-buster-php74-coverage] Bump phpunit-patch-coverage\n\nBug: T322864\nChange-Id: I2cddf42afe73339018954f687ede5190b42cd5d5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.4.7\n\n* Set QUIBBLE_APACHE=1 in api-testing stage and in user scripts\n* Enhance --help usage output\n* Handleinvalid Unicode received from tests\n\nBug: T320935\nBug: T318029\nChange-Id: I22a3b6ec1351b19515d0cc2230eb012e5f3882a9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: zuul-cloner job with tox v4\n\nAffected jobs:\n - integration-config-jjb-diff-docker\n - integration-config-shellcheck-docker\n - integration-config-zuul-layout-diff-docker\n - integration-config-zuul-layout-validate-docker\n - mw-tools-codesniffer-mwcore-testrun\n - mw-tools-phan-mwcore-testrun\n - wikimedia-fundraising-civicrm-bullseye-docker\n - wikimedia-fundraising-civicrm-docker\n\nBug: T345695\nChange-Id: Ica5dae741e61dfc25af42eecf172fd3158666eef",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.4.4\n\nProperly setup Memcached\n\nBug: T300340\nChange-Id: I451e52f02e9ec7612ab10e10fcf1ebe372c9587b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Upgrade Doxygen to 1.9.1\n\nBug: T295111\nChange-Id: I5aa245f3f233665f6715e49cf82e07a5c459901a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: [quibble] Re-use node14, not node16\n\nChange-Id: I31ff9db18dc8545d7d90ac149913ac9b5d980766",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: aggregate some builders/publishers\n\nNoop in JJB.\n\nChange-Id: I349f5c1541ae9d33ade1fcb20f6dc095e899c953",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide node14-test-browser-php80-composer\n\nChange-Id: I29c3320a8a48b12d5fc5eb35d1584fefce5559ae",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [zuul-cloner] Migrate from stretch to buster\n\nBug: T278203\nChange-Id: I1154dc263934005aa2169b270e9936e983c72304",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tox-poetry-buster: upgrade poetry install script and upgrade to 1.2.2\n\nThe old get-poetry is deprecated in favor of the one in:\nhttps://install.python-poetry.org/\n\nBug: T321915\nChange-Id: Icb2d422255c4493dc772a8c0b9696955107bd579\nSigned-off-by: David Caro <dcaro@wikimedia.org>",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [composer-security-check] Migrate from php72 to php74\n\nChange-Id: I0ff64f74541814448e5070b60cf5713b676bc4fd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: add semver-cli\n\nadd semver-cli, so we can compare helm versions and avoid running\nrunning kubeconform for all versions, see\nhttps://gerrit.wikimedia.org/r/c/operations/deployment-charts/+/893075\nfor the patch to operations/deployment-charts\n\nBug: T320554\nChange-Id: I8ff41f1a2f9d0a5b07a674a55df032c119ddee0b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: pass shellcheck on operations-puppet\n\nShellcheck warns about:\n\n    rm -rf \"${FOO}/${x}\"\n\nSince whenever FOO is unset one might well end up deleting / , the\nrecommendation is to use ${FOO:?} which would raise an error (on top of\nus already using set -e and the variable always being set in the code).\n\nAlso fix a missing double quotes in the example run script.\n\nChange-Id: Id5d9a3eef3d26c198ec59d0cc2a3e3defbcd92b4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: update helm3 to 3.9.4\n\nBug: T317511\nChange-Id: I70e284db7aab13b02a5685939bdfd4f4a6dc38d6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: remove docker-run-with-log-and-workspace-cache macro\n\nAll usages have been transitioned to use:\n\n - docker-src-dir\n - docker-run-with-log-cache-src\n\nChange-Id: I2bbf87fc36a4b5736169e1071c23e5d459fdaf9d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: Drop node12 images, all now unused\n\nChange-Id: I847ea7bca99746c165a3164c55b4eea62315b21a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: Drop node10, unused\n\nFinally, it is done.\n\nBug: T302221\nBug: T210704\nChange-Id: I46bdfbfb73a02dd1d9da8f43a29c8faeb12ce8fb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.4.0\n\nChange-Id: I39c06c22d40623fd3701b394d67f952e97a62f84",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "logstash-filter-verifier: upgrade logstash to 7.16\n\nBug: T299431\nChange-Id: Ia5aa9668a0f44bdb47ba042d347100f6f9c51836",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Train Notes: use new upstream in dockerfile\n\nChange-Id: I59faff85b03e7183a48267a8ce4ba581667192b0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [quibble] Switch from node14 to node16\n\nBug: T314470\nChange-Id: I5ecd418cacc176f5c00b294ddbed26ee92740b29",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker [quibble] Upgrade Quibble to 1.5.5\n\nBug: T90875\nBug: T227900\nBug: T341840\nChange-Id: Ibf618218601465b760bb5395f380836508d52377",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker: Provide quibble-buster-php82\n\nBug: T314093\nChange-Id: I695f0711428c1698c1c540f38b80331320cca3f4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: remove intermediate docker-ci-src-setup macro\n\nChange-Id: I0a6078914935c58d29c3db9a504d5ee1e076f943",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: add openssh-client to node test images\n\n`wikidata/query/gui` has a Jenkins job to build the GUI artifacts and\nupload them as a proposed change to Gerrit.\n\nThe build logic has been moved from the Jenkins job to a container image\nby 4aa2002328 and while testing against the source change\nhttps://gerrit.wikimedia.org/r/c/wikidata/query/gui/+/949833/ the build\nfails:\n\n  ssh -o StrictHostKeyChecking=no: 1: ssh: not found\n\nThis is similar to the build job for analytics refinery repo (T210271).\nThe git push over ssh requires the OpenSSH client to be present in the\nimage.\n\nAdd `openssh-client`to node test images and cascade.\n\nBug: T328543\nChange-Id: I4821810ec9ffc74156662bd8b25e9d4fbfbd575f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.5.0\n\n* Allow sending build failure data to external endpoint\n* maintenance: Use run.php if it exists (MW 1.40+)\n* Warn if files are left over after git clean -xqdf\n* Add Python 3.9 testing\n* black: Pin major version for black\n* black: Apply formatting fixes\n\nBug: T323750\nBug: T326333\nBug: T321795\nChange-Id: I695aa10b6a9c40a01c68b2780492e96a65abffd6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: tox-pyspark to Buster\n\nUpdate from Stretch to Buster using the tox-java8 image.\n\nBug: T278203\nChange-Id: I531ba00272dd0497492a23656679e35bb73d9066",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "tox-buster: add bats to the list of packages to install\n\nThis allows for simple bash-based functional tests.\n\nSigned-off-by: David Caro <dcaro@wikimedia.org>\nChange-Id: I72ecbfe32ddb5022e2785906aa36922d51de7532",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: java8 from Stretch to Bullseye and cascade\n\nThe java8:1.0-s1 had:\n\nopenjdk version \"1.8.0_302\"\nOpenJDK Runtime Environment (build 1.8.0_302-8u302-b08-1~deb9u1-b08)\nOpenJDK 64-Bit Server VM (build 25.302-b08, mixed mode)\n\nThe Bullseye forward port has:\n\nopenjdk version \"1.8.0_372\"\nOpenJDK Runtime Environment (build 1.8.0_372-8u372-ga-1~deb11u1-b07)\nOpenJDK 64-Bit Server VM (build 25.372-b07, mixed mode)\n\nBug: T278203\nChange-Id: Ie74ad61d839a9eca28ab40e5ae85cd1bc68611ad",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: Drop node10-test-browser, unused\n\nNote the image is used by Fresh which will need to be update\nto the node12 based image.\n\nBug: T302221\nDepends-On: I46617abb74903789f2f15b2d499eb262a04f8797\nChange-Id: I23e58376c79ce9a0d59b7e52716584725407177a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: release new version of operations-puppet\n\nSo that we can update the gem files as per:\n https://gerrit.wikimedia.org/r/c/operations/puppet/+/799982\n\nChange-Id: I1cd3fa68a6c8aae456f118c1a4efe19a8d9365ab",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "release-notes: add changelog entry for MW release branches filter\n\nFollows up Iff9878be503badef21f495912e2301d253a4dd42\n\nChange-Id: I681e532ef0d07fb2a436b95ce441ce94321b2b6b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: civicrm: create db from source repo script\n\nThe CiviCRM bin/ci-create-dbs.sh sets (as root) some global settings on\nthe running instance:\n\n  SET GLOBAL innodb_file_format='Barracuda';\n  SET GLOBAL innodb_default_row_format='dynamic';\n  SET GLOBAL innodb_file_per_table = 1;\n  SET GLOBAL innodb_large_prefix = ON;\n\nWith MariaDB on Bullseye, that bails out indicating `innodb_file_format`\nis read-only.\n\nInstead of having the container create the MariaDB data directory when\nit spawns, delegate the creation to the source repo `ci-create-dbs.sh`\nscript. This way developers can pass additional MariaDB parameters to\n`mysql_install_db`.\n\nCiviCRM change is Ic02a0be2ea541ce2ef19b22f8c9dcd5026055248\n\nBug: T307178\nChange-Id: I0ec9c3854d3bbb67faf8b7625ae12b15b775fac8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: civicrm: add gd, imap, zip php extensions\n\nChange-Id: Ifaf05afaba4030ab965fe7e64befaec854e137d5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: [node14] Update node from 14.17.5 to 14.21.3\n\nBug: T332387\nChange-Id: I78468d4e7126279909798082f2e16be37082e259",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: install curl for easy functional tests\n\nThis will allow us to do some simple functional tests for small API\nservices we have here in puppet.\n\nSigned-off-by: David Caro <dcaro@wikimedia.org>\nChange-Id: Iaa3e287a985183c7a6fb8dbbf7aba1af35488220",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide basic buildctl image for use with GitLab pipelines\n\nBug: T308501\nChange-Id: Idc4abb6d691860899f20264334ba4eb8647069e6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb/operations-puppet.yaml: update to use latest docker imager\n\nChange-Id: I93854a04d8008b00f1baf8e8abfe315bee8824bf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Drop quibble-buster-php73-coverage, now unused\n\nChange-Id: If8e2ffeef986d6127b0265f26dca509a31dc74e3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: drop verbatim \\n in echo commands\n\n`echo` does not interpret escaping sequences by default (one has to pass\nthe `-e` option), it otherwise always append a newline. Drop the useless\ntrailing \\n in the message reporting the config could not be found.\n\nChange-Id: I2c1703fe4b9ecbda20a692b0c4192d5fcfe1adbe",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: [maven-java8] Update gerrit.wikimedia.org IP\n\nWhen we recently migrated gerrit to new hardware it included a change\nof the service IP behind gerrit.wikimedia.org.\n\nThe host key here has not changed since it's installed by puppet,\n\nSee \"$sshkey = 'AAAAB3NzaC1yc2EAAAADAQABAAAAgQCF8p ...\"\nin BOTH zuul/merge.pp and manifests/gerrit.pp.\n(ideally we wouldn't need this multiple times).\n\nBut the IP address changed for sure. The IP ending in .137\nbecame gerrit-old.wikimedia.org and the IP ending in .151\nis now gerrit.wikimedia.org.\n\nFor one reason or another this does not seem to have broken anything.\n\nBut let's fix it as part of removing the old server and IP that is bound\nto its interface.\n\nBug: T326368\nBug: T336427\nChange-Id: Id22f77e658b22d04c1e1e69111be848588dc401f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles/operations-puppet: bump changelog to pick up new changes\n\nChange-Id: I6154a646a4cc5a0e783bb03131c9348e6bdbbaf9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [node16,quibble] Switch npm from pinned 7.21.0 to upstream 8.19.3+\n\nBug: T314470\nChange-Id: I4af63498f66f0f26f549d71dffa4f92b7b16bb85",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove tox-cergen and switch job to tox-java8\n\nRemove the Stretch based image tox-cergen and change the sole job using\nit to tox-java8 (based on Buster).\n\nUpdate cergen-tox-docker\n\nBug: T278203\nChange-Id: I06c0605de64bf6f700f864b444f237a2d209ca9c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Docker: Drop node14 images, all now unused\"\n\nThis reverts commit bb6aa8feb6439f61697cc0eb2f7cf893fcc9e503.\n\nReason for revert:\n\nWe had to kept the Selenium jobs to node14 due to wdio / fibers\nIabbb1ff3020e4511696187b227d974b08bb96794\n\n  $ ./utils/docker-updates\n  jjb/job-templates.yaml:670\n  ERROR: docker-registry.wikimedia.org/releng/node14-test-browser not found!\n\nBug: T330426\nChange-Id: I4b2623ed299f75c5631a13a7e47474d1bd8f0630",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: test FROM and control depends are in sync\n\nFix the few images that had mismatches between the used FROM statements\nand what was declared in the `control` files:\n\n- civicrm\n- doxygen\n- rust\n- tox-acme-chief\n\nChange-Id: I307696276ca5a3a1b385024320c6b9036c767cea",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: use image 0.8.11-s1\n\nSigned-off-by: David Caro <dcaro@wikimedia.org>\nChange-Id: Ibbbaf06b4b55571811f29c3cb015447318f63596",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: limit Phan memory usage to 7G\n\nWe had at least one Phan build being killed by the Linux Kernel out of\nmemory manager (T342100). This run the Phan jobs with a memory limit of\n7G set at the container level (`docker run --memory 7G`).\n\nI have picked 7G since the instances have 24G of memory and allow up to\n3 concurrent builds. We might want to make that the default for all\njobs.\n\nUpdate the 20 phan jobs:\n\nmediawiki-core-php73-phan-docker\nmediawiki-core-php74-phan-docker\nmediawiki-core-php80-phan-docker\nmediawiki-core-php81-phan-docker\nmwext-php73-phan-docker\nmwext-php74-phan-docker\nmwext-php80-phan-docker\nmwext-php81-phan-docker\nmwext-php82-phan-docker\nmwskin-php73-phan-docker\nmwskin-php74-phan-docker\nmwskin-php80-phan-docker\nmwskin-php81-phan-docker\nmwskin-php82-phan-docker\nmw-tools-phan-demos-publish\nmw-tools-phan-mwcore-testrun\nphan-php73-docker\nphan-php74-docker\nphan-php80-docker\nphan-php81-docker\n\nBug: T342100\nChange-Id: I0ff9b0bfa7f60b2ba5c4a9ee3f565f390a6aa9e3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker: [quibble] Replace buster-native node10 with node14\n\nCopy-pasted from the node14 image.\n\nBug: T294931\nChange-Id: I6a08fb3816aebd4574dd63f7168f1a1088b49967",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix Depends for commit-message-validator\n\nChange-Id: If458daf33493f779b0caeb29a952e456f5d678f9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update phpmetrics 2.7.3 > 2.8.1\n\nv2.8.1\n* Fixing issue with relative path when using YAML configuration\n\nv2.8.0\nNew features\n* allows to search patterns of code. Instead of providing our own rules,\n  now we can add dynamic rules for violations.\n* allows also to use yaml for configuration.\n* adds a --metrics option\n* excludes getters and setters for ccn and lcom calculation\n* adds a composer option\n* adds a new --report-summary-json option\nFixes\n* Issue with columns in HTML report\n\nChange-Id: I289b237ae9297143da675bb643bb39bfdfbcd70e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "logstash-filter-verifier: work around ca-certificates-java install error\n\nca-certificates-java tries to create a symbolic link in this directory.\nPre-create it as a workaround until the root issue is resolved.\n\nChange-Id: I0e4c7efbc52aff20c4825575455e780755d5da33",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: Drop node14 images, all now unused\n\nChange-Id: I59c835b1076fac63b2cf1861f66a8f80ff01c54b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php82] Bump PHP to 8.2.0-rc.7\n\nBug: T314093\nChange-Id: I319346b5a38dcac3d9c9173c179d9a63d06bf36d",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: init test repo with explicit branch name\n\nWhen running `git init`, recent versions of git would complain when no\ndefault branch has been passed. Set it explicitly to `master` which is\nused all over the place.  This mute a warning when running zuul_tests.\n\nChange-Id: I78be3971df3a375039aea5ab4b1132e9f2ecd6bd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix shellcheck in mediawiki-phan-testrun\n\nSince `export` always return true, it masks the exit code of a command\nbeing run when assigning:\n\n  set -e\n  export FOO=$(/bin/false)\n\nWe need to do the assignment first and declare the export after:\n\n  set -e\n  FOO=$(/bin/false)\n  export FOO\n\nChange-Id: I6af2511161a6b81e865b135d156398e2d3a73b4b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: ignore a shellcheck source warning\n\nmediawiki-phan-taint-check-demo entrypoint sources a file provided by\nhttps://github.com/emscripten-core/emsdk.git . There is no way\nshellcheck can follow it so ignore the warning.\n\nChange-Id: I3122cb28880db3fb2699b91c29844fda902d71f9",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: Migrate quibble jobs to images with node14 not node10\n\nAffected jobs:\n - integration-quibble-apache-fullrun\n - integration-quibble-fullrun\n - legacy-quibble-rubyselenium-docker\n - mediawiki-fresnel-patch-docker\n - mediawiki-quibble-api-testing-vendor-mysql-php72-docker\n - mediawiki-quibble-api-testing-vendor-sqlite-php72-docker\n - mediawiki-quibble-apitests-composer-php72-docker\n - mediawiki-quibble-apitests-composer-php73-docker\n - mediawiki-quibble-apitests-composer-php74-docker\n - mediawiki-quibble-apitests-composer-php80-docker\n - mediawiki-quibble-apitests-vendor-php72-docker\n - mediawiki-quibble-apitests-vendor-php73-docker\n - mediawiki-quibble-apitests-vendor-php74-docker\n - mediawiki-quibble-apitests-vendor-php80-docker\n - mediawiki-quibble-composer-mysql-php72-docker\n - mediawiki-quibble-composer-mysql-php73-docker\n - mediawiki-quibble-composer-mysql-php74-docker\n - mediawiki-quibble-composer-mysql-php80-docker\n - mediawiki-quibble-composer-postgres-php72-docker\n - mediawiki-quibble-composer-postgres-php73-docker\n - mediawiki-quibble-composer-postgres-php74-docker\n - mediawiki-quibble-composer-postgres-php80-docker\n - mediawiki-quibble-composer-sqlite-php72-docker\n - mediawiki-quibble-composer-sqlite-php73-docker\n - mediawiki-quibble-composer-sqlite-php74-docker\n - mediawiki-quibble-composer-sqlite-php80-docker\n - mediawiki-quibble-composertest-php72-docker\n - mediawiki-quibble-composertest-php73-docker\n - mediawiki-quibble-composertest-php74-docker\n - mediawiki-quibble-composertest-php80-docker\n - mediawiki-quibble-selenium-composer-mysql-php72-docker\n - mediawiki-quibble-selenium-composer-mysql-php73-docker\n - mediawiki-quibble-selenium-composer-mysql-php74-docker\n - mediawiki-quibble-selenium-composer-mysql-php80-docker\n - mediawiki-quibble-selenium-composer-postgres-php72-docker\n - mediawiki-quibble-selenium-composer-postgres-php73-docker\n - mediawiki-quibble-selenium-composer-postgres-php74-docker\n - mediawiki-quibble-selenium-composer-postgres-php80-docker\n - mediawiki-quibble-selenium-composer-sqlite-php72-docker\n - mediawiki-quibble-selenium-composer-sqlite-php73-docker\n - mediawiki-quibble-selenium-composer-sqlite-php74-docker\n - mediawiki-quibble-selenium-composer-sqlite-php80-docker\n - mediawiki-quibble-selenium-vendor-mysql-php72-docker\n - mediawiki-quibble-selenium-vendor-mysql-php73-docker\n - mediawiki-quibble-selenium-vendor-mysql-php74-docker\n - mediawiki-quibble-selenium-vendor-mysql-php80-docker\n - mediawiki-quibble-selenium-vendor-postgres-php72-docker\n - mediawiki-quibble-selenium-vendor-postgres-php73-docker\n - mediawiki-quibble-selenium-vendor-postgres-php74-docker\n - mediawiki-quibble-selenium-vendor-postgres-php80-docker\n - mediawiki-quibble-selenium-vendor-sqlite-php72-docker\n - mediawiki-quibble-selenium-vendor-sqlite-php73-docker\n - mediawiki-quibble-selenium-vendor-sqlite-php74-docker\n - mediawiki-quibble-selenium-vendor-sqlite-php80-docker\n - mediawiki-quibble-vendor-mysql-php72-docker\n - mediawiki-quibble-vendor-mysql-php73-docker\n - mediawiki-quibble-vendor-mysql-php74-docker\n - mediawiki-quibble-vendor-mysql-php80-docker\n - mediawiki-quibble-vendor-postgres-php72-docker\n - mediawiki-quibble-vendor-postgres-php73-docker\n - mediawiki-quibble-vendor-postgres-php74-docker\n - mediawiki-quibble-vendor-postgres-php80-docker\n - mediawiki-quibble-vendor-sqlite-php72-docker\n - mediawiki-quibble-vendor-sqlite-php73-docker\n - mediawiki-quibble-vendor-sqlite-php74-docker\n - mediawiki-quibble-vendor-sqlite-php80-docker\n - mediawiki-selenium-integration-docker\n - mwcore-codehealth-master-non-voting\n - mwcore-codehealth-patch\n - mwcore-phpunit-coverage-master\n - mwcore-phpunit-coverage-patch\n - mwext-codehealth-master-non-voting\n - mwext-codehealth-patch\n - mwext-php72-phan-docker\n - mwext-php73-phan-docker\n - mwext-php74-phan-docker\n - mwext-php80-phan-docker\n - mwext-phpunit-coverage-docker-publish\n - mwext-phpunit-coverage-patch-docker\n - mwskin-php72-phan-docker\n - mwskin-php73-phan-docker\n - mwskin-php74-phan-docker\n - mwskin-php80-phan-docker\n - mwskin-phpunit-coverage-docker-publish\n - mwskin-phpunit-coverage-patch-docker\n - quibble-composer-mysql-php72-docker\n - quibble-composer-mysql-php72-noselenium-docker\n - quibble-composer-mysql-php72-phpunit-standalone-docker\n - quibble-composer-mysql-php72-selenium-docker\n - quibble-composer-mysql-php73-docker\n - quibble-composer-mysql-php73-noselenium-docker\n - quibble-composer-mysql-php73-phpunit-standalone-docker\n - quibble-composer-mysql-php73-selenium-docker\n - quibble-composer-mysql-php74-docker\n - quibble-composer-mysql-php74-noselenium-docker\n - quibble-composer-mysql-php74-phpunit-standalone-docker\n - quibble-composer-mysql-php74-selenium-docker\n - quibble-composer-mysql-php80-docker\n - quibble-composer-mysql-php80-noselenium-docker\n - quibble-composer-mysql-php80-phpunit-standalone-docker\n - quibble-composer-mysql-php80-selenium-docker\n - quibble-composer-postgres-php72-docker\n - quibble-composer-postgres-php72-noselenium-docker\n - quibble-composer-postgres-php72-phpunit-standalone-docker\n - quibble-composer-postgres-php72-selenium-docker\n - quibble-composer-postgres-php73-docker\n - quibble-composer-postgres-php73-noselenium-docker\n - quibble-composer-postgres-php73-phpunit-standalone-docker\n - quibble-composer-postgres-php73-selenium-docker\n - quibble-composer-postgres-php74-docker\n - quibble-composer-postgres-php74-noselenium-docker\n - quibble-composer-postgres-php74-phpunit-standalone-docker\n - quibble-composer-postgres-php74-selenium-docker\n - quibble-composer-postgres-php80-docker\n - quibble-composer-postgres-php80-noselenium-docker\n - quibble-composer-postgres-php80-phpunit-standalone-docker\n - quibble-composer-postgres-php80-selenium-docker\n - quibble-composer-sqlite-php72-docker\n - quibble-composer-sqlite-php72-noselenium-docker\n - quibble-composer-sqlite-php72-phpunit-standalone-docker\n - quibble-composer-sqlite-php72-selenium-docker\n - quibble-composer-sqlite-php73-docker\n - quibble-composer-sqlite-php73-noselenium-docker\n - quibble-composer-sqlite-php73-phpunit-standalone-docker\n - quibble-composer-sqlite-php73-selenium-docker\n - quibble-composer-sqlite-php74-docker\n - quibble-composer-sqlite-php74-noselenium-docker\n - quibble-composer-sqlite-php74-phpunit-standalone-docker\n - quibble-composer-sqlite-php74-selenium-docker\n - quibble-composer-sqlite-php80-docker\n - quibble-composer-sqlite-php80-noselenium-docker\n - quibble-composer-sqlite-php80-phpunit-standalone-docker\n - quibble-composer-sqlite-php80-selenium-docker\n - quibble-daily-Cognate-vendor-mysql-php72-docker\n - quibble-daily-InterwikiSorting-vendor-mysql-php72-docker\n - quibble-donationinterface-REL1_35-php73-docker\n - quibble-fundraising-FundraisingEmailUnsubscribe-REL1_35-php73-docker\n - quibble-fundraising-ParserFunctions-REL1_35-php73-docker\n - quibble-fundraising-cldr-REL1_35-php73-docker\n - quibble-vendor-mysql-php72-docker\n - quibble-vendor-mysql-php72-noselenium-docker\n - quibble-vendor-mysql-php72-phpunit-standalone-docker\n - quibble-vendor-mysql-php72-selenium-docker\n - quibble-vendor-mysql-php73-docker\n - quibble-vendor-mysql-php73-noselenium-docker\n - quibble-vendor-mysql-php73-phpunit-standalone-docker\n - quibble-vendor-mysql-php73-selenium-docker\n - quibble-vendor-mysql-php74-docker\n - quibble-vendor-mysql-php74-noselenium-docker\n - quibble-vendor-mysql-php74-phpunit-standalone-docker\n - quibble-vendor-mysql-php74-selenium-docker\n - quibble-vendor-mysql-php80-docker\n - quibble-vendor-mysql-php80-noselenium-docker\n - quibble-vendor-mysql-php80-phpunit-standalone-docker\n - quibble-vendor-mysql-php80-selenium-docker\n - quibble-vendor-postgres-php72-docker\n - quibble-vendor-postgres-php72-noselenium-docker\n - quibble-vendor-postgres-php72-phpunit-standalone-docker\n - quibble-vendor-postgres-php72-selenium-docker\n - quibble-vendor-postgres-php73-docker\n - quibble-vendor-postgres-php73-noselenium-docker\n - quibble-vendor-postgres-php73-phpunit-standalone-docker\n - quibble-vendor-postgres-php73-selenium-docker\n - quibble-vendor-postgres-php74-docker\n - quibble-vendor-postgres-php74-noselenium-docker\n - quibble-vendor-postgres-php74-phpunit-standalone-docker\n - quibble-vendor-postgres-php74-selenium-docker\n - quibble-vendor-postgres-php80-docker\n - quibble-vendor-postgres-php80-noselenium-docker\n - quibble-vendor-postgres-php80-phpunit-standalone-docker\n - quibble-vendor-postgres-php80-selenium-docker\n - quibble-vendor-sqlite-php72-docker\n - quibble-vendor-sqlite-php72-noselenium-docker\n - quibble-vendor-sqlite-php72-phpunit-standalone-docker\n - quibble-vendor-sqlite-php72-selenium-docker\n - quibble-vendor-sqlite-php73-docker\n - quibble-vendor-sqlite-php73-noselenium-docker\n - quibble-vendor-sqlite-php73-phpunit-standalone-docker\n - quibble-vendor-sqlite-php73-selenium-docker\n - quibble-vendor-sqlite-php74-docker\n - quibble-vendor-sqlite-php74-noselenium-docker\n - quibble-vendor-sqlite-php74-phpunit-standalone-docker\n - quibble-vendor-sqlite-php74-selenium-docker\n - quibble-vendor-sqlite-php80-docker\n - quibble-vendor-sqlite-php80-noselenium-docker\n - quibble-vendor-sqlite-php80-phpunit-standalone-docker\n - quibble-vendor-sqlite-php80-selenium-docker\n - wikibase-client-docker\n - wikibase-repo-docker\n - wmf-quibble-apache-selenium-php72-docker\n - wmf-quibble-apache-vendor-mysql-php72-docker\n - wmf-quibble-core-vendor-mysql-php72-docker\n - wmf-quibble-core-vendor-mysql-php74-docker\n - wmf-quibble-selenium-php72-docker\n - wmf-quibble-selenium-php74-docker\n - wmf-quibble-vendor-mysql-php72-docker\n - wmf-quibble-vendor-mysql-php74-docker\n\nBug: T294931\nChange-Id: I8f5e5dbcd7b5defc2d71aa6bd95d97fb1391750c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.5.1\n\nBug: T330750\nChange-Id: I3738812f225e923589bd24720f286fcdfaa127c0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add changelog entry for new release upstream\n\nFollow-up to I59faff85b03e7183a48267a8ce4ba581667192b0\n\nChange-Id: I049508747330289c9dfc282ee7db03964122757f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: upgrade castor Stretch > Bullseye\n\nBug: T278203\nChange-Id: I8ba9d588c22fb9ef312ac911f8614d7a14defa0e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: simplify sonar-project.properties generation\n\nAddresses shellcheck SC2129, instead of multiple append, group the\ncommands and redirect to the file only once.\n\nChange-Id: I250111091c6248cdebf360069e09bce6c08d6da0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update zuul-cloner from Stretch to Buster\n\nUpdate jobs:\n\nintegration-config-jjb-diff-docker\nintegration-config-shellcheck-docker\nintegration-config-zuul-layout-diff-docker\nintegration-config-zuul-layout-validate-docker\nmw-tools-codesniffer-mwcore-testrun\nmw-tools-phan-mwcore-testrun\nwikimedia-fundraising-civicrm-bullseye-docker\nwikimedia-fundraising-civicrm-docker\n\nBug: T278203\nChange-Id: I522b351261b6cefd534474df0d3aebf3e1371e8e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "helm-linter: Add kubeconform for kuberntes spec validation\n\nBug: T306165\nChange-Id: I3278d72aa9cfc69edbfabc3165ffc9f94ef26f7a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: parameterize the docker-setup-mwext-for-phan macro\n\nWe have four macros essentially doing the same thing for Phan, the sole\ndifferences being the Docker images used.\n\nInline the macro in the '{thing}-{php}-phan-docker' template and convert\nthe images to use variables.\n\nNo change in jobs.\n\nChange-Id: I7a824a06f23d08196a83fa5badb15c337761a96e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update Depends in control files\n\nSome image were still marked as depending upon `ci-stretch`, they have\nsince been updated. Adjust the control files to reflect the reality.\n\nBug: T278203\nChange-Id: Ib62e550f3db674b2c62a5f7854ac35477189ecdb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [quibble-fresnel] Switch from php72 to php74 base image\n\nBug: T316525\nChange-Id: I508c96a3da9a56d112c372d43e20e774042f88f1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: remove ci-stretch, no more used\n\nAnd stop pulling the stretch base image from fab.\n\nBug: T278203\nChange-Id: I5610dbb0175c2128a4f7c2711e5d498678f680d3",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: [node14] Restore image, now needed by Quibble\n\nThis partially reverts commit bb6aa8feb6439f61697cc0eb2f7cf893fcc9e503.\n\nChange-Id: I327da994d47549ace6533c2569bc4bb22e5dcee6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: normalize jobs to have /src on the host\n\nSome jobs do not bind mount `src` and the source code is thus stored in\nthe Docker one off volume. Most other jobs have the repository cloned in\nthe Jenkins workspace.\n\nReplace usage of `docker-run-with-log-and-workspace-cache` which does\nnot bind mount `src` by `docker-run-with-log-cache-src` which does. That\nmakes jobs more consistent.\n\nOn the agents, the source code ends up in the `/srv` partition which is\n18GB rather than in the `/var/lib/docker` 40GB partition.\n\nMight help with T292729, or at least make it less confusing.\n\nUpdate:\nacme-chief-new-pebble-tox-docker\nacme-chief-tox-docker\nanalytics-gobblin-wmf-maven-release-docker\nanalytics-refinery-maven-release-docker\ncassandra-table-properties-tox-docker\ncensorshipmonitoring-tox-docker\ncergen-tox-docker\nconftool-tox-docker\ncumin-tox-docker\ndeployment-charts-tox-update_version-docker\neventlogging-tox-docker\nfundraising-tools-tox-docker\nhomer-public-tox-docker\nhomer-tox-docker\nintegration-config-qa\nintegration-config-tox-docker\nintegration-gear-tox-docker\nintegration-quibble-tox-docker\nintegration-zuul-tox-docker\nlabs-striker-tox-docker\nlabs-tools-commons-mass-description-tox-docker\nlabs-tools-harvesting-data-refinery-tox-docker\nlabs-tools-heritage-tox-docker\nlabs-tools-ipwatcher-tox-docker\nlabs-tools-Isa-tox-docker\nlabs-tools-ldap-tox-docker\nlabs-tools-map-of-monuments-tox-docker\nlabs-tools-massmailer-tox-docker\nlabs-tools-urbanecmbot-tox-docker\nlabs-tools-watch-translations-tox-docker\nlabs-tools-weapon-of-mass-description-tox-docker\nlabs-tools-wiki2email-tox-docker\nlabs-tools-wikinity-tox-docker\nlabs-tox-docker\nlintr-docker\nlintr-docker-non-voting\nmediawiki-vagrant-ruby2.5-rake-docker\nnetbox-reports-tox-docker\nooui-ruby2.5-rake-docker\noperations-puppet-tests-buster-docker\npoolcounter-tox-docker\npuppet-wmf-styleguide-ruby2.5-rake-docker\npywikibot-CommonsDelinker-tox-docker\npywikibot-core-tox-deeptest-py36-docker\npywikibot-core-tox-doc-docker\npywikibot-core-tox-docker\npywikibot-core-tox-doctest-docker\npywikibot-core-tox-fasttest-py35-docker\npywikibot-core-tox-fasttest-py37-docker\npywikibot-core-tox-fasttest-py38-docker\npywikibot-FLOSSbot-tox-docker\npywikibot-i18n-tox-docker\npywikibot-wikibase-tox-docker\npywikibot-xqbot-tox-docker\nquibble-donationinterface-REL1_35-php73-docker\nquibble-fundraising-cldr-REL1_35-php73-docker\nquibble-fundraising-FundraisingEmailUnsubscribe-REL1_35-php73-docker\nquibble-fundraising-ParserFunctions-REL1_35-php73-docker\nruby2.5-rake-docker\ntox-docker\ntrain-deploy-notes\ntranslatewiki-ruby2.5-rake-docker\nwikidata-query-flink-swift-plugin-maven-release-docker\nwikidata-query-rdf-maven-release-docker\nwikimedia-cz-events-tox-docker\nwikimedia-cz-tools-tox-docker\nwikimedia-cz-tracker-tox-docker\nwikimedia-event-utilities-maven-release-docker\nwmf-utils-tox-docker\n\nBug: T292729\nChange-Id: I3290f260f12d59342e7183f27ec60206ca2558a2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: drop extra space in docker Jinja2 template\n\nIn order to reduce the JJB diff output when migrating to Jinja2 the\nmacro inserted an extra space when no options and no volumes got used.\nThat is no more needed.\n\nUpdate:\n- labs-tools-wikibugs2-autopull\n- operations-dns-lint-docker\n- operations-mw-config-typos-docker\n\nChange-Id: I2b3813cc9861948c5d5f4fb173278cad54f4cb86",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [quibble-buster-php74-coverage] Bump phpunit-patch-coverage\n\nBug: T323139\nChange-Id: Iea577de68712b3b51f35650f73eafd16c78141e6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [sury-php] Migrate from stretch to bullseye\n\nBug: T278203\nChange-Id: Ifecb8a9c8999a2dbaf14fbe5c6205beba802a614",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: migrate docker --volume to \"volumes\" yaml map\n\nChange-Id: If9e377046d809c3f8968682ab24f6202228317db",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update phpmetrics 2.4.1 > 2.7.3\n\nA few improvements here and there have been made:\nhttps://github.com/phpmetrics/PhpMetrics/blob/master/CHANGELOG.md\nhttps://github.com/phpmetrics/PhpMetrics/releases\n\nChange-Id: I5d157ffb790067717f9d89c700cb18d35816b7cd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove reference to tools/release\n\ntools/release was move to gitlab under releng/release\n\nBug: T290260\nChange-Id: I1501c1437dd6ae9cfe9d5df79f1ef7c2f06c574a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: [oojs-ui-docker-publish] Switch from node12 to node14 image\n\nChange-Id: I16f4bac8f276b218e5be6ccc6f125d92ff5e49d8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: add sextant to helm-linter\n\nBug: T292818\nChange-Id: I39ef6d41501c3b8a2d74b664d9b55749f02471bf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update commit-message-validator\n\nUpdate commit-message-validator to use our bullseye base image to work\nwith commit-message-validator v1.0.0 which requires Python 3.6+.\n\nBug: T315159\nChange-Id: I1c8256ed8eaddc5cad4e9fa07591fb9fc54900e1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide node18 images\n\nBug: T331181\nChange-Id: I38cbb8dafe267560eac84e11b44ec1f116948aff",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: fix control package name for rake-ruby2.5\n\nChange-Id: I2220cad3b7af6d73894a519d76b57b1d6b3a7788",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Excimer packages to PHP 7.4+ dockerfiles\n\nJust for composer platform reqs at present.\n\nBug: T291015\nDepends-On: If10ef9a53e7d925999ab9a3b173002bef5dbcd9e\nChange-Id: Iac562ab4f04b135a5bc32859e9879d985b2fc39b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: zuul-cloner job to pip v23.2.1 virtualenv 20.21.1\n\nUpdate:\nintegration-config-jjb-diff-docker\nintegration-config-shellcheck-docker\nintegration-config-zuul-layout-diff-docker\nintegration-config-zuul-layout-validate-docker\nmw-tools-codesniffer-mwcore-testrun\nmw-tools-phan-mwcore-testrun\nwikimedia-fundraising-civicrm-bullseye-docker\nwikimedia-fundraising-civicrm-docker\n\nBug: T345695\nChange-Id: I77e778c472fb621ccd024986949a1df38763462b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: add 'environment' to Jinja2 docker macro\n\nSince the environment parameters are passed after options, a few jobs\nget minor changes:\n\nmwcore-codehealth-master-non-voting\nmwcore-codehealth-patch\nmw-tools-phan-mwcore\n\nChange-Id: I9e763142582a57bc7f4da555fde8c77dadf1eb9f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: support entrypoint in Jinja2 docker macro\n\nSo we can easily override the container entrypoint instead of passing an\nextra option. Bunch of jobs can then be refactored to use that.\n\nChange-Id: Ibbc69cbc499e922bdb804c4f86b277c6f5179dbf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Install pcov in base PHP images\n\nThis includes the composer-package ones. The 7.2 image wasn't touched\nbecause that uses Wikimedia APT, not sury (T280170#7001847).\n\nImages build yields:\n\nFor sury.org based images:\nphp73:Setting up php7.3-pcov (1.0.11-4+0~20220117.23+debian11~1.gbp34fff9)\nphp80:Setting up php8.0-pcov (1.0.11-4+0~20220117.23+debian11~1.gbp34fff9)\nphp81:Setting up php8.1-pcov (1.0.11-4+0~20220117.23+debian11~1.gbp34fff9)\n\nFor the wikimedia image:\nphp74:Setting up php7.4-pcov (1.0.6-4+wmf1~buster1)\n\nThere is a version mismatch (1.0.11 vs 1.0.6) but it is probably not a\nbig deal.\n\nNOTE: Needs to be cascaded!\n\nBug: T280170\nChange-Id: I2c864784fab8f8be7ae641888b5949f47a81b2fb",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.5.4\n\n* Use Autoloader::registerNamespaces\n* Configure local wiki site with page path\n* Set MW_SKIP_EXTERNAL_DEPENDENCIES for vendor jobs\n\nBug: T332930\nBug: T331280\nBug: T333412\nChange-Id: Iaf2065af36c8d07eb6e6bc49c164c02039e1aeae",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: Install envoyproxy\n\nInstall envoyproxy to validate generated (fixture) config in CI\n\nBug: T304660\nChange-Id: Ib37353e65ba099610a492772f046342eb79c92ac",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Dockerfiles: [maven-java8] Update gerrit.wikimedia.org IP\"\n\nThis reverts commit b0a9e347ffe48fe927e9c9d43f2b7871697bf793.\n\nReason for revert:\n\nThe java8 images are legacy ones and can not be rebuild since they\nare based on Debian Stretch. They should be migrated: T278203\n\nBug: T278203\nBug: T326368\nBug: T336427\nChange-Id: If459647c7af07a0562a2203ae518f01bfe419dd8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: move docker run --volume option(s) at end\n\nTo ease a future refactoring which abstract out volume binding, move the\n`--volume` options as last options.\n\nChange-Id: Id500cf17263a068d3bde8b008a38e5140effc788",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: keep pip and wheels in Quibble images\n\nWe have end to end tests for `integration/quibble` which install Quibble\nfrom source.  I am working on a change to get rid of `setup.py` in favor\nof `pyproject.toml`: I68686e668c3bac7cd1cb16c14a31f415d705edf9.\n\nThat requires pip to be present in the Quibble images in order to\ninstall Quibble in a CI job. python-pip and python-wheels were\npreviously purged to save up a bit of disk space in the image layer.\n\nChange-Id: Ib19f2a8b6800bed0744ccab19d089e33baa6e03a",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: double quotes in bash scripts\n\nI am skipping rebuilding the Docker images since the changes are\nstraightforward.\n\nUpdate jobs:\nfresh-test\nmw-cli-test\n\nChange-Id: Ibffdf01745589dea221813bc7da7bb0bbc30aab4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: Drop scap-deps-stretch, no longer used\n\nBug: T322269\nChange-Id: I03a384437138ae336f02b1442cbee76628cc6fc5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Add dotnet-mono612 image for CVNBot CI job\n\nChange-Id: Ia499ce8f84b89c91c32274337214ade82af2e84c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: install python3 pip from source v23.2.1\n\nDebian Buster provides pip 18.1 which is way too old.\n\nThe upgrade is required to properly parse pyproject.toml such as\nintegration/tox-jenkins-override having:\n\n  optional-dependencies.test = [\n      \"tox>=4\",\n      \"devpi-process\",\n  ...\n\nThe section.name structure is not recognized by pip 18 which expects an\nequal sign immediately after `optional-dependencies`.\n\nBug: T345607\nChange-Id: Iff4f9ba339816d5d2599fcf3a31c9905c38e3b23",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [composer-scratch] Upgrade composer to 2.6.4\n\nBug: T347360\nChange-Id: If2af79d5c5f95d78a48ddea18341885d87597e0b",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: simplify Jinja2 whitespace with volume\n\nShould be a noop in JJB.\n\nChange-Id: I4e34a7b521d9a944c1699c41cd61a0605d0417bd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Tweak mediawiki-phan and mediawiki-phan-testrun fixes to build\n\nChange-Id: Ib866848086b8420b5ef54a08abb351c7a2fc6e68",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update image operations-puppet job\n\nImage to rebuild to catch up with the latest gem dependencies.\n\nChange-Id: Ia7c3c4bd1c345bfe0e83b329fa34328c4f1d7ce2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php81] Correct location of php-ast extension\n\nChange-Id: I48192cd46586540b1887c13240bf38ff63de881f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: ls WORKSPACE before creating dirs\n\nWe create a combination of directories (cache, log, src) in the Jenkins\nbuild workspace which are then mounted in the container. Sometime the\ndirectory creation fails with a permission denied error.\n\nI have suspected the previous build to have left behind some of the\ndirectories, potentially owned by `root:root`. In 6143edb8 I have added\na postbuild script which does a `ls` after cleaning up the workspace. We\nhad a build failure today and the previous build on the same job had an\nempty output, so the issue must be different.\n\nInstead of having to track the previous build, add a `ls` before\ncreating the `cache`, `log` or `src` directories. Leave the post build\n`ls` as a potential reference point.\n\nBug: T282893\nChange-Id: I2859ee16ad50381f1986af1648959b46ef0ad9b0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet: use new build\n\nUpdate to 0.8.12 to grab, puppet-lint-wmf_styleguide-check\n\nBug: T342806\nChange-Id: I79a9d1e3417ef40ea0fc961129c0bcab6789f14e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Archive search/MjoLniR (moved to GitLab)\n\nRemove the `example-run.sh` from tox-pyspark image which used\n`search/MjoLniR` as an input project.\n\nDeleted jobs:\n - search-mjolnir-main-tox-docker-with-sonar\n - search-mjolnir-maven-java8-docker\n - search-mjolnir-maven-java8-docker-site-publish\n - search-mjolnir-patch-tox-docker-with-sonar\n\nBug: T345956\nChange-Id: I0bcada3e186b8b4056019c2333df42e70a22a777",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: [ajv] Switch parent image from node14 to node16\n\nChange-Id: I4d08a7ca1bddb48c4876909a7b080666ec63066f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Puppet 7 catalogue compiler job\n\nCreate an alias of the operations-puppet-catalog-compiler-test job\nassigned to the label `puppet7-compiler-node` which regroups PCC workers\nrunning Puppet 7 rathern than Puppet 5.\n\nThe new job is operations-puppet-catalog-compiler-puppet7-test, the diff\ncompared to the referenced job is:\n\n  $ diff -U0 \\\n     <(./jjb-test operations-puppet-catalog-compiler-test) \\\n     <(./jjb-test operations-puppet-catalog-compiler-puppet7-test)\n  -  <assignedNode>puppet-compiler-node</assignedNode>\n  +  <assignedNode>puppet7-compiler-node</assignedNode>\n\nBug: T236373\nChange-Id: I51b7056ca0b5b5bfd95c7b0d6954cb8b0dcd2dae",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [php74] Re-build to pick up newer version of Wikimedia's PHP\n\nBug: T318918\nChange-Id: Ibcded4a3d50caab4ff2b1f8f00626a8275cb8d67",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove support for tox + Poetry\n\nThe job was only triggered for two repositories:\n\ncloud/toolforge/toolforge-ci: migrated to Gitlab and now archived.\n\ncloud/wmcs-backups: is empty but has two pending commits\nfrom 2021 and 2022:\n\n* I81ed90d42df3481a759f5c9e24a52391b4c24f00\n* I4917cb792e85013c8639e95a0caf49253e9af006\n\nRemove tox-poetry-docker\nRemove docker-registry.wikimedia.org/releng/tox-poetry-buster\n\nBug: T345695\nChange-Id: I3f249abdb08cdcd68f6613094b74616bfa85ee95",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Provide node16 images for CI\n\nDespite our plans, I'm not initially using the bundled npm/npx as\nthey are somehow non-operable.\n\nBug: T313075\nChange-Id: Idd2074e3629af60ea365153a5f8eb3aa4c6ce092",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "operations-puppet-catalog-compiler: increase number of threads to 4\n\nChange-Id: Ie5987762df4f001ebe6009351106d5676240d04c",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: update to Quibble 1.4.6\n\nUpdate to Quibble 1.4.6.\n\nIntroduce `ARG QUIBBLE_VERSION=1.4.6` at the top of the Dockerfile\ntemplate, will make it slightly easier to bump the version later on.\nInspired by Bryan Davis on in cc3cd1e123.\n\nBug: T305525\nBug: T314586\nChange-Id: I8c6dcba006ec62568bc8e35bbfebc30f545e48b0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [composer-security-check] Update service domain\n\nBug: T296967\nChange-Id: I8cd9c829319300319f20af0b53e9a9c03ec16fbd",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dockerfiles: [php74] Bump to latest PHP 7.4 and cascade\n\nSkipping Quibble images as they got updated a few hours ago already.\n\nChange-Id: I8ea36218dafa027492fcf7189192714dd8b52c41",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: run get-poetry.py with Python 3\n\ntox-buster has python pointing to Python 2.7 but that is no more\nsupported.\n\nhttps://github.com/python-poetry/poetry/issues/5989\n\nBug: T321724\nChange-Id: I3c0754a8c2b6418096f01d1e4173c4911182872e",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: normalize Quibble jobs to use /src\n\nThe intent is to remove the more specific JJB macro:\ndocker-run-with-log-and-workspace-cache and reduce the complexity.\n\nQuibble runs in `/workspace` thus mount the agent `src` directory to\n`/workspace/src`.  The macro now has a srcdir variable much like the\nlogdir one.\n\nThis cause the source and packages installed by Quibble to be moved on\nthe agents from `/var/lib/docker` to `/srv` partition.\n\nUpdate quibble jobs.\n\nBug: T292729\nChange-Id: I71a646a3172ab8f2849ced63419dc71bcdcad4d5",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Add optional tag argument to debug-image\n\nAllow the user to provide a specific tag to run:\n\n  debug-image IMAGE [TAG]\n\nChange-Id: I3059e9fcdf5304d1787b163a6eae1266e21d9094",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Compile PHP extensions with -Wall -Werror\n\nMany warnings are certain bugs, so CI should fail when warnings are\nraised.\n\nChange-Id: I4965e2d87470512b469016902859135ec451c64f",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: remove percona-toolkit from tox-mysqld\n\nWe added the package for operations/software/wmfmariadbpy to add an\nintegration test suite (T261098). Then the suite requires different\nversions of Mysqld so they went with their own provisionning\nsystem.\n\nThe repository triggers `tox-docker` and thus does not have\npercona-toolkit at all.\n\nBug: T278203\nBug: T261098\nChange-Id: I65c941cc654ade40a6e9a534af4ea715251314a1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [sonar-scanner] Upgrade nodejs from node10 to node14\n\nI've verified that this image builds and node v14.17.5 is installed.\nPreviously this was node v10.24.0 (and yet npm v7.2.1 still).\n\nBug: T303958\nChange-Id: I029f1019bbcd98d4ca5188d85790455001aa7003",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: remove cassandra311\n\nThe `docker.wikimedia.org/releng/cassandra311` image was created as part\nof T256281. A first attempt proposed it for SRE maintained images at\nhttps://gerrit.wikimedia.org/r/c/operations/docker-images/production-images/+/607918/\nbut then moved to integration/config.\n\nThe image is based on Debian Stretch which is long EOL (T278203). From\ndiscussion on tasks, the intent was to add some functional testing to\nKask but did not realize.\n\nWe can later recreate the image, though production-images repository\nwould probably be a better fit.\n\nBug: T335780\nBug: T224041\nChange-Id: Ia479e63ee57117b2a5f86c9521e9df82498171a0",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: ensure docker macro options is always a string\n\ndocker-ci-src-setup-simple without submodules passed would yield None\nwhen we really expect an empty string. Return an empty string and in\ndocker-run we can handle \"options\" like \"entrypoint\" by simply checking\nwhether it has any length.\n\nAs a result \"docker run\" expansion no more have two spaces when options\nis empty.\n\nChange-Id: Ia71688d2f00d5d76e2f14ef720d91c0784939fe7",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: add libexiv2-dev to tox-buster\n\nRequired by operations/software/thumbor-plugins\nIcabc39dab7347ac5c6d75f834a06ddfca5c4ca09\n\nBug: T252719\nChange-Id: I2920ec7ec08e92e7df2983b5d4bb2ec928c545af",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [composer-scratch] Upgrade composer to 2.3.3 and cascade\n\nBug: T294260\nBug: T303867\nChange-Id: Id6dd7ac902f2fb49711b188b4f2f025e374cc7b8",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: reorder builders in macro-docker\n\nGroup the builders in charge of creating directories next to each\nothers.\n\nChange-Id: I5c67f089f301d748e413d48512d11bf6a9015acf",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: [node16] Upgrade node from 16.16.0 to 16.19.1\n\nChange-Id: I123f2738833ca52fc02a5c40182bffd5722145d4",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "jjb: update operations-puppet image\n\nThe image got rebuild to catch up with new gems introduced by\nhttps://gerrit.wikimedia.org/r/c/operations/puppet/+/799982\n\nChange-Id: Ie689eaa174c1f6c89c9ca346bcdbdfec76fa6392",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: [quibble-buster] Add unzip package (and cascade)\n\nComposer emits a warning when it can not find unzip or 7z since the PHP\nzip extension does not restore UNIX permissions.\n\nBug: T250496\nBug: T303417\nChange-Id: Ie67196f4b8f6e99c9c931edd5a920f4f1d6aa0b1",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: use extension base path for coverage report\n\nThe coverage report for extensions and skins is generated with a path\nfilter passed to PHPUnit. The path has a `tests/phpunit` suffix\nintroduced by a88c3e9a687f1 which relies on a convention.\n\nFor Wikibase, the tests are in the `client` and `repo` subdirectories\nand are thus filtered out by PHPUnit.\n\nDrop the `tests/phpunit` suffix to let PHPUnit discover any test.\n\nBug: T288396\nChange-Id: Ib09e1e7cf02627e87f7b6e7c1524297a279b5ee6",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Docker: [quibble-buster] Re-use node from the node image rather than our own\n\nIn practice, this also means switching from node14 to node16.#\n\nChange-Id: Idda408baef921d72859af739d571361332be1a63",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfile: Fix use of pipefail in buildctl Dockerfile\n\nBuilding the buildctl image failed due to use of `set -o pipefail` in a\n`RUN` statement. This is due to the default shell being `/bin/sh` which\ndoes not support the option. Use `SHELL` to enforce the option instead.\n\nFollow-up to Idc4abb6d691860899f20264334ba4eb8647069e6\n\nChange-Id: I6da72e2be912f8600f4e65a5659a0acaefad6e38",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "dockerfiles: Add php-excimer to quibble\n\nphp-excimer is the extension Tim wrote for profiling and measurements\nand it has been installed in production hosts for really long time. It\nhas been instrumental in finding performance bottlenecks.\n\nAdd it to Quibble images so we can build a profiler for it.\n\nBug: T225730\nChange-Id: I1cea4cd59b2a47ae15e05231dad3d68f5aafebc8",
+        "issue_summary": ""
+    }
+]
