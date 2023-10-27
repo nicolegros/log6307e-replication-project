@@ -19,7 +19,7 @@ class RepoExtractor:
         self.data_folder = data_folder
         self.batch_size = batch_size
         load_dotenv()
-        self.api = Github(os.getenv('GITHUB_TOKEN_THOM'))
+        self.api = Github(os.getenv('GITHUB_TOKEN'))
         self.timer = Timer()
 
     def _get_orgs_repos(self, name: str) -> PaginatedList[Repository]:

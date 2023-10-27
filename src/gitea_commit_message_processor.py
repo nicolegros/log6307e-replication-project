@@ -40,12 +40,10 @@ class GiteaCommitMessageProcessor:
                     print(f"{e}")
                     issue = None
 
-                # Assign issue_summary to issue["body"] if the dictionnary as the "body" key and blank string else
                 issue_summary = issue["body"] if issue and "body" in issue else ""
             xcm = self.__convert_to_xcm(commit_message, issue_summary)
             xcms.append(xcm)
 
-        # Save the xcms in json
         complete_save_path = f"{self.data_folder}/{org}/xcms/{repo_name}.json"
         print(f"        Saving xcms to {complete_save_path}")
         with open(complete_save_path, "w") as f:
