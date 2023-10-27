@@ -1,0 +1,870 @@
+[
+    {
+        "commit_message": "Provide a different source repo for spice-html5\n\nWe are noticing some intermittence on the gitlab service that provides\nthe spice-html5 source code defined on the default location on LOCI at\n[1]. This commit creates the possibility to override the SPICE_REPO\nlocation so we can decide for each image if we want to use a different\nsource and ref for spice-html5.\n\nThis patch also defaults to the github mirror of spice-html5 for all stx\nimages.\n\n[1] https://github.com/openstack/loci/blob/master/Dockerfile#L29\n\nTEST PLAN\nPASS Build stx-nova image with SPICE_REPO and SPICE_REF changed\nPASS Build images with a mix of changed and unchanged\n     .stable_docker_images WRT spice-html5 source\n\nDepends-On: https://review.opendev.org/c/openstack/loci/+/823577\nCloses-Bug: #1956173\nSigned-off-by: Thiago Brito <thiago.brito@windriver.com>\nChange-Id: I6872e42b08b2774666691b5dc4f0ff534160434a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add static tags to Debian stx-keystone-api-proxy\n\nUpdate yaml file with new tag for stx-keystone-api-proxy\nusing the master-debian-stable-20221122T070000Z.0 build.\n\nStory: 2009831\nTask: 46921\n\nSigned-off-by: Hugo Brito <hugo.brito@windriver.com>\nChange-Id: I28ffbc854ef63fb57299d2ac8a8bccc4e467a700\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add pecan-1.3.3 to dev-wheels.cfg\n\nThe openstack/requirements master/upper-constraints.txt was\nrecently updated to point to pecan-1.3.3, but pypi.org does\nnot have a wheel for this newly released version. This, in\nturn, caused a dev image build failure.\n\nThis update adds pecan-1.3.3 to the dev-wheels.cfg to build\na wheel for this version and add it to the dev wheels tarball.\n\nChange-Id: I165a3b3e31dad275459d015936e4c9ea5a0e2d78\nCloses-Bug: 1823984\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update loci to latest version in build-stx-images.sh\n\nThe build-stx-images.sh utility references a fixed loci SHA in order\nto isolate the image builds from tool churn.\n\nA recent update to virtualenv has broken loci builds, as described here:\nhttp://lists.openstack.org/pipermail/openstack-discuss/2019-February/002592.html\n\nThis update sets the loci SHA to the commit that addresses this issue.\n\nChange-Id: I4c5404c72935433b217d534fc9129f6ea69f23b1\nStory: 2004751\nTask: 29461\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.7.0-v1.5.5\n\nThis commit updates the image with the updated clients and the fix\nof the old kubectl version. It was in the 1.21.3, now its updated to\nthe correct version 1.21.8.\n\nPartial-Bug: #1958551\n\nSigned-off-by: Thiago Miranda <ThiagoOliveira.Miranda@windriver.com>\nChange-Id: I9559020a82b84f7cfa63ad2fc4833c39504b7cac\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tag for notificationclient-base\n\nUpdate image tag to stx.5.0-v1.0.4 for notificationclient-base\n\nCloses-Bug: 1924198\nCloses-Bug: 1926532\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Ie09ae4f28864aa6ee8a549bd15be5645519df7b9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "retag-images: fix YAML module errors\n\n- Don't use yaml.FullLoader class. It's unsafe and doesn't exist in\n  older versions of PyYAML\n\n- Fix code that tried to parse Docker REST JSON output using PyYAML. Use\n  the json module instead.\n\nTESTS\n=======================================\nRun \"retag-images.sh --dryrun\" with both tags that already exist and\ntags that don't exist in DockerHub, and make sure there are no Python\nexceptions; in the following environments:\n\n* CentOS 7 / python 2.7.5\n  - pyyaml 3.10  (centos)\n  - pyyaml 5.4.1 (pypi.org)\n\n* Ubuntu 18 / python 2.7.17\n  - pyyaml 3.12  (ubuntu)\n  - pyyaml 5.4.1 (pypi.org)\n\nCloses-Bug: 1981107\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I9a7ecfd51ffb955f3ccc8f9b26ef610740fa400b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: build-wheels: partial debian support\n\nAdd debian support to wheels scripts. Note: this solution is not fully\nfunctional. Remaining issues will be addressed in separate commits. See\nFIXME file in this patch.\n\n* build-wheels: move OS-specific files to subdirectories\n  {dev,stable}-wheels.cfg\n  {dev,stable}-wheels-py2.cfg\n  openstack.cfg\n  Dockerfile\n\n* added a copy of openstack/ussuri requirements files under\n  debian/openstack-requirements/ussuri/upstream for reference\n\n* added a patched version of openstack/ussuri requirements files based\n  on above. Changes:\n  - added lines for python3.9\n  - disabled some packages that don't compile on debian (nss, thrift);\n    these will be installed as DEB files into the base image\n\n* build-base-wheels.sh:\n  - auto-detect OS & version by default\n  - add local build repo to docker file\n  - define CPUCOUNT=2 when building wheels. Otherwise some wheels run\n    out of RAM when building.\n\n* build-wheel-tarball.sh:\n  - auto-detect OS & version\n  - new option: --keep-image\n  - allow openstack URL to be a local file name\n  - assume DEB wheel packages may install wheels at any level, not just\n    under \"/wheels\". It's not consistent with CentOS, but many DEB\n    packages do it that way now.\n\n* get-stx-wheels.sh:\n  - auto-detect OS & version defaults\n  - debian: don't scan 3rd-party libraries for wheels. They don't exist\n    as files within the POD, but only in the repomgr repo. To be\n    addressed later.\n  - debian: don't scan for lower layer wheels. Layered builds are not\n    supported by Debian right now. To be addressed later.\n  - debian: extarct wheels from DEB files\n\nCHANGES TO DEBIAN WHEEL VERSIONS COMPARED TO CENTOS\n===================================================\n\n* Python 3 (stable-wheels.cfg):\n  - libvirt_python 4.7.0 upgraded to 7.0.0. Original version doesn't\n    compile on debian/bullseye. New version matches the SO package\n    included with bullseye\n  - python_nss: removed. This module doesn't compile on bullseye as-is.\n    A patched version is compiled as a DEB package as part of STX [1]\n  - thriftpy: removed. This module doesn't compile on bullseye as-is. A\n    patched version is provided by Debian [2]\n\n* Python2 (stable-wheels-py2.cfg):\n  - python-nss: removed. This module doesn't compile on bullseye as-is.\n    A patched version is compiled as a DEB package as part of STX, which\n    also provides the wheel [1]\n\nTESTS\n=====\n\n- Build py2 & py3 wheels on debian & centos\n\nREFERENCES\n==========\n[1] Import python-nss package to debian:\n    https://review.opendev.org/c/starlingx/integ/+/837399\n\n[2] Add additional packages to download lists:\n    https://review.opendev.org/c/starlingx/tools/+/837904\n\nStory: 2009897\nTask: 44694\n\nDepends-On: https://review.opendev.org/c/starlingx/integ/+/837399\nDepends-On: https://review.opendev.org/c/starlingx/tools/+/837904\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I0889118b9f0125888fb661e58ff41579da7eb3b4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-oidc-client to stx.5.0-v1.0.4\n\nCloses-Bug: 1911244\n\nSigned-off-by: Teresa Ho <teresa.ho@windriver.com>\nChange-Id: I0f49f13dd3e111d436ef6b32d8576136faad53bb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-stx-images.sh: new parameter --os-label\n\nNew parameter --os-label allows one to tag & push images with the\nspecified label in place of the (default) OS id, eg:\n\n  --os=distroless : look for \"distroless\" build recipes and tag\n  them as \"distroless\"\n\n  --os=distroless --os-label=debian : look for \"distroless\" build\n  recipes, but tag them as \"debian\"\n\nWe need this in order to support both CentOS and Debian daily builds\ngenerating and pushing distroless images to the same namespace in\nDocker Hub, so that:\n\n* CentOS jobs create distroless images with tags similar to\n  master-distroless-stable-20220823T021745Z.0\n* Debian jobs create distroless images with tags similar to\n  master-debian-stable-20220823T021745Z.0\n\nStory: 2010226\nTask: 46138\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Idf99651e61e729eaf687e6edd2c2b9f473a8684f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.5.0-v1.4.3\n\nThis commit updates the image with the updated clients.\n\nTest:\nSome normal commands\nCommands related with https dcmanager that wasn't working\nSystem application-upload that wasn't working when executed\nfrom remote cli\n\nCloses-Bug: 1928233\nCloses-Bug: 1928231\nSigned-off-by: Rafael Jardim <rafaeljordao.jardim@windriver.com>\nChange-Id: I8a0d12f699336a4412be5ff3c73cfb8d59038780\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build images: option to avoid pulling base image\n\nbuild-stx-images.sh executes \"docker pull $BASE_IMAGE\" unconditionally,\noverwriting any local image with the same name:tag. Add an option to\navoid this.\n\nStory: 2009897\nTask: 44804\n\nTESTS\n-----\n\nBuild a local base image, then build a derived image with the \"-N\"\noption and make sure base image didn't get overwritten during the build.\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I2ed9748984bd9dc2198ef74c142ccb30eb7d067e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Python Wheels: New Naming Convention cp27mu\n\nA failure is STX_build_docker_images [0], in second step:\n\n1. STX_build_docker_base_image [1] SUCCESS\n2. STX_build_wheels [2] FAILURE\n\nA new Python Wheel is being used, modifying the name of certain packages by\nchanging \"none\" to \"cp27mu\".\n\n[Test Steps]\n\n$ export MY_REPO=/home/user/starlingx/workspace/localdisk/designer/user/starlingx/cgcs-root/\n$ export MY_WORKSPACE=/home/user/starlingx/workspace/localdisk/loadbuild/user/starlingx/\n$ $MY_REPO/build-tools/build-wheels/build-wheel-tarball.sh --attempts 5 --os centos --os-version 7.5.1804 --stream stable\n\n[Test Results]\n\n  ...\n  Adding tsconfig-1.0.0...\n  Creating stx-centos-stable-wheels.tar...\n  Done.\n\n[0] <cengn>/20190812T033004Z/logs/jenkins-STX_build_docker_images-112.log.html\n[1] <cengn>/20190812T033004Z/logs/jenkins-STX_build_docker_base_image-118.log.html\n[2] <cengn>/20190812T033004Z/logs/jenkins-STX_build_wheels-112.log.html\n\nCloses-Bug: 1840175\n\nChange-Id: I838de699d49936631b33ef4acb28f5cad6c35089\nCc: Scott Little <scott.little@windriver.com>\nSigned-off-by: Abraham Arce <abraham.arce.moreno@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for rvmc to stx.8.0-v1.0.2\n\nStory: 2010144\nTask: 48927\n\nDepends-On: https://review.opendev.org/c/starlingx/metal/+/896657\n\nChange-Id: If759acf748131fc2b960788221294ccae703e220\nSigned-off-by: Li Zhu <li.zhu@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tools to build python wheels and wheel tarball\n\nThis update adds tools for building wheels for upstream python\nmodules, and generating a StarlingX wheels tarball.\n\nBuilding upstream python modules is done within a docker container,\nwith a wheels.cfg configuration file that identifies the upstream\nsources and expected python wheel output. The build-base-wheels.sh\ntool will create the wheel builder image, launch it, and run the\nbuild script.\n\nThe get-stx-wheels.sh tool will extract the python wheels built by\nthe StarlingX load.\n\nThe build-wheel-tarball.sh script will combine the wheels from the\nbase and StarlingX wheel sets into a single tarball that can be used\nwhen building container images for StarlingX services.\n\nStory: 2003907\nTask: 27531\nChange-Id: Icf6c63699a635d1173dcef9eb1d12ae7c4e39108\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update audit container image tag\n\nStory: 2008849\nTask: 43126\n\nSigned-off-by: Carmen Rata <carmen.rata@windriver.com>\nChange-Id: Ied5ee154a697baa2c59c5c80155c761791c0ae94\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for stx-oidc-client and n3000-opae\n\nUpdate image tags for the stx-oidc-client and n3000-opae images to\npoint to new image versions.\n\nChange-Id: I15c8854c335911567c2ad5f38eedb95c0ba2ee91\nStory: 2006711\nTask: 38850\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.9.0-v1.5.12\n\nThis commit updates the image to include distributedcloud-client\nchanges.\n\nStory: 2010756\nTask: 48712\n\nChange-Id: I4ec80456d92bacbce80beb9773a7c809811c6da5\nSigned-off-by: Victor Romano <victor.gluzromano@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: avoid git errors for local repos\n\nA recent update to git [1] causes errors when cloning a local git\nrepository whose .git directory contains symlinks, which it does for\nrepos managed by the \"repo\" tool. This is triggered by docker image\nbuilds that have the following in their recipes:\n\n  PROJECT_REPO=/path/to/local/git/repo\n  MIRROR_LOCAL=yes\n\nSymptoms: \"git clone /path/to/local/git/repo\" fails with an error\nsimilar to\n\n  fatal: failed to start iterator over '[...]/.git/objects': Not a\n  directory\n\nWorkaround: add \"--no-local\" when calling \"git clone\". This avoids the\nerror, and also makes physical copies of .git/objects, rather than\nhard-linking them.\n\nTESTS\n===================\n* Make sure \"git clone --no-local /path/to/local/git/repo\" works\n  with both the original git package (1:2.30.2-1) and the patched\n  package (1:2.30.2-1+deb11u2).\n* Build a test image that triggers this case\n\n[1] https://security-tracker.debian.org/tracker/CVE-2023-22490\n\nCloses-Bug: 2009723\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I90bf0b21713701fe253b23a1bfb9fd49ec649853\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Correct stx version for notificationservice-base\n\nThe previous commit included the wrong stx verion in the image tag. This\ncommit sets it to 7.0 as per convention.\nUpdate image tag to stx.7.0-v1.0.5 for notificationservice-base\n\nStory: 2009130\nTask: 44730\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Id31f97de80c75d752e9928b6f514dfd697dbfd80\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"correct stx-oidc-client image tag\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Resync dev-wheels.cfg with updated master-wheels.cfg\n\nThis update resyncs the dev-wheels.cfg to pick up recent changes\nto master-wheels.cfg.\n\nIn addition, we're adding croniter-0.3.29 to the master and dev\nwheels.cfg files to handle the upstream removal of croniter-0.3.27.\n\nChange-Id: I4b25c18bee0514fff88d32b91ae11b9e586d735c\nStory: 2005248\nTask: 30215\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-fm-subagent to stx.6.0-v1.0.3\n\nUpdate yaml file with a new tag for stx-fm-subagent, due to\na new fix to retry to connect alarm/event database if it fails.\n\nCloses-bug: 1949083\n\nSigned-off-by: Takamasa Takenaka <takamasa.takenaka@windriver.com>\nChange-Id: I44e02a8bb64fe716671550ada944d564d6b46371\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update Power Metrics image tags\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"docker-images: Add loci patch to allow pip upgrade\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add master openstack support to stx-base build tool\n\nUpdate the build-stx-base.sh tool to support building\nstx-centos for use with images based on Openstack master.\n\nChange-Id: Ic77036e15529dadf39df57e5e88a2000b88bd6cb\nStory: 2004520\nTask: 28726\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-stx-images: handle \"docker push\" errors\n\nAdd error handling and retries to \"docker push\".\n\nCloses-Bug: 1920929\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Ic5c700f5408f30330ed227ac5d67bb18511d9301\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.4.0-v1.1.0\n\nChange-Id: I6296971ea7b0539e331125e146ce83ae9a5a44a8\nStory: 2007518\nTask: 39513\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Migrate pike/master to stable/dev build streams\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add sources.list for non-default layers\n\nAfter reestructuring `deb-local-binary` into multiple binary\nrepositories, one for each layer, the image build now has access to\nthree repositories by default:\n\n  * deb-local-binary;\n  * deb-local-binary-containers;\n  * deb-local-build.\n\nAlthough these repositories are sufficient for the vast majority of\nimages, there are some, such as `stx-openstackclients`, that require\ndependencies that are found in another repository:\n`deb-local-binary-openstack`.\n\nThis image, as the name suggests, contains all the OpenStack clients\ncurrently supported by the StarlingX OpenStack application.\n\nAs one can see in [1], although most clients are installed in the form\nof pip packages, i.e., through wheel files collected from the upstream\nindexes, there are two clients that are installed in the form of\ndistribution packages:\n\n  * python3-cinderclient;\n  * python3-openstackclient.\n\nThe reason why they are installed as distribution packages is because\nthey have patches that are specific to StarlingX OpenStack -- [2] and\n[3] -- and also because the build procedure can easily identify them in\n`deb-local-build` and use the patched versions as expected by us (of\ncourse, it they have been built previously).\n\nThe problem, however, is that although this image is currently being\nbuilt, there is a detail in it that can cause problems at run time.\n\nDespite the build locating (and using) our patched packages, when it\nsearches for their dependencies, it always ends up using binaries from\nrepositories `deb-local-binary`, `deb-local-binary-containers` or\n`deb-local-build`.\n\nWhich means that, if we have a dependency on\n`deb-local-binary-openstack` meant for OpenStack Antelope, and the same\ndependency on `deb-local-binary` meant for OpenStack Victoria, the image\nbuild will use the latter, for the simple fact that it do not consider\nthe `openstack` layer (and, therefore, `deb-local-binary-openstack`).\n\nTo get around this problem, this change seeks to add a `sources.list`\nfor each build layer. By default, they are all disabled. However, if\nnecessary, they can be enabled and used in image builds based on Docker\nor LOCI.\n\nNote: This change is the prerequisite of [4].\n      The test plan with the `stx-openstackclients` image will be done\n      there.\n\n[1] https://opendev.org/starlingx/openstack-armada-app/src/branch/f/antelope/upstream/openstack/python-openstackclient/debian/stx-openstackclient.stable_docker_image#L26-L27\n[2] https://opendev.org/starlingx/openstack-armada-app/src/branch/f/antelope/upstream/openstack/python-cinderclient/debian/patches\n[3] https://opendev.org/starlingx/openstack-armada-app/src/branch/f/antelope/upstream/openstack/python-openstackclient/debian/patches\n[4] https://review.opendev.org/c/starlingx/openstack-armada-app/+/896462\n\nTest Plan:\nPASS - Build `stx-debian` base image\nPASS - Build all container images with --clean and confirm that:\n       1. All container images were built successfully;\n       2. All container images were removed successfully.\n\nPartial-Bug: 2037339\n\nChange-Id: I36d1af990afad9fd69b723bf3a13b88673dd08ad\nSigned-off-by: Luan Nunes Utimura <LuanNunes.Utimura@windriver.com>\n(cherry picked from commit 5fa60a542120d7dd510aabae237c18839127705e)\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add support for building wheels from master branches\n\nThis update enhances build-base-wheels.sh to support using a\nwildcard in wheels.cfg for the wheel name, to allow for whatever\nthe version is when building from master for a given repo.\n\nThis also updates master-wheels.cfg to build the following modules\nfrom master, to pick up the latest code for these supporting modules:\nneutron-lib\npython-openstackclient\nopenstacksdk\n\nStory: 2004751\nTask: 29395\nChange-Id: Ifab8a209170a00f58e0f4a53b6cbd7e4fe86e8f0\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add BUILDER option \"script\" and OS option \"distroless\"\n\nadding BUILDER option \"script\" to support upstream projects\nwith more than one Dockerfiles,like\nhttps://github.com/intel/intel-device-plugins-for-kubernetes.\nit also has ability to support more complex cases.\n\nOptions supported by BUILD=script include:\nLABEL: the image name\nSOURCE_REPO: main project source git repo\nSOURCE_REF: git branch or tag for main project source repo\nCOMMAND: command to run script\nSCRIPT: script path\nARGS: args of script (op)\n\nadding OS option \"distroless\" to support upstream projects\nwhoes base image is distroless, such as \"gcr.io/distroless/base\"\n\nChange-Id: Idc9ca03bf6113e554fd23ac9b6bce570866bafbc\nStory: 2005937\nTask: 35665\nSigned-off-by: SidneyAn <ran1.an@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update ptp-notification image tags for stx 9.0\n\nThis change corrects the image tags for the following images:\n\nnotificationclient-base:stx.9.0-v2.1.0\nnotificationservice-base:stx.9.0-v2.1.0\nnotificationservice-base-v2:stx.9.0-v2.1.0\n\nStory: 2010538\nTask: 47362\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I6a124f713262c9a9f9985e29728f003f671b2463\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: allow upstream apt repos in base image\n\nInstall 2 apt lists files:\n- debian.list: upstream Debian repos; initially disabled\n- stx.list: starlingx repos; initially enabled.\n\nDerived images can enable debian.list if necessary.\n\nTESTS\n=====\n\nBuild a debian base image and make sure debian repo is disabled, but stx\nrepo is enabled.\n\nStory: 2009897\nTask: 44799\n\nChange-Id: I2da28944471b4e9ad3a499fbecdc11f38523c179\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-docker-images: add retry delay\n\n* Add --retry-delay parameter to wheels, docker base image and the main\n  docker image build scripts\n* Remove build-wheels/utils.sh ; use ./utils.sh instead\n\nTESTS\n===========================\nExecuted all modified scripts with and without error conditions and make\nsure they either succeed, or retry as required:\n\nbuild-wheels:\n  * normal build (success)\n  * error in Dockerfile (retry+fail)\n  * invalid wheels URL (retry+fail)\n  * invalid openstack requirements URL (retry+fail)\n\nbuild-stx-base:\n  * normal build (success)\n  * error in Dockerfile (retry+fail)\n\nbuild-stx-images:\n  * builder=loci: normal build + push (success)\n  * builder=loci: invalid loci URL (retry+fail)\n  * builder=loci: invalid PROJECT_REPO URL (retry+fail)\n  * builder=loci: invalid wheel tar URL (retry+fail)\n  * builder=docker: normal build + push (success)\n  * builder=docker: invalid DOCKER_REPO URL (retry+fail)\n  * builder=docker: error in dockerfile (retry+fail)\n  * builder=script: normal build + push (success)\n  * builder=script: invalid project URL (retry+fail)\n  * builder=script: error in build script (retry+fail)\n  * invalid push URL (retry+fail)\n\nupdate-stx-image:\n  * normal update (success)\n  * invalid extra URL (retry+fail)\n\nStory: 2010055\nTask: 48105\n\nChange-Id: I990020600c09299a2ec3cbed286b2f4c05a0f548\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update image tags for ptp-notification images\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add metrics-server-sample-app image tag\n\nAdding metrics-server-sample-app image since the custom code was\nremoved and replaced with the upstream helm chart version.\n\nStory: 2009855\nTask:  45544\n\nSigned-off-by: Luiz Felipe Kina <LuizFelipe.EiskeKina@windriver.com>\nChange-Id: Ibea6883abec02f318deca5166fa3911d67430091\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification images\n\nThis commit updates the image tags for:\n\nnotificationservice-base\nstx.8.0-v2.0.0\n\nnotificationclient-base\nstx.8.0-v2.0.0\n\nPerforming a major version uprev due to significant API changes.\nThis also includes using a new src_build_tag for both images to capture\nthe correct src_ref.\n\nStory: 2010056\nTask: 46525\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Ie87eb3dec6d8ae575dc17b33023f2a34fdbea499\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add app-intel-ethernet-operator uft image tag\n\nStory: 2010562\nTask: 48527\n\nDepends-On: https://review.opendev.org/c/starlingx/app-intel-ethernet-operator/+/890199\nChange-Id: I303eec27c6b566b7b27e053c0ad048208f5b273c\nSigned-off-by: Rafal Lal <rafalx.lal@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add configurable docker build context and file\n\nAdd support for building docker images with an explicit\nconfiguration for specifying the docker context and Dockerfile.\nThis is required for projects that build from 3rd party source\nthat maintains a Dockerfile outside of the project repo and\nbuilds from source that is cloned by the repo tool into the\nproject path.\n\nNew Configuration Parameters:\n\nDOCKER_CONTEXT=<relative-path-to-source>\nDOCKER_FILE=<relative-path-to-docker-file>\n\nNOTE: Paths are relative to the image build file.\n\nStory: 2006537\nTask: 40286\nChange-Id: I6520fd31218aaf849f4d1e803bb1e0bfb614b29f\nSigned-off-by: Matt Peters <matt.peters@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixing dev stream py3 wheels\n\nSome wheels on the py3 files were still pointing towards the py2\nversions, some were outdated with the wheels used on the stable\nbuild, so fixing this so we can get a proper build from the dev\nstream.\n\nSigned-off-by: Thiago Brito <thiago.brito@windriver.com>\nChange-Id: I2b69d9afa06d22441d8270c25dbb0a3cd08a4b99\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enhancements to wheel build tools\n\nThis update provides the following enhancements to the wheel tools:\n- Add a prefix to config files for openstack release\n- Change auto-generated version format\n- Skip base wheel build if all base wheels are present\n- Clean unneeded images from docker after build\n- Fix bash globbing issue in get-stx-wheels.sh\n\nChange-Id: I17dbf01288c29662fddae4fd3d9d90ab2521037f\nStory: 2003907\nTask: 27531\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix bug in stable-wheels.cfg\n\nThe previous commit for openstack/train upgrade modified the rjsmin\nentry to download a prebuilt wheel file from pypi, rather than\nbuilding from a tar file. However, the type field was left as \"tar\"\nrather than updating to \"pypi\", and the build fails as a result.\n\nThis update corrects that field.\n\nChange-Id: I9ad77054f41925d3dfdd10889e0c1ef7683c711b\nStory: 2006544\nTask: 36618\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Build and use py2 wheels with py2 projects\n\nCurrent build process can't handle python2-based projects because we\nonly build wheels based on Ussury (python3). This patch fixes this.\n\n- build-wheels/docker/stable-wheels-py2.cfg\n- build-wheels/docker/dev-wheels-py2.cfg\n  Resurrected original cfg files from commit\n  aa317323716a7f5bb844bb8867eeb8b01313b51e (before upgrade to Ussuri)\n  and saved with -py2 suffix\n\n- build-wheels/docker/centos-dockerfile\n  Install python2 packages in addition to python3\n\n- build-wheels/docker/docker-build-wheel.sh\n  * Build with python3 or python2 depending on the environment\n  * Suppress status message at the end because its better handled by the\n    parent script (build-base-wheels.sh)\n\n- build-wheels/build-base-wheels.sh\n  * Generate 2 wheel directories, \"base\" and \"base-py2\" at each\n    invocation\n  * Use the same builder image and docker script (with different\n    environment) to generate wheels based on different cfg files.\n    Save python3 wheels in \"base\" and python2 wheels in \"base-py2\"\n\n- build-wheels/build-wheel-tarball.sh\n  * New command-line parameter --python2: generate *-wheels-py2.tar\n    from \"base-py2\"\n  * Use ussuri or train constraints depending on the presence of\n    --python2\n\n- build-docker-images/build-stx-images.sh\n  * Use *-wheels-py2.tar for python2/loci projects\n  * Fail early on missing --wheels/--wheels-py2\n  * Fail if multiple projects use the same LABEL\n  * Remove support for config files\n\n- build-docker-images/docker-image-build-centos-dev.cfg\n- build-docker-images/docker-image-build-centos-stable.cfg\n  Removed\n\nChange-Id: I2ca444f258a537ed2ba6f68206d32cf59e1802b4\nPartial-Bug: 1891416\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-docker-images: allow docker cache\n\nAdd an option to docker image build scripts to enable docker cache. This\nallows us to build images much more quickly when troubleshooting build\nscripts.\n\nStory: 2009897\nTask: 45121\n\nTESTS\n========\n\nBuild base image and one of the docker apps with and without the\n\"--cache\" option and make sure it works as expected\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I0a1e94ebfe8a263c6ddd293d0da40b5eb8550e80\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove image tag: k8s-plugin-sriov-network-device\n\nThis image is unused, replaced by\nghcr.io/k8snetworkplumbingwg/sriov-network-device-plugin\n\nStory: 2010076\nTask: 45565\n\nDepends-On: https://review.opendev.org/c/starlingx/integ/+/855400\n\nSigned-off-by: Mohammad Issa <mohammad.issa@windriver.com>\nChange-Id: I9b8ce5defb423114c1c68d7241b0f1ab10834415\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add vault-manager image to tag management\n\nStory: 2007718\nTask: 40418\n\nChange-Id: I578ab06c2561b3b819eae683e4930b16036ade69\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[PTP dual NIC config] Update stx-platformclients\n\nUpdating stx-platformclients to stx.7.0-v1.5.6, in order to\nsupport the remote access to new PTP CLI commands.\n\nTest Plan:\nPASS: Verified PTP commands using tag\nmaster-centos-stable-20220308T014755Z.0 in an AIO-SX system installed\nwith stx/7.0.\n\nTask: 44738\nStory: 2009248\nSigned-off-by: Douglas Henrique Koerich <douglashenrique.koerich@windriver.com>\nChange-Id: I06ba93c92a6ae1dabee27b2cb8bbde1571f9d027\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Tag ptp-notification images for v1 compatibility\n\nImage tag updates\n\nnotificationclient-base:stx8.0-v2.1.0\nnotificationservice-base:stx8.0-v2.1.0\nnotificationservice-base-v2:stx8.0-v2.1.0\n\nStory: 2010538\nTask: 47362\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Ie9eb385ca6297108a68ee38553a7b20f2fadbf40\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add static tag to image stx-debian-dev\n\nDocker image stx-debian-dev is tagged with static tag stx.8.0-v1.0.0\n\nStory: 2010138\nTask: 46186\n\nSigned-off-by: rferraz <RogerioOliveira.Ferraz@windriver.com>\nChange-Id: Ic2f468aae9400fa8721f926b8363b1d2d9d101ab\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: use debian snapshot repos in docker apps\n\n- build-wheels, build-docker-images: add command line options to enable\n  the use of docker filesystem cache when building\n- use snapshot repo URLs defined by tools in build pods' environment to\n  generate apt sources list files. These are defined in stx.conf.\n\nTESTS\n===============================\nAll tests were performed on Debian:\n- Build wheels\n- Build base image\n- Build a samnple docker app that derives from the base image\n\nStory: 2009897\nTask: 45185\n\nDepends-On: https://review.opendev.org/c/starlingx/tools/+/839396\nChange-Id: I58a1ee002bb8161c492b3bcf8cd4bbcb6b4fcae4\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-stx-base.sh --latest --clean fails to clean the latest image\n\nWhen both --latest and --clean flags are passed to build-stx-base.sh\nwe expect the docker image tagged as '...-latest' to be deleted\nfrom the local build environment.\n\nThis did not occure ...\n\nstarlingx/stx-centos      dev-latest          279c713e0b5d        7\nhours ago         331MB\nstarlingx/stx-centos      <none>              dda342637517        19\nhours ago        331MB\n\nAdding a code block to handle the case when these flags are combined.\n\nCloses-Bug: 1808544\nChange-Id: Ic2d17bc285f3746965c2a5e7ec49c278f0fbf066\nSigned-off-by: Scott Little <scott.little@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix bug of communication between Horizon and cinderclient.\n\nWe have to downgrade python-cinderclient from 5.0.0(specified in\nupper-constraints) to 4.3.0.\nOtherwise, we will meet some error during operating in horizon gui.\n\nRelated bug and patch list as below.\nhttps://review.opendev.org/#/c/643405/\nhttps://bugs.launchpad.net/horizon/+bug/1815635\nhttps://review.opendev.org/#/c/675891/\n\nStory: 2006544\nTask: 36618\n\nChange-Id: I2439af64405fe89d9bb710a439e572279a89c67e\nSigned-off-by: zhipengl <zhipengs.liu@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add MIRROR_LOCAL support to build-stx-images.sh\n\nAs the loci build runs in a container, it is unable to directly use a\nPROJECT_REPO ref that requires ssh keys to be setup. In order to\nsupport this, a MIRROR_LOCAL option is added to loci image directives\nfiles.\n\nIf the image directives file has MIRROR_LOCAL=yes, the build utility\nwill first setup a bare clone of the PROJECT_REPO in the local\nworkspace and instead pass a reference to that to the loci build.\n\nThis functionality can be used by developers to test an image build\nusing a private forked repo that requires an ssh key to access, for\nexample. This should not be used in the formal build, as CENGN and\nother developers are unlikely to have the required access.\n\nNote: This requires that the build server in use has lighttpd server\nsetup with external access, as the container cannot access localhost.\n\nChange-Id: Ibd260fbb47d2bece4dc27e1cf1c026fb5cd5ff0f\nStory: 2003907\nTask: 42364\nCo-Authored-By: Scott Little <scott.little@windriver.com>\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: loci: allow tweaking of apt/yum repos\n\nbuild-stx-images.sh:\n- auto-detect OS\n- allow wheels tar to be a local file\n- patch loci Dockerfile:\n  * add a script to tweak package manager configuration\n  * copy wheels tar into docker file, instead of downloading\n    it over HTTP; this allows wheels to be a local file\n  * call our own custom script when building, instead of whats provided\n    with loci. The custom script: tweaks apt or yum repos if necessary,\n    calls the original Loci build script, then deletes the wheels\n    tarball.\n- new parameter DIST_REPOS in Loci docker config files. Allows one to\n  enable or disable upstream (bullseye etc) repositories when building.\n\nTESTS\n=============\n1) CentOS: build 2 representative images:\n  stx-audit (Dockerfile builder)\n  stx-heat (Loci builder)\n\n  Compare filesystems in docker images before and after the patch\n\n  Make sure the difference is trivial/expected\n\n2) Debian: build 2 representative images:\n\n  stx-audit (Dockerfile builder)\n  stx-heat (Loci builder)\n\n  stx-heat fails to compile due to openstack requirements file being\n  incompatible with debian/bullseye. This will addressed as a separate\n  patch.\n\nStory: 2009897\nTask: 44693\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I70ea968d343d1f59e96eee73907e6999bf4050ec\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align stable wheels with Openstack Stein release\n\nUpdate the base stable-wheels.cfg to align with the\nOpenstack Stein release upper-constraints.txt, to\nsupport building stable stein Openstack service images.\n\nChange-Id: I6852620b05f58509c93877d9d8c5754e9aa64c0e\nStory: 2005248\nTask: 30353\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tag for rvmc image\n\nUpdate tag management file to publish a static tag for the rvmc image.\n\nChange-Id: I459e4f676ffa0a28c2c1fca5d61df16f499ded93\nStory: 2006980\nTask: 38935\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixed broken setuptools import\n\npyScss tries to import a module called \"Feature\" from setuptools,\nwhich was removed from setuptools 46.0.0 (mar 8 2020). This causes\ncompilation erros. The fix updates \"pip install\" in Dockerfile\nto install setuptools < 46.0.0\n\nChange-Id: Ib5c00aafb934efaf1413e72ede30638f2dc35230\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nCloses-Bug: 1866699\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients image to version stx.9.0-v1.5.10\n\nUpdated image with fix for python warning message.\n\nPartial-bug: 1999563\n\nSigned-off-by: Luiz Felipe Kina <LuizFelipe.EiskeKina@windriver.com>\nChange-Id: I80f72c418b0682902bde1ead58f1386d946771b1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uprev the SR-IOV device plugin to the latest version\n\nThis is intended primarily to pick up support for SR-IOV\naccelerators.\n\nTesting has been performed as follows:\n\nSystem Types:\n    AIO-SX, Standard\nCluster network types:\n    IPv4, IPv6\nNIC types:\n    82599ES 10-Gigabit [10fb],\n    MT27710 Family [ConnectX-4 Lx] [1015],\n    X710 for 10GbE [1572]\nIPAM types:\n    host-local,\n    calico,\n    dhcp,\n    static\nConnectivity between pods:\n    DPDK,\n    netdevice\n\nChange-Id: Id0d5fcbfbf93ab581a07f26e375bcc2feee6bf69\nStory: 2006740\nTask: 39614\nSigned-off-by: Steven Webster <steven.webster@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-wheels: pin nss-* RPMs to v3.53.1\n\nLatest NSS packages are incompatible with the python_nss wheel. Use last\nversion known to work.\n\nCloses-Bug: 1947637\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: If0bf5f8584231bc090bcf0c0f917f0ef01c858ef\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix the bug introduced by adding proxy for image build scripts\n\nBelow commit will introduce a bug in image build script.\nbb472a9f37b5acb5c8bf1544f854584f90b5dd88\n\nCloses-bug: 1890383\n\nChange-Id: I6551a33bf099549eb9a66a65730b884c4a85baef\nSigned-off-by: zhipengl <zhipengs.liu@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update mysql-client in bindep for dpkg placement\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: don't embed wheel tar in images\n\nThis patch fixes a problem introduced by [1]: docker image script\nembeds the wheels tarball in the docker image via a COPY command; then\ndeletes it during the build. This makes docker images unnecessarily\nlarge. This lets us use local tar files with the docker image(s) being\nbuilt.\n\nRecently [2] a patch was merged that adds a web server to the Debian\nbuild environment, allowing us to access local files over HTTP and\nmaking the COPY step unnecessary in the Docker file.\n\nThis patch removes the explicit downloading of the wheels tarball and\nthe COPY directive, while passing the wheel tarball to Loci as a URL,\nallowing Loci to download it during the build w/o contributing to the FS\nlayer size.\n\nThis reduces the size of stx-fm-rest-api image by ~220 MB. Other Loci\nimages should experience similar savings.\n\n[1] https://review.opendev.org/c/starlingx/root/+/857505\n[2] https://review.opendev.org/c/starlingx/tools/+/873010\n\nTESTS\n=================\n\n* Build a loci image with wheels tarball passed as a URL\n* Build a loci image with wheels tarball passed as a local file name\n\nStory: 2010294\nTask: 47343\n\nChange-Id: I6dca6f95b0845e549ad35c9b6e95aa58c86fc774\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update image tags for ptp-notification images\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add docker image build config file\n\nAdd python2 based services to docker_image_build_cfg_file.\nThe config file could then be modified to individually shift\nimages from python2 to python3 build method without having\nto sync with cengn build scripts when there is a change.\nAdd --python2-wheels opt for build-stx-images.sh to specify link\nto python2 based wheels tarball.\n\nStory: 2007474\nTask: 40139\n\nDepends-on: https://review.opendev.org/#/c/712880/\nChange-Id: Ic4313a2ac6f7ec2c8b87bef960f4a796f6a10738\nSigned-off-by: zhipengl <zhipengs.liu@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove Django from wheels tarball\n\nWheels added to the wheels.cfg file result in modification to the\nupper-constraints.txt included in the wheels tarball to point to the\nexplicit wheel added by the wheels.cfg. The inclusion of Django\nresulted in an upper-constraints.txt entry locking the version to\n2.1.5.\n\nHowever, the openstack/horizon requirements.txt file includes the\nfollowing: Django>=2.2,<3.0\n\nThis results in a conflict between the constraints and requirements.\nRecent updates to the pip resolver exposed the conflict, and pip was\nunable to find a version of Django to fit both.\n\nSince the Django entry was just downloading a pre-built wheel, as\nopposed to building an appropriate wheel from tarball, this update\nremoves the entry altogether to avoid creating this conflict.\n\nChange-Id: I870a72f312c781a9b000fc98c4ed104c22469ebd\nCloses-Bug: 1907290\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Clean up loci container and image on build failure\n\nWhen loci hits a failure building an image, it leaves behind\na stopped docker container and a <none>:<none> image. This\ncommit updates build-stx-images.sh to look for and remove\nthese leftovers on failures.\n\nChange-Id: I5c61b03b7f9b0f69f81e80e5c9fc787852f4441b\nStory: 2005248\nTask: 31050\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Retries for certain wheel and image build commands\n\nThe wheel and image build tools hit intermittent issues such as:\n* Network or server issues that cause file download failures\n* Repo access failures due to repo updates or other issues\n\nTo avoid formal build failures on such issues, this update adds\nretries around specific commands, like wget and docker build.\n\nChange-Id: Ifafdc6201872f43b2dd77efd4dcb033456477c2e\nCloses-Bug: 1823986\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-fm-trap-subagent to stx.6.0-v1.0.2\n\nTag should be with \"stx.6.0\"\n\nCloses-bug: 1943612\n\nSigned-off-by: Takamasa Takenaka <takamasa.takenaka@windriver.com>\nChange-Id: Ied44eadafe8413d1752a0827ce7eb1ab113c3180\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-centos-tools-dev tag to stx.7.0-v1.0.1\n\nRetagging image stx-centos-tools-dev since it was added more tools to\nthe image.\n\nStory: 2009990\nTask: 45410\nSigned-off-by: Guilherme Alberici de Santi <guilherme.albericidesanti@windriver.com>\nChange-Id: I1874add87ac74a03095b3552dc54cf16efaf2cf4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Improve code reuse in build-stx-images.sh\n\nThis update restructures the loci and docker image build functions\nto move the common post-build steps to a common function.\n\nChange-Id: I8a540093e369cadcdb5f88fbd10b131acafb4331\nStory: 2005248\nTask: 30129\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-tools: remove unused image k8s-cni-sriov\n\nThis image is unused and is superseded by ghcr.io/k8snetworkplumbingwg/sriov-cni\n\nStory: 2010076\nTask: 45564\n\nDepends-On: https://review.opendev.org/c/starlingx/integ/+/845076\nChange-Id: I7c3eb00259cffc406173172b5aaa5edd28cc3376\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add --config-file argument for docker image build script\n\nbuild-stx-base.sh and build-stx-images.sh need to accept a\nnew argument (--config-file <path>) specifying a path to a\nconfig file.\nThese commands automatically look for the config files at\nthe predetermined location, and apply them if found. If not\nfound, continue without error. If optional argument\n--config-file is added, These commands will use specified\nconfigfile instead of predetermined one.\n\nTest pass on local build enviroment.\n\nCloses-Bug: 1886062\n\nChange-Id: I476e38064d1515d3d0a0d49c789f1d472d8ca1cc\nSigned-off-by: zhipengl <zhipengs.liu@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients image to version stx.8.0-v1.5.9\n\nUpdated image with the new fixes since the last build\n\nPartial-bug: 1995020\n\nSigned-off-by: Luiz Felipe Kina <LuizFelipe.EiskeKina@windriver.com>\nChange-Id: If884ae9075a4b02033fa49f0fea45ef8d0a1bea8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification images\n\nThis commit updates the ptp-notification images to use the Debian base\ncontainer images instead of Centos.\n\nnotificationservice-base\nstx8.0-v2.0.1\n\nlocationservice-base\nstx8.0-v2.0.0\n\nnotificationclient-base\nstx8.0-v2.0.1\n\nStory: 2010056\nTask: 46891\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Ie7df496c7bb650fd8c3c8aeb41a49d3381f20c11\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update stx-vault-manager image tag\n\nThe new image is based on Debian with an update kubectl version.  The\nimage's tag is historically of the form: stxversion-kubectlversion.\nThis results in the new tag stx-8.0-v1.24.4\n\nTest Plan:\nPASS: Standard, dedicated storage, vault HA\nPASS: app sanity\n\nStory: 2010393\nTask: 47158\n\nChange-Id: I15dc2718c3920291aa0b95f671d46a9653734f84\nSigned-off-by: Michel Thebeau <Michel.Thebeau@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.5.0-v1.4.1\n\nThis commit updates the tag to pick up the patch that builds this image\nin python2, rather than python3 environment because stx-platformclients\ncurrently doesn't support python3.\n\nChange-Id: Ic8785d271f9ea7311708464a8cb75cc306ef209c\nPartial-Bug: 1891416\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update keyring and os-vif in pike wheels tarball\n\nStarlingX requires a higher version of the keyring and os-vif\npython modules than is specified in the stable/pike\nupper-constraints.txt file. This update specifies a newer\nversion for these modules in the pike-wheels.cfg file to\noverride the constraints for the docker image build.\n\nStory: 2004520\nTask: 28585\nChange-Id: I9bdaaad2575f8832f19f4fdac26dae76fd83c442\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-docker-images: Add repo for containers layer\n\nNow that the each layer will have its own binary repository, we need to\nspecify `deb-local-binary-containers` as one of the repositories in the\nsources.list used by the container image creation scripts.\n\nTest Plan:\nPASS - Run `build-stx-base.sh` and build `stx-debian` successfully\nPASS - Run `build-stx-images.sh` and build container images successfully\n\nStory: 2010797\nTask: 48719\n\nChange-Id: Ieb9e5d98c2d365a448e52c8b0adc781ace46a8d5\nSigned-off-by: Luan Nunes Utimura <LuanNunes.Utimura@windriver.com>\n(cherry picked from commit 521fe5d8980852f1219d594023a87c6b144c49e0)\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker images: disable docker cache when building\n\nDisable docker cache when building the base image. This image is\nquick to build and disabling the cache doesn't add much to overall\nbuild times. This is also consistent with how the dervied docker\nimages are built (cache is disabled there).\n\nTESTS\n=====\n\nRebuild base image and make sure there are no errors, using both\nCentOS & debian docker files.\n\nStory: 2009897\nTask: 44800\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Id03d4eab084fd58b5906964b3ab991b52507a045\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix url's in base-image-build-centos-*.cfg\n\nbuild.starlingx.cengn.ca is not a public web server.  It's use\nresults in 'HTTP Error 502 - Bad Gateway' outside of CENGN.\n\nThe correct url should refer to mirror.starlingx.cengn.ca.\n\nCloses-Bug: 1892538\nChange-Id: I6021ee3d97815e70ee461c2c1a8297dfdefc7769\nSigned-off-by: Scott Little <scott.little@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update static image tags for v2.5.0\n\nUpdate image-tags.yaml file:\n- src_build_tag with latest timestamped image.\n- src_ref with latest commit ID.\n\nTest Status:\n- PASS: system application apply with latest debian image.\n\nStory: 2010341\nTask: 46612\n\nSigned-off-by: Nidhi Shivashankara Belur <nidhi.shivashankara.belur@intel.com>\nChange-Id: Ic4baec38077a54f869c3ca231453761381f15e1a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.6.0-v1.5.2\n\nThis commit updates the image with the updated clients.\n\nStory: 2008943\nTask: 43834\nTask: 44050\n\nSigned-off-by: Thiago Miranda <ThiagoOliveira.Miranda@windriver.com>\nChange-Id: I858dd58b0d0a394c24556e02a374b4ad39864380\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-docker-images: fix variable spelling\n\n* Fix misspelled \"workspace_root\"\n* Add \"-v\" to all invocations of \"readlink -f\"; without it readlink\n  prints nothing on STDERR in case of errors\n\nTESTS\n==========================\n* Call build-stx-images.sh with a path to a non-existant wheels file and\n  make sure we see the error from readlink\n* Call build-stx-images.sh with a local wheel file under $MY_WORKSPACE\n  and make sure it succeeds\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Iefc275aeea535d295bc4030539fe96b05f898c34\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update ca-certificates in various docker build environments\n\nThe ca-certificates in our docker build environments expired\non Oct 1 2021.  The ca-certificates package needs to be updated\nwithin each container.\n\nCloses-bug: 1946122\nSigned-off-by: Scott Little <scott.little@windriver.com>\nChange-Id: If9b89d8a13f5924f28857382aee302bec3b0dca5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tag for n3000-opae\n\nStory: 2008965\nTask: 42857\n\nChange-Id: I00d41a77b25da585e8080b318912c8f1e71c78b5\nSigned-off-by: Teresa Ho <teresa.ho@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update static container image tags.\n\nUpdate image-tags.yaml file:\n- src_build_tag with latest timestamped image.\n- src_ref with latest commit ID.\n\nThe image build scripts are same for centos and debian images, therefore\nselect debian image for static tag.\nTest Status:\n- PASS: system application apply with latest centos image.\n- PASS: system application apply with latest debian image.\n\nStory: 2009749\nTask: 46458\n\nSigned-off-by: Nidhi Shivashankara Belur <nidhi.shivashankara.belur@intel.com>\nChange-Id: Ic07c751fa2d091ae68db2ca4f88f85009be3fd6b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-oidc-client to version stx.9.0-v1.0.6\n\nTest Plan:\n\nPASS - On IPv4 AIO-SX, applied OIDC app and executed a functional test,\ngetting a token through \"oidc-auth\". Pod restart triggered by\nsecret-observer was also tested.\n\nStory: 2010703\nTask: 48090\n\nChange-Id: I7ddf9bada70b92a80098d697c1452a2e591c14cb\nSigned-off-by: Joao Victor Portal <Joao.VictorPortal@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update audit tag to stx.8.0-v1.0.4\n\nThis image was updated to be built on debian.\nIt is now debian based instead of centos based.\n\nTest Plan:\n\nPASS: Install pod with the new image and\n      check if it is running.\nPASS: Check audit logrotate.\nPASS: Check auditd auditable events.\nPASS: Check auditd override settings.\n\nStory: 2009831\nTask: 45077\n\nSigned-off-by: Karla Felix <karla.karolinenogueirafelix@windriver.com>\nChange-Id: I1acd79746118addbde2918a3e8207e8200407c22\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update mysql-client in bindep for dpkg placement\n\nWhile building one of the stx-openstack images - stx-placement - it was\nobserved that the current bindep file for LOCI carries an outdated\nversion of the mysql-client package.\n\nAccording to [1], the mysql-client package currently only exists for\nDebian stretch and unstable (sid). However, by taking a look at its\nspecification, this package is actually a mirror for another package,\ndefault-mysql-client, which exists for Debian stretch, buster, bullseye,\nbookwork and sid.\n\nSince this package is only used for the stx-placement build, we can\nsafely replace it and ensure that this image is buildable not only on\nDebian stretch but also on other versions as well.\n\n[1] https://packages.debian.org/search?suite=all&arch=any&mode=path&searchon=names&keywords=mysql-client\n\nTest Plan:\nPASS: Without this change, verify that stx-placement does not build due\n      to: \"Package mysql-client has no installation candidate\"\nPASS: With this change, verify that stx-placement was successfully built\n      and that the bindep file was updated accordingly\n\nStory: 2010072\nTask: 47089\n\nSigned-off-by: Luan Nunes Utimura <LuanNunes.Utimura@windriver.com>\nChange-Id: I0292ac399262ac3e55bdb0f4b0093c8ce689a993\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Record image versions and pkg/module info after build\n\nThis update enhances build-stx-images.sh to record image\nversions after building and pushing images, to be used as\ninput for building application tarballs with versions.\nAdditionally, after the images are built, the build tool\nwill collect lists of installed packages and python modules,\nfor reference purposes.\n\nStory: 2005248\nTask: 30042\nChange-Id: Ie9e15af0669ce15fabe7896f78809221811bc3f7\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Fec Operator Image tags.\n\n- Update the container image tags to v2.7.1.\n\nTest Status:\n\n- PASS: system application apply with latest debian image.\n\nStory: 2010826\nTask: 48583\n\nSigned-off-by: Nidhi Shivashankara Belur <nidhi.shivashankara.belur@intel.com>\nChange-Id: Id7f40ca3cceefc464c9c82a7667457de7d843b3d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: base docker image: add support for debian\n\n* build-stx-base.sh:\n  - add debian to list of supported OS's\n  - $OS: autodetect from host's /etc/os-release, allow overriding on\n    command line\n  - $OS_VERSION: auto-detect from Dockerfile, allow overriding on\n    command line\n  - Generate sources.list for debian as necessary\n  - Slightly different syntax for .cfg files:\n    * allow comments and empty lines\n    * split on newline, not whitespace\n\n* build-stx-images.sh:\n  add debian to list of supported OS's\n\n* stx-debian/Dockerfile.stable:\n  debian-based docker file for building the base image\n\nTESTS\n=====\n\n* Build base image (build-stx-base.sh) on Debian and CentOS\n* Build with multiple options in the .cfg file on Debian & CentOS\n\nStory: 2009897\nTask: 44692\n\nDepends-On: https://review.opendev.org/c/starlingx/tools/+/832687\nDepends-On: https://review.opendev.org/c/starlingx/tools/+/832290\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: If5fac9efdc0e99b7a9bb252a1bd48a78b0d848f9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.9.0-v1.5.11\n\nThis commit updates the image to include distributedcloud-client\nchanges.\n\nStory: 2010584\nTask: 48300\n\nChange-Id: I4f4fd31ebb13a7513e964d0681297b139c64a68c\nSigned-off-by: Christopher Souza <Christopher.DeOliveiraSouza@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Tool for incremental image updates\n\nThis update introduces a tool for incrementally updating images,\nupdate-stx-image.sh. This allows for small customizations to\nimages, such as updating specific python modules.\n\nAdditionally, this update corrects how docker-build-wheel.sh checks\nout a specific git branch, fetching the branch and checking out\nthe FETCH_HEAD, where previously it was just checking out the branch.\n\nChange-Id: I09c1b2d7a3664a3af5fd887087522b1186eb1ddd\nStory: 2005248\nTask: 33440\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-wheels: ignore yanked pypi.org modules\n\n1) Pip3 9.0.3 provided by CentOS does not ignore \"yanked\" modules\npublished to pypi.org. This causes the builds to download modules\nthat are broken. Solution: use the earliest version of pip where\nthat bug is fixed (19.2.3)\n\n2) A number of recent versions of setuptools-scm are broken in pypi.org.\nUse last version known to work, 6.0.1\n\nCloses-Bug: 1941901\nChange-Id: I3ba746d36983ee3f24bf1d4089be71bf01f8066a\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "portieris image tagging\n\nTag docker.io/starlingx/portieris image.\nmaster-centos-stable-20200726T013628Z.0 is retagged as stx.5.0-v0.7.0\n\nStory: 2007348\nTask: 40415\nChange-Id: I93472bcd030fec782717f9db5cc3b2223e9c654a\nSigned-off-by: Joseph Richard <joseph.richard@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"Add priority to repositories in base-image\"\n\nThis reverts commit 965e897c71b378ee895d2ca6a00d0a892df6177e.\n\nThe yum plugin called yum-priorities was added to make sure that the\nbuild system use the ussuri-ceph repo. This was done because StarlingX\nused to build ceph without its python3 packages.\n\nNow that ceph is generating its python3 packages this plugin is\nremoved as well as the ussuri-ceph repo. This way StarlingX base image\nwill use the packages built by it's own build system.\n\nTest plan:\nComplete build run\nStarlingx installation\nstx-openstack apply - check that the helm chart can create ceph pools\n\nDepends-On: https://review.opendev.org/c/starlingx/integ/+/824582\nStory: 2009074\nTask: 44281\n\nSigned-off-by: Delfino Curado <delfinogomes.curadofilho@windriver.com>\nChange-Id: I4390c9bc9ec9dbc9ff077c4bcc1adb7d4fbfdbe5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate pike/master to stable/dev build streams\n\nThe use of pike/master naming when building StarlingX docker images\ndoes not properly reflect the differences in how images are built,\nresulting in some confusion for developers. Partly to address this,\nand to allow for independence between images, this is being migrated\nto use stable/dev build streams.\n\nThe stable build stream uses a base image (ie. stx-centos) that has\nsoftware repo configuration that points to StarlingX build output as a\nsource for software package installation. Images that use an upstream\nrepo as the main project code would generally use a stable branch for\nthis build stream, as well. For example, once Openstack Stein is\nreleased, the stable builds for StarlingX Openstack services will be\nupdated to build from a stable/stein branch.\n\nThe dev build stream uses only upstream sources for software\ninstallation, with images building from upstream master branches,\ngenerally.\n\nThe stx-libvirt image, for example, is built solely from StarlingX\nbuild output, and is therefore built in the stable build stream.\n\nAn image lineup for the stx-openstack application could therefore be a\nmixture of stable and dev build stream images. The \"stable\"\napplication lineup (once we have Stein) would be all stable build\nstream images, while the \"dev\" lineup would be dev build stream images\nplus stable images for any that are stable-only (such as stx-libvirt).\n\nTo roll out these changes without impacting designers or builds, the\npike/master builds will still be supported for a short period.\n\nThis update provides the tool and base configuration changes to\nsupport the introduction of the stable/dev build streams.\n\nChange-Id: Ib5dc9a7c1d8c37368d073e28d83eeb883766ee3f\nStory: 2005248\nTask: 30098\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add static tag to image stx-debian-tools-dev\n\nDocker image stx-debian-tools-dev is tagged with static tag stx.8.0-v1.0.0\n\nStory: 2010138\nTask: 46187\n\nSigned-off-by: rferraz <RogerioOliveira.Ferraz@windriver.com>\nChange-Id: Ibae2a1b7c62ae4283a674103f1c51131f91f5ff9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update image tags for ptp-notification images\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update tag for stx-fm-subagent to stx.6.0-v1.0.3\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Remove image tag: k8s-plugin-sriov-network-device\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add static tags to debian snmp images\n\nUpdate yaml file with new tags for stx-fm-trap-subagent, stx-snmp\nand stx-fm-subagent using the master-debian-stable-20220906T060002Z.0\nbuild.\n\nStory: 2009831\nTask: 46212\n\nSigned-off-by: Enzo Candotti <enzo.candotti@windriver.com>\nChange-Id: I2bb92b634c78602481da554bbe45a818404c04d0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-wheels: README file + minor script fixes\n\nAdd a textfile describing the wheels cfg file format.\n\nAllow tarballs that pack their contents at top level.\n\nStory: 2010294\nTask: 46279\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Ia28ca95d1be1a81e8481709139fc440f336de7f7\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"build-tools: remove unused image k8s-cni-sriov\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: better registry error handling\n\nThis commit enables better error detection when checking whether an\nimage/tag exists in a remote registry. Current implementation sometimes\nfalsely believes a remote tag is missing and attempts to (re-)push the\nimages, potentially overwriting them.\n\nExamples:\n- Registry is not reachable due to a temporary network outage\n- With docker.io: we exceed the request rate limit. Original script\n  looked for remote tags by enumerating all tags. This resulted in\n  dozens of REST calls per image, occasionally exceeding Dockerhub's\n  request limit.\n\nSolution: add new script that exits on connectivity errors, rather than\nreturning false. Script requires an external tool, regctl:\n  https://github.com/regclient/regclient\n\nTESTS\n====================================\n- Test with missing/existing images in Harbor, DockerHub and\n  AWS ECR registries, as well as various connectivity errors.\n- Run retag-images.sh and make sure it still works\n\nCloses-Bug: 2003898\nChange-Id: Id9dd0c30580748c0c4c4bfbbd520d4d38bdd2ec6\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update static tag for stx-fm-subagent image\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for rvmc image to stx.5.0-v1.0.0\n\nChange-Id: I5b2e0e911f76cc108837fa753e1902c5adefe410\nPartial-Bug: 1889086\nSigned-off-by: Eric MacDonald <eric.macdonald@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: update default spice-html5 git URL\n\nThe original URL has been removed from github:\n\n  https://github.com/freedesktop/spice-html5.git\n\nReplace it with a mirror:\n\n  https://gitlab.freedesktop.org/spice/spice-html5\n\nSee also: https://review.opendev.org/c/openstack/openstack-ansible/+/881336\n\nTESTS\n==================================\n\nBuild stx-nova images\n\nCloses-Bug: 2017592\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I15fa71e9ca607e9b03f92ba4926562a67a528cef\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.4.0-v1.3.0\n\nStory: 2006740\nTask: 39498\n\nChange-Id: I9d597d0d408aef57044fb50e1d7a7ba75401069d\nSigned-off-by: Teresa Ho <teresa.ho@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update stx-platformclients tag to stx.9.0-v1.5.11\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update power-operator tag to stx.9.0-v2.3.0\n\nUpdate power-operator and power-node-agent images\nto tag based on upstream package version.\n\nStory: 2010773\nTask: 48654\n\nSigned-off-by: Thiago Antonio Miranda <tmarques@windriver.com>\nChange-Id: I93605cc7a95a50b5fc0500df89f4c9ad23ba4b71\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add sriov-fec-operator container image tags\n\n- Update the container image tags to v2.6.1.\n\nTest Status:\n\n- PASS: system application apply with latest debian image.\n\nStory: 2010649\nTask: 47819\n\nSigned-off-by: Nidhi Shivashankara Belur <nidhi.shivashankara.belur@intel.com>\nChange-Id: Icbdb5a85746b90d9f92433f81a29e247cc305aa4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: Add support for LOCI's UID/GID args\n\nIn [1], a patch that adds the user/group `keystone` with UID/GID 42424\nwas introduced to be applied during the Debian base image build.\n\nAs a result, every LOCI-based image built on top of it will have\na UID/GID conflict with the user in question, since this same value is\nthe default used by LOCI when creating users ([2]).\n\nSince LOCI already allows the customization of these build arguments,\nthis change adds corresponding support for them in the build script.\n\nIn order to avoid conflict with the existing Bash readonly variable UID,\nthe arguments must be expressed as `PROJECT_UID` and `PROJECT_GID` in\nthe container build recipes, so it can be safely imported into the build\nscript.\n\n[1] https://review.opendev.org/c/starlingx/integ/+/854246\n[2] https://github.com/openstack/loci\n\nTest Plan:\nPASS: Without using the build arguments `PROJECT_UID` and `PROJECT_GID`,\n      verify that LOCI is defaulting to 42424 during the build.\nPASS: Using the build arguments `PROJECT_UID` and `PROJECT_GID`, verify\n      that LOCI is using different values during the build.\n\nSigned-off-by: Luan Nunes Utimura <LuanNunes.Utimura@windriver.com>\nChange-Id: Ibb4b0cbcdb0f3e9440810339408fc96ab356f55b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Upgrade openstack to release train\n\nUpdate openstack version in build-wheel-tarball.sh so that it\ncan fetch packages with required version.\n\nStory: 2006544\nTask: 36618\n\nDepends-on: https://review.opendev.org/#/c/684166/\nChange-Id: I8d3bfe2a6fdf976de6774229b0c33e3355d55f80\nSigned-off-by: zhipengl <zhipengs.liu@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix wheels tarball generation\n\nIn d7c5a54ab94bce6635b83d91a807d28f97836a81, django was dropped in favor\nof rfc3986. However the wheel was not added to the build-wheels\ngeneration which breaks the docker images. Also add the migrate wheel\nsince it was mising as well. Add the required wheels in order to\nbuild the docker image properly.\n\nTest:\n- Build new centos-stable-wheels tarball\n- Build stx-keystone-api-proxy container\n\nCloses-Bug: 1926795\n\nSigned-off-by: Charles Short <charles.short@windriver.com>\nChange-Id: Ib6f0abfdcc82ca14f92ebc5b45fe8df961e804ee\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-tools: apt repo priority based on \"Origin\"\n\n* build-docker-images/stx-debian/stx.preferences.part.in\n* build-docker-images/build-base-image.sh\n  This file sets base image priorities for apt repos that match certain\n  properties. Formerly we used higher priority for repos hosted by the\n  build server, as opposed to debian.org or others.  This doesn't work\n  when using a Debian mirror hosted on the build server itself, since\n  the hostname of both repos are equal.\n\n  Solution: increase priority for repos whose \"Release\" file contains\n  the field \"Origin: $REPOMGR_ORIGIN\" and make sure aptly adds that\n  field to its Release file. The value comes from the environment and\n  should be set by the build container.\n\n* stx/aptly_deb_usage.py:\n  Add an \"Origin\" field to non-mirror publications, value taken from\n  environment REPOMGR_ORIGIN\n\n* build-docker-images/stx-debian/Dockerfile.stable\n  Improvements to package conflict resolution and docker FS\n  caching-related issues:\n  - Upgrade base packages to versions in managed repos before doing\n    anything else\n  - Install packages provided by upstream debian in a separate RUN\n    command/docker FS layer\n  - Make sure each \"apt-get install\" is in its own RUN command and is\n    preceded with \"apt-get update\" -- to avoid using stale metadata due\n    to \"docker build\" FS layer caching\n\nTESTS\n======================\n- Define REPOMGR_ORIGIN in container environment\n- Run downloader & build-pkgs & make sure generated repos' Release file\n  contains \"Origin: starlingx\"\n- Build base image & make sure its apt.preferences contains the priority\n  rule for \"Origin: starlingx\"\n\nStory: 2010055\nTask: 45729\n\nChange-Id: Ibaafbfbeef408904d216265168daa466d90fc7f2\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add armada-image container tag\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add panko to master wheels tarball\n\nThe stx-ceilometer master image requires a specific\nversion of panko, which does not have a pre-built wheel\navailable in pypi, so we're adding it to the master\nwheels tarball to make it available to the image build.\n\nChange-Id: I854b75577b6dbc3f0a8171190f5a1aa839412dc8\nStory: 2004520\nTask: 29046\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix docker image build failures due to google-api-python-client\n\nThis enforces google-api-python-client 1.7.7 which\nis available on pypi site as a wheel that is both python2\nand python3.\n\nThis affected only master docker images, pike was not\nimpacted\n\nCloses-Bug: 1814835\nChange-Id: I1bae1a5a3a1b0fcd323d072a113381c3340f9134\nSigned-off-by: Al Bailey <Al.Bailey@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update wheels and build tool\n\nThis update includes two changes:\n* Due to timing of reviews of two recent commits, changes in the\n  second commit impacted the first, renaming a variable used in\n  new code introduced by the first commit. The second commit merged\n  soon after, leaving the new code using the now wrong variable.\n  This update corrects the new code, replacing the new uses of\n  OPENSTACK_RELEASE with BUILD_STREAM in the image build tool.\n* The new stx-fm-rest-api image installs some openstack modules, and\n  builds in the stable build stream. This means we now need the\n  stable-wheels.cfg to be a copy of the pike-wheels.cfg, until\n  Stein is released. This update copies pike-wheels.cfg to the new file.\n\nChange-Id: I538bae32a68e43d07e5c64ead8e2884204509194\nStory: 2005248\nTask: 30151\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.4.0-v1.2.0\n\nUpdate stx-platformclients image to include commit for supporting\nmultiple dex backends. This commit makes changes to the oidc-auth\nCLI tool, which is part of the stx-platformclients image.\nreference commit:\nhttps://review.opendev.org/#/c/726234/\n\nChange-Id: I7b89ef5adcfc1e996a6a771db358576c14f64e5f\nStory: 2006711\nTask: 39696\nSigned-off-by: Jerry Sun <jerry.sun@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification images\n\nUpdate the following image tags:\n\nnotificationservice-base\nstx.9.0-v2.1.1\n\nnotificationservice-base-v2\nstx.9.0-v2.1.1\n\nnotificationclient-base\nstx.9.0-v2.1.1\n\nStory: 2010538\nTask: 47752\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I7e8627d37ac87dd59fd208bfde6233aa9ff43af5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Power Metrics image tags\n\nUpdate images tags to match upstream package versions:\n- Update cadvisor image tag to stx.9.0-v0.47.2\n- Update telegraf image tag to stx.9.0-v1.27.3\n\nStory: 2010773\nTask: 48710\n\nChange-Id: I04070d8b4aa37dc4aa0fd0cdb4b871c14442069b\nSigned-off-by: Alyson Deives Pereira <alyson.deivespereira@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-fm-trap-subagent tag\n\nUpdate yaml file with a new tag for stx-fm-trap-subagent,\ndue to a new commit delivered to support IPv6\n\nStory: 2008132\nTask: 42063\nSigned-off-by: Jose Infanzon <jose.infanzon@windriver.com>\nChange-Id: Id8a12b4c68b887ff153490af5e8084d7ee5224fe\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add static tag to image stx-debian-dev\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Image builds broken for BUILDER=docker\n\nA recent update to build-stx-images.sh broke the building\nof images with BUILDER=docker. A bash syntax error was\nintroduced that leads to invalid function calls, resulting\nin the following error:\n\n    get_git '' ''\n    basename: missing operand\n    Try 'basename --help' for more information.\n    git repo appears to be invalid: . Aborting...\n    Failed to clone or update . Aborting...\n\nThis update corrects the bash syntax.\n\nChange-Id: I09487869350af82b13d9670ff7035078c4a21d4a\nCloses-Bug: 1831093\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update stx-platformclients image to version stx.8.0-v1.5.9\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"update stx-oidc-client image tag\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-centos-tools-dev tag to stx.7.0-v1.0.0\n\nFirst tag for the new Docker image stx-centos-tools-dev.\n\nStory: 2009990\nTask: 45176\nSigned-off-by: Guilherme Alberici de Santi <guilherme.albericidesanti@windriver.com>\nChange-Id: Ia960ef5afbb412827a55427f1492c7f86d54c2c8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification images\n\nThis commit updates the image tags for:\n\nnotificationservice-base\nstx8.0-v2.0.2\n\nnotificationclient-base\nstx8.0-v2.0.2\n\nStory: 2010056\nTask: 46994\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I7ac19d30cb8fde98fe5cc7aa15ec1fe9874baf21\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tag-management utility\n\nThis commit introduces a tag management utility for images to allow\nretagging of specific images. This allows the StarlingX ansible\nplaybooks and packaged charts to use a static image tag rather than the\nmoving stable-latest tag.\n\nThis utility can only be run by a StarlingX build team member with\npublishing capability on the docker hub, to allow for updated tags to\nbe available publicly, or as part of a CENGN build job.\n\nChange-Id: I7659695c701ccf3bfe8255b24ad0b1896b59cc23\nPartial-Bug: 1854869\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Modify snmp subagent tags\n\nUpdate yaml file with a new tag for stx-fm-trap-subagent and\nstx-fm-subagent, due to a new fix to init containers when\nmaster agent is started.\n\nCloses-Bug: 1943612\n\nSigned-off-by: Jose Infanzon <jose.infanzon@windriver.com>\nChange-Id: Ie392f644a7624b94e4fc08b4dc1193974097f4e4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Reorganize tag management files\n\nRather than maintain tag management files for each release, use a\nsingle file that is updated as needed. This update drops the r3\nimage-tags file and renames the r4 file to drop the release number.\n\nChange-Id: I37d6d4b805d488db6702c48170805df54fca7300\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add priority to repositories in base-image\n\nNow it's possible to add a priority for each repo through\n--repo-priority on command line and cfg file as well.\n\nThis is need because of the usage of ceph mirror and to force the\nimages to use ceph packages on that repo.\n\nTest plan:\n\nDocker images build succeeded.\nstx-openstack apply succeeded.\n\nCloses-Bug: #1949518\nSigned-off-by: Delfino Curado <delfinogomes.curadofilho@windriver.com>\nChange-Id: I202904dccdd727a05bb4d621c4ad735f60221b81\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification images\n\nThis commit updates the image tags for:\n\nnotificationservice-base\nstx.8.0-v1.0.6\n\nnotificationclient-base\nstx.8.0-v1.0.5\n\nStory: 2010056\nTask: 46525\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I7b9cbc2006dc27c3fbc665ddda46926c67e08749\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update tag for rvmc to stx.8.0-v1.0.0\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.7.0-v1.5.8\n\nThis commit updates the image with the updated clients.\n\nPartial-Bug: 1980417\nSigned-off-by: Andy Ning <andy.ning@windriver.com>\nChange-Id: I04b09f5c2189c394ffb4d82215e26b3417cf4c09\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update k8-cni-sriov image to stx.5.0-v2.6-7-gb18123d8\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update stx-vault-manager image tag\n\nThere is no code change per-se, the image is based on latest version of\ndebian:stable-slim.  This is picking up CVE fixes, in particular:\n  CVE-2022-32221   curl\n\nTest Plan:\nPASS - apply vault application\nPASS - AIO-SX\nPASS - delete vault pod\nPASS - delete vault-manager pod\n\nStory: 2010710\nTask: 47906\n\nChange-Id: I9bfdf88ed884712ee08d45416c1d2f3def83c20c\nSigned-off-by: Michel Thebeau <michel.thebeau@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: base docker image: more required packages\n\nThe following packages are required by some containers, because they are\nnot buildable from source. Install patched versions packaged as DEB\nfiles:\n- python3-thriftpy\n- python3-nss\n- python-nss\n\nTESTS\n===================\nBuild the base image\n\nStory: 2009897\nTask: 44971\n\nDepends-On: https://review.opendev.org/c/starlingx/tools/+/837904\nDepends-On: https://review.opendev.org/c/starlingx/integ/+/837399\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Ic7726e5eb25d253734873209c67dbb54460f1260\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove pike/master files\n\nThis update removes pike and master wheel and/or image files,\nas these have been replaced with stable/dev.\n\nChange-Id: I1f44dc69de2819eba8dadf1639c6a4ce8f6f2031\nStory: 2005248\nTask: 30328\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tag for notificationservice-base\n\nUpdate image tag to stx.5.0-v1.0.4 for notificationservice-base\n\nCloses-Bug: 1924201\nCloses-Bug: 1924197\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Id863c4f154cc0b39e30ee8986fc07f9856a22826\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: don't hard-code POD host names in base img\n\nbuild-stx-base.sh --local: detect repomgr pod hostname from environment,\nand use that name in apt.sources file, rather than hard-coding as\n\"stx-stx-repomgr\".\n\nTESTS\n=================\n\nRebuild base image and make sure apt works inside it\n\nStory: 2009897\nTask: 44972\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Iee12a1203162f74f1bc3d61616a9d2ec184131c0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.5.0-v1.4.0\n\nStory: 2007875\nTask: 40633\n\nChange-Id: I690890692e1716ecc8a600cac3a0cd2c1ffc6810\nSigned-off-by: Teresa Ho <teresa.ho@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add ptp-notification images to tag management\n\nIncludes tags for 3 images built in the\nptp-notification-armada-app repo:\n\nnotificationservice-base\nnotificationclient-base\nlocationservice-base\n\nStory: 2008529\nTask: 41768\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I25a1973bfd1b78787001a7427ed464c36bfacca4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image build tools to handle non-shell entrypoint\n\nIf a custom docker build file sets up a non-shell entrypoint,\nbuild-stx-images.sh fails during the build while trying to collect\nsome information by running the newly built image.\n\nThis update enhances the handling to check the entrypoint and ensure\nit is maintained, while using bash to run any needed commands.\n\nCloses-Bug: 1857349\nChange-Id: I1f798476eb4976a4c81cdd2defe5d767a4681f5b\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update static tag for stx-fm-subagent image\n\nThe content of the stx-fm-subagent image has been updated due to the\nfix of a bug:\nhttps://review.opendev.org/c/starlingx/snmp-armada-app/+/879689\n\nIt is updated the yaml file with new tag using existing\nmaster-debian-stable-20230412T060000Z.0 tag.\n\nPartial-Bug: 2015408\n\nChange-Id: I81a77bdc3427b70080f87eff97f09c795b4e0863\nSigned-off-by: Agustin Carranza <agustin.carranza@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: add Loci patches\n\n* 0001-starlingx-wheels-from-filesystem-pkg-repos.patch: allows one to\n  specify a local wheels tarfile, rather than a URL.\n\n  This patch was effectively hard-coded in the build script -- converted\n  to a proper git patch file.\n\n  This patch has a problem that will be addressed by a separate commit:\n  it makes docker images unnecessarily large by embedding the entire\n  wheel file in one of the intermediate docker FS layers. While the file\n  is deleted at the end, that intermediate layer remains as part of the\n  docker image.\n\n* 0002-Don-t-fail-if-user-group-exists-in-base-image.patch: the\n  StarlingX base image contains user accounts such as \"nova\" and\n  \"keystone\", causing Loci to fail when trying to create users &\n  groups. This unusual behavior of the base image is a side effect\n  of this commit:\n\n    https://review.opendev.org/c/starlingx/integ/+/854246\n\n  which looks necessary for unrelated reasons and can't be reverted.\n\n  This patch adds additional parameters to be used in image build\n  recipes that work around this problem:\n\n  - UPDATE_SYSTEM_ACCOUNT: if user exists at build time, update its\n    UID/GUID/$HOME if necessary\n  - NON_UNIQUE_SYSTEM_ACCOUNT: allow non-unique UID/GID when creating\n    user & group.\n\nStory: 2010294\nTask: 46282\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I213e0401326c8a9b70030f4c4504f8ceb8a63945\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update docker image and wheels tools for build on master\n\nThis update adds support to the docker image and wheels build tools\nto allow the build of StarlingX service images from openstack master\nbranches.\n\nThe master wheels tarball makes use of the loci-built master-OS wheel\nimage as a base, with any additional base wheels not provided by loci.\n\nChange-Id: I6de67e29a9b05189f2a0bad3dfdd1668fbdab42b\nStory: 2003907\nTask: 28179\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add image tag for KubeVirt\n\nAdd a new image for KubeVirt.  The image is an init container\nresponsible for installing the corresponding version of virtctl.\n\nTest Plan: None\n\nStory: 2010096\nTask: 46472\n\nSigned-off-by: Gleb Aronsky <gleb.aronsky@windriver.com>\nChange-Id: I1d6fcfa2008b8c3f15bb69408b59236b91b94e8e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "vRAN-Tools CVE security update\n\nThis commit provides security updates on the vran-tools containers\nto cover vulnerabilities found at CVE scanning.\n\nTest Plan:\n  - CVE Scanning (PASS)\n\nStory: 2010710\nTask: 47966\n\nSigned-off-by: Rogerio Ferraz <RogerioOliveira.Ferraz@windriver.com>\nChange-Id: Ie9a691ccb597a5373401e144e36cd9d558fa56f9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.7.0-v1.5.4\n\nThis commit updates the image with the updated clients and the fix of\nthe old kubectl version. It was in the 1.5.4, now its updated to the\ncorrect version 1.21.3.\n\nPartial-Bug: #1955427\n\nSigned-off-by: Thiago Miranda <ThiagoOliveira.Miranda@windriver.com>\nChange-Id: If48a80db269a67bd97aa56bcdd2e612e2ccdcd98\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for rvmc to stx.8.0-v1.0.1\n\nStory: 2010144\nTask: 46784\n\nSigned-off-by: Li Zhu <li.zhu@windriver.com>\nChange-Id: I28a52752b79185bee959a13c6627c13a323231fd\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "docker-images: Add loci patch to allow pip upgrade\n\nIn older versions of the pip tool, there is a known bug with the\ndependency resolver that causes some package installations to take much\nlonger than expected due to various version and compatibility checks\ndone during this process ([1] and [2]).\n\nSince the newer versions of the tool bring improvements to the\ndependency resolver, updating it helps to avoid scenarios like the ones\ndescribed above.\n\nThus, this patch adds a build argument called UPGRADE_PIP_PACKAGES\nwhich, when filled, allows LOCI to perform a `pip install --upgrade` on\nthe listed packages before proceeding with the installation of the\nothers.\n\n[1] https://github.com/pypa/pip/issues/10967\n[2] https://github.com/pypa/pip/issues/9517\n\nTest Plan:\nPASS: While building any image, verify in the output that the new patch\n      is being applied on top of LOCI's Dockerfile:\n      `Applying: Add build argument to allow pip upgrade`.\n      (This step is performed regardless of the BUILDER type)\nPASS: While building any loci-based image that DOES NOT use the build\n      argument UPGRADE_PIP_PACKAGES, verify in the output that pip isn't\n      upgrading itself or upgrading other packages before the\n      installation step.\nPASS: While building any loci-based image that DOES use the build\n      argument UPGRADE_PIP_PACKAGES, verify in the output that pip is\n      upgrading the listed packages before the installation step.\n\nSigned-off-by: Luan Nunes Utimura <LuanNunes.Utimura@windriver.com>\nChange-Id: I0e742e804746bf5f3f99fed181dd868c10fdf75b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-oidc-client to stx.4.0-v1.0.2\n\nChange-Id: I6deab3e81b2210968c93f82d667003e5805a1136\nPartial-Bug: 1868895\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-tools: fix invalid apt cache removal\n\nFix Debian base image docker file attempting to remove a non-existent\ndirectory when cleaning apt cache.\n\nTESTS\n===================================\nBuild the base image\n\nCloses-Bug: 1982767\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Ibb786be00570b72dcbe52fd920cbec2e10661969\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix error handling for missing wheel package\n\nA missing wheel RPM caused get-stx-wheels.sh to hang on a call\nto rpm2cpio due to an empty string. This update improves the\nerror handling to fix the bash syntax on the file check to protect\nagainst the empty string.\n\nThis update also corrects the usage of \"local\" keyword added to\nthe wheel and image scripts in a recent update, outside a function.\n\nChange-Id: Ib8b83b376eacf44235a3d7fcd63d2451ca919210\nStory: 2004751\nTask: 29787\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-stx-images.sh: fail on missing build recipes\n\nThe script build-stx-images.sh ignores missing docker_image files,\nhiding errors such as\nhttps://review.opendev.org/c/starlingx/oidc-auth-armada-app/+/845020 .\nAdd error handling for this case.\n\nTESTS\n=========================\n(1) Add a non-existent directory in one of the\ncentos_stable_docker_images.inc and run build-stx-images.sh. Make sure\nit fails.\n\n(2) Remove non-existant directories from (1) & make sure\nbuild-stx-images.sh does not fail.\n\nTask: 2010074\nStory: 45560\n\nDepends-On: https://review.opendev.org/c/starlingx/oidc-auth-armada-app/+/845020\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I5e3fb79b3105c7574c424130def3e6f052f69d17\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Support source patches for building images\n\nThe build-stx-images.sh allows for building images using a git repo as\nthe source, which is cloned into the workspace as part of the build\nprocedure. In some cases, there may be source changes required for\nfixes or enhancements that have not yet merged into the referenced\nrepo. This update adds support in build-stx-images to allow the\ndesigner to specify patches in the image directives file, which will\nbe applied after cloning.\n\nDesigner workflow:\n* clone git repo (may need to apply any existing git patches from\nprevious fixes)\n* make changes\n* commit, with a beautiful and admirable commit message\n* git format-patch\n* copy source patch to stx repo, somewhere alongside the docker_image\ndirectives file (ie. a docker_patches dir)\n* update docker_image directives file to add DOCKER_REPO_PATCHES or\nSOURCE_PATCHES, as appropriate, with DOCKER_REF or SOURCE_REF set to\nthe current upstream SHA used as the base for the patch\n\nStory: 2006711\nTask: 38499\nChange-Id: Icac2b4dc2ebeb32946de6e5adcbf59a10c56a30c\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add DOCKER_REPO/REF to image directives file\n\nSriov-cni and sriov-network-device-plugin are the first two in what\nmight be a long list of third party packages that provide their own\nDockerfile.\n\nThis update extend the images directives file syntax by introducing\n'DOCKER_REPO=<url>' and 'DOCKER_REF=<git_ref>'. The DOCKER_REPO will\nbe cloned into a working directory, the DOCKER_REF checked out,\nthe Dockerfile found and passed to docker build.\n\nChange-Id: Iea5eae32bd245557a4b02c9825297343a001e778\nStory: 2005208\nTask: 33485\nSigned-off-by: Scott Little <scott.little@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add app-sriov-fec-operator container image tags.\n\nStory: 2009749\nTask: 46310\n\nSigned-off-by: Nidhi Shivashankara Belur <nidhi.shivashankara.belur@intel.com>\nChange-Id: I5fd92f92c481bb8815790a0e595ac871b1c06c87\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add proxy setting for container image build scripts\n\nUsers in some places like China need to use proxy during building image.\nSo, it is better to let user be able to use proxy by adding these proxy\narguments.\n\nCloses-bug: 1890383\n\nChange-Id: If9ef7d09a5f53148252b4ab62c40ab0f143e1c3f\nSigned-off-by: Liu, ZhipengS <zhipengs.liu@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add managed tag for stx-platformclients image\n\nChange-Id: Id37f2eaf5bacaad941a7abaf835d3c7204d7ca97\nStory: 2006711\nTask: 39096\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for n3000-opae to stx.8.0-v1.0.2\n\nStory: 2009831\nTask: 46277\n\nSigned-off-by: Mohammad Issa <mohammad.issa@windriver.com>\nChange-Id: I56e80e1a48777d1b77693e4252d917464e940c86\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-centos dev repo config to stein\n\nUpdate the yum repo config for the stx-centos dev base image\nto point to the openstack-stein repo.\n\nChange-Id: Ia84d49deca85b8b32e6925e8de1b0768f6334196\nStory: 2005248\nTask: 30694\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update audit container image tag\n\nStory: 2008849\nTask: 42733\n\nSigned-off-by: Carmen Rata <carmen.rata@windriver.com>\nChange-Id: I77992f9a866f72e5ed83a47865ae1007f76bb4e9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update k8-cni-sriov image to stx.5.0-v2.6-7-gb18123d8\n\nThis commit uprevs the SR-IOV CNI image to pick up a few bug\nfixes.  Specifically, this commit will allow rate-limiting\nconfiguration on a VF to be retained after the VF has been\nused by a pod (and pod subsequently deleted).\n\nTesting:\n\nNICs:\nEthernet Controller X710 for 10GbE SFP+\nMellanox MT27700 Family [ConnectX-4]\n\nFunctional:\nConnectivity testing (kernel + DPDK)\nDevices allocated appropriately to pod\nRate-limiting information retained after pod deletion\n\nPartial-Bug: #1915951\n\nSigned-off-by: Steven Webster <steven.webster@windriver.com>\nChange-Id: I3eff245392312f969aa23d162c7d45f75f598afe\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update static tag for snmp images\n\nIn order to fix the CVEs reported on snmp container images, an\nupdate on the tags needs to be done.\nThe 20230412T060000Z.0 build contains updated packages that fix\na big number on CVEs reported on stx.8.0-v1.0.0 tag.\n\nThe tags will be updated to stx.9.0-v1.0.1 for stx-snmp and\nstx-fm-trap-subagent images.\n(Note: stx-fm-subagent was already updated in\nhttps://review.opendev.org/c/starlingx/root/+/880335)\n\nStory: 2010710\nTask: 47871\n\nSigned-off-by: Enzo Candotti <enzo.candotti@windriver.com>\nChange-Id: I34395cab4a19fc21a1dc5b2479f9fccc83c56b04\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix incorrect entrypoint for updated image\n\nModify update-stx-image.sh to format the original CMD and ENTRYPOINT as\nan array of tokens. For example [\"token1\", \"token2\"] or [\"\"].\nThis way `docker commit --change` behaves as expected.\n\nTested on:\nORIG_CMD=/bin/bash\nORIG_ENTRYPOINT=\n\nORIG_CMD='/bin/bash -c'\nORIG_ENTRYPOINT=/bin/bash\n\nChange-Id: If6fbe61adf15d9987dfade536a9c886ad1732580\nCloses-Bug: 1906914\nSigned-off-by: Dan Voiculeasa <dan.voiculeasa@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix mismatch in wheelname\n\nBuild wheels process fails while is copying the wheel to the tarball due\nto a mismatch in the name, this commit changes the wheelname\nto upper case.\n\nCloses-Bug: 1816666\n\nChange-Id: Ie9e1c41d921447f15788d3c2a5cb068d4794ee61\nSigned-off-by: Jesus Ornelas Aguayo <jesus.ornelas.aguayo@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add greater flexibility in docker image naming\n\nThe existing user interface for docker image and wheel creation\nis not flexible enough to name images is described in the spec,\nand to push those images to the starlingx organization at docker.hub\n\nThis update adds new arguements that will allow creation of\ndocker images with compliant names, and will allow them to\nbe pushed to https://hub.docker.com/r/starlingx.\n\nI will also change build-base-wheels.sh to allow the\n'os-version' to be pushed through to build-wheels-tarball.sh.\n\nStory: 2003907\nTask: 28370\n\nChange-Id: I4378db63d5ff906ffd636034351e580afa5e3472\nSigned-off-by: Scott Little <scott.little@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create new branch on bare clone for LOCI\n\nThis commit will force a branch creation on a bare clone of the locally\ncloned repo so LOCI can use it afterwards to build images. The aim is to\nprevent images from being build with code different from what is\nchecked-in on the local repo. That way we can avoid controlling branches\nin two places (manifest and loci files).\n\nStory: 2003907\nTask: 42364\nSigned-off-by: Thiago Brito <thiago.brito@windriver.com>\nChange-Id: I863ac450ddfaec3115f3ecbc2789fc5d7c9d887f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Add static tag to image stx-debian-tools-dev\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-centos-dev tag to stx.7.0-v1.0.0\n\nFirst tag for the new Docker image stx-centos-dev.\n\nStory: 2009990\nTask: 45175\nSigned-off-by: Guilherme Alberici de Santi <guilherme.albericidesanti@windriver.com>\nChange-Id: I630b6ad85bd3b489fbd6f1150a05716e4a4ec30d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.6.0-v1.5.1\n\nThis commit updates the image with the updated clients.\nInclude addition of nfv-client pkg on stx-platformclients image.\n\nDepends-On: https://review.opendev.org/c/starlingx/upstream/+/816580\nPartial-Bug: #1949620\nSigned-off-by: Joao Soubihe <JoaoPaulo.Soubihe@windriver.com>\nChange-Id: Ia5877bb4e468580cb70b29f23962440f5986ecb3\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-docker-images: additional error handling\n\nHandle errors caused by failed git clone attempts.\n\nRelated-Bug: 2034255\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Ie3708a6522ac4e4ebda9502b697de30927b3d5eb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-stx-images.sh: use URL when cloning git repo\n\nLoci with MIRROR_LOCAL=yes attempt to clone a local repo over HTTP. This\ndoesn't work in Debian environment because the builder pod doesn't\ninclude a web server that provides access to local files.\n\nSolution: use environment variable $BUILDER_FILES_URL defined by\nhttps://review.opendev.org/c/starlingx/tools/+/873010 .\n\nTESTS\n================\nCreate a dummy Loci build recipe with MIRROR_LOCAL=yes. Make sure \"git\nclone\" succeeds during the build.\n\nStory: 2010294\nTask: 47308\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nDepends-On: https://review.opendev.org/c/starlingx/tools/+/873010\nChange-Id: Ice729ea1e2324887efa9b92eb5a41d6cea8e5e07\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.6.0-v1.5.0\n\nThis commit updates the image with the updated clients.\nInclude additions for k8s rootca update procedure.\n\nStory: 2008675\nTask: 43598\nSigned-off-by: Joao Soubihe <JoaoPaulo.Soubihe@windriver.com>\nChange-Id: Id37a3509384d5baf6cf0ec6607d0655112d7c196\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align stable-wheels.cfg with train constraints\n\nThis commit updates the stable-wheels.cfg to align with the\nstable/train upper-constraints.txt file, to ensure the train images\nbuilt have the proper content:\n- If an appropriate prebuilt wheel is available at pypi.org, remove\nthe entry from stable-wheels.cfg to avoid changing the configured\ntrain constraint.\n- If building from a tar or zip and the configured train constraint\nhas changed, update the entry with the new version.\n- Added entres to build pyrsistent, psycopg2, and thriftpy2 from\ntarballs, as they are needed for various images and no prebuilt wheels\nare available.\n\nChange-Id: I6cebb9a9867c37746500e3d6d4762ed7668d60df\nStory: 2006544\nTask: 37427\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "debian: build-docker-images: add missing quotes\n\nbuild-stx-base.sh: add quotes when saving the --repo arguments since in\ndebian this parameter may contain spaces.\n\nTESTS\n========================\nRebuild base image in debian and make sure it generates the\nstx.sources.list file correctly, including white space.\n\nStory: 2009897\nTask: 45212\n\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: Ibd55c827b259024358097a59c49f797d6dcd9ae9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-fm-trap-subagent to stx.7.0-v1.0.3\n\nUpdate yaml file with a new tag for stx-fm-trap-subagent, due to\na new fix to add uuid and reason text in snmp trap.\n\nCloses-bug: 1971626\n\nSigned-off-by: Takamasa Takenaka <takamasa.takenaka@windriver.com>\nChange-Id: Id566d55c20afb2d95121495b0cef67a53e179dc5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "correct stx-oidc-client image tag\n\nCommit e334e18e \"update stx-oidc-client image tag\" used a dot instead of\ndash in the image tag.  Fix the tag to be consistent with convention.\n\nTest Plan:\n\nNo testing\n\nStory: 2009831\nTask: 46466\n\nChange-Id: Iac3c2d73f905a2ec5aa4bb8a26f1200b23f5a16e\nSigned-off-by: Michel Thebeau <Michel.Thebeau@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update static tag for stx-fm-trap-subagent image\n\nThe content of the stx-fm-trap-subagent image has been updated due to\nthe fix of a bug:\nhttps://review.opendev.org/c/starlingx/snmp-armada-app/+/892624\n\nIt is updated the yaml file with new tag using existing\nmaster-debian-stable-20230905T060000Z.0.\n\nPartial-bug: 2032844\n\nChange-Id: I203db537b90ad11fa8c417726ad09ff3eedc25aa\nSigned-off-by: Agustin Carranza <agustin.carranza@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add support to set proxy as argument\n\nWhen the building scripts involved in the containerization\nprocesses are executed behind a proxy, the user must set the\nproxy manually making modifications in the scripts or dockerfiles.\nThese changes allows to set it as an argument.\n\nStory: 2004925\nTask: 29305\n\nChange-Id: I52e13e4832daf488d8ff29334686a20daa7d2826\nSigned-off-by: Mario Alfredo Carrillo Arevalo <mario.alfredo.c.arevalo@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixing default behavior of PYTHON3 for LOCI call\n\nRecently, LOCI changed its default so images are python3 if nothing is\nspecified at the *docker_image files. With the recent upversion of LOCI\nin the build tools [1], we need to explictly set PYTHON3=no to images\nthat are still using python2. As such, we need to pass WHEELS when no\nPYTHON3 is provided and when PYTHON3 == \"yes\" (or != \"no\").\n\nTEST PLAN\nPASS Build image with PYTHON3=no (stx-pci-irq-affinity-agent)\nPASS Build image with PYTHON3=yes (stx-cinder, modified manually)\nPASS Build image with no PYTHON3 (stx-nova)\n\n[1] https://opendev.org/starlingx/root/commit/00bd632a68b8172f5d4baec2b1e4f8a08b9d5be5\n\nCloses-Bug: #1958696\nSigned-off-by: Thiago Brito <thiago.brito@windriver.com>\nChange-Id: Iec52b57e36da968d6076361b1b434234ef55d7e8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-oidc-client to stx.5.0-v1.0.3\n\nCloses-Bug: 1877172\n\nChange-Id: Ic6aa7317ac9a18e19dcaab1572359d1060a532ce\nSigned-off-by: Teresa Ho <teresa.ho@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Increase yum timeout in stx-centos base image\n\nThere have been intermittent failures building StarlingX\ndocker images due to failures to reach the mirrors within\nthe default timeout, during the formal CENGN builds. This\nupdate adds a step to the docker files for the stx-centos\nbase image and the base wheel builder image to set a new\ntimeout value in the yum.conf file, increasing from the\ndefault 30 seconds to 120 seconds.\n\nChange-Id: Ide52cdebb053f639cfe6d4c3a6c5eef71e6fa8ab\nStory: 2004751\nTask: 29636\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Provide pecan and wsme modules as wheels packages\n\nThe fm-api application requires pecan and wsme python\nmodules, this commit adds them to pike-wheels.cfg in\norder to be built and they can be available in the wheels\ntarball.\n\nStory: 2004008\nTask: 29400\n\nChange-Id: Ieb15f49f18e8a6598e91819a5b76b4a6763e3e5e\nSigned-off-by: Mario Alfredo Carrillo Arevalo <mario.alfredo.c.arevalo@intel.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add static tags to Debian stx-fm-rest-api image\n\nUpdate yaml file with new tag for stx-fm-rest-api using the\nmaster-debian-stable-20221102T060000Z.0 build.\n\nStory: 2009831\nTask: 46635\n\nSigned-off-by: Enzo Candotti <enzo.candotti@windriver.com>\nChange-Id: Ie5511c33b8eb50005bc847c33dbebfcb87e42da6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.5.0-v1.4.2\n\nThis commit updates the image with the updated clients\ncgts-client and distributed-cloud-client to execute both\nin python2 and python3.\n\nStory: 2007106\nTask: 42314\nSigned-off-by: Rafael Jardim <rafaeljordao.jardim@windriver.com>\nChange-Id: Ia037a8e437ffd371bd20558eff716b2678a7d171\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update stx-oidc-client image tag\n\nThe new image is reduced in size from 500mb to 14mb. The binary is\nstatically linked.\n\nTest Plan:\n\nPASS: application sanity; authenticate and run kubectl command, review\n      logs\n\nStory: 2009831\nTask: 46466\n\nChange-Id: I7644cea1aefea8a6ca4abb477ddcf4cf622eb380\nSigned-off-by: Michel Thebeau <Michel.Thebeau@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tag stx.8.0-v1.0.2 to vRAN docker images\n\nThe images starlingx/stx-debian-dev and starlingx/stx-debian-tools-dev\nare static-tagged as stx.8.0-v1.0.2 due to added support of the tools:\n\n- Processor Counter Monitor (PCM) tools\n- Open Programmable Acceleration Engine (OPAE) tools\n\nTest Plan:\n  - Container image is built successfully on Debian (PASS)\n  - PCM and OPAE packages are successfully installed (PASS)\n  - Run time testing of the PCM and OPAE tools (WIP)\n\nStory: 2010138\nTask: 46732\n\nDepends-On: https://review.opendev.org/c/starlingx/utilities/+/855431\n            PCM tools on container image stx-debian-tools-dev\n\nDepends-On: https://review.opendev.org/c/starlingx/utilities/+/862742\n            OPAE tools in container image stx-debian-tools-dev\n\nNote: This is fix of commit fbe521201a0c9d3ecb757e4dea25481c0d71ce15.\nThe images starlingx/stx-debian-dev and starlingx/stx-debian-tools-dev\nstatic-tagged as stx.8.0-v1.0.1 were added support of PCM tools only.\n\nSigned-off-by: Rogerio Ferraz <RogerioOliveira.Ferraz@windriver.com>\nChange-Id: Ibdb8334d86621785e5265f04db8f30be155a4030\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Use upstream repo for python-openstackclient master wheel\n\nUpdate wheels.cfg to build the python-openstackclient wheel using the\nupstream repo, rather than temporary fork. In addition, we need to\nexplicitly grab the pre-release networking_sfc-8.0.0.0b2 wheel due to\nrecent neutron changes.\n\nChange-Id: I7459026ca5edd60dce355a47a3ebeab53696e88b\nStory: 2004751\nTask: 30062\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add support for incremental update version to image tags\n\nAdd support for setting TIS_PATCH_VER in the image directives\nfiles to allow for incremental version changes. This tag is\noptional, defaulting to 0, and is appended to the versioned\nimage tag.\n\nChange-Id: Ibd8d552a814689118701e58588fb2ffa63177249\nStory: 2005248\nTask: 30566\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.6.0-v1.5.3\n\nThis commit updates the image with the updated clients.\n\nPartial-Bug: #1952400\n\nSigned-off-by: Thiago Miranda <ThiagoOliveira.Miranda@windriver.com>\nChange-Id: If2ff9c163adf8bb0092736cd74695f12506d5fae\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for stx-snmp to stx.6.0-v1.0.1\n\nUpdate yaml file with a new tag for stx-snmp, due to\na new fix to remove Titianium cloud text from mibs.\n\nCloses-bug: 1947611\n\nSigned-off-by: Takamasa Takenaka <takamasa.takenaka@windriver.com>\nChange-Id: Ib53da7929bb417a57b3e84d4ec1485ab1aba647e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification images\n\nUpdate the following image tags:\n\nnotificationservice-base\nstx.9.0-v2.1.2\n\nnotificationservice-base-v2\nstx.9.0-v2.1.2\n\nPartial-bug: 2033539\nPartial-bug: 2036293\n\nSigned-off-by: Caio Bruchert <caio.bruchert@windriver.com>\nChange-Id: I62bff6c51ae44a9844eb2f4e31b3f21fe1adcc2c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tags for ptp-notification\n\nUpdate the image tags for:\nnotificationservice-base\nnotificationclient-base\n\nStory: 2008529\nTask: 41768\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: Ia12d582d38121af8bb482c0150c5fadbbf4f464c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "build-stx-images.sh: proper shell quoting\n\nThe \"--only\" parameter doesn't work properly in some circumstances and\nbuilds more images than requested. Solution: add shell quotes.\n\nTESTS\n===================================\n\nRun build-stx-images.sh --only stx-audit,stx-audit [...]\nand make sure it builds only the requested image.\n\nCloses-Bug: 1977879\nSigned-off-by: Davlet Panech <davlet.panech@windriver.com>\nChange-Id: I4c9ddb16dd5e447c38d29e442f4e6790e5d146bb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update image tag for notificationservice-base\n\nUpdate image tag to stx.5.0-v1.0.5 for notificationservice-base\n\nStory: 2009130\nTask: 44730\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I16e8c86cd0c65f90ddf921789dfc5727bc3e5469\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tag stx.8.0-v1.0.3 to vRAN docker images\n\nThe images starlingx/stx-debian-dev and starlingx/stx-debian-tools-dev\nare static-tagged as stx.8.0-v1.0.3 due to added support of Quartzville\ntools.\n\nTest Plan:\n  - Container image is built successfully on Debian (PASS)\n\nStory: 2010138\nTask: 47010\n\nDepends-On: https://review.opendev.org/c/starlingx/utilities/+/866533\n\nSigned-off-by: Rogerio Ferraz <RogerioOliveira.Ferraz@windriver.com>\nChange-Id: Ia3532ed7ae0b98bef32bd98eef4a06079d5f1147\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update stx-platformclients tag to stx.7.0-v1.5.7\n\nThis commit updates the image with the updated clients.\n\nPartial-Bug: #1978836\n\nSigned-off-by: mbiasido <Mauricio.BiasiDoMonteCarmelo@windriver.com>\nChange-Id: Iebb174106311e684a96710aaebecca04a22904a3\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Update stx-platformclients tag to stx.4.0-v1.2.0\"",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Modify build-tools and stable-wheels for Ussuri upgrading\n\nstory: 2007474\ntask: 39178\n\nDepends-on: https://review.opendev.org/#/c/712862/\nChange-Id: Ib383cd77da5ef7393ed2281861cccffd03986850\nSigned-off-by: Yu Chengde <yu.chengde@99cloud.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update audit container image tag\n\nStory: 2008849\nTask: 42639\n\nSigned-off-by: Carmen Rata <carmen.rata@windriver.com>\nChange-Id: I71829de5ef6af4f18ac1e4db97fb13469651ca55\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add amqplib to the base wheels.cfg\n\nSysinv wheel requires the amqplib wheel.\nThis update adds amqplib to the base wheels.cfg\nso that we can download and build a wheel\nto be includeed in the wheels tarball.\n\nChange-Id: If6e486739ff00f3c4adb53d4e345e5bd50b7bc50\nStory: 2004766\nTask: 30454\nSigned-off-by: Tao Liu <tao.liu@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix use of 'let -i' in scripts\n\nUnlike \"declare -i\" and \"local -i\", the bash \"let\" does not support a\n\"-i\" option. Rather, it takes it as a variable reference. If no \"i\"\nvariable is defined in scope, it does not cause an issue. If \"i\" has\nbeen defined somewhere, however, it may cause a syntax issue, as the i\nis evaluated.\n\nA recent update to build-stx-images.sh added a loop that defines an\n\"i\" variable without limiting its scope. In a current image build,\nthis loop ends with having \"i\" defined as a URL. As a result, a\n\"syntax error in expression\" occurs, causing the \"with_retries\"\nfunction to fail to increment the counter. Should a build error occur,\nthe \"with_retries\" will never hit the retry limit, looping until it\nhas a successful result.\n\nThis update removes the -i from all \"let -i\" occurrences in the build\nscripts.\n\nChange-Id: I34ad49f8872a81659ff4caf8087b256ea9fb3d32\nCloses-Bug: 1891189\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tools for building StarlingX docker images\n\nThis update adds tools for building a base image (ie. stx-centos)\nand the set of images for the StarlingX services.\n\nbuild-stx-base.sh will build the base image\nbuild-stx-images.sh will build the StarlingX services\n\nChange-Id: I499583552f633b9e29566dde9233f5c5208d0593\nStory: 2003907\nTask: 27938\nSigned-off-by: Don Penney <don.penney@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add armada-image container tag\n\nPartial-Bug: 1978409\nSigned-off-by: Dan Voiculeasa <dan.voiculeasa@windriver.com>\nChange-Id: Id6854aab3933d8f1e87cd1435aa6c5cb73dddca1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update tag for rvmc to stx.8.0-v1.0.0\n\nStory: 2009831\nTask: 46132\n\nSigned-off-by: Hugo Brito <hugo.brito@windriver.com>\nChange-Id: Ic5897944f31575543a2b0dc317734a058c04f2fa\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add audit container image tag\n\nStory: 2008849\nTask: 42591\n\nSigned-off-by: Carmen Rata <carmen.rata@windriver.com>\nChange-Id: I335c1b953950eb933a7ba6632647e9b63e9a6c1c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add tag stx.8.0-v1.0.1 to vRAN docker images\n\nThe images starlingx/stx-debian-dev and starlingx/stx-debian-tools-dev\nare static-tagged as stx.8.0-v1.0.1 due to added support of the tools:\n\n- Processor Counter Monitor (PCM) tools\n- Open Programmable Acceleration Engine (OPAE) tools\n\nStory: 2010138\nTask: 46732\n\nSigned-off-by: Rogerio Ferraz <RogerioOliveira.Ferraz@windriver.com>\nChange-Id: I1003d4bbe2bf1769a5aa858a926f792a5bea6e95\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update notificationclient-base image tag\n\nUpdate the notificationclient-base image tag to stx.5.0-v1.0.3\n\nStory: 2008529\nTask: 42054\n\nSigned-off-by: Cole Walker <cole.walker@windriver.com>\nChange-Id: I6312ecddf82445b8ecb7a16e059a29064eaa289d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add SNMP images to tag management\n\nUpdate yaml file to provide information about the source images of SNMP\napp and its references for static tags.\n\nStory: 2008132\nTask: 41527\nSigned-off-by: Gonzalo Gallardo <gonzalo.gallardo@windriver.com>\nChange-Id: I219bcc250eae62fed8c22e1670907474dab3b135\n",
+        "issue_summary": ""
+    }
+]

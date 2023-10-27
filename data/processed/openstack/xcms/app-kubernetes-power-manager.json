@@ -1,0 +1,10 @@
+[
+    {
+        "commit_message": "Kubernetes Power Manager as StarlingX application\n\nThis commit is responsible for create the StarlingX application for\nKubernetes Power Manager.\n\nTEST PLAN:\nPASS: AIO-SX, STD: check  if  the  application  can be successfully\n      installed.\nPASS: ALL: check if label \"app.starlingx.io/component\" was  applied\n      in \"intel-power\" namespace on install.\nPASS: AIO-SX, STD: check  if  the  application  can be successfully\n      uninstalled.\nPASS: ALL: check if installed CRDs are removed on uninstall.\nPASS: ALL: check if daemonsets (agents) started  by  the controller\n      are removed on uninstall.\nPASS: ALL: check if the namespace was deleted on uninstall.\n\nAuthor: Thiago Antonio Miranda <tmarques@windriver.com>\nCo-author: Reynaldo P Gomes <reynaldo.patronegomes@windriver.com>\nCo-author: Eduardo Alberti <eduardo.alberti@windriver.com>\n\nDepends-on: https://review.opendev.org/c/starlingx/config/+/887958\n\nStory: 2010773\nTask: 48320\n\nChange-Id: I340b4960d429ee38ea86a2e919a95484e5bef70a\nSigned-off-by: Reynaldo P Gomes <reynaldo.patronegomes@windriver.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixing setup_requires\n\nThe presence of PyYaml in setup_requires causes a problem\nduring the compilation process. Due to this issue and the\nfact that the requirement is not needed for the installation\nprocess, this commit removes the requirement from the setup file.\n\nTEST PLAN:\nPASS: successfully package clean build\n\nStory: 2010773\nTask: 48680\n\nChange-Id: I89e5464c52f8f5fe416dae3e67d14a915870a199\nSigned-off-by: Eduardo Alberti <eduardo.alberti@windriver.com>\n",
+        "issue_summary": ""
+    }
+]

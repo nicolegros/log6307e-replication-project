@@ -1,0 +1,250 @@
+[
+    {
+        "commit_message": "Delete etcd definition from k8s formula - use etcd formula instead\n\nChange-Id: Idb04c9ca310d29d3f53fcefd7783a98026eec8c4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add posibility to increase config version\n\nChange-Id: I61b492a4bed2f8766b7caf7d5a62d76ec6293835\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "parametrize secure port for api\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove deprecated --api-servers kubelet arg\n\nUse --require-kubeconfig instead of --api-servers which is deprecated in\ncurrent version of k8s.\n\nChange-Id: Ibce9aaf24bccb56e083eadb30340d3a534e70419\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add ability to mount single config file\n\nChange-Id: I328d73b6ee80410ad633fded1ef35d3ceeb77f2a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "change kubernetes to hyperkube\n\nChange-Id: I7c3892ebee4c0ccb334960d8864a956b9c480259\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update sources of k8s and calico installation\n\nmove basic k8s setup to common\ncopy cni from hyperkube\nconfigurable calico node image\nuse calico/cni image for obtaining cnis\nuse calico/ctl image for obtaining calicoctl binary\nadd cross requirement for k8s services and hyperkube\nupdate metadata for new pillar model\nupdate manifests to use hyperkube from common\n\nChange-Id: I6e5e84cf252399120141ad941ac7aa6dae7c16ac\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Configmap update\n\nChange-Id: If151a2ead09a7d87b3fda20702d315d5dbff85a4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "enable systemd for kubernetes controller\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "install k8s from package\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fixes for kubernetes boostrap\n\nChange-Id: I0fdbe768908836462ee08c955bbd071faa719cd1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "openstack release cleanup\n\nChange-Id: Ic40af7dd7e88dd48e96dc1086e969d2b8e3931d6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Revert \"update sources of k8s and calico installation\"\n\nThis reverts commit 76ecb2d41fc078054259ba68a7ba9720dbf02968.\n\nChange-Id: Idffc40a6deae187c70671a968dd059463c72e3f0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add watch fo kubeconfig to kubelet\n\nIs is necesary to watch /etc/kubernetest/kubelet.kubeconfig to properly\nstart kubelet.\n\nChange-Id: Ibb6db0ed1f50aba9f76277127f594172c2644496\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "allow to pass options to dnsmasq service\n\nThere were request to pass parameters to dnsmasq container in kube-dns\naddon.\n\nThis PR adds variable master.addons.dns.dnsmasq (dict) which can be\nused to pass options to dnsmasq container. Defaults are configured in\nmetadata.\n\nChange-Id: If072e31a8a1cde4c984c67373ad74d45204619b0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add calico systemd start\n\nChange-Id: I9b611c2e6d1da7ea52c7c113aef5aba96c5026a1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add hostPID support\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add etcd configuration support\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "delete unused addon scripts\n\nChange-Id: Idec7ef7f7142164b4615d656dea144770d73df54\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "automatic tests\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "set apiserver etcd-quorum-read\n\nChange-Id: I4f4f1feb8ca6e0ceee9ac4f17e9e9da80d2740e4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "install k8s from package\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "enable static service ip\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Containers and services defined on pools\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "change k8s images to images from packages\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix typo\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "change certs location\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "enable insecure access for kube-proxy\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "create directories for services\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update sources of k8s and calico installation\n\nmove basic k8s setup to common\ncopy cni from hyperkube\nconfigurable calico node image\nuse calico/cni image for obtaining cnis\nuse calico/ctl image for obtaining calicoctl binary\nadd cross requirement for k8s services and hyperkube\nupdate metadata for new pillar model\n\nChange-Id: Ie8d6a858a8898861aa8739b62130af971728f272\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "enhance kubernetes addons\n\nChange-Id: I8966e58718acab3a2c49567cb91b95b2326cf8ba\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "move kubelet.kubeconfig to _common\n\nKubeconfig is required for kubelet service so lets put is together in\n_common.\n\nChange-Id: Id4bca7488b690bdf38bdfe4e54a58b8886f04248\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix init-containers without volumes\n\nChange-Id: Iffe9a0eeb439dda15968b5162b6aa3db0807a27a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "temporary disabled members for kubelet\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "update metadata\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add configmap deployment using support between formulas\n\nChange-Id: Idf9ae2bd439ba315464e18188038d05b1e589f60\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add fixes\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Configmap type K8s yaml or plain config file\n\nThis takes commit 1b092d0bbb8bf945bb65258af4cb3e884ff805d0.\nCondition to default or kuberenetes for config_type.\n\nChange-Id: I1b69a9e65ad7ce36129ec7a1038b03fba9228cbb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix tests\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "remove dashboard creation\n\nChange-Id: I17cf9d23a3f5c8bc71cc3d092719b7971b6f4509\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Kubernetes salt formula first version.\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "missing quotation for kube-proxy\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add config_map support\n\nChange-Id: I84045a29e915af9aeaa51e6bc096f7d87ca75c72\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add PetSet support\n\nChange-Id: Id887162e539f74141926e81cc9b45e61a2dbc80b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix typo\n\nChange-Id: I6114db97d906c600a071264e29064ee0e14e6172\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add minor fixes\n\nChange-Id: I0b0daed8be9e969e8291803f1c33261127098746\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix order of cni loading\n\nChange-Id: I68ae41befa6b15818c60664f16759e52b2a1f05d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add namespace and external ip support for svc\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add init-container support\n\nChange-Id: If60105ea8b1403e9bf6e660054ada391b17f091e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "use link to kubectl instead of alias\n\nChange-Id: I04cf442fe0c6cbe523a2db1f945e8e3dd5a71356\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add hostname support for deployments\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix gluster manifests/change insecure ip for cluster\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Retire project\n\nChange-Id: I290fe34314c62807ab48be73b6a0442bb4c827cd\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add support for node affinity, pod affinity/anti_affinity\n\nChange-Id: I142f63687fe1e4ccd6c5836b88a18e92476eed6c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "enable register node\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix volume generation for init containers\n\nChange-Id: Ieedfca16f7fbee75a423b83eaedac552cdf46524\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "enable login to private registries\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add cni plugins for k8s 1.3.5+\n\nChange-Id: I12efa7a9e84d69a96d51fd38d8efbc9367c4b8e7\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add etcd configuration support\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "kubernetes pool grains fix\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "fix volume sub_path for init containers\n\nChange-Id: I43ed3ac96220a6af44ec08e1689a131d746b10b9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "add job generation support\n\nChange-Id: I92e3ad3264b1555c47bd81baeb23e76fc41cd3da\n",
+        "issue_summary": ""
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "commit_message": "Setup octavia roles\n\nSetup octavia roles if identity-ops relation is present.\nFetch latest version of keystone-resources interface\nlibrary.\n\nChange-Id: I0960f493a4a4bcb99c438f4d8ff1c7bfb64f3534\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate traefik ingress to v2\n\nCurrent ingress relation only routes unit to requirer's leader.\nIngress V2 fixes that issue.\n\nChange-Id: I68395d457eb8caa8923ca90c707de01891cb2e12\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial version of charm octavia\n\nAdd support for Octavia charm with OVN provider.\n",
+        "issue_summary": ""
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "commit_message": "Add interface to provide service readiness\n\nCeilometer requires gnocchi service to be up\nand running to perform db sync. Add a new\ninterface gnocchi-service that updates the\nservice readiness on the relation.\n\nUpdate Gnocchi charm to handle the events\nfrom the new interface gnocchi-service.\n\nChange-Id: I8ea006c1adf8d6839be6915b8389b700692601d6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial library metric_service\n\nGenerated library metric_service.\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix descriptions in gnocchi_service library\n\nFix description for service_ready in gnocchi_service\ninterface library\n\nChange-Id: Id132ef8e70ac20a7970397ab01ce5e762b8f9e6c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add gnocchi charm and tests\n\nAdd gnocchi charm\nAdd charmcraft and metadata files\nAdd relevant tox files\nAdd unit tests and zaza tests\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate traefik ingress to v2\n\nCurrent ingress relation only routes unit to requirer's leader.\nIngress V2 fixes that issue.\n\nChange-Id: Idc285491cb291a72c755fe5da295294c9d4c06c8\n",
+        "issue_summary": ""
+    }
+]

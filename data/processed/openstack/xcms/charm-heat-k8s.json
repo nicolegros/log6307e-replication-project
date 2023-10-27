@@ -1,0 +1,26 @@
+[
+    {
+        "commit_message": "Share auth encryption key over relation\n\nCurrently the Auth encryption key for heat-api\nand heat-api-cfn deployed via charm-heat-k8s\ncharm instances are different and so causes\nissues when heat-engine from heat-api-cfn handles\nrequest for heat-api. The heat-engines of both\nheat-api and heat-api-cfn are used for handling\nboth heat-api and heat-api-cfn stacks as the AMQP\ntopic is same and not configurable.\n\nAdd a new interface heat-shared-config to share\nthe auth encryption key between heat-api and\nheat-api-cfn.\nheat-api update the relation data with auth\nencryption key once the key is generated or\nany new relations are connected via heat-shared-config.\nSave the auth encryption key as juju secret\ninstead of plain text and grant access to\npeer and units connected via heat-shared-interface.\n\nCloses-Bug: #2036890\nChange-Id: I2ec7f03b5c64d87585141e15b20b01172b14ecc4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial import\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix identity-ops response error handling\n\nIn case of ops that are errored out, only the\nrequest id and error message is returned as part\nof response. Remove geting user name in delete\nuser error handling.\nChange the idntity-ops request/response to log\ntype INFO.\nSync identity-ops library to latest version v0.4\n\nChange-Id: I22fd48ca7f61c927d0f3ff249a458cc2738f1676\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move to 2023.1\n\n* Move base to 22.04\n* Use images from ghrc with tag 2023.1\n* Fix heat-api service endpoints\n* Add healthchecks\n* Change api-paste file to reflect latest from upstream\n* Add ingress rules to api-paste.ini\n* Add service token role configs\n* Add tempest tests\n* Update necessary external libs\n* Make API service configurable using config parameter.\n  With this change, heat-k8s charm can be used to deploy\n  heat-api+heat-engine OR heat-api-cfn+heat-engine\n\nChange-Id: I3b89feba7f9b9d98e02b01cdb4177f7708c9d675\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add stack domain configurations\n\nAdd stack domain name, stack domain admin user,\nstack user role in heat configuration.\nPerform the domain setup like creation of domain,\ncreation of admin user in the heat domain and\ncreation of stack user role.\n\nDepends-On: https://review.opendev.org/c/openstack/charm-keystone-k8s/+/891651\nDepends-On: https://review.opendev.org/c/openstack/charm-ops-sunbeam/+/891654\nChange-Id: Ib86d4019027e6da5188ecc714f86cb1595ffd4fa\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate traefik ingress to v2\n\nCurrent ingress relation only routes unit to requirer's leader.\nIngress V2 fixes that issue.\n\nChange-Id: If5d9a41014e994872c9150100fd0d9dc5df7a3c6\n",
+        "issue_summary": ""
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "commit_message": "added driver, and update bits for Fuel 8.0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "puppet lint, updated test plan and LICENS\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add documentation, fixed a typo, bumped to 1.0.0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial check in of reworked version\n",
+        "issue_summary": ""
+    }
+]

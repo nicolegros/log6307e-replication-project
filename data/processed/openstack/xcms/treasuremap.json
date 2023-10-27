@@ -1,0 +1,606 @@
+[
+    {
+        "commit_message": "Rename Virtual Sites in Treasuremap\n\n* Renamed test-site to virtual-airship-core\n\nRelates-To: #154\nChange-Id: I15905a5be8628b35f1cebcba95e3257f541d4e74\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift elasticseach and align java_opts parameter\n\nAlign java_opts parameter for elasticsearch with openstack/openstack-helm-infra\nfrom: https://review.opendev.org/657417\n\nChange-Id: Id75bc46ba5cccc90a5c66b533639a0c7ab681e80\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Repurpose vm-infra-bridge functionality to persist iptables rules\n\nChange-Id: I8983b19124c5e15d18d3442195c919a6da5ef5e2\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Prometheus versions and replacements\n\nThis change adds the Prometheus chart, repo, and image version to the\nversions catalogue so they can be overridden downstream.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Iecb2f5ccdcd8fc3e383b8b308998ec0d21a918d1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix subcluster catalogues and apply required patches\n\nChange-Id: I41c806cede7e30b6cdd44cda11a37f608e77957c\nCo-authored-by: Drew Walters <andrew.walters@att.com>\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Sloop type and Airsloop site\n\nSloop type/site is a minimalistic approach to Airship with reduced\nrequirements towards hardware and external dependencies while keeping\nall the functional features.\n\nMajor differences compared to reference site airship-seaworthy\n - Two bare-metal server setup with 1 control, and 1 compute.\n   Most components are scaled to a single replica and doesn't carry\n   any HA as there is only a single control plane host.\n - No requirements for DNS/certificates.\n   HTTP and internal cluster DNS is used.\n - Ceph set to use the single (root) disk. This generally\n   provides minimalistic no-touch ceph deployment.\n   No replication of ceph data (single copy).\n - Simplified networking (no bonding).\n   Two network interfaces are used by default (flat PXE, and DATA network\n   with VLANs for OAM, Calico, Storage, and OpenStack Overlay)\n - Generic hostnames used (airsloop-control-1, airsloop-compute-1) that\n   simplifies generation of k8s certificates\n - Usage of standard Ubuntu 16.04 GA kernel (as oppose to HWE)\n\nChange-Id: I4944fcae7d29ed8799d810c93efb0120b6b3a105\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update Elasticsearch and Fluent-Logging configurations\n\nThis updates the Elasticsearch and Fluent-logging charts to use\nthe most recent configuration keys in their values overrides, and\nalso introduces support for the ceph-rgw s3 api for use for\nElasticsearch snapshot repositories\n\nChange-Id: Ia998db9006350a22fcc7dc3052301d7a5b8259f4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Elasticsearch: Fix storage config, add label config for tests\n\nThis updates the Elasticsearch chart to use the correct\noverrides for changing the default PVC size to something more\nappropriate. This also includes the label configuration used for\nselecting a node for the test pods.\n\nChange-Id: I94366792ef89d709e8fcf50262deccdc724e3a2a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Aligning global configuration with promenade\n\nWith the latest changes to promenade introduced in\nhttps://review.opendev.org/#/c/686841/ socat has to be part of the\ngenesis role as well common\n\nChange-Id: I19de0e2543400f08d800aa9732889409c681e8bf\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add hwcc replacement to airship-core\n\nChange-Id: If02f31976e9d543d1f0225b0091bb8116fbfac68\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift of charts/images to latest except drydock\n\nChange-Id: Ic9e6a61f4e5a1cddb6bc8102163c057e41cc3ea2\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "LMA Configuration Updates\n\nThis change fixes some configurations of LMA CRs and values,\nsuch that logs and metrics are properly visible on kibana\nand grafana after workload and workload-config phase.\n\nAlso:\n- Added dashboards to grafana\n- Added a container to kibana which sets up the discover page\n- Added the DependsOn directive was added to the workload-lma\n  prometheus-elasticsearch-exporter HR\n- Added NodePort bindings to LMA services in multi-tenant/lma\n  subcluster\n\nChange-Id: I14338f5cab0808654173a09494f5fde540397dcc\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add type-specific deployment scripts\n\nThis change restructures the deployment script directory to support\ntype-specific deployment scripts. As sub-clusters are added, those\nscripts will only be relevant to the multi-tenant type. The distinction\nbetween which scripts should be used for each type will prevent\nunexpected deployment errors.\n\nCo-authored-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Ic14d4536bc9e593ab81c94b5c1dcec063a93ed18\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Include hostconfig-operator in airship-core type\n\nThis PS includes hostconfig-operator function in airship-core manifest type's\ntarget initinfra phase\n\nCloses: #99\n\nChange-Id: I8c9830dac4cdf1932e387fa0760841496ff28f18\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Helm Chart Collator (airship-core) - Treasure Map\n\nAdding Helm Chart Collator function to the \"initinfra\" of \"airship-core\"\ntype.\n\nDepends-On: https://review.opendev.org/c/airship/treasuremap/+/778728\n\nChange-Id: Ic3c38e8a67ca3f7b24ae471752fc5f668a601188\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove multi-tenant type inheritance\n\nThis commit removes the relationship between the multi-tenant and\nairship-core types. Since the airship-core type deploys LMA, adding an\nLMA sub-cluster to the multi-tenant type would result in deployment of\nthe LMA stack twice if the inheritance is not removed.\n\nCloses: #116\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Ie7dd236af3836d904e41df866e0c2351b7cb0558\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update from docker-engine to docker-ce\n\nA previous patch that bumps the version of docker [1]\nis broken because there is no \"17.03.3\" version of\ndocker-engine.\n\nDocker package is now called docker-ce [2] and is provided\nfrom a different repo, update repo paths and keys\nto newer docker version.\n\nThe key is taken from: https://download.docker.com/linux/ubuntu/gpg\n\n[1] https://review.openstack.org/#/c/639175/\n[2] https://docs.docker.com/install/linux/docker-ce/ubuntu/\n\nChange-Id: Idddee15e17a75017fdb0b8401aafef86cec4af1f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add new seaworthy-virt site\n\nThis site is created in order to utilize the multinode development\nenvironment alongside the global and type manifests in Treasure map.\n\nTo accomplish this, the new seaworthy-virt site is a copy of the\nairship-seaworthy site but with as many overrides and removed\npieces as necessary.\n\nChange-Id: I6d19e1cf019c5d03f42343ab3c72971172879e4d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Disable nagios chart until fixed\n\nChange-Id: I8eee66ed574bb3fc4415100c0a4c9f0e50f4c57a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift Airship charts to latest working\n\nNotable changes\n - Ceph client split in provisioner and rgw charts\n - Fixes in endpoints/osh-infra\n - Multiple charts moved from openstack-helm to openstack-helm-infra\n - Hold back MaaS/Drydock helm-toolkit - fixes in charts needed\n\nChange-Id: I790865a4e1ec973b8182d66acad681b99414187c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Consume the infra composite in the initinfra phase\n\nThis follows from the work done in airshipctl to deploy\ncalico CNI via a kustomize entrypoint:\nhttps://review.opendev.org/#/c/743763/\nhttps://review.opendev.org/#/c/743402/\n\nChange-Id: I03089214be1ae87926ba8c997c03511a6d8fb0a5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix kube-proxy whitelisting\n\nChange-Id: I7d7e63fbb08a86218cb20252939713f39969b91e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add target infra phases to sub-cluster type\n\nThe current sub-cluster type implementation does not include any phases\nto deliver the SIPCluster CR or the machine templates required for\nprovisioning a sub-cluster. This change adds the phases to the\nsub-cluster type so they can be reused across sub-clusters.\n\nChange-Id: I708cd087749474c2d73b8dca0318b09e86dca0c1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updated openstack-helm-infra for Ubuntu 18.04\n\nUpdated the commit id for openstack-helm-infra to include fix for\nname resolution issue for Ubuntu 18.04\nAlso, updated deploy k8s script to remove local dns address\nfrom /etc/resolv.conf.\n\nChange-Id: I32e691696b72c67e88df83b0d511aece380faa46\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add reference multi-tenant site\n\nThis change adds a reference site for the multi-tenant type, adapted\nfrom the airship-core reference site.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: I7e1518f6fc960ba49d40af79e4bb052251ce749a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove folder-based versioning from manifests\n\nThis adapts manifests to be in line of using git reference\nfor refering to global/secrets repos instead of versioned folders.\n\nChange-Id: I0100fb90666e335bd99d304b3804c180b25a9d16\nDepends-On: https://review.openstack.org/#/c/577886/\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix SIP service nodeInterfaceIds\n\nAlign with recent changes in Vino networking model.\n\nSigned-off-by: Sean Eagan <seaneagan1@gmail.com>\nChange-Id: I55132c780acaad1569a59e9d847b2f6277bd9ed5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move airship-seaworthy to seaworthy\n\nChange-Id: Ide71456d1484b43ea434a23da858418adf51f23b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dex/API server and Catalogue Support for Subcluster\n\nThis patchset includes the Catalogue and respective\nReplacement transformers for the Dex/API server and\nkustomization of values through patches.\n\nIt also includes:\n - Support for dex LDAP authentication\n - Moved Dex from provide-infra to controlplane\n\nNote:\n1. This patchset also fixes the current issue with wordpress where it\nwas not in sync with lma for catalogue (catalogues)\n2. This patchset also doesn't call function k8scontrol-oidc replacements\nrather subcluster-dex.yaml is created in\nmanifests/type/sub-cluster/controlplane/replacements/subcluster-dex.yaml\ndue to current localized yamls available at same path. This is a known\nissue for which another patchset has to be created.\n\nRelates-To: #136\n\nCo-authored-by: sa069q <296.saurabh@gmail.com>\n\nChange-Id: I6d14f6cc976d3f8a174e2d083425a970f59dcd92\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add suffixes to metal3 objects\n\nMetal3 objects will be deployed to the same namespace. This change adds\nsuffixes to entrypoints with metal3 documents to avoid conflicts.\n\nIn order to make replacement rules compatible with the suffix changes,\nsome rules were patched while patches were updated to use more generic\ntargets.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: I3ff6e8eeee784081ca7d7ed54e3951ef63e187ad\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove unused Kibana credentials\n\nKibana chart is configured with elasticsearch and ldap\ncredentials, so both kibana password and user are not\nused for the configuration.\n\nChange-Id: Ic83087b3bc732d539ac2b837f9c925d0e4ee9849\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Deploy Calico using Tigera Operator\n\n* Align treasuremap manifests to latest changes in airshipctl repo\n  For Calico deployment\n\n  airshipctl PS: https://review.opendev.org/c/airship/airshipctl/+/762773\n\nChange-Id: Id35289017eff98a1bd6671f23261b5b15fbdcb08\nRelates-To: #75\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix deployment scripts\n\n * fixes labeling issue with deployment scripts\n * allign scripts with airshipctl and treasuremap\n * update playbook and zuul job with script changes\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: I43221565ab29fc78a60fbd4978c058eec5c88640\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add sub-cluster type\n\nThis change adds a new type, sub-cluster, that serves as an abstract\ntype or template that sub-cluster definitions implement.\n\nRelates #107\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Id2dd45cefd345afa1e656fba64e05f17e28b59e6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift all charts/images and fixes\n\nChange-Id: I82c3bb2bbcf890df61c63359b1492ae349114a34\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add deployment gate\n\nThis adds airshipctl as a testing, and calls its deployment\nscripts to launch a VM-based test.  This will be used to validate\ntreasuremap deployment manifests.\n\nChange-Id: If4fa60f896211d2f6b63271b58b96541c399694c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix treasuremap deployment issues.\n\n* Fixes validate_docs for treasuremap\n* Align the secret encryption/decryption changes of airshipctl\n* Aligning the manifest changes of airshipctl.\n* Added HWCC.\n* Replaced helm-operator with flux-helm\n* Updated node parameters.\n\nRelates-To: #77\nCloses: #95\n\nChange-Id: I30408de468ac2794703b95a2afc6191908567816\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fluent-Logging: Update configuration\n\nThis updates the configuration for the fluent-logging chart to\ninclude inputs for libvirt and qemu, as well as updates the output\nconfigurations to include the appropriate buffer configuration\noverrides\n\nChange-Id: Id908ea875b07004202795dac68df7e9727ae9771\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Integrate support for MAAS HA and VIPs\n\nChange-Id: I1c7f3892a03536d94064da1722751eb6683da451\nSigned-off-by: Dimitrios Markou <dimitrios.markou@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update templater and replacement-transformer tags\n\nThis change updates the version of the replacement-transformer and\ntemplater images to v2, the same version used in the airshipctl\nrepository. Breaking changes have been introduced to the latest versions\nof the images, causing document rendering to fail.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Id0411f6c221d9986a6dece4d5f9b91ac94430ecc\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align Treasuremap to recent changes of Airshipctl\n\n* Changes from following PS are used to align treasuremap with airshipctl\n   https://review.opendev.org/c/airship/airshipctl/+/790791\n   https://review.opendev.org/c/airship/airshipctl/+/787290\n\nCloses: #159\n\nChange-Id: I43b633b06addaf65b6b5f945782df032cabf114c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Treasuremap Elasticsearch & Kibana\n\nThis change adds a composite to treasuremap for deploying\nElasticsearch & Kibana in the lma-stack phase\n\nCo-Authored-By: gs909v <graham.steffaniak@att.com>\nChange-Id: I6b4a9b1787f9daae9889084cb2dde483b815186e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add LMA to multi-tenant type and reference site\n\nThis change introduces LMA components to the multi-tenant type:\n\n- Deploy lma-infra, elastic-stack and monitoring stack in lma/workload phase\n- Added lma config to lma/workload-config for local-subcluster logging\n- Added Node Ports for Elasticsearch & Kibana services in the lma subcluster\n- Spec Elasticsearch resources for subcluster hosts\n\nTo deploy this in the reference-multi-tenant site, various phase\nentrypoints have been added to the sub-clusters/lma directory\n\nRelates-To: #150\nChange-Id: I4d3b0d6ed9643e702c92760c1849e10320196ff8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Split out k8scontrol oidc patching\n\nPrior to this change, VRRP setup and Dex setup was bundled into the\nsame k8scontrol-ha function.  However, subclusters will require\nDex *without* VRRP, so this change splits them up, into\na k8scontrol-oidc (used directly by the subcluster) and k8scontrol-ha\n(which will inherit from k8scontrol-oidc).\n\nChange-Id: Ib55871353f24be031a7bb1cc4550f0db3ad5aff2\nCloses: 182\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add gate utility scripts to Treasuremap\n\nThese scripts allow one to stand up a treasuremap test-site\n\nnote: Removing the phase  lma-infra-target from script 31, since\nit causes a wait to fail later on in the pipeline\n\nChange-Id: I43374a874c110ab32d6158975c50fd4b89693479\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Separate dhcp domains for worker nodes\n\nWith this commit vm related dhcp traffic are contained within the same\nhost.\n\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\nChange-Id: I916b1e07e9acd4c66942cb5cb434d0ab0d36adbb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove unwated iptables NAT and forward rule\n\nThis commit removes unwanted NAT and forward rules\nfrom control plane nodes. They need to be enabled if\nand when SIP creates VMs on control plane nodes.\n\nChange-Id: I7a06df92b2c5c66d898e2a8f17c86d812680f181\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updating the calico network based on stl3 data\n\nChange-Id: I820ae50841d42f91a55005d778979ca4289a0da1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "CI: Use Ubuntu Bionic for nodeset\n\nCurrently, treasuremap CI uses Ubuntu-Xenial. This change moves to\nUbuntu-Bionic in order to use the version of Docker requested by the\nOpenStack-Helm minikube script.\n\nChange-Id: Iba9bfda21c5a9995c775ff9bdc6bc9e0e2260d1b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Align docker install role with airshipctl\n\nairshipctl is using upstream ensure-docker role instead of\ndocker-install. correcting this in treasuremap\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: Ideea1d9f641d6abad1d9f7c37698f7c09f778fce\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Treasuremap Storage for LMA composite\n\nThis change introduces a minio function, and deploys it as part of\nthe lma-stack. It has no persistence for now.\n\nCustom resources are added to lma-configs\n  - logging flows to collect logs from minio (pod logs)\n  - logging output to send logs to minio\n  - monitoring servicemonitor to collect logs from minio\n  - monitoring thanos objectstore & storeendpoint for minio\n\nChange-Id: Ic116f499e55a748a033c1b28534c3a38a5cb8788\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Merge \"Include hostconfig-operator in airship-core type\" into v2",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove hwcc from types\n\nThis commit removed hwcc from treasuremap v2.0 branch\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: I18373fd46ed55a090fc76c8f0625517a3e921ca1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix references to olso by correcting them to oslo\n\nTransposed characters in the target replacements in\nsome of the deployment files can lead to unexpected\nresults (mostly that defaults are used instead of\noverrides)\n\nSince defaults were being used before, the endpoint definition needed to\nbe redefined to use the expected scheme (amqp) and path (/airflow)\n\nChange-Id: I85a58c7b525e29208957845bf25ffbb0111c8f35\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add target phase to test-site\n\nThis adapts work from airshipctl:\nhttps://review.opendev.org/#/c/738291/\n\nChange-Id: I8213cfbf651156320ef46cbab3b6d325fde185d0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Support for VRRP keepalived for Ingress\n\n- Added function/k8scontrol-ha\n- Updated type/airship-core/controlplane to point to treasuremap\n  function\n- added networking-ha VariableCatalogue to treasuremap-base-catlg\nIssue #94\n\nChange-Id: I5a1ea545a01f59cd2213c375e42dcbca34bbad22\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Support for vm-infra-bridge\n\n- Added vm-infra-bridge/workers-capm3 function\n  for supporting kubeadmConfigTemplate\n\n- Added k8scontrol-vm-bridge   function dir\n  to house vm-infra-bridge (controlplane)\n\n- Added a new VariableCatalogue to support\n  vm networking in multi-tenant/shared.\n\n- Added a new systemd service vm-infra-bridge to\n  handle persistence of bridge and NATing info.\n\nRelates-To: #122\nCloses: #122\nChange-Id: I5585b05be9e68976e402d025ddc8578870c137f1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable PodShareProcessNamespace feature gate\n\nThis feature is used by a number of OpenStack Helm pods, as well as the\nkube-proxy pod now.\n\nChange-Id: I3b4c1a94e66da2e712431486f8e2d0cbfe04fec4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add helm-operator to initinfra target phase\n\nThis change adds the recently merged helm-operator [0] from airshipctl\nto the airship-core and network-cloud (by inheritance) types. This will\nenable the deployment of Helm charts in this repository.\n\n[0] https://review.opendev.org/720298\n\nChange-Id: Ia4c02041de3f7d2103438ac0da065188b6949d1a\nSigned-off-by: Drew Walters <andrew.walters@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Added labels for global osh-infra charts\n\nLabel is needed for global charts when creating site level overrides.\nThe labels value will be the ParentSelector field in the override.\n\nChange-Id: I6fbd6867286dd7c87a6791107607df0d1eafbe0d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add SIP scheduling labels to catalogues & SIP CR\n\nAdds labels used by ViNO & SIP to schedule subcluster VMs appropriately,\nfor rack and undercloud server name.\n\nThis also trues up the label definitions in the SIP CRs to match,\nand configures the Metal3Cluster resource to synchronize the labels\nfrom BMHs to Nodes.\n\nThis change updates the airshipctl pin to incorporate related functionality:\nhttps://review.opendev.org/c/airship/airshipctl/+/797130\n\nChange-Id: I6cf2bc653589d142736990cdfadf82641a6ca4d1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix prometheus and grafana password overrides\n\n* prometheus - change `prometheus` subpath to `monitoring`\n* grafana - path to prometheus credentials should be `user`\ninstead of `admin`\n\nChange-Id: Iee014ce3ff4ee2ebb534003ce3f18ab8bcd63b9d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create secret with ssh-key for hostconfig-operator\n\nThis commit adds secret creation to hostconfig-operator.\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: I8a92a07e1aaf653708b6e4d9fa8e300ebb3a9468\n(cherry picked from commit 87a82989b6aaee75028b510e28c2a6cff415da8e)\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add version catalogues\n\nThis takes advantage of version catalogue replacement, which was added to\nairshipctl in the changes below.  It also refactors the kustomize structure\na bit to support that well.\n\nThis adds a treasuremap clusterctl function, which kustomizes the same function\nfrom airshipctl to correct for paths.  This replaces the previous\nsite-level clusterctl entrypoints.\n\nThis gives each type and site a catalogues entrypoint, which are wired together\n(site inheriting from type, and network-cloud from airship-core) for\ninheritance.  Each phase that needs catalogue-based replacement now\npulls in its' site's catalogues definition, and then applies any\nphase specific overrides only when necessary.\n\nhttps://review.opendev.org/#/c/746608\nhttps://review.opendev.org/#/c/746764/\n\nChange-Id: I18364083f72628f9519af3d2fab0d6a4879d2d14\nRelates-To: https://github.com/airshipit/airshipctl/issues/316\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Updates vm-infra-bridge iptables vlan\n\nThis change corrects the vm-infra-bridge creation script to set\nthe iptable rule for masquerade to use the host oam vlan and\nupdates the vlans to match the multi-tenant site configuration.\n\nChange-Id: If288ed63628658f4e461f512f853b384f0eaeba4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add LMA sub-cluster\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Iaab08092894c74447fc27a8cc29d81b94eccd89e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove labeling from scripts\n\nThis commit removes assigning labels from deployment scripts. Labeling\nwill be managed via KubeadmControlPlane templates.\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: I17ebd6663663b6e456e9e968a9f1468295c6232c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add forwarding for vm-infra-bridge\n\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\nChange-Id: I07dbb044571ec683e5c0a432d53aee759f718a26\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "OSH-Infra: Update monitoring chart configs\n\nThis updates chart configuration overrides for the monitoring\nservices, as well as adds missing secrets, charts and service\naccounts for other exporters that have now been enabled\n\nChange-Id: Ia1ed7bba38d7c262e85de8162d53012cdadf487e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "global: Add nfs-provisioner chart\n\nThis commit introduces a global chart and chart group for NFS\nprovisioner, a chart in the OpenStack-Helm-Infra repository [0]. The NFS\nchart will be required for Airskiff when deploying global UCP charts.\n\n[0] https://git.openstack.org/cgit/openstack/openstack-helm-infra/tree/nfs-provisioner\n\nChange-Id: I9c6464f08e6ce54bdca72525cdef04df7f14edc5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create an 'LMA-Infra' Composite\n\nThis composite deploys the logging and prometheus operators\nsuch that they are ready to collect logs and metrics from a k8s cluster.\nThe operators can be extended by introducing custom resources, allowing\nany application running in the cluster to use these services\n\nNote: Due to [0], this composite cannot be successfully deployed in the\ninitinfra-target phase, so a separate 'lma-infra' phase is introduced\n\n[0] https://github.com/airshipit/airshipctl/issues/474\n\nChange-Id: Ia20cc7bdaeb2b2f52ba4bcdc8e55a202ef4b0110\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "zuul: Remove sudo from install-docker playbook\n\nAnsible recommends the use `become: yes` over `sudo` in playbooks and\nonly allows the use of `sudo` for backwards compatibility. This commit\nremoves sudo from the install-docker playbook.\n\n[0] https://docs.ansible.com/ansible/2.7/user_guide/become.html#id1\n\nChange-Id: I3edf82ee118827b8d94f169778463152ebc044f8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move deployment scripts from AIAB to Treasuremap\n\n* Last AIAB commit ID: d7d345f\n* Also moving from Quagga to FRRouting for bgp router script.\n* Synced the recent changes in aiab and removed the frrouting change\nwhich is still open in aiab\n\nChange-Id: If5e4e030dacaa7fcf525f9767f50c82b07516e27\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "sloop: Add document labels\n\nCurrently, many of the charts in the sloop type are missing labels that\nare required to enable layering at the site level. This change adds the\nmissing labels.\n\nChange-Id: Ife825f3e9223fd97d663ba23a026bebf4dd5b2d5\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Treasuremap Monitoring composite\n\nThis change adds a function for deploying banzaicloud/thanos-operator,\na composite which deploys grafana and a thanos querier,\nand a phase documents for running this composite in the target cluster\n\nThis change includes a couple of thanos operator CRs, located in\nfunction/lma-configs, which can be applied by running the phase\nlma-configs\n\nChange-Id: I406b45373b6029b2503e11883bb6aa91ebbac481\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Treasuremap - Dex/API server w/ Catalogue Support\n\nThis patchset introduces the VariableCatalogue and respective\nReplacement transformers for the Dex/API server. It also implements the\nkustomization of LDAP values through patches.\n\nThe VariableCatalogue for Dex/API server is located under\nmanifests/function/treasuremap-base-catalogues/utility-catalogue.yaml.\n\nThe replacement transformers for Dex HelmRelease and API server are\nlocated at:\n- Dex HelmRelease: manifests/function/dex-aio/replacements\n- API Server: manifests/function/k8scontrol-ha/replacements\n\nThe API server replacement transformer is invoked when executing the\ncommand \"airshipctl phase run controlplane-ephemeral\".\n\nThe dex-aio service replacement transformer is invoked when executing\nthe command \"airshipctl phase run workload-target\". During this phase\nthe LDAP values are also \"kustomized\" through patchesStrategicMerge.\nSimilar patch was add for the subclusters/provide-infra.\nAlso updated dex-aio nodeSelector to deploy pod on the worker node.\n\nThis patchset also supports the LDAP Group authentication.\n\nIt also updated\ntreasuremap/manifests/site/test-site/target/encrypted/results/imported/secrets.yaml\nwith the encrypted LDAP Binding password.\n\nRelates-To: #135, #137, #128\nChange-Id: Ie7eef44a8f0e9d02860a94a4140841d8662f8c85\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fluent-logging: Update fluentbit input definitions\n\nThis updates the fluent-logging chart to match the input configs\nused in the upstream chart, primarily focused on moving from the\nsqlite db file tracking mechanism to the in memory mechanism\ninstead. This also adds the appropriate fluentbit filter config\nfor throttling the number of records being forwarded to fluentd\n\nChange-Id: I68ebf05b1b9fcf2a98b4717b74e3d13050446a09\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix deployment scripts\n\n * add $ for kubectl command in host variable\n * remove controlplane labels as they are added via k8scontrol role\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: Idc30a6704504dc151f7da4c6d551d2f8854bdd79\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift SIP\n\nThis moves to the latest version of SIP:\nf9226befbd49e4eba8909aa430ce7407551bba62\n\nThis version includes a workload load balancer service, for\nwhich configuration is added.\n\nCloses: #146\nSigned-off-by: Sean Eagan <seaneagan1@gmail.com>\nChange-Id: I1820b408559bc51d86a62d7d4aad10c458890354\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Create secret with ssh-key for hostconfig-operator\n\nThis commit adds secret creation to hostconfig-operator.\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: I8a92a07e1aaf653708b6e4d9fa8e300ebb3a9468\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift and Separate fluentbit and fluentd charts\n\nfluent-logging chart was splitter into fluentbit and fluentd charts\nin the following PS: https://review.opendev.org/642146\n\nChange-Id: Ic72f9fb6293b99395a0acf48064b9c04e312d365\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Dex deployment for subclusters using existing dex HelmRelease in treasuremap\n\nNote:\n1. As per the latest conclusion, Dex and SIPCluster would be deployed on same namespace, hence dex function added to same Kustomization file\n\n2. As a part of Issue# 136 for catalogue, there would be another patchset to make nodeport flexible\n\nChange-Id: I53b2bb33278dd229450c305ad2e15476d8796073\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enhanced deployment scripts to support baremetal multi-node\n\nAdditionally aligned between Treasuremap and Airshipctl to use the same\nenvironment variable name \"SITE\" for a site name.\n\nChange-Id: Id6405b7074d34bc73d730eea76d9dd6ab7901405\nSigned-off-by: James Gu <james.gu@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Absorb helm chart collator functions\n\nThis copies the hcc functions from airshipctl into treasuremap.\nThey are not used in the airshipctl repo, and thus having them\nthere doesn't add value, and also led to issues which were\nnot uncovered until we uplifted airshipctl in treasuremap [0].\nThis moves them to treasuremap where they are actually used.\n\nThey will need to be removed from airshipctl separately.\n\n[0]: https://review.opendev.org/c/airship/airshipctl/+/794707\n\nSigned-off-by: Sean Eagan <seaneagan1@gmail.com>\nChange-Id: Ief295eaa9b84b4303add537b3526b425c91014e6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Externalize KRM function versions\n\nThis integrates the airshipctl change to externalize KRM\nfunction versions [0].\n\nThe KRM function versions used in the manifests are updated to those\nwhich the airshipctl deployment scripts now resolve to the \"in tree\"\nlocally built images, as both sourced via AIRSHIPCTL_REF.\n\n[0]: https://review.opendev.org/c/airship/airshipctl/+/790507\n\nDepends-On: https://review.opendev.org/c/airship/airshipctl/+/790507\nSigned-off-by: Sean Eagan <seaneagan1@gmail.com>\nChange-Id: I61b29fda93b9d70c47612ebd1bfdcd348cc63a0f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Re-use workers-capm3 from airsipctl\n\n* Remove the local copy of workers-capm3 from treasuremap and\n  re-use the workers-capm3 function from airshipctl\n* include workers-capm3 at type level\n\nChange-Id: I843c7412d8b551219cbd679ab5cbb28408d98a95\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Remove Minio Components from airship-core lma\n\nWork on this minio chart has been halted, so we need an alternative\nS3 provider in the long term (#111). Removing references to this function\nand associated CRs from airship-core deployments and the lma-configs\ncomposite\n\nAlso, taking the opportunity to move our cluster flow & output\ndefinitions out of the logging-operator-logging HelmRelease and\ninto proper CR documents\n\nRelates-To: #111\nRelates-To: #150\nChange-Id: Id4b4b8d07fb6b38ba033e76a015d8703efca727a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix charts overrides for hyperkube 1.12\n\nPromenade chart\n\nThe issue is that for joined nodes we will see hyperkube version\nfrom Promenade chart which is not updated or different.\n\nSo, need to substitute hyperkube image directly in override to\nalign all hyperkube version in the cluster.\n\nTiller chart\n\nOverride image for tiller was defined under armada, so, need\nto use appropriate place for source in substitution.\n\nRemoved placeholder to eliminate duplicates.\n\nChange-Id: I01b8be41591f85fa962c0524bff75f0fdc97100d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Ceph: uplift ceph charts\n\nThis is to uplift ceph charts and changes as per new changes in storageclasses.\n\nChange-Id: I015c92354e22b3afe055f826d9a8be837b4aef80\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add virtual-network-cloud site\n\nThis change introduces a virtual site, virtual-network-cloud, that\nvalidates the network-cloud type.\n\nChange-Id: I5e667081dd112a954c91ee2589b9d0e6039fd6d8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Disable weak tls ciphers for kube-apiserver\n\nSet `--tls-cipher-suites` to golang defaults minus 3DES\nImplementation of change made in\nhttps://review.openstack.org/#/c/634815/\n\nChange-Id: Icbeded84d5973b042a779ba20569654d2d91b563\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enable back Nagios as part osh-infra monitoring\n\nChange-Id: Ic848cf2dfa5499f2bbdb241f0bdea49a05aba104\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move ironic subcluster qcow from airshipctl common code to TM\n\nThis functionality is specific to multi-tenant type sites and it's\nharmful for other sites to have it in common code since it adds an\noverhead to the deployment.\n\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\nChange-Id: I4662a6d4808856c2002ee6c730f0e31c380cd20e\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift Promenade\n\nUplifts the Promenade image as well as other modifications required\nbecause of recent changes to Promenade, namely:\n  * HostSystem schema changes for new image and new key under packages\n  * New chart configuration to utilize new source for hyperkube\n  * Refactoring names to make more sense and added new monitoring_image\n\nChange-Id: I6c8e0c9f7c51438aa1d911c5fcd0d2f197ca37cf\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add image overrides for all the charts\n\nChange-Id: Iab8e92afce197c0991abbdd97c892d1e65598780\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix incorrect reference-airship-core type refs\n\nSome phase entrypoints were missing in the multi-tenant type when the\nbaremetal reference-multi-tenant-site was created. When the multi-tenant\ntype was disassociated from the airship-core type [0], those entrypoints\nwere created and added to all virtual sites; however, the reference\nmulti-tenant site was not updated. This change fixes those references in\nthe reference-multi-tenant site.\n\n[0] https://review.opendev.org/c/airship/treasuremap/+/786888\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Icc346615a1a6de9cfd4a93e9b8a89a4cd0a640e0\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix warning when using 3 upstream DNS servers\n\nWarning: Nameserver limits were exceeded, some nameservers have been omitted,\nthe applied nameserver line is: 10.96.0.10 8.8.8.8 8.8.4.4\n\nRemoving 3rd DNS server entry fixes the issue.\n\nChange-Id: I14fae0d884223050eb3106b4a9cf1adde01def8f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "osh-infra: update fluentbit config, sequence logging group\n\nThis corrects some erroneous configuration in the fluent-logging\nchart. This also updates the chart group to be sequenced, as\nfluent-logging depends on Elasticsearch to be up prior to running\nthe template jobs\n\nChange-Id: I5ac52a86008a5c91ac0a6fd0081fd60ec977d5ce\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "airskiff: Use Minikube for Kubernetes deployment\n\nThis commit replaces the kubeadm Kubernetes deployment script with the\nnew OpenStack-Helm infra minikube deployment script.\n\n[0] https://review.openstack.org/618785\n\nChange-Id: I36c7637a983308891914db7a1cac0907e2724712\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "zuul: Add site linting gates\n\nWith the integration of the airskiff site in Treasuremap, there is a\nneed for Zuul site linting gates to ensure that all sites are still\nsyntactically valid when changes are made to global documents. This\nchange introduces linting gates for both treasuremap sites, airskiff and\nairship-seaworthy.\n\nStory: 2004349\nChange-Id: I69dc68bf49b02543f8a2def5841dae7cb5824bd6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Enhanced deployment scripts to support baremetal multi-node\n\nAdditionally aligned between Treasuremap and Airshipctl to use the same\nenvironment variable name \"SITE\" for a site name.\n\nChange-Id: Id6405b7074d34bc73d730eea76d9dd6ab7901405\nSigned-off-by: James Gu <james.gu@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[uplift] - Uplift airshipctl to stable version\n\nAirshipctl reference commits:\n\n    => https://review.opendev.org/c/airship/airshipctl/+/792060\n       Update metadata.yaml to kubernetes style\n\n    => https://review.opendev.org/c/airship/airshipctl/+/793502\n       Move CAPI resources to target-infra namespace\n\n    => https://review.opendev.org/c/airship/airshipctl/+/789398\n       Embed validation cfg into phase and plan definition\n\n    => https://review.opendev.org/c/airship/airshipctl/+/794701\n       Enable static validation for all available plans per site\n\n    => https://review.opendev.org/c/airship/airshipctl/+/796574\n       Decouple secret from other replacements in workers-capm3\n\n    => https://review.opendev.org/c/airship/airshipctl/+/795167\n       Added replacements for composite/infra\n\nChange-Id: I2c107b3d2b94acda540b09792640dbafd55b23eb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "airskiff: Remove package installation script\n\nThe OpenStack-Helm Infra minikube script installs all necessary package\ndependencies prior to deploying Kubernetes, so the airskiff package\ninstallation script is redundant. It also causes incompatibility with\nOpenStack-Helm's minikube gate script.\n\nThis change removes the 000-install-packages.sh script in order to\nmitigate the aforementioned issues.\n\nChange-Id: I82aa4bbd69b29dd3760a4418f7455f9d7ddc5a4c\nSigned-off-by: Drew Walters <andrew.walters@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Ceph: uplift ceph charts\n\nThis is to uplift ceph charts  which will Initialize OSDs with a crush\nweight of 0 to prevent automatic rebalancing the osds joing the cluster\n\nThis also updates the ceph-osd and ceph-mon versions to include the\nupdate to remove the fluentbit sidecar containers.  This also\nupdates fluentd's configuration to target the ceph logs mounted\nvia the new hostpath\n\nChange-Id: Id912291d47850cd56fc68abaf0e3edadd9a5e31f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixes for OSH and OSH infra manifests\n\n - Set correct release group prefix\n - Remove DNS and HTTPS from endpoints\n - Fix external interface for ovs/neutron\n - Enable all charts in full-site\n - Set versions to known working state\n\nChange-Id: I5ed4cecc3f0034da448d10b79ccb0abf4efc2b86\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixes to MAAS HA and follow-up to comments\n\nChange-Id: I571a0e3bc8355e0ac398175373df40334ebcd1af\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add phase plan for airship-core gating\n\nUplift airshipctl to version with new phases.\nAdd phases from zuul job in deploy-airship-core-gating.\n\nRelates-To: #166\nChange-Id: I98b605d16940fab2a728e4646e52c7d1ad992c2d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add logging-operator versions and replacements\n\nThis change adds the logging-operator and logging-operator-logging\ncharts, repo, and image versions to the versions catalogue so they can\nbe overridden downstream.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: I0e3166378a330a498bdc8a53286cf0e9c95e9b1b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename network-cloud type to multi-tenant type changes.\n\nChange-Id: I668b9826f02c9593ad591add188f49b45c7679f8\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "site: Add Airskiff site\n\nThis change introduces Airskiff (see [0]), a development/learning environment\nfor the software delivery components of Airship, to the Airship-Treasuremap\nrepository. This change also adds a set of scripts accompanied by documentation\nfor easy deployment. During deployment, Armada, Deckhand, Pegleg, and Shipyard\nare downloaded and built from source. Gate scripts from the OpenStack-Helm\nproject deploy a KubeADM-adminstered cluster. Armada deploys Armada, Deckhand,\nand Shipyard into the cluster. The Airship components deploy OpenStack using\nthe documents provided by the Airskiff site. Airskiff is not safe for\nproduction and should not be duplicated for production usage.\n\n[0] https://github.com/mattmceuen/airskiff\n\nDepends-On: https://review.openstack.org/#/c/613686/\nDepends-On: https://review.openstack.org/#/c/614032/\nChange-Id: Iae1efcca0812b98a9ad05aa8b869bdccfdb7e44b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add rook-operator replacements to multi-tenant\n\nThe rook-operator is deployed in the multi-tenant type; however, the\nreplacements do not accompany the deployment of the rook-operator\nfunction. This change adds the rook-operator replacements to the\nmulti-tenant initinfra phase so that the replacements are used for the\nrook-operator function.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: Iddb948c120b02b152f752650904ce2ebfc4394f9\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "airship-core type and reference site manifest update for 2.1 release\n\nUpdate the airshipctl version pin and fixes in the reference type and\nsite manifests to keep up to date with the airshipctl changes in version 2.1.\n\nChange-Id: I19c1cf874f33eeccba5b0fbc74404dd5d462f55d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Deploy helm-chart-collator to sub-clusters\n\n- Deploy the helm-chart-collator service and HelmRepository\n  to sub-clusters so that HelmReleases there can use it\n- Integrate flux helm composite replacements [0].\n- Move lma services to sub-directory of the workload to be\n  able to set their namespace independent of the rest of the\n  workload, currently helm-chart-collator.\n\n[0]: https://review.opendev.org/c/airship/airshipctl/+/790791\n\nRelates-To: #162\nSigned-off-by: Sean Eagan <seaneagan1@gmail.com>\nChange-Id: Ib9f3add70a84ab75bfb0b1b6b7083048e469a24f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adopt networking catalogues to Treasuremap\n\nThis adds network deduplication via variable catalogues and replacement.\nThis was added to airshipctl under the change:\nhttps://review.opendev.org/#/c/749611/\n\nChange-Id: Ib6a50c58e3b62de4f74c5def58b94ab6dbd1e949\nCloses: https://github.com/airshipit/airshipctl/issues/315\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Calico v3 uplift and manifest fixes\n\nChange-Id: Id189e74009c73ac10f9d920602dcdaee7b132bad\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add Airship-in-a-Bottle site manifests and scripts\n\nNote: all scripts in tools/deployment/aiab directory have been\nmoved into this repository as is (except a few changes to make\nthem work), they require a heavy refactoring that will be done\nin separate patch-sets.\n\n* Add a virtual single node manifests that are based on a sloop type.\n* Use NFS provisioner instead of Ceph.\n* Update tools/openstack to be non-seaworthy specific, use a default\n  region name and auth url.\n* Make type/sloop/config/common-software-config.yaml to be site specific,\n  to allow to configure custom region_name.\n* Remove max-pods-per-cpu parameter for kubelet, treasuremap needs\n  to support a diverse set of environments, without constraints\n  on the number of available cores. Max pods configuration parameter\n  is still present and helps to mitigate problems when kubernetes\n  unexpectedly starts a large number of pods.\n\nChange-Id: I379a50d810b91b989f039dbb7c691f5ceec0cc67\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Do not rerun promjoin on every reboot\n\n`promjoin` service should be started on first boot\nonly to bootstrap a kubernetes cluster.\nCreate /var/lib/prom.done file to ensure that\nDocker and Kubelet do not get downgraded on every\nreboot if they had been upgraded manually.\n\nChange-Id: I76027dcde7cb7a4624894b3528abe13e4de174a1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update lma in airship-core type\n\nThis change updates the lma phase-related documents in the airship-core\ntype. Instead of using distinct phase entrypoints for the various LMA\ncomposites, they're now incorprated in the airship-core type\nworkload-target and workload-config phases\n\nRelates-To: #150\nChange-Id: If3214898888345e4e065f2f7a8756bd4b84bc0df\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add missing lma-infra namespace creation for SIPCluster\n\nChange-Id: I247ae69fa27bb842960fde7a70649607a48aa047\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Initial set of Airship deployment manifests\n\n - global/type manifests\n - airship-seaworthy site manifests\n\nChange-Id: I5951bba063e6447ff0d2e1b40d9711209919f7d1\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "zuul: Update Zuul nodeset name\n\nThis commit seeks to standardize the Zuul nodeset name to match other\nprojects and the existing `ubuntu-xenial` label.\n\nChange-Id: I199e47da2a3738388aea612e43c0f55ed8bf2366\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Clean up v1 structure\n\nChange-Id: I12feb1db2ef4ffe58be00f0c290b37e7f184efd6\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Configure ssh from jump host to VMs\n\nThe SipCluster CRs reference an ssh-private-keys Secret\nwhich did not exist. This is used to ssh into the VMs\nfrom within the Sip jump hosts. This change adds the Secret\nand sources its content from the ssh keys generated for the\ntarget cluster. Once we have a pattern for generating secrets\nfor sub-clusters in place we should generate separate ssh\nkey pairs for each sub-cluster.\n\nSigned-off-by: Sean Eagan <seaneagan1@gmail.com>\nChange-Id: I7eb997e6328bba0fdc49f5b9b5a8c097fc24e143\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Removal of IPTable rules in vm-infra-bridge manifests.\n\nChange in the vino networking model to accomodate pxe network\n(https://review.opendev.org/c/airship/vino/+/793652) has made the iptables\nupdate in the vm-infra-bridge manifesst unnecessary.\nThis PS removes the iptables related entries.\n\nChange-Id: I0eb530b17302f34c3eaee83ca6fd454c665f7e73\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add network-cloud type\n\nThis change introduces an outline of the network-cloud type, which will\naim to provide Airship configuration suitable for performance-intensive\ntelecommunication and networking workloads according to the CNTT\nspecification.\n\nMost documents include in this type inherit from the airship-core type;\nhowever, this type will evolve to include type-specific documents in the\nfuture.\n\nChange-Id: I98344649ca55dc00151734963265b26d28deec68\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add labels to Airship/Undercloud components\n\nIn support of flexibility for document replacement at a site level\n\nChange-Id: Idfcb159be2f84d28093cc93214c5c929777361d2\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fixes for airship manifests\n\n - Fix missing k8s IP for etcd certs\n - Fix release groups for wait labels\n - Fix versions that changed since initial manfiests\n - Fix barbican override to use loci image\n - Add re-generated certs\n - Adjust partitions for host profiles\n\nChange-Id: I961886cbaa3a0ce03e836d2392cf81bb74afc26c\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix test-site reference to target/initinfra phase\n\nThe test-site target/initinfra phase links to the ephemeral/initinfra\nphase of the airship-core type. This change corrects it by linking to\nthe airship-core target/initinfra phase.\n\nChange-Id: I3476e86d7f6f1224ce8f7a7ab79e6a23009f70fc\nSigned-off-by: Drew Walters <andrew.walters@att.com>\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add skeleton of airship-core type\n\nThis adds a basic airship-core type and test-site definition, which initially\nwill point back to airshipctl for everything but site-specific configuration.\n\nGating is added under a dependent changeset:\nhttps://review.opendev.org/#/c/741648\n\nThis removes the yaml-lint job / make target, since that chokes on CRs whose\ndefinitions are not present.  YAML validation will be re-enabled by borrowing\nthe YAML validation from the airshipctl project, which leverages kustomize\nand a live kubernetes API server.\n\nChange-Id: I51c469f74be1270325f523343c02d36c2512e739\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add new airskiff type\n\nCreate a site type called skiff and point airskiff site to be based on\nthe new type. This will help to reduce the duplication when creating\nairskiff-suse site in subsequent commit.\n\nChange-Id: Ie9cd6d0e572a4556ee6ff5c3d37f20349c2d7de3\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Move global secrets to site\n\nThis gives users a straight forward way to update\nairship SSH key for deployment (MAAS/divingbell config).\n\nChange-Id: Ib67774fb67daa79e255b32e6a3e98a5bde96af4f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Disable cephfs tests (unstable)\n\nAirsloop is using generic kernel instead of HWE.\nWe may revert this once Airsloop is also aligned.\n\nChange-Id: Ia53ef0a598034f8652ab208416e23298cf051e3f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Introduce CoreDNS DaemonSet\n\nThis enables coredns to run as a daemonset across the control plane\nhosts, for increased resiliency.  This change retains the deployment-\ncontrolled coredns pods as well (with two replicas) to make sure there\nis no interruption to DNS service while the change is rolled out in\nexisting Airship deployments.  The deployment can be turned off in a\nfuture release, once the daemonset is in place.\n\nChange-Id: I4678ff2490ab36a2f5a1cc5030492d85ef70b7ac\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename lma-infra namespace to lma\n\nChange-Id: If4ec8ef12b0ee7653ce5e3f26abad4b104f7110d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "[fix] Set proper job waiting labels for osh-infra rgw\n\nChange-Id: I90f2f0b4de6592f7263cd3d4104d2ffdae926132\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix for VRRP preKubeadmcommand list concatenating to a single line\n\nThe following construct in #94 fix using patchesJsonMerge\n- op: add\n  path:  \"/spec/kubeadmConfigSpec/preKubeadmCommands/-\"\n  value:\n      apt-get update && apt-get install -y bridge-utils keepalived ipset ipvsadm\n      systemctl enable --now keepalived\n\nThis leads to the prekubeadmcommand listed as a single line.\n\nThis PS fixes this issue. Also airshipctl #10 needs all system\nupdates/intall to be moved to Imagebuilder.\n\nCloses: #212\nChange-Id: I624de71d2009178670291dc82bd55824ce59e18d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Changes supporting k8s 1.17.3\n\nChanges made in treasuremap to support k8s v1.17\n\nChange-Id: I625753bc9ef5e28d57f320c440aef3abb246704d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update replacements for hcc and airship-host-config\n\nChange-Id: I61b02f416b7300ed1afcb2e021bc45bd1398a2d4\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Temporarily switch to airshipctl/workers-capm3\n\nSeparate change to make it easily revertable when dex is ready for\nintegration.\n\nChange-Id: Ie21131311c06a07950a525db2b829e368f304c57\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Sample airship-core type site manifests\n\nChange-Id: Id4b54348082191baae97af63d0dca3c14d6f0a1a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Uplift k8s API server and fix 'No API token' issue\n\nAfter enablement of etcd encryption in https://review.opendev.org/628290 for\npromenade, bootstrap-armada pod should be run with\n'--experimental-encryption-provider-config' service parameter to avoid issue:\n'ERROR: No API token found for service account \"airship-ucp-ceph-osd-test\"'\n\nChange-Id: Ib9bf1fa7333874b2d88db84019b26a2691a7d18a\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Update sub-cluster machine image replacements\n\nCurrently, sub-cluster controlplane and dataplane images are hardcoded\nat the type level to an IP address that is used by virtual sites. This\nchange updates all sub-cluster replacement rules to point to images\nhosted by the sub-cluster bundle using patching at the site level with\nthe correct IP addresses.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: I9f0254e44d8a172f652d91f9d043db35ab6d2aca\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add initinfra-networking replacements\n\nA new version of airshipctl introduced initinfra-networking replacments.\nThis change adds them to the initinfra-networking phases.\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: I2db610910c853f51cd02d58c4c617b055324cd14\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Adding hostconfig-operator to the existing zuul gate on treasuremap:v2 branch.\n\nThis patchset depends on\nhttps://review.opendev.org/#/c/745176/\nwhere the changes for hostconfig-operator is done.\n\nChange-Id: Ife617020ee3c8833935d0afe03261db9868055be\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix target in wordpress sub-cluster\n\nThis fixes the wordpress transformer to point at the wordpress\nSIPCluster instead of the lma SIPCluster.\n\nChange-Id: Ic6a172702af884eebfd43bbd9de5eaa5966a5116\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Include missing subcluster qcow replacement\n\nSigned-off-by: Andrii Ostapenko <andrii.ostapenko@att.com>\nChange-Id: I5796bef2948be8ba94853d410fb9919cb90da37d\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Add example sub-cluster\n\nThis change adds an example sub-cluster to the multi-tenant type and\nvirtual network cloud site. The sub-cluster workload deployed is for\ndemo purposes and should not be used in production. It could also be\nchanged to a more relevant service without warning.\n\nCloses #107\n\nSigned-off-by: Drew Walters <andrew.walters@att.com>\nChange-Id: I018a4cf5ebe84e7ca0e7bdc6258dc2c66cae628b\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Airship-treasuremap: Ceph charts cleanup\n\nThis is  to clean ceph charts for unused variables and left over from\nceph chart split\n\nChange-Id: I3155c9079ab4b0b4df30782335833389c452adfd\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Fix validation doc gate\n\nCurrently validation doc gate is doing nothing and it skips\nall sites present in treasuremap. This PS fixes validation doc\ngate.\n\nCloses #198\n\nChange-Id: I48b35248636a22a8971757687a6325a365db96ad\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rook-ceph cluster deployment\n\n* Type catalog should contain only core services related to\n  the deployment of the ceph cluster (monitors, osds, mgrs, etc)\n* Manifests to create pools, dashboards, cephfs - are moved to\n  the function catalog.\n* Code related to the OpenStack deployment is removed\n* Dashboard is disabled by default, ingress controller is removed\n* Rook-operator version is upgraded to 1.5.9 to prevent incompatibility\n  with pool quota settings\n* Fixed a minor bug in the site-level catalogue storage definition\n  and in the replacement function\n* Added cleanup manifest for StorageCatalogue\n* Added airshipctl phase to deploy rook-operator\n* Implementation of the rook-ceph operator has been changed\n* Added the configuration for the csi driver images\n* Added overrides for ceph.conf\n* Added configuration for rook-operator and ceph images\n\n* Merge conflict resolution\n\n* Code standartization\n\n* Rename rook-ceph-crds -> rook-operator\n\nRelates-to: [WIP] Expects to deliver Rook/Ceph via 2 phases\nRelates-to: #30\n\nChange-Id: I7ec7f756e742db1595143c2dfc6751b16fb25efb\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Rename virtual sites\n\nThis commit renames virtual-network-cloud to virtual-multi-tenant.\n\nSigned-off-by: Sreejith Punnapuzha <Sreejith.Punnapuzha@outlook.com>\nChange-Id: I93008034f4f8bba8b2ab464d45854190b195b818\n",
+        "issue_summary": ""
+    }
+]

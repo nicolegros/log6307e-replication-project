@@ -1,0 +1,10 @@
+[
+    {
+        "commit_message": "Initial designate\n\nChange-Id: Iac41708da26ce7e15da194630d761548c296bd8f\n",
+        "issue_summary": ""
+    },
+    {
+        "commit_message": "Migrate traefik ingress to v2 + bind charm rename\n\nCurrent ingress relation only routes unit to requirer's leader.\nIngress V2 fixes that issue.\n\nbind9-k8s has been renamed to designate-bind-k8s, update the libraries\n(and follow up).\n\nChange-Id: I692acfde39e7f545bb57e8a160fe4f6162c2b41e\n",
+        "issue_summary": ""
+    }
+]

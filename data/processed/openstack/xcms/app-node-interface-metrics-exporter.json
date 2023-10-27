@@ -1,0 +1,6 @@
+[
+    {
+        "commit_message": "App Node Interface Metrics Exporter:directory structure creation\n\nThis commit creates the directory structure of\napp-node-interface-metrics-exporter repo.\n\nTest Plan:\nPASS:Build process with creation of debian package.\nPASS:Extract the content of stx-node-interface-metrics-exporter-helm_\n     1.0-1.stx.1_amd64.deb and check.\n\nStory: 2010918\nTask: 48792\n\nChange-Id: I05411252457f91ceeaf3553c82f00ad0458c1fa1\nSigned-off-by: Mayank Patel <mayank.patel@windriver.com>\n",
+        "issue_summary": ""
+    }
+]
