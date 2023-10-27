@@ -77,10 +77,10 @@ class RepoExtractor:
         return repos_to_ignore
 
     @staticmethod
-    def get_commits_url(repo_fullname: str, page: int):
-        return f"https://api.github.com/repos/{repo_fullname}/commits?per_page=100&page={page}"
+    def get_commits_url(repo_fullname: str, page: int, since: datetime.datetime | None = None):
+        return f"https://api.github.com/repos/{repo_fullname}/commits?per_page=100&page={page}{f'&since={since}' if since else ''}"
 
-    def extract_raw_commits_from_repo(self, repo_fullname):
+    def extract_raw_commits_from_repo(self, repo_fullname, since):
         load_dotenv()
         try:
             total_commits = self.api.get_repo(repo_fullname).get_commits().totalCount
@@ -88,9 +88,11 @@ class RepoExtractor:
             print(f"{repo_fullname} is empty")
             return []
 
+        since = since if total_commits < 2000 else None
+
         commits = []
         for i in range(int(total_commits / 100)):
-            cs = requests.get(self.get_commits_url(repo_fullname, i + 1),
+            cs = requests.get(self.get_commits_url(repo_fullname, i + 1, since),
                               headers={"Authorization": f"Bearer {os.getenv('GITHUB_TOKEN')}"}).json()
             commits.extend(cs)
 
