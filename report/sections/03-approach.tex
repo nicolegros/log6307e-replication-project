@@ -1,32 +1,54 @@
 
 \section{Approach}
 \label{sec:approach}
-3) Methodologies for answering each RQ (How to mine the repositories, the tools employed, and ML models they've used).
 \subsection{Repository mining}
 To answer the research questions, we used the same dataset as the original paper. However, to get a better idea of the actual state of IaC scripts in the reported organizations, we also mined the latest version of the Mirantis, OpenStack and Wikimedia repositories. \\
 To mine the Mirantis and Wikimedia repositories, which are located on Github, we used the Github REST API. We first started by fetching all the repositories of the organization using the following GET request:
 
 \begin{verbatim}
-    https://api.github.com/search/repositories?<org_name>
+    api/search/repositories?<org_name>
 \end{verbatim}
 
 Using the list of repository names, we could then fetch the commit history of the every repository which gave us a list of the commits with their creation date using the following GET request:
 
 \begin{verbatim}
-    https://api.github.com/repos/<repo_name>/commits
+    api/<repo_name>/commits
 \end{verbatim}
 
 This allowed us to filter out the repositories which did not respect \textbf{Criteria-3} of the paper, which stated that the repository must still be active. This status was determined to be that a repository must have at least two commits per month. \\
 However, the preceding request did not return the files impacted by the commit, which we needed to validate \textbf{Criteria-2} of the paper. Therefore, using the filtered repositories, we fetched the list of files impacted by each commit using the following GET request:
 
 \begin{verbatim}
-    https://api.github.com/repos/{owner}/{repo}/commits
+    api/repos/{owner}/{repos}/commits
 \end{verbatim}
 
 Using the list of files impacted by each commit, we could validate \textbf{Criteria-2} of the paper, which was that at least 11\% of the files belonging to the repository must be IaC scripts. It is important to mentionned that we interpreted this criteria as meaning that 11\% of every file that have ever been impacted by a commit must be IaC scripts. In that regard, we verified if 11\% of the files in every commit of a repository was an IaC script, and if so, we added the repository to the list of valid repositories. \\
 Lastly, we respected \textbf{Criteria-1} by only downloading public repositories of the Mirantis and Wikimedia organizations. \\
 
-To mine the OpenStack repository, which is located on Gerrit, we used the Gerrit REST API. We first started by fetching all the repositories of the organization using the following GET request:
+To mine the OpenStack repository, which is located on Gerrit, we used the Gitea REST API. We first started by fetching all the repositories of the organization using the following GET request:
+
+\begin{verbatim}
+    api/v1/repos/search
+\end{verbatim}
+
+Using the list of repository names, we could then fetch the commit history of the every repository which gave us a list of the commits with their commit message, creation date, and the files they impacted using the following GET request:
+
+\begin{verbatim}
+    api/v1/repos/{owner}/{repos}/commits
+\end{verbatim}
+
+Finally, using the commit history for each project and the files impacted by each commit, we could filter out repositories that did not respect \textbf{Criteria-2} and \textbf{Criteria-3} of the paper. The repositories that respect all three critierias will be referred to as the \textit{valid repositories}.\\
+
+\subsection{Issue mining \& Extended Commit Message}
+Following the mining of the repositories, we mined the issues of the valid Mirantis, OpenStack and Wikimedia repositories to build the Extended Commit Message (XCM) of each commit. The XCM consists of the commit message and the summary of the issue to which the commit relates. To build this XCM, we needed to extract the relevant issue from the commit message. \\
+
+We first analysed the issue board and commit messages of some mined commits and determined that the issues were refered using their code on the issue tracker.Therefore, we extracted the issue number using the following RegExp pattern on the commit message:
+
+\begin{verbatim}
+    RegExp = #\d{1,10}
+\end{verbatim}
+
+This pattern matches any part of the commit message which consists of a \# followed by a number between 1 and 10 digits, which corresponds to an issue number. Using this issue number, we were able to use the Github REST API and Gitea API to fetch the issue description and complete the XCM of the commit.\\
 
 \subsection{RQ1: What source code properties characterize defective infrastructure as code scripts?}
 For this research question we used the reported data from the
@@ -42,9 +64,9 @@ We also used \emph{Cliff's Delta} by calculating it with Neilernst's package\foo
 to measure how large the difference between the distribution of each characteristics
 for defective and neutral files is.
 
-\subsection{RQ3: How can we construct defect prediction models for 
-infrastructure as code scripts using the identified source code properties?}
-Before using statistical learners, we completed a PCA analysis to determine 
+\subsection{RQ3: How can we construct defect prediction models for
+    infrastructure as code scripts using the identified source code properties?}
+Before using statistical learners, we completed a PCA analysis to determine
 what properties should be used. We only used the principle components that accounted
 for at least 95\% of the total variance as the input for the statistical learners.
 We can see in Table \ref{table:pca} that only one or two principle components
@@ -60,15 +82,15 @@ To evaluate the performance of the different classification models, we used the
 same metrics as the paper (i.e. precision, recall, AUC, F-measure).
 
 \begin{table}[h]
-  \caption{Number of principle components for the models}
-  \label{table:pca}
+    \caption{Number of principle components for the models}
+    \label{table:pca}
     \centering
     \begin{tabular}{|l|c|}
-    \hline
+        \hline
         Dataset   & Number of components \\ \hline
-        Mirantis  & 1 \\ \hline
-        Mozilla   & 1 \\ \hline
-        Openstack & 2 \\ \hline
-        Wikimedia & 2 \\ \hline
+        Mirantis  & 1                    \\ \hline
+        Mozilla   & 1                    \\ \hline
+        Openstack & 2                    \\ \hline
+        Wikimedia & 2                    \\ \hline
     \end{tabular}
 \end{table}
