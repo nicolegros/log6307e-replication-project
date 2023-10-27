@@ -1,5 +1,6 @@
 
 \section{Results and discussion}
+\label{sec:results}
 4) Results and discussion, including a comparison between the results of the 
 replication study and the original study and a list of the limitations 
 encountered during the replication.
@@ -9,11 +10,11 @@ After completing the \emph{Mann-Whitney U} test and \emph{Cliff's Delta} test
 we can identify which properties have a $p-value < 0.05$ for all datasets (i.e. 
 Attribute, Command, Ensure, File, File mode, Hard coded string, Include, Lines 
 of code, Require and SSH Key). Surprisingly, we don't quite get the same results 
-as the paper. In our case, the \emph{Comment} property doesn't have a $p-value < 0.05$
-Actually, in the paper either but it's in bold in Table 8. Maybe it's a simple 
-mistake. You can see these results in Table \ref{table:rq1-mirantis} for the 
-Mirantis dataset, in Table \ref{table:rq1-mozilla} for the Mozilla dataset and 
-in Table \ref{table:rq1-wikimedia} for the Wikimedia dataset.
+as the paper. In our case, the \emph{Comment} property doesn't have a $p-value < 0.05$.
+Actually, in the paper either but it's in bold in Table 8. 
+Maybe it's a simple mistake. You can see these results in Table \ref{table:rq1-
+mirantis} for the Mirantis dataset, in Table \ref{table:rq1-mozilla} for the 
+Mozilla dataset and in Table \ref{table:rq1-wikimedia} for the Wikimedia dataset.
 
 
 \begin{table}[h]
@@ -100,22 +101,6 @@ for the Mozilla dataset, in Table \ref{table:openstack-models} for the Openstack
 dataset and in Table \ref{table:wikimedia-models} for the Wikimedia dataset. 
 We haven't included the results from the actual paper, since it's publicly 
 available.
-
-
-\begin{table}[h]
-  \caption{Number of principle components for the models}
-  \label{table:pca}
-    \centering
-    \begin{tabular}{|l|c|}
-    \hline
-        Dataset   & Number of components \\ \hline
-        Mirantis  & 1 \\ \hline
-        Mozilla   & 1 \\ \hline
-        Openstack & 2 \\ \hline
-        Wikimedia & 2 \\ \hline
-    \end{tabular}
-\end{table}
-
 
 
 

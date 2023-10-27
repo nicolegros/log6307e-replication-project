@@ -1,5 +1,6 @@
 
 \section{Approach}
+\label{sec:approach}
 3) Methodologies for answering each RQ (How to mine the repositories, the tools employed, and ML models they've used).
 \subsection{Repository mining}
 \subsection{RQ1: What source code properties characterize defective infrastructure as code scripts?}
@@ -32,3 +33,17 @@ Random Forest (RF). \\
 
 To evaluate the performance of the different classification models, we used the 
 same metrics as the paper (i.e. precision, recall, AUC, F-measure).
+
+\begin{table}[h]
+  \caption{Number of principle components for the models}
+  \label{table:pca}
+    \centering
+    \begin{tabular}{|l|c|}
+    \hline
+        Dataset   & Number of components \\ \hline
+        Mirantis  & 1 \\ \hline
+        Mozilla   & 1 \\ \hline
+        Openstack & 2 \\ \hline
+        Wikimedia & 2 \\ \hline
+    \end{tabular}
+\end{table}
